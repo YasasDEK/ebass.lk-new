@@ -1,0 +1,75 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+  <div class="container">
+      
+      <div class="navbar-translate">
+          <div class="avatar">
+              <a class="navbar-brand" href="http://localhost:4200">                        
+                  <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" width="60">
+              </a>
+          </div>
+      </div>
+
+      <div class="navbar-translate">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" ><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
+              </li>
+              
+          </ul>   
+      </div>
+
+  </div>
+</nav>
+
+<!--page-->
+<div class="page-header section-dark" style="background-image: url('assets/img/z.jpg')">
+  <div class="content-center" style="margin:10px" >
+  <div *ngIf="masons?.length > 0; else noItems">
+    
+      <div class="limiter">
+          <!-- <div class="container-table100"> -->
+            <div class="wrap-table100">
+              <div class="table100 ver3 m-b-110">
+                <div class="table100-head">
+                  <table>
+                    <thead>
+                      <tr class="row100 head">
+                        <th class="cell100 column1">Id</th>
+                        <th class="cell100 column2">Name</th>
+                        <th class="cell100 column3">City</th>
+                        <th class="cell100 column4">Age</th>
+                        <th class="cell100 column5">Action</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+      
+                <div class="table100-body js-pscroll">
+                  <table>
+                    <tbody>
+                      <tr class="row100 body" *ngFor="let mason of masons">
+                        <td class="cell100 column1">{{ mason.id }}</td>
+                        <td class="cell100 column2">{{ mason.firstname }}</td>
+                        <td class="cell100 column3">{{ mason.land }}</td>
+                        <td class="cell100 column4">{{ mason.id }}</td>
+                        <td><button class="btn btn-dark" > Show details</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>				
+            </div>
+          </div>
+        <!-- </div> -->
+  
+    </div>
+    
+    <ng-template #noItems>-->
+      <hr>
+      <h1>There is no items</h1>
+    </ng-template>
+    
+  </div>
+  </div>
+  
