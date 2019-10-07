@@ -24,6 +24,7 @@ resetForm(signupform?: NgForm){
         username: null,
         id: '',
         mail: '',
+        job: '',
         mobile: '',
         password_one: '',
         password_two: ''
