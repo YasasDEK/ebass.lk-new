@@ -21,7 +21,7 @@ import { RatingComponent } from './components/rating/rating.component';
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
+    { path: 'profile',          component: ProfileComponent },
     { path: 'signup',           component: SignupComponent },
     { path: 'login',            component: LoginComponent },
     { path: 'landing',          component: LandingComponent },
@@ -30,7 +30,8 @@ const routes: Routes = [
     { path: 'painters',         component: PaintersComponent},
     { path: 'carpenters',       component: CarpentersComponent},
     { path: 'electricians',     component: ElectriciansComponent},
-    { path: 'plumbers',         component: PlumbersComponent},
+    { path: 'plumbers',       component: PlumbersComponent},
+    { path: 'plumbers/:id',       component: PlumbersComponent},
     { path: 'repairs',          component: RepairsComponent},
     { path: 'rating',    component: RatingComponent},
 

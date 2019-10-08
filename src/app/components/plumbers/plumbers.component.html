@@ -41,7 +41,9 @@
         <td> {{ plumber.firstname }}</td>
         <td> {{ plumber.land }}</td>
         <td>
-          <button class="btn btn-primary" > Show details</button>
+          <a [routerLink] = "['/profile' , plumber.id]" class="btn btn-primary" >Show details</a>
+
+          
         </td>
       </tr>
       </tbody>
