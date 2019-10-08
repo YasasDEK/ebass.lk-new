@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,6 +16,7 @@ import { CarpentersComponent } from './components/carpenters/carpenters.componen
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 import { PlumbersComponent} from './components/plumbers/plumbers.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
     { path: 'carpenters',       component: CarpentersComponent},
     { path: 'electricians',     component: ElectriciansComponent},
     { path: 'plumbers',         component: PlumbersComponent},
-    { path: 'repairs',          component: RepairsComponent}
+    { path: 'repairs',          component: RepairsComponent},
+    { path: 'rating',    component: RatingComponent},
 
 ];
 
