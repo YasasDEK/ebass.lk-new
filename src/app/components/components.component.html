@@ -59,7 +59,7 @@
 
                 <!--search bar-->
                 <form class="register-form">
-                    <label>Email</label>
+                    <label>Search</label>
                     <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
@@ -68,18 +68,15 @@
                         </span>
                       </div>
 
-                        <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
-                    </div>
-
-                    <label>Password</label>
-                    <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="nc-icon nc-key-25"></i>
-                        </span>
-                      </div>
-                        <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
-                    </div>
+                        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchterm" (change)="search($event)" (focus)="focus=true" (blur)="focus=false" >
+                        <ul *ngFor="let job of jobs">
+                            <li>{{job.job}}</li>
+                            <li>{{job.job_type}}</li>
+                        </ul>
+                        <div *ngIf="jobs?.length < 1">
+                            <p>sorry search item not found</p>
+                        </div>
+                    </div>  
                     <br>
                     <button class="btn btn-danger btn-block btn-round">Register</button>
                 </form>
