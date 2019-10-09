@@ -41,7 +41,7 @@
         <td> {{ repair.firstname }}</td>
         <td> {{ repair.land }}</td>
         <td>
-          <button class="btn btn-primary" > Show details</button>
+          <a [routerLink] = "['/profile',repair.id]" class="btn btn-primary" >Show details</a>
         </td>
       </tr>
       </tbody>

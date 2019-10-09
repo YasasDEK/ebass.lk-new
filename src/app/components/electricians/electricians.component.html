@@ -42,7 +42,7 @@
         <td> {{ electrician.firstname }}</td>
         <td> {{ electrician.land }}</td>
         <td>
-          <button class="btn btn-primary" > Show details</button>
+          <a [routerLink] = "['/profile',electrician.id]" class="btn btn-primary" >Show details</a>
         </td>
       </tr>
       </tbody>
