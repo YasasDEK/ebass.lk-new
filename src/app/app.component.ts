@@ -1,3 +1,5 @@
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { Component, OnInit, Inject, Renderer, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs-compat';
@@ -13,7 +15,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 })
 export class AppComponent implements OnInit {
     private _router: Subscription;
-    @ViewChild('NavbarComponent',{}) navbar: NavbarComponent;
+    @ViewChild('NavbarComponent', {}) navbar: NavbarComponent;
 
     constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
