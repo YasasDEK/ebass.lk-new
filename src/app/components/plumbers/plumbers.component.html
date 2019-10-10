@@ -37,11 +37,13 @@
       <tbody>
       <tr *ngFor="let plumber of plumbers">
 
-        <td>{{ plumber.id }}</td>
+        <td> {{ plumber.id }}</td>
         <td> {{ plumber.firstname }}</td>
         <td> {{ plumber.land }}</td>
         <td>
-          <button class="btn btn-primary" > Show details</button>
+          <a [routerLink] = "['/profile',plumber.id]" class="btn btn-primary" >Show details</a>
+
+          
         </td>
       </tr>
       </tbody>
