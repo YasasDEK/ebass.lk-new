@@ -1,6 +1,6 @@
 
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" >
   <div class="container">
       
       <div class="navbar-translate">
@@ -19,7 +19,6 @@
               
           </ul>   
       </div>
-
   </div>
 </nav>
 
@@ -42,16 +41,15 @@
         <td> {{ electrician.firstname }}</td>
         <td> {{ electrician.land }}</td>
         <td>
-          <button class="btn btn-primary" > Show details</button>
+          <a [routerLink] = "['/profile',electrician.id]" class="btn btn-primary" >Show details</a>
         </td>
       </tr>
       </tbody>
     </table>
-
   </div>
-</div>
+  </div>
 
-<ng-template #noItems>-->
+<ng-template #noItems>
   <hr>
   <h1>There is no items</h1>
 </ng-template>

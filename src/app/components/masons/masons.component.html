@@ -14,8 +14,7 @@
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                   <a class="nav-link" ><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
-              </li>
-              
+              </li>     
           </ul>   
       </div>
 
@@ -23,7 +22,6 @@
 </nav>
 
 <!--page-->
-<div class="page-header section-dark" style="background-image: url('assets/img/z.jpg')">
   <div class="content-center" style="margin:10px" >
   <div *ngIf="masons?.length > 0; else noItems">
     
@@ -53,7 +51,7 @@
                         <td class="cell100 column2">{{ mason.firstname }}</td>
                         <td class="cell100 column3">{{ mason.land }}</td>
                         <td class="cell100 column4">{{ mason.id }}</td>
-                        <td><button class="btn btn-dark" > Show details</button></td>
+                        <a [routerLink] = "['/profile',mason.id]" class="btn btn-primary" >Show details</a>
                       </tr>
                     </tbody>
                   </table>
@@ -65,11 +63,10 @@
   
     </div>
     
-    <ng-template #noItems>-->
+    <ng-template #noItems>
       <hr>
       <h1>There is no items</h1>
     </ng-template>
     
-  </div>
   </div>
   

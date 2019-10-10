@@ -42,7 +42,7 @@
           <td> {{ carpenter.firstname }}</td>
           <td> {{ carpenter.land }}</td>
           <td>
-            <button class="btn btn-primary" > Show details</button>
+            <a [routerLink] = "['/profile',carpenter.id]" class="btn btn-primary" >Show details</a>
           </td>
         </tr>
         </tbody>
@@ -51,7 +51,7 @@
     </div>
   </div>
   
-  <ng-template #noItems>-->
+  <ng-template #noItems>
     <hr>
     <h1>There is no items</h1>
   </ng-template>
