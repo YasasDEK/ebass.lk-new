@@ -1,5 +1,5 @@
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
   <div class="container">
       
       <div class="navbar-translate">
@@ -13,13 +13,23 @@
       <div class="navbar-translate">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link" ><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
-              </li>     
+                  <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+              </li>
+              <li class="nav-item">
+                  <div ngbDropdown class="d-inline-block dropdown">
+                      <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>Options</a>
+                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                          <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+                      </div>
+                  </div>
+              </li>
           </ul>   
       </div>
 
   </div>
 </nav>
+<br><br><br><br><br>
+
 
 <!--page-->
   <div class="content-center" style="margin:10px" >

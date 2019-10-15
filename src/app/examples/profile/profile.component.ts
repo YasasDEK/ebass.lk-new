@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
     selector: 'app-profile',
@@ -8,13 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ProfileComponent implements OnInit {
-    id;
-
-    constructor(private _Activatedroute: ActivatedRoute) {
-         this.id = this._Activatedroute.snapshot.paramMap.get('id');
-         console.log(this.id);
+    value;
+    
+    constructor(public _Activatedroute: ActivatedRoute) {
+          this.value = this._Activatedroute.snapshot.paramMap.get('id');
+          console.log("value : " + this.value);
      }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
 }
+
+interface Item {
+    id?: string;
+    mail?: string;
+    mobile?: string;
+    land?: string;
+    username?: string;
+    firstname?: string;
+  }
+  

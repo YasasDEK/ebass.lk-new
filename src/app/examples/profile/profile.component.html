@@ -4,14 +4,16 @@
       <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
         <div class="card card-profile shadow">
           <div class="row justify-content-center">
-            <div class="col-lg-3 order-lg-2">
+            <div class="col-lg-12 order-lg-2">
               <div class="card-profile-image">
                 <a href="javascript:void(0)">
+                  <br>
                   <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200" height="200">
                 </a>
               </div>
             </div>
           </div>
+          <br>
           <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
             <div class="d-flex justify-content-between">
               <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
@@ -64,10 +66,7 @@
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
               <div class="col-8">
-                <h3 class="mb-0">My account</h3>
-              </div>
-              <div class="col-4 text-right">
-                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                <h3 class="mb-0">Worker Profile</h3>
               </div>
             </div>
           </div>
@@ -78,7 +77,7 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="form-control-label" for="input-username">Username</label>
+                      <label class="form-control-label" for="input-username">id</label>
                       <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="yasas.ekanayeke">
                     </div>
                   </div>
@@ -150,6 +149,28 @@
           </div>
         </div>
       </div>
+
+      <!--<div *ngIf="ids?.length > 0; else noItems">
+        <div class="container" style="margin-top: 70px">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+             
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let id of ids">
+      
+              <td>{{ id.firstname }}</td>
+              
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>-->
+
+
     </div>
   </div>
   
