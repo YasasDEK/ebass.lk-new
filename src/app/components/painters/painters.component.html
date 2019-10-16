@@ -45,7 +45,7 @@
         <tr *ngFor="let painter of painters">
   
           <td>{{ painter.id }}</td>
-          <td> {{ painter.firstname }}</td>
+          <td> {{ painter.username }}</td>
           <td> {{ painter.land }}</td>
           <td>
             <a [routerLink] = "['/profile',painter.id]" class="btn btn-primary" >Show details</a>

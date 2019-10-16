@@ -57,30 +57,68 @@
                 <h3 class="presentation-subtitle text-center">The best place to find a worker</h3>
                 <br>
 
-                <!--search bar-->
-                <form class="register-form">
-                    <label>Search</label>
-                    <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                      <div class="input-group-prepend">
+        <!--search bar-->
+    <label>Search</label>
+        <!-- <section class="section section-lg section-hero section-shaped"> -->
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12 text-center">
+               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                 <div class="input-group-prepend">
+                   <span class="input-group-text">
+                     <i class="nc-icon nc-email-85"></i>
+                   </span>
+                 </div>
+                <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username" (change)="filterName('username', username)">
+               </div>
+                    
+                    <br>
+
+                 <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                     <div class="input-group-prepend">
                         <span class="input-group-text">
                             <i class="nc-icon nc-email-85"></i>
-
                         </span>
                       </div>
+                    <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobs" (change)="filterArea('jobs', jobs)">
+                 </div>    
 
-                        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchterm" (change)="search($event)" (focus)="focus=true" (blur)="focus=false" >
-                        <ul *ngFor="let job of jobs">
-                            <li>{{job.job}}</li>
-                            <li>{{job.job_type}}</li>
-                        </ul>
-                        <div *ngIf="jobs?.length < 1">
-                            <p>sorry search item not found</p>
+                    <button (click)="send()">Sort low to high</button><button (click)="send2()">Sort high to low</button>
+            </div>
+        </div>
+        <!-- </section> -->
+
+        <ul *ngFor="let results of filteredNames">
+              
+                <!-- <div class="card shadow shadow-lg--hover mt-5"> -->
+                    <div class="card-body">
+                      <div class="d-flex px-3">
+                        <div>
+                          <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                            <i class="ni ni-satisfied"></i>
+                          </div>
                         </div>
-                    </div>  
-                    <br>
-                    <button class="btn btn-danger btn-block btn-round">Register</button>
-                </form>
+                        <div class="pl-4">
+                          <h5 class="title text-success">Name: {{results.username}}</h5>
+                          <div class="row align-items-center justify-content-center">
+                              <!--<div>
+                                <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
+                              </div>-->
+                            <div>
+                              <h6>Name: {{results.username}}</h6>
+                              <h6>id: {{results.id}}</h6>
+                              <a [routerLink]="['/profile',results.username]" class="text-warning">Learn more</a>
+                            </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+                  </div>
+              <!-- </div> -->
+              
+            </ul>
 
+
+                <!-- end of the search bar-->
             </div>
         </div>
     </div>

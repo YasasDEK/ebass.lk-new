@@ -46,7 +46,7 @@
       <tr *ngFor="let plumber of plumbers">
 
         <td> {{ plumber.id }}</td>
-        <td> {{ plumber.firstname }}</td>
+        <td> {{ plumber.username }}</td>
         <td> {{ plumber.land }}</td>
         <td>
           <a [routerLink] = "['/profile',plumber.id]" class="btn btn-primary" >Show details</a>
@@ -60,9 +60,7 @@
   </div>
 </div>
 
-<div *ngIf="plumbers?.length == 0; else noItems">
 <ng-template #noItems>
   <hr>
   <h1>There is no items</h1>
 </ng-template>
-</div>

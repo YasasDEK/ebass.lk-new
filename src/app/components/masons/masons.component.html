@@ -58,7 +58,7 @@
                     <tbody>
                       <tr class="row100 body" *ngFor="let mason of masons">
                         <td class="cell100 column1">{{ mason.id }}</td>
-                        <td class="cell100 column2">{{ mason.firstname }}</td>
+                        <td class="cell100 column2">{{ mason.username }}</td>
                         <td class="cell100 column3">{{ mason.land }}</td>
                         <td class="cell100 column4">{{ mason.id }}</td>
                         <a [routerLink] = "['/profile',mason.id]" class="btn btn-primary" >Show details</a>
