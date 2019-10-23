@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,12 +19,16 @@ import { RepairsComponent } from './components/repairs/repairs.component';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
 
 
+import { RatingComponent } from './components/rating/rating.component';
+import { AboutComponent } from './components/about/about.component';
+
+
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
     { path: 'signup',           component: SignUpComponent },
     { path: 'signin',            component: SignInComponent },
+    { path: 'profile/:id',      component: ProfileComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'masons',           component: MasonsComponent},
@@ -33,8 +37,11 @@ const routes: Routes = [
     { path: 'electricians',     component: ElectriciansComponent},
     { path: 'plumbers',         component: PlumbersComponent},
     { path: 'repairs',          component: RepairsComponent},
-    { path: 'forgot-password',          component: ForgotPasswordComponent}
-
+    { path: 'forgot-password',  component: ForgotPasswordComponent},
+    { path: 'plumbers/:id',     component: PlumbersComponent},
+    { path: 'rating',           component: RatingComponent},
+    { path: 'about',            component: AboutComponent},
+    { path: 'component',        component: ComponentsComponent}
 ];
 
 @NgModule({
