@@ -6,8 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
-import { SignupComponent } from './examples/signup/signup.component';
-import { LoginComponent } from './examples/login/login.component';
+import { SignUpComponent } from './examples/sign-up/sign-up.component';
+import { SignInComponent } from './examples/sign-in/sign-in.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { MasonsComponent } from './components/masons/masons.component';
@@ -16,13 +16,15 @@ import { CarpentersComponent } from './components/carpenters/carpenters.componen
 import { ElectriciansComponent } from './components/electricians/electricians.component';
 import { PlumbersComponent} from './components/plumbers/plumbers.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
+import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
+
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
     { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'login',            component: LoginComponent },
+    { path: 'signup',           component: SignUpComponent },
+    { path: 'signin',            component: SignInComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'masons',           component: MasonsComponent},
@@ -30,7 +32,8 @@ const routes: Routes = [
     { path: 'carpenters',       component: CarpentersComponent},
     { path: 'electricians',     component: ElectriciansComponent},
     { path: 'plumbers',         component: PlumbersComponent},
-    { path: 'repairs',          component: RepairsComponent}
+    { path: 'repairs',          component: RepairsComponent},
+    { path: 'forgot-password',          component: ForgotPasswordComponent}
 
 ];
 

@@ -4,8 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  templateUrl: './sign-in.component.html'
 })
 export class SignInComponent implements OnInit {
 
