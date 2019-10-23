@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { SignupService } from './signup.service';
+import { AuthService } from './examples/services/auth.service';
 import { NgModule, RootRenderer } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +16,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
+import { SignUpComponent } from './examples/sign-up/sign-up.component';
+import { SignInComponent } from './examples/sign-in/sign-in.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -31,7 +35,10 @@ var firebaseConfig = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +51,10 @@ var firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [SignupService , ItemService],
+  providers: [SignupService , ItemService , AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

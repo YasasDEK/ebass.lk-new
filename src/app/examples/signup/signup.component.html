@@ -31,18 +31,7 @@
                         <div class="col-lg-4 col-sm-8 mr-auto ml-auto">
                           <div class="card card-register">
                               <h3 class="title">Welcome</h3>
-                              <div class="social-line text-center">
-                                  <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
-                                      <i class="fa fa-facebook-square"></i>
-                                  </a>
-                                  <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                                      <i class="fa fa-google-plus"></i>
-                                  </a>
-                                  <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
-                                      <i class="fa fa-twitter"></i>
-                                  </a>
-                              </div>
-                              <form class="register-form" #signupform="ngForm" (submit)="onSubmit(signupform)">
+                                <form class="register-form" #signupform="ngForm" (submit)="onSubmit(signupform)">
                                   <label>Username</label>
                                   <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                                     <div class="input-group-prepend">
@@ -72,6 +61,24 @@
                                     </div>
                                       <input name="mail" type="email" #mail="ngModel" [(ngModel)]="service.fromData.mail" class="form-control" placeholder="E-Mail" (focus)="focus=true" (blur)="focus=false" required>
                                   </div>
+
+                                  <label>Job Type</label>
+                                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                          <i class="nc-icon nc-check-2"></i>
+                                      </span>
+                                    </div>
+                                      <select name="jobs" placeholder="Job Type" type="dropdown" #job="ngModel" [(ngModel)]="service.fromData.job" class="form-control" (focus)="focus=true" (blur)="focus=false" required>
+                                        <option value="mason">Mason</option>
+                                        <option value="electrician">Electrician</option>
+                                        <option value="carpenter">Carpenter</option>
+                                        <option value="painter">Painter</option>
+                                        <option value="repair">Repair</option>
+                                        <option value="plumber">Plumber</option>
+                                        
+                                      </select>
+                                    </div>
     
                                   <label>Mobile Number</label>
                                   <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -92,8 +99,9 @@
                                       </span>
                                     </div>
                                       <input name="password_one" type="password" #password_one="ngModel" [(ngModel)]="service.fromData.password_one" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" required>
-                                  </div>
-    
+                                    </div>
+                                    <br>
+
                                   <label>Re-Enter Password</label>
                                   <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                                     <div class="input-group-prepend">
