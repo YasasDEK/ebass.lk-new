@@ -8,12 +8,14 @@ import {ItemService} from '../../services/item.service';
 })
 export class RepairsComponent implements OnInit {
   repairs: Item[];
+  isReceived:boolean=false;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getRepair().subscribe(repair => {
       this.repairs = repair;
+      this.isReceived=true;
     });
   }
 
