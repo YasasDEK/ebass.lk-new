@@ -17,8 +17,7 @@ import { ElectriciansComponent } from './components/electricians/electricians.co
 import { PlumbersComponent} from './components/plumbers/plumbers.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
-
-
+import { SearchComponent } from './search/search.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
 
@@ -41,7 +40,8 @@ const routes: Routes = [
     { path: 'plumbers/:id',     component: PlumbersComponent},
     { path: 'rating',           component: RatingComponent},
     { path: 'about',            component: AboutComponent},
-    { path: 'component',        component: ComponentsComponent}
+    { path: 'component',        component: ComponentsComponent},
+    { path: 'search',           component: SearchComponent}
 ];
 
 @NgModule({
