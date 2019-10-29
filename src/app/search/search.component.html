@@ -74,17 +74,16 @@
                       </div>
                     <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobs" (change)="filterArea('jobs', jobs)">
                  </div>    
+                 <br>
 
-                    <button (click)="send()">Sort low to high</button><button (click)="send2()">Sort high to low</button>
+                    <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger" (click)="send2()">Sort high to low</button>
             </div>
         </div>
         <!-- </section> -->
-
-
         
-        <ul *ngFor="let results of filteredNames">
-              
-                <!-- <div class="card shadow shadow-lg--hover mt-5"> -->
+          <div class="row" >
+            <div class="col-md-6" *ngFor="let results of filteredNames">
+                <div class="card shadow shadow-lg--hover mt-5">
                     <div class="card-body">
                       <div class="d-flex px-3">
                         <div>
@@ -92,12 +91,14 @@
                             <i class="ni ni-satisfied"></i>
                           </div>
                         </div>
-                        <div class="pl-4">
+
+                              <div>
+                                <img src="./assets/img/faces/logo.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 150px; height: 150px;">
+                              </div>
+
+                        <div class="pl-5">
                           <h5 class="title text-success">Name: {{results.username}}</h5>
                           <div class="row align-items-center justify-content-center">
-                              <!--<div>
-                                <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
-                              </div>-->
                             <div>
                               <h6>Name: {{results.username}}</h6>
                               <h6>Job: {{results.jobs}}</h6>
@@ -108,11 +109,10 @@
                         
                     </div>
                   </div>
-              <!-- </div> -->
-              
-            </ul>
-
-
+            </div>
+          </div>
+        </div>
+                      
                 <!-- end of the search bar-->
             </div>
         </div>
