@@ -20,6 +20,7 @@ import { SignUpComponent } from './examples/sign-up/sign-up.component';
 import { SignInComponent } from './examples/sign-in/sign-in.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -52,7 +53,8 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   providers: [SignupService , ItemService , AuthService],
   bootstrap: [AppComponent]
