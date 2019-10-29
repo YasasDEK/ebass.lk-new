@@ -1,5 +1,5 @@
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
   <div class="container">
       
       <div class="navbar-translate">
@@ -13,19 +13,13 @@
       <div class="navbar-translate">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  <a class="nav-link" href="#categories"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Worker categories</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#companies"><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Companies & Shops</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="['/about']"><i class="nc-icon nc-satisfied" aria-hidden="true"></i>&nbsp;About us</a>
+                  <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
               </li>
               <li class="nav-item">
                   <div ngbDropdown class="d-inline-block dropdown">
                       <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>Options</a>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                          <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
+                          <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
                       </div>
                   </div>
               </li>
@@ -34,8 +28,9 @@
 
   </div>
 </nav>
+<br><br><br><br><br>
 
- <div class="page-header section-dark" style="background-image: url('assets/img/z.jpg')">
+ <!-- <div class="page-header section-dark" style="background-image: url('assets/img/z.jpg')"> -->
         <div class="filter"></div>
         <div class="content-center">
             <div class="container">
@@ -43,7 +38,7 @@
                     <!--<div class="angular-logo">
                         <img src="assets/img/angular2-logo.png" alt="">
                     </div>-->
-                    <h2 class="presentation-title">E-බාස්.lk</h2>
+                    <!-- <h2 class="presentation-title">E-බාස්.lk</h2> -->
                     <!--<div class="fog-low">
                         <img src="assets/img/fog-low.png" alt="">
                     </div>
@@ -85,6 +80,8 @@
         </div>
         <!-- </section> -->
 
+
+        
         <ul *ngFor="let results of filteredNames">
               
                 <!-- <div class="card shadow shadow-lg--hover mt-5"> -->
@@ -119,4 +116,4 @@
                 <!-- end of the search bar-->
             </div>
         </div>
-    </div>
+    <!-- </div> -->
