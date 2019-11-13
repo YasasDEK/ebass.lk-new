@@ -10,12 +10,15 @@ import {ItemService} from '../../services/item.service';
 export class MasonsComponent implements OnInit {
 
   masons: Item[];
+  isReceived:boolean=false;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getMason().subscribe(mason => {
       this.masons = mason;
+      this.isReceived=true;
+
     });
   }
 
