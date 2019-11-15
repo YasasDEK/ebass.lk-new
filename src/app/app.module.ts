@@ -30,7 +30,7 @@ var firebaseConfig = {
   storageBucket: "ebass-892f9.appspot.com",
   messagingSenderId: "535789843723",
   appId: "1:535789843723:web:e85f29e256f6578e"
-};  
+};
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ var firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [SignupService , ItemService , AuthService],
+  providers: [SignupService, ItemService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

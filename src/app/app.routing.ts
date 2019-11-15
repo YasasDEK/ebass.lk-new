@@ -20,7 +20,7 @@ import { ForgotPasswordComponent } from './examples/forgot-password/forgot-passw
 import { SearchComponent } from './search/search.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
-
+import { ReglogComponent } from './examples/reglog/reglog.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -41,7 +41,8 @@ const routes: Routes = [
     { path: 'rating',           component: RatingComponent},
     { path: 'about',            component: AboutComponent},
     { path: 'component',        component: ComponentsComponent},
-    { path: 'search',           component: SearchComponent}
+    { path: 'search',           component: SearchComponent},
+    { path: 'reglog',           component: ReglogComponent}
 ];
 
 @NgModule({
