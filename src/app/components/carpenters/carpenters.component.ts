@@ -23,9 +23,11 @@ export class CarpentersComponent implements OnInit {
 
 }
 interface Item {
-  id?: string;
-  mail?: string;
-  land?: string;
-  username?: string;
-  firstname?: string;
+  uid?: string;
+  workername?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
  }
