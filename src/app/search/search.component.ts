@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit { results: any;
 
   //.orderBy('name')
   ngOnInit() {
-    this.afs.collection('signup', ref => ref.limit(4)).valueChanges().subscribe(results => {
+    this.afs.collection('workers', ref => ref.limit(4)).valueChanges().subscribe(results => {
     this.results = results;
     this.applyFilters()
     })
@@ -51,8 +51,8 @@ export class SearchComponent implements OnInit { results: any;
 
   send(){
     this.results = this.results.sort((n1, n2) => {
-      if(n1.id > n2.id) {return 1}
-      if(n1.id < n2.id) {return -1}
+      if(n1.uid > n2.uid) {return 1}
+      if(n1.uid < n2.uid) {return -1}
       return 0;
     })
     this.applyFilters()
@@ -63,8 +63,8 @@ export class SearchComponent implements OnInit { results: any;
   }
   send2(){
     this.results = this.results.sort((n1, n2) => {
-      if(n1.id < n2.id) {return 1}
-      if(n1.id > n2.id) {return -1}
+      if(n1.uid < n2.uid) {return 1}
+      if(n1.uid > n2.uid) {return -1}
       return 0;
       
     })
