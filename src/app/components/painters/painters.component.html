@@ -47,10 +47,10 @@
                 <div class="card-body pt-10">
                   <div class="text-center">
                     <h3>
-                      {{ painter.username }}<span class="font-weight-light">, 27</span>
+                      {{ painter.workername }}<span class="font-weight-light">, 27</span>
                     </h3>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i>angoda, Colombo
+                      <i class="ni location_pin mr-2"></i> {{ painter.email }}
                     </div>
                     <div class="h5 mt-4">
                       <i class="ni business_briefcase-24 mr-2"></i>painter
@@ -60,7 +60,7 @@
                     </div>
                     <hr class="my-4" />
                     <p>Description About Worker</p>
-                      <a [routerLink] = "['/profile',painter.id]" class="btn btn-primary" >Show details</a>
+                      <a [routerLink] = "['/profile',painter.uid]" class="btn btn-primary" >Show details</a>
                   </div>
                   
                 </div>

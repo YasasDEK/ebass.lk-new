@@ -16,12 +16,12 @@ export class ItemService {
   repair: Observable<Item[]>;
 
   constructor(public ebass: AngularFirestore) {
-    this.mason = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'mason' )).valueChanges();
-    this.painter = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'painter')).valueChanges();
-    this.carpenter = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'carpenter')).valueChanges();
-    this.electrician = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'electrician')).valueChanges();
-    this.plumber = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'plumber')).valueChanges();
-    this.repair = this.ebass.collection('signup', ref => ref.where('jobs', '==', 'repair')).valueChanges();
+    this.mason = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'mason' )).valueChanges();
+    this.painter = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'painter')).valueChanges();
+    this.carpenter = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'carpenter')).valueChanges();
+    this.electrician = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'electrician')).valueChanges();
+    this.plumber = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'plumber')).valueChanges();
+    this.repair = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'repair')).valueChanges();
   }
    getMason() {
     return this.mason;
@@ -45,9 +45,11 @@ export class ItemService {
 }
 
 interface Item {
-  id?: string;
-  mail?: string;
+  uid?: string;
+  workername?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
   mobile?: string;
-  username?: string;
-  firstname?: string;
 }

@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { SignupService } from './signup.service';
 import { AuthService } from './examples/services/auth.service';
 import { NgModule, RootRenderer } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +21,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
 import { SearchComponent } from './search/search.component';
 
+import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
+import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
+import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
+import { ExamplesuModule } from './examplesu/examplesu.module';
+import { AuthuService } from './examplesu/servicesu/authu.service';
+
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
   authDomain: "ebass-892f9.firebaseapp.com",
@@ -40,7 +45,10 @@ var firebaseConfig = {
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    SearchComponent
+    SearchComponent,
+    SignUpuComponent,
+    SignInuComponent,
+    ForgotPassworduComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +62,10 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    ExamplesuModule,
     AngularFireAuthModule
   ],
-  providers: [SignupService, ItemService, AuthService],
+  providers: [ItemService, AuthService, AuthuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
