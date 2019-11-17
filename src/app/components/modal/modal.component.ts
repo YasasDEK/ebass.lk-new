@@ -40,3 +40,9 @@ export class NgbdModalComponent {
         modalRef.componentInstance.name = 'World';
     }
 }
+
+export class ModalComponent {
+    @Input() name;
+
+    constructor(public activeModal: NgbActiveModal) {}
+}
