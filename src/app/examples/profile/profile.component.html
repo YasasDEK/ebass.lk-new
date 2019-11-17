@@ -29,19 +29,53 @@
     </div>
   </nav>
   <br><br><br><br><br>
-
+<br>
 
 
 
   <div class="nav-tabs-navigation">
 	<div class="nav-tabs-wrapper">
 		<ngb-tabset [justify]="'center'">
-		  <ngb-tab title="Home">
+		  <ngb-tab title="Profile">
 			<ng-template ngbTabContent>
 
+
+          <div class="section" id="carousel">
+              <div class="container">
+                  <div class="tim-title">
+                      <h3>Photos</h3>
+                  </div>
+                      <div class="col-md-8 mr-auto ml-auto">
+                          <div class="card page-carousel">
+                              <ngb-carousel>
+                                  <ng-template ngbSlide>
+                                      <img src="./assets/img/soroush-karimi.jpg" alt="Random first slide">
+                                      <div class="carousel-caption">
+                                          <p>Somewhere</p>
+                                      </div>
+                                  </ng-template>
+                                  <ng-template ngbSlide>
+                                      <img src="./assets/img/federico-beccari.jpg" alt="Random second slide">
+                                      <div class="carousel-caption">
+                                          <p>Somewhere else</p>
+                                      </div>
+                                  </ng-template>
+                                  <ng-template ngbSlide>
+                                      <img src="./assets/img/joshua-stannard.jpg" alt="Random third slide">
+                                      <div class="carousel-caption">
+                                          <p>Here it is</p>
+                                      </div>
+                                  </ng-template>
+                              </ngb-carousel>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
                 <div class="container-fluid mt--7">
-                    <div class="row">
-                      <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+                    <!-- <div class="row"> -->
+                      <div class="col-md-4 order-xl-2 mb-5 mb-xl-0">
                         <div class="card card-profile shadow">
                           <div class="row justify-content-center">
                             <div class="col-lg-12 order-lg-2">
@@ -81,8 +115,7 @@
                               </div>
                             </div>
                             <div class="text-center">
-                              <h3>
-                              yasas ekanayake<span class="font-weight-light">, 27</span>
+                              <h3>yasas ekanayake<span class="font-weight-light">, 27</span>
                               </h3>
                               <div class="h5 font-weight-300">
                                 <i class="ni location_pin mr-2"></i>angoda, Colombo
@@ -99,269 +132,126 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                
-        
-                      <div class="col-xl-8 order-xl-1">
-                        <div class="card bg-secondary shadow">
-                          <div class="card-header bg-white border-0">
-                            <div class="row align-items-center">
-                              <div class="col-8">
-                                <h3 class="mb-0">Worker Profile</h3>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-body">
-                            <form>
-                              <h6 class="heading-small text-muted mb-4">User information</h6>
-                              <div class="pl-lg-4">
-                                <div class="row">
-                                  <div class="col-lg-6">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-username">id</label>
-                                      <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="yasas.ekanayeke">
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-email">Email address</label>
-                                      <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="cdcdcc@example.com">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-lg-6">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-first-name">First name</label>
-                                      <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="yasas">
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-6">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-last-name">Last name</label>
-                                      <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="ekanayke">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <hr class="my-4" />
-                              <!-- Address -->
-                              <h6 class="heading-small text-muted mb-4">Contact information</h6>
-                              <div class="pl-lg-4">
-                                <div class="row">
-                                  <div class="col-md-12">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-address">Address</label>
-                                      <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="bbdfdbfbf,vrsdvd,vsdvsdvsd,vdv" type="text">
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col-lg-4">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-city">City</label>
-                                      <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="angoda">
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-country">Age</label>
-                                      <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="40">
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-4">
-                                    <div class="form-group">
-                                      <label class="form-control-label" for="input-country">Mobile Number</label>
-                                      <input type="number" id="text" class="form-control form-control-alternative" placeholder="07756415563">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <hr class="my-4" />
-                              <!-- Description -->
-                              <h6 class="heading-small text-muted mb-4">About me</h6>
-                              <div class="pl-lg-4">
-                                <div class="form-group">
-                                  <label>About Me</label>
-                                  <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                
-                      <!--<div *ngIf="ids?.length > 0; else noItems">
-                        <div class="container" style="margin-top: 70px">
-                          <table class="table table-hover">
-                            <thead>
-                            <tr>
-                              <th>#</th>
-                             
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr *ngFor="let id of ids">
-                      
-                              <td>{{ id.firstname }}</td>
-                              
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        </div>-->
-                
-                
+                      </div>              
                     </div>
-                  </div>
+                  
 
 
                   
 
 
+      </ng-template>
+		  </ngb-tab>
+		  <ngb-tab title="Schedule">
+			<ng-template ngbTabContent>
+                
+
             </ng-template>
 		  </ngb-tab>
-		  <ngb-tab title="Profile">
+		  <ngb-tab title="Booking">
 			<ng-template ngbTabContent>
-                <div class="container-fluid mt--7">
-                    <div class="row">
-                      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-                        <div class="card card-profile shadow">
-                          <div class="row justify-content-center">
-                            <div class="col-lg-12 order-lg-2">
-                              <div class="card-profile-image">
-                                <a href="javascript:void(0)">
-                                  <br>
-                                  <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200" height="200">
-                                </a>
-                              </div>
-                            </div>
+          <div class="col-xl-8 order-xl-1">
+              <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Worker Profile</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-username">id</label>
+                            <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="yasas.ekanayeke">
                           </div>
-                          <br>
-                          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                            <div class="d-flex justify-content-between">
-                              <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
-                              <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
-                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-email">Email address</label>
+                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="cdcdcc@example.com">
                           </div>
-                          <div class="card-body pt-0 pt-md-4">
-                            <div class="row">
-                              <div class="col">
-                                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    
-                                  <div>
-                                    <span class="heading">8.7 </span>
-                                    <span class="description"> Rating </span>
-                                  </div>
-                                  <div>
-                                    <span class="heading"> Yes </span>
-                                    <span class="description"> Available </span>
-                                  </div>
-                                  <div>
-                                    <span class="heading"> 89 </span>
-                                    <span class="description"> Comments </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="text-center">
-                              <h3>
-                              yasas ekanayake<span class="font-weight-light">, 27</span>
-                              </h3>
-                              <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>angoda, Colombo
-                              </div>
-                              <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>Mason
-                              </div>
-                              <div>
-                                <i class="ni education_hat mr-2"></i> CATEGORY
-                              </div>
-                              <hr class="my-4" />
-                              <p>Description About Worker</p>
-                              <a href="javascript:void(0)">Show more</a>
-                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-first-name">First name</label>
+                            <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="yasas">
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-last-name">Last name</label>
+                            <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="ekanayke">
                           </div>
                         </div>
                       </div>
                     </div>
-                </div>
-
-
-            </ng-template>
-		  </ngb-tab>
-		  <ngb-tab title="Messages">
-			<ng-template ngbTabContent>
-                <div class="container-fluid mt--7">
-                    <div class="row">
-                      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-                        <div class="card card-profile shadow">
-                          <div class="row justify-content-center">
-                            <div class="col-lg-12 order-lg-2">
-                              <div class="card-profile-image">
-                                <a href="javascript:void(0)">
-                                  <br>
-                                  <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200" height="200">
-                                </a>
-                              </div>
-                            </div>
+                    <hr class="my-4" />
+                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                    <div class="pl-lg-4">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-address">Address</label>
+                            <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="bbdfdbfbf,vrsdvd,vsdvsdvsd,vdv" type="text">
                           </div>
-                          <br>
-                          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                            <div class="d-flex justify-content-between">
-                              <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
-                              <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
-                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-city">City</label>
+                            <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="angoda">
                           </div>
-                          <div class="card-body pt-0 pt-md-4">
-                            <div class="row">
-                              <div class="col">
-                                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    
-                                  <div>
-                                    <span class="heading">8.7 </span>
-                                    <span class="description"> Rating </span>
-                                  </div>
-                                  <div>
-                                    <span class="heading"> Yes </span>
-                                    <span class="description"> Available </span>
-                                  </div>
-                                  <div>
-                                    <span class="heading"> 89 </span>
-                                    <span class="description"> Comments </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="text-center">
-                              <h3>
-                              yasas ekanayake<span class="font-weight-light">, 27</span>
-                              </h3>
-                              <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>angoda, Colombo
-                              </div>
-                              <div class="h5 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>Mason
-                              </div>
-                              <div>
-                                <i class="ni education_hat mr-2"></i> CATEGORY
-                              </div>
-                              <hr class="my-4" />
-                              <p>Description About Worker</p>
-                              <a href="javascript:void(0)">Show more</a>
-                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-country">Age</label>
+                            <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="40">
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                            <label class="form-control-label" for="input-country">Mobile Number</label>
+                            <input type="number" id="text" class="form-control form-control-alternative" placeholder="07756415563">
                           </div>
                         </div>
                       </div>
                     </div>
+                    <hr class="my-4" />
+                    <h6 class="heading-small text-muted mb-4">About me</h6>
+                    <div class="pl-lg-4">
+                      <div class="form-group">
+                        <label>About Me</label>
+                        <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-
-
+              </div>
+            </div>
             </ng-template>
-		  </ngb-tab>
+      </ngb-tab>
+      
+      <ngb-tab title="Schedule">
+          <ng-template ngbTabContent>
+                    
+    
+                </ng-template>
+          </ngb-tab>
+
+
 		</ngb-tabset>
 	</div>
 </div>
+
+
 
 
 
