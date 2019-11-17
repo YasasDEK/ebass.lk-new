@@ -20,11 +20,11 @@ export class AuthuService {
       this.afAuth.authState.subscribe(user => {
           if (user) {
               this.userData = user;
-              localStorage.setItem('user', JSON.stringify(this.userData));
-              JSON.parse(localStorage.getItem('user'));
+              localStorage.setItem('users', JSON.stringify(this.userData));
+              JSON.parse(localStorage.getItem('users'));
           } else {
-              localStorage.setItem('user', null);
-              JSON.parse(localStorage.getItem('user'));
+              localStorage.setItem('users', null);
+              JSON.parse(localStorage.getItem('users'));
           }
       })
   }
@@ -42,21 +42,20 @@ export class AuthuService {
         })
   }
 
-  SignUp(email, password, username, job, id, mobile) {
+  SignUp(email, password, username, id, mobile) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
       this.SendVerificationMail();
-          const workerData: User = {
+          const userData: User = {
             uid: result.user.uid,
             username: username,
             idNumber: id,
             email: email,
             emailVerified: result.user.emailVerified,
-            jobType: job,
             mobile: mobile,
           }
             console.log(mobile);
-      this.SetUserData(workerData);
+      this.SetUserData(userData);
     }).catch((error) => {
       window.alert(error.message)
             console.log(error)
@@ -77,7 +76,7 @@ export class AuthuService {
         })
   }
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('users'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
   GoogleAuth() {
@@ -102,7 +101,7 @@ export class AuthuService {
   }
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
+      localStorage.removeItem('users');
       this.router.navigate(['sign-inu']);
     })
   }

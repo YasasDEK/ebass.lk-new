@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit { results: any;
 
   //.orderBy('name')
   ngOnInit() {
-    this.afs.collection('workers', ref => ref.limit(4)).valueChanges().subscribe(results => {
+    this.afs.collection('workers'/*, ref => ref.limit(4)*/).valueChanges().subscribe(results => {
     this.results = results;
     this.applyFilters()
     })

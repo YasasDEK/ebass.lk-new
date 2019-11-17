@@ -82,7 +82,8 @@
                 </div>
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true" (blur)="focus=false" #usermobile required>
               </div>
-              <label>Job Type</label>
+
+              <!-- <label>Job Type</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                                       <span class="input-group-text">
@@ -90,7 +91,7 @@
                                       </span>
                 </div>
                 <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true" (blur)="focus=false" #userjob required>
-              </div>
+              </div> -->
 
 
               <label>Password</label>
@@ -104,7 +105,7 @@
               </div>
 
               <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authuService.SignUp(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authuService.SignUp(userEmail.value, userPwd.value, username.value, useridnum.value, usermobile.value)">
               </div>
               <!-- <label>Re-Enter Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
