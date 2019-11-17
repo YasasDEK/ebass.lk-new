@@ -20,11 +20,11 @@ export class AuthService {
       this.afAuth.authState.subscribe(worker => {
           if (worker) {
               this.workerData = worker;
-              localStorage.setItem('worker', JSON.stringify(this.workerData));
-              JSON.parse(localStorage.getItem('worker'));
+              localStorage.setItem('workers', JSON.stringify(this.workerData));
+              JSON.parse(localStorage.getItem('workers'));
           } else {
-              localStorage.setItem('worker', null);
-              JSON.parse(localStorage.getItem('worker'));
+              localStorage.setItem('workers', null);
+              JSON.parse(localStorage.getItem('workers'));
           }
       })
   }
@@ -77,7 +77,7 @@ export class AuthService {
         })
   }
   get isLoggedIn(): boolean {
-    const worker = JSON.parse(localStorage.getItem('worker'));
+    const worker = JSON.parse(localStorage.getItem('workers'));
     return (worker !== null && worker.emailVerified !== false) ? true : false;
   }
   GoogleAuth() {
