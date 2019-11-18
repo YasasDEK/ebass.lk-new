@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input } from '@angular/core';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-modal-content',
@@ -26,7 +26,7 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalContent {
     @Input() name;
 
-    constructor(public activeModal: NgbActiveModal) {}
+    constructor(public activeModal: NgbActiveModal) { }
 }
 
 @Component({
@@ -34,7 +34,7 @@ export class NgbdModalContent {
     templateUrl: './modal.component.html'
 })
 export class NgbdModalComponent {
-    constructor(private modalService: NgbModal) {}
+    constructor(private modalService: NgbModal) { }
     open() {
         const modalRef = this.modalService.open(NgbdModalContent);
         modalRef.componentInstance.name = 'World';
@@ -44,5 +44,5 @@ export class NgbdModalComponent {
 export class ModalComponent {
     @Input() name;
 
-    constructor(public activeModal: NgbActiveModal) {}
+    constructor(public activeModal: NgbActiveModal) { }
 }

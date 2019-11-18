@@ -14,22 +14,23 @@ export class ProfileuComponent implements OnInit {
     data: Observable<Item[]>;
     datas: Item[];
     isReceived: boolean = false;
-    
-    constructor(public _Activatedroute: ActivatedRoute, public ebass: AngularFirestore) {
-          this.value = this._Activatedroute.snapshot.paramMap.get('id');
-          console.log("value : " + this.value);
-     }
 
-    ngOnInit() {this.getData().subscribe(data => {
-        this.datas = data;
-        this.isReceived = true;
-      });
+    constructor(public _Activatedroute: ActivatedRoute, public ebass: AngularFirestore) {
+        this.value = this._Activatedroute.snapshot.paramMap.get('id');
+        console.log("value : " + this.value);
     }
 
-    getData(){
-        this.data = this.ebass.collection('signup', ref => ref.where('id', '==', this.value )).valueChanges();
+    ngOnInit() {
+        this.getData().subscribe(data => {
+            this.datas = data;
+            this.isReceived = true;
+        });
+    }
+
+    getData() {
+        this.data = this.ebass.collection('signup', ref => ref.where('id', '==', this.value)).valueChanges();
         return this.data;
-    } 
+    }
 }
 
 interface Item {
@@ -39,5 +40,4 @@ interface Item {
     land?: string;
     username?: string;
     firstname?: string;
-  }
-  
+}

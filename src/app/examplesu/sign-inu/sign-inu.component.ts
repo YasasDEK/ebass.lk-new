@@ -9,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class SignInuComponent implements OnInit {
 
   constructor(
-      public authuService: AuthuService
+    public authuService: AuthuService
   ) { }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { ItemService } from '../../services/item.service';
 })
 export class ElectriciansComponent implements OnInit {
   electricians: Item[];
-  isReceived:boolean = false;
+  isReceived: boolean = false;
 
 
   constructor(private itemService: ItemService) { }
@@ -16,7 +16,7 @@ export class ElectriciansComponent implements OnInit {
   ngOnInit() {
     this.itemService.getElectrician().subscribe(electrician => {
       this.electricians = electrician;
-      this.isReceived=true;
+      this.isReceived = true;
     });
   }
 

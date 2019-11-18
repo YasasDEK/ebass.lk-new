@@ -8,7 +8,7 @@ import { ItemService } from '../../services/item.service';
 })
 export class CarpentersComponent implements OnInit {
   carpenters: Item[];
-  isReceived:boolean=false;
+  isReceived: boolean = false;
 
 
   constructor(private itemService: ItemService) { }
@@ -16,7 +16,7 @@ export class CarpentersComponent implements OnInit {
   ngOnInit() {
     this.itemService.getCarpenter().subscribe(carpenter => {
       this.carpenters = carpenter;
-      this.isReceived=true;
+      this.isReceived = true;
 
     });
   }
@@ -30,4 +30,4 @@ interface Item {
   emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
- }
+}

@@ -12,15 +12,13 @@ import { AboutService } from './about.service';
 })
 export class AboutComponent implements OnInit {
 
-constructor(private service: AboutService, private firestore: AngularFirestore) {
-  fromData: About;
- }
+  constructor(private service: AboutService, private firestore: AngularFirestore) {
+    fromData: About;
+  }
 
   ngOnInit() {
     // this.resetForm();
   }
-
-
   // resetForm(messageform?: NgForm){
   //   if(messageform != null)    
   //   messageform.resetForm();
@@ -32,11 +30,11 @@ constructor(private service: AboutService, private firestore: AngularFirestore) 
   //       }
   //     }
 
-    onSubmit(messageform: NgForm){
-      let data = messageform.value;
-      console.log("data", data);
-      this.firestore.collection('message').add(data);
-      // this.resetForm(signupform);
+  onSubmit(messageform: NgForm) {
+    let data = messageform.value;
+    console.log("data", data);
+    this.firestore.collection('message').add(data);
+    // this.resetForm(signupform);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFirestore} from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import * as _ from 'lodash';
 
 @Component({
@@ -7,22 +7,23 @@ import * as _ from 'lodash';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit { results: any;
+export class SearchComponent implements OnInit {
+    results: any;
   filteredNames: any[] = [];
   name: string;
   area: string;
 
-  filters ={}
+  filters = {}
 
-  constructor(private afs: AngularFirestore){
+  constructor(private afs: AngularFirestore) {
 
   }
 
   //.orderBy('name')
   ngOnInit() {
     this.afs.collection('workers'/*, ref => ref.limit(4)*/).valueChanges().subscribe(results => {
-    this.results = results;
-    this.applyFilters()
+      this.results = results;
+      this.applyFilters()
     })
   }
 
@@ -36,8 +37,8 @@ export class SearchComponent implements OnInit { results: any;
   }
 
   filterArea(property: string, rule: string) {
-    if(!rule) this.removeFilter(property)
-    else{
+    if (!rule) this.removeFilter(property)
+    else {
       this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
       this.applyFilters()
     }
@@ -49,10 +50,10 @@ export class SearchComponent implements OnInit { results: any;
     this.applyFilters()
   }
 
-  send(){
+  send() {
     this.results = this.results.sort((n1, n2) => {
-      if(n1.uid > n2.uid) {return 1}
-      if(n1.uid < n2.uid) {return -1}
+      if (n1.uid > n2.uid) { return 1 }
+      if (n1.uid < n2.uid) { return -1 }
       return 0;
     })
     this.applyFilters()
@@ -61,12 +62,12 @@ export class SearchComponent implements OnInit { results: any;
     //   :n2.localeComapare(n1);
     // });
   }
-  send2(){
+  send2() {
     this.results = this.results.sort((n1, n2) => {
-      if(n1.uid < n2.uid) {return 1}
-      if(n1.uid > n2.uid) {return -1}
+      if (n1.uid < n2.uid) { return 1 }
+      if (n1.uid > n2.uid) { return -1 }
       return 0;
-      
+
     })
     this.applyFilters()
   }

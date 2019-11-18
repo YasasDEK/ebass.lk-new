@@ -5,7 +5,8 @@
     <div class="navbar-translate">
       <div class="avatar">
         <a class="navbar-brand" href="http://localhost:4200">
-          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" width="60">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
         </a>
       </div>
     </div>
@@ -13,7 +14,7 @@
     <div class="navbar-translate">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" ><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
+          <a class="nav-link"><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
         </li>
 
       </ul>
@@ -42,65 +43,71 @@
                 <i class="fa fa-twitter"></i>
               </a>
             </div>
-            <form class="register-form" >
+            <form class="register-form">
               <label>Username</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-single-02"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-single-02"></i>
+                  </span>
                 </div>
-                <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false" #username required>
+                <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
+                  (blur)="focus=false" #username required>
               </div>
 
               <label>ID Number</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-check-2"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-check-2"></i>
+                  </span>
                 </div>
-                <input name="id" type="text"  class="form-control" placeholder="ID Number" (focus)="focus=true" (blur)="focus=false" #useridnum required>
+                <input name="id" type="text" class="form-control" placeholder="ID Number" (focus)="focus=true"
+                  (blur)="focus=false" #useridnum required>
               </div>
 
               <label>E-Mail</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-email-85"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
                 </div>
-                <input name="mail" type="email" class="form-control" placeholder="E-Mail" (focus)="focus=true" (blur)="focus=false" #userEmail required>
+                <input name="mail" type="email" class="form-control" placeholder="E-Mail" (focus)="focus=true"
+                  (blur)="focus=false" #userEmail required>
               </div>
 
               <label>Mobile Number</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-mobile"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-mobile"></i>
+                  </span>
                 </div>
-                <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true" (blur)="focus=false" #usermobile required>
+                <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
+                  (blur)="focus=false" #usermobile required>
               </div>
               <label>Job Type</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-mobile"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-mobile"></i>
+                  </span>
                 </div>
-                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true" (blur)="focus=false" #userjob required>
+                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
+                  (blur)="focus=false" #userjob required>
               </div>
 
 
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-key-25"></i>
-                                      </span>
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-key-25"></i>
+                  </span>
                 </div>
-                <input name="password_one" type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
+                <input name="password_one" type="password" class="form-control" placeholder="Password"
+                  (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
               </div>
 
               <!-- <label>Re-Enter Password</label>
@@ -113,10 +120,11 @@
                 <input name="password_two" type="password" class="form-control" placeholder="Re-Enter Password" (focus)="focus1=true" (blur)="focus1=false" required>
               </div> -->
               <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                <input type="button" class="btn btnPrimary" value="Sign Up"
+                  (click)="authService.SignUp(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
               </div>
 
-<!--              <button type="submit" class="btn btn-danger btn-block btn-round">Register</button>-->
+              <!--              <button type="submit" class="btn btn-danger btn-block btn-round">Register</button>-->
             </form>
 
           </div>
@@ -125,5 +133,3 @@
     </div>
   </div>
 </div>
-
-

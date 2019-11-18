@@ -16,19 +16,19 @@ export class ItemService {
   repair: Observable<Item[]>;
 
   constructor(public ebass: AngularFirestore) {
-    this.mason = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'mason' )).valueChanges();
+    this.mason = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'mason')).valueChanges();
     this.painter = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'painter')).valueChanges();
     this.carpenter = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'carpenter')).valueChanges();
     this.electrician = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'electrician')).valueChanges();
     this.plumber = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'plumber')).valueChanges();
     this.repair = this.ebass.collection('workers', ref => ref.where('jobType', '==', 'repair')).valueChanges();
   }
-   getMason() {
+  getMason() {
     return this.mason;
-   }
-   getPaint() {
-     return this.painter;
-   }
+  }
+  getPaint() {
+    return this.painter;
+  }
   getCarpenter() {
     return this.carpenter;
   }

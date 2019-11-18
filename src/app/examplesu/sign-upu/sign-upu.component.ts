@@ -8,7 +8,7 @@ import { AuthuService } from '../servicesu/authu.service';
 export class SignUpuComponent implements OnInit {
 
   constructor(
-      public authuService: AuthuService
+    public authuService: AuthuService
   ) { }
 
   ngOnInit() {

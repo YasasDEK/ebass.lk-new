@@ -8,7 +8,7 @@ import { AuthuService } from '../servicesu/authu.service';
 export class VerifyEmailuComponent implements OnInit {
 
   constructor(
-      public authService: AuthuService
+    public authService: AuthuService
   ) { }
 
   ngOnInit() {
