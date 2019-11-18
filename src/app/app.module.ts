@@ -20,6 +20,7 @@ import { SignInComponent } from './examples/sign-in/sign-in.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
 import { SearchComponent } from './search/search.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
 import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
@@ -46,6 +47,7 @@ var firebaseConfig = {
     SignUpComponent,
     ForgotPasswordComponent,
     SearchComponent,
+    ScheduleComponent,
     SignUpuComponent,
     SignInuComponent,
     ForgotPassworduComponent,

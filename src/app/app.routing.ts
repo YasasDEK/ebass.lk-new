@@ -20,6 +20,8 @@ import { ForgotPasswordComponent } from './examples/forgot-password/forgot-passw
 import { SearchComponent } from './search/search.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
+
 import { ReglogComponent } from './examples/reglog/reglog.component';
 
 import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
@@ -32,6 +34,8 @@ const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
     { path: 'signup',           component: SignUpComponent },
+    { path: 'signin',           component: SignInComponent },
+//     { path: 'profile/:id',      component: ProfileComponent },
     { path: 'signin',            component: SignInComponent },
     { path: 'profile/:uid',      component: ProfileComponent },
     { path: 'landing',          component: LandingComponent },
@@ -48,6 +52,7 @@ const routes: Routes = [
     { path: 'about',            component: AboutComponent},
     { path: 'component',        component: ComponentsComponent},
     { path: 'search',           component: SearchComponent},
+    { path: 'schedule',           component: ScheduleComponent},
     { path: 'forgot-passwordu',  component: ForgotPassworduComponent},
     { path: 'reglog',           component: ReglogComponent},
     { path: 'signupu',           component: SignUpuComponent },
