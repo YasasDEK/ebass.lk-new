@@ -20,13 +20,15 @@ import { ForgotPasswordComponent } from './examples/forgot-password/forgot-passw
 import { SearchComponent } from './search/search.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
+
 
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',             component: ComponentsComponent },
     { path: 'signup',           component: SignUpComponent },
-    { path: 'signin',            component: SignInComponent },
+    { path: 'signin',           component: SignInComponent },
     { path: 'profile/:id',      component: ProfileComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
@@ -41,7 +43,9 @@ const routes: Routes = [
     { path: 'rating',           component: RatingComponent},
     { path: 'about',            component: AboutComponent},
     { path: 'component',        component: ComponentsComponent},
-    { path: 'search',           component: SearchComponent}
+    { path: 'search',           component: SearchComponent},
+    { path: 'schedule',           component: ScheduleComponent},
+  }
 ];
 
 @NgModule({

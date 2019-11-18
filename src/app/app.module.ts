@@ -21,6 +21,7 @@ import { SignInComponent } from './examples/sign-in/sign-in.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
 import { SearchComponent } from './search/search.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -40,7 +41,8 @@ var firebaseConfig = {
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    SearchComponent
+    SearchComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
