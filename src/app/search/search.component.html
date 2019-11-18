@@ -30,8 +30,6 @@
 </nav>
 <br><br><br><br><br>
 
- <!-- <div class="page-header section-dark" style="background-image: url('assets/img/z.jpg')"> -->
-        <div class="filter"></div>
         <div class="content-center">
             <div class="container">
                 <div class="title-brand">
@@ -61,7 +59,7 @@
                      <i class="nc-icon nc-email-85"></i>
                    </span>
                  </div>
-                <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username" (change)="filterName('username', username)">
+                <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername" (change)="filterName('workername', workername)">
                </div>
                     
                     <br>
@@ -72,7 +70,7 @@
                             <i class="nc-icon nc-email-85"></i>
                         </span>
                       </div>
-                    <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobs" (change)="filterArea('jobs', jobs)">
+                    <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType" (change)="filterArea('jobType', jobType)">
                  </div>    
                  <br>
 
@@ -97,12 +95,12 @@
                               </div>
 
                         <div class="pl-5">
-                          <h5 class="title text-success">Name: {{results.username}}</h5>
+                          <h5 class="title text-success">Name: {{results.workername}}</h5>
                           <div class="row align-items-center justify-content-center">
                             <div>
-                              <h6>Name: {{results.username}}</h6>
-                              <h6>Job: {{results.jobs}}</h6>
-                              <a [routerLink]="['/profile',results.username]" class="text-warning">Learn more</a>
+                              <h6>Name: {{results.workername}}</h6>
+                              <h6>Job: {{results.jobType}}</h6>
+                              <a [routerLink]="['/profile',results.uid]" class="text-warning">Learn more</a>
                             </div>
                         </div>
                         </div>

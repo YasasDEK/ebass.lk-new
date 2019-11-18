@@ -103,7 +103,7 @@
                 <input name="password_one" type="password" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
               </div>
 
-              <label>Re-Enter Password</label>
+              <!-- <label>Re-Enter Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
                                       <span class="input-group-text">
@@ -111,7 +111,7 @@
                                       </span>
                 </div>
                 <input name="password_two" type="password" class="form-control" placeholder="Re-Enter Password" (focus)="focus1=true" (blur)="focus1=false" required>
-              </div>
+              </div> -->
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
               </div>

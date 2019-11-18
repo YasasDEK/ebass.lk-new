@@ -1,5 +1,5 @@
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="100">
   <div class="container">
       
       <div class="navbar-translate">
@@ -19,7 +19,7 @@
                   <div ngbDropdown class="d-inline-block dropdown">
                       <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>Options</a>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                          <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+                          <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
                       </div>
                   </div>
               </li>
@@ -30,53 +30,56 @@
 </nav>
 <br><br><br><br><br>
 
-
 <!--page-->
-  <div class="content-center" style="margin:10px" >
-  <div *ngIf="masons?.length > 0; else noItems">
-    
-      <div class="limiter">
-          <!-- <div class="container-table100"> -->
-            <div class="wrap-table100">
-              <div class="table100 ver3 m-b-110">
-                <div class="table100-head">
-                  <table>
-                    <thead>
-                      <tr class="row100 head">
-                        <th class="cell100 column1">Id</th>
-                        <th class="cell100 column2">Name</th>
-                        <th class="cell100 column3">City</th>
-                        <th class="cell100 column4">Age</th>
-                        <th class="cell100 column5">Action</th>
-                      </tr>
-                    </thead>
-                  </table>
+<div *ngIf="masons?.length > 0; else noItems">
+  <div class="container" style="margin-top: 10  px">
+
+        <div class="row" *ngIf="isReceived">
+            <div class="col-md-3" *ngFor="let mason of masons">
+              <div class="card card-profile shadow">
+                 
+                    <div class="card-profile-image">
+                      <a href="javascript:void(0)">
+                        <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150" height="150">
+                      </a>
+                    </div>
+                  
+                <div class="card-body pt-15">
+                  <div class="text-center">
+                    <h3>
+                      {{ mason.workername }}<span class="font-weight-light">, 27</span>
+                    </h3>
+                    <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>{{ mason.workername }}
+                    </div>
+                    <div class="h5 mt-4">
+                      <i class="ni business_briefcase-24 mr-2"></i>Mason
+                    </div>
+                    <div>
+                      <i class="ni education_hat mr-2"></i> CATEGORY
+                    </div>
+                    <hr class="my-4" />
+                    <p>Description About Worker</p>
+                      <a [routerLink] = "['/profile',mason.uid]" class="btn btn-primary" >Show details</a>
+                  </div>
+                  
                 </div>
-      
-                <div class="table100-body js-pscroll">
-                  <table>
-                    <tbody>
-                      <tr class="row100 body" *ngFor="let mason of masons">
-                        <td class="cell100 column1">{{ mason.id }}</td>
-                        <td class="cell100 column2">{{ mason.username }}</td>
-                        <td class="cell100 column3">{{ mason.land }}</td>
-                        <td class="cell100 column4">{{ mason.id }}</td>
-                        <a [routerLink] = "['/profile',mason.id]" class="btn btn-primary" >Show details</a>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>				
+              </div>
             </div>
+
+        <!--test over-->
+
           </div>
-        <!-- </div> -->
-  
-    </div>
-    
-    <ng-template #noItems>
-      <hr>
-      <h1>There is no items</h1>
-    </ng-template>
-    
-  </div>
-  
+      <!--</tbody>
+    </table>-->
+  </div>  
+</div>  
+
+
+
+<ng-template #noItems *ngIf="!isReceived">
+  <hr>
+  <h1>There is no items</h1>
+</ng-template>
+
+

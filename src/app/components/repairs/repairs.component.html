@@ -19,7 +19,7 @@
                   <div ngbDropdown class="d-inline-block dropdown">
                       <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>Options</a>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                          <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+                          <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
                       </div>
                   </div>
               </li>
@@ -47,20 +47,20 @@
                 <div class="card-body pt-10">
                   <div class="text-center">
                     <h3>
-                      {{ repair.username }}<span class="font-weight-light">, 27</span>
+                      {{ repair.workername }}<span class="font-weight-light">, 27</span>
                     </h3>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i>angoda, Colombo
+                      <i class="ni location_pin mr-2"></i>{{ repair.email }}
                     </div>
                     <div class="h5 mt-4">
-                      <i class="ni business_briefcase-24 mr-2"></i>Mason
+                      <i class="ni business_briefcase-24 mr-2"></i>Repair
                     </div>
                     <div>
                       <i class="ni education_hat mr-2"></i> CATEGORY
                     </div>
                     <hr class="my-4" />
                     <p>Description About Worker</p>
-                      <a [routerLink] = "['/profile',repair.id]" class="btn btn-primary" >Show details</a>
+                      <a [routerLink] = "['/profile',repair.uid]" class="btn btn-primary" >Show details</a>
                   </div>
                   
                 </div>

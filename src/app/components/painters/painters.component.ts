@@ -8,12 +8,16 @@ import { ItemService } from '../../services/item.service';
 })
 export class PaintersComponent implements OnInit {
   painters: Item[];
+  isReceived:boolean=false;
+
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getPaint().subscribe(painter => {
       this.painters = painter;
+      this.isReceived=true;
+
     });
   }
 

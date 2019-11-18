@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReglogComponent } from './reglog/reglog.component';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -18,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
         LandingComponent,
         // SignUpComponent,
         ProfileComponent,
+        ReglogComponent,
         // SignInComponent
     ]
 })
