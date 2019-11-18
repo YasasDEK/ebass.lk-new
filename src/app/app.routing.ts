@@ -45,7 +45,6 @@ const routes: Routes = [
     { path: 'component',        component: ComponentsComponent},
     { path: 'search',           component: SearchComponent},
     { path: 'schedule',           component: ScheduleComponent},
-  }
 ];
 
 @NgModule({
