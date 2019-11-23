@@ -4,18 +4,24 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   workerData: any;
+  value;
+  data: Observable<Item[]>;
+  datas: Item[]
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    public _Activatedroute: ActivatedRoute
   ) {
     this.afAuth.authState.subscribe(worker => {
       if (worker) {
@@ -27,9 +33,12 @@ export class AuthService {
         JSON.parse(localStorage.getItem('workers'));
       }
     })
+
   }
 
   SignIn(email, password) {
+    // this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
+    // console.log("value : " + this.value.email);
     console.log(this.workerData)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -43,31 +52,45 @@ export class AuthService {
   }
 
   SignUp(email, password, workername, job, id, mobile) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SendVerificationMail();
-        const workerData: Worker = {
-          uid: result.user.uid,
-          workername: workername,
-          idNumber: id,
-          email: email,
-          emailVerified: result.user.emailVerified,
-          jobType: job,
-          mobile: mobile,
-        }
-        console.log(mobile);
-        this.SetWorkerData(workerData);
-      }).catch((error) => {
-        window.alert(error.message)
-        console.log(error)
-      })
+    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
+      if (id.length == 10) {
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+          .then((result) => {
+            this.SendVerificationMail();
+            const workerData: Worker = {
+              uid: result.user.uid,
+              workername: workername,
+              idNumber: id,
+              email: email,
+              emailVerified: result.user.emailVerified,
+              jobType: job,
+              mobile: mobile,
+            }
+            this.SendVerificationMail();
+            console.log(mobile);
+            this.SetWorkerData(workerData);
+            window.alert("Registration done");
+          }).catch((error) => {
+            window.alert(error.message)
+            console.log(error)
+          })
+      }
+      else {
+        window.alert("Invalid ID number ")
+      }
+    }
+    else {
+      window.alert("Job Type doen't available ")
+    }
   }
+
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate(['verify']);
       })
   }
+
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -76,13 +99,16 @@ export class AuthService {
         window.alert(error)
       })
   }
+
   get isLoggedIn(): boolean {
     const worker = JSON.parse(localStorage.getItem('workers'));
     return (worker !== null && worker.emailVerified !== false) ? true : false;
   }
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
+
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((result) => {
@@ -94,16 +120,28 @@ export class AuthService {
         window.alert(error)
       })
   }
+
   SetWorkerData(worker) {
     const workerRef: AngularFirestoreDocument<any> = this.afs.doc(`workers/${worker.uid}`);
     return workerRef.set(worker, {
       merge: true
     })
   }
+
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
       this.router.navigate(['sign-in']);
     })
   }
+}
+
+interface Item {
+  uid?: string;
+  workername?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
 }

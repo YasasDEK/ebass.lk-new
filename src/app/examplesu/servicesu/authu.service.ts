@@ -43,23 +43,29 @@ export class AuthuService {
   }
 
   SignUp(email, password, username, id, mobile) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SendVerificationMail();
-        const userData: User = {
-          uid: result.user.uid,
-          username: username,
-          idNumber: id,
-          email: email,
-          emailVerified: result.user.emailVerified,
-          mobile: mobile,
-        }
-        console.log(mobile);
-        this.SetUserData(userData);
-      }).catch((error) => {
-        window.alert(error.message)
-        console.log(error)
-      })
+    if (id.length == 10) {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then((result) => {
+          this.SendVerificationMail();
+          const userData: User = {
+            uid: result.user.uid,
+            username: username,
+            idNumber: id,
+            email: email,
+            emailVerified: result.user.emailVerified,
+            mobile: mobile,
+            jobType: 'user',
+          }
+          console.log(mobile);
+          this.SetUserData(userData);
+          window.alert("Registration done");
+          this.router.navigate(['signinu']);
+
+        }).catch((error) => {
+          window.alert(error.message)
+          console.log(error)
+        })
+    }
   }
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()

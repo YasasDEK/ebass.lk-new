@@ -22,6 +22,8 @@ import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
+import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
+
 import { ReglogComponent } from './examples/reglog/reglog.component';
 
 import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
@@ -58,6 +60,7 @@ const routes: Routes = [
   { path: 'signupu', component: SignUpuComponent },
   { path: 'signinu', component: SignInuComponent },
   { path: 'profileu/:uid', component: ProfileuComponent },
+  { path: 'verify', component: VerifyEmailComponent },
 ];
 
 @NgModule({

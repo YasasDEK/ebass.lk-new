@@ -28,6 +28,8 @@ import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-pa
 import { ExamplesuModule } from './examplesu/examplesu.module';
 import { AuthuService } from './examplesu/servicesu/authu.service';
 
+import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
+
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
   authDomain: "ebass-892f9.firebaseapp.com",
@@ -51,6 +53,7 @@ var firebaseConfig = {
     SignUpuComponent,
     SignInuComponent,
     ForgotPassworduComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,6 @@ var firebaseConfig = {
     AngularFireAuthModule
   ],
   providers: [ItemService, AuthService, AuthuService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

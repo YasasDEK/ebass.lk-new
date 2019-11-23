@@ -5,4 +5,5 @@ export interface User {
     email: string;
     emailVerified: boolean;
     mobile: string;
+    jobType: string;
 }
