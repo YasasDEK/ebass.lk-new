@@ -19,7 +19,7 @@
                   <div ngbDropdown class="d-inline-block dropdown">
                       <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>Options</a>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                          <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+                          <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
                       </div>
                   </div>
               </li>
@@ -32,56 +32,37 @@
 
 <!--page-->
 <div *ngIf="repairs?.length > 0; else noItems">
-  <div class="container" style="margin-top: 70px">
-    <!--<table class="table table-hover">-->
-      <!--<thead>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-      </thead>-->
-      <!--<tbody>-->
-      <div *ngFor="let repair of repairs">
+  <div class="container" style="margin-top: 5px">
 
-        <!-- 
-        <td>{{ repair.id }}</td>
-        <td> {{ repair.firstname }}</td>
-        <td> {{ repair.land }}</td>
-         -->
-
-        <!--test-->
-            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <div class="row" *ngIf="isReceived">
+            <div class="col-md-3" *ngFor="let repair of repairs">
               <div class="card card-profile shadow">
-                <div class="row justify-content-center">
-                  <div class="col-lg-11 order-lg-12">
+                 
                     <div class="card-profile-image">
                       <a href="javascript:void(0)">
-                          <br>
                         <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150" height="150">
                       </a>
                     </div>
-                  </div>
-                </div>
+                  
                 <div class="card-body pt-10">
                   <div class="text-center">
                     <h3>
-                      {{ repair.username }}<span class="font-weight-light">, 27</span>
+                      {{ repair.workername }}<span class="font-weight-light">, 27</span>
                     </h3>
                     <div class="h5 font-weight-300">
-                      <i class="ni location_pin mr-2"></i>angoda, Colombo
+                      <i class="ni location_pin mr-2"></i>{{ repair.email }}
                     </div>
                     <div class="h5 mt-4">
-                      <i class="ni business_briefcase-24 mr-2"></i>Mason
+                      <i class="ni business_briefcase-24 mr-2"></i>Repair
                     </div>
                     <div>
                       <i class="ni education_hat mr-2"></i> CATEGORY
                     </div>
                     <hr class="my-4" />
                     <p>Description About Worker</p>
-                      <a [routerLink] = "['/profile',repair.id]" class="btn btn-primary" >Show details</a>
+                      <a [routerLink] = "['/profile',repair.uid]" class="btn btn-primary" >Show details</a>
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -92,10 +73,11 @@
       <!--</tbody>
     </table>-->
   </div>  
-  </div>
+</div>  
 
 
-<ng-template #noItems>
+
+<ng-template #noItems *ngIf="!isReceived">
   <hr>
   <h1>There is no items</h1>
 </ng-template>

@@ -17,10 +17,15 @@ import { ElectriciansComponent } from './components/electricians/electricians.co
 import { PlumbersComponent} from './components/plumbers/plumbers.component';
 import { RepairsComponent } from './components/repairs/repairs.component';
 import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
-
-
+import { SearchComponent } from './search/search.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
+import { ReglogComponent } from './examples/reglog/reglog.component';
+
+import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
+import { ProfileuComponent } from './examplesu/profileu/profileu.component';
+import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
+import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
 
 
 const routes: Routes = [
@@ -28,7 +33,7 @@ const routes: Routes = [
     { path: 'home',             component: ComponentsComponent },
     { path: 'signup',           component: SignUpComponent },
     { path: 'signin',            component: SignInComponent },
-    { path: 'profile/:id',      component: ProfileComponent },
+    { path: 'profile/:uid',      component: ProfileComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'masons',           component: MasonsComponent},
@@ -38,10 +43,16 @@ const routes: Routes = [
     { path: 'plumbers',         component: PlumbersComponent},
     { path: 'repairs',          component: RepairsComponent},
     { path: 'forgot-password',  component: ForgotPasswordComponent},
-    { path: 'plumbers/:id',     component: PlumbersComponent},
+    { path: 'plumbers/:uid',     component: PlumbersComponent},
     { path: 'rating',           component: RatingComponent},
     { path: 'about',            component: AboutComponent},
-    { path: 'component',        component: ComponentsComponent}
+    { path: 'component',        component: ComponentsComponent},
+    { path: 'search',           component: SearchComponent},
+    { path: 'forgot-passwordu',  component: ForgotPassworduComponent},
+    { path: 'reglog',           component: ReglogComponent},
+    { path: 'signupu',           component: SignUpuComponent },
+    { path: 'signinu',            component: SignInuComponent },
+    { path: 'profileu/:uid',      component: ProfileuComponent },
 ];
 
 @NgModule({

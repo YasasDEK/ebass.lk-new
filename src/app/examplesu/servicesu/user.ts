@@ -4,6 +4,5 @@ export interface User {
     idNumber: string;
     email: string;
     emailVerified: boolean;
-    jobType: string;
     mobile: string;
 }

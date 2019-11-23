@@ -1,5 +1,5 @@
 import {Injectable, NgZone} from '@angular/core';
-import { User } from './user';
+import { Worker } from './worker';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any;
+  workerData: any;
 
   constructor(
       public afs: AngularFirestore,
@@ -17,18 +17,20 @@ export class AuthService {
       public router: Router,
       public ngZone: NgZone
   ) {
-      this.afAuth.authState.subscribe(user => {
-          if (user) {
-              this.userData = user;
-              localStorage.setItem('user', JSON.stringify(this.userData));
-              JSON.parse(localStorage.getItem('user'));
+      this.afAuth.authState.subscribe(worker => {
+          if (worker) {
+              this.workerData = worker;
+              localStorage.setItem('workers', JSON.stringify(this.workerData));
+              JSON.parse(localStorage.getItem('workers'));
           } else {
-              localStorage.setItem('user', null);
-              JSON.parse(localStorage.getItem('user'));
+              localStorage.setItem('workers', null);
+              JSON.parse(localStorage.getItem('workers'));
           }
       })
   }
+  
   SignIn(email, password) {
+    console.log(this.workerData)
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((result) => {
           this.ngZone.run(() => {
@@ -39,13 +41,14 @@ export class AuthService {
           window.alert(error.message)
         })
   }
-  SignUp(email, password, usrname, job, id, mobile) {
+
+  SignUp(email, password, workername, job, id, mobile) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
       this.SendVerificationMail();
-          const userData: User = {
+          const workerData: Worker = {
             uid: result.user.uid,
-            username: usrname,
+            workername: workername,
             idNumber: id,
             email: email,
             emailVerified: result.user.emailVerified,
@@ -53,7 +56,7 @@ export class AuthService {
             mobile: mobile,
           }
             console.log(mobile);
-      this.SetUserData(userData);
+      this.SetWorkerData(workerData);
     }).catch((error) => {
       window.alert(error.message)
             console.log(error)
@@ -74,8 +77,8 @@ export class AuthService {
         })
   }
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    const worker = JSON.parse(localStorage.getItem('workers'));
+    return (worker !== null && worker.emailVerified !== false) ? true : false;
   }
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
@@ -86,20 +89,20 @@ export class AuthService {
           this.ngZone.run(() => {
             this.router.navigate(['home']);
           })
-          this.SetUserData(result.user);
+          this.SetWorkerData(result.user);
         }).catch((error) => {
           window.alert(error)
         })
   }
-  SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    return userRef.set(user, {
+  SetWorkerData(worker) {
+    const workerRef: AngularFirestoreDocument<any> = this.afs.doc(`workers/${worker.uid}`);
+    return workerRef.set(worker, {
       merge: true
     })
   }
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
+      localStorage.removeItem('worker');
       this.router.navigate(['sign-in']);
     })
   }

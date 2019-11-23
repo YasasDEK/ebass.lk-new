@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Signup } from './signup.model';
+import { About } from './about.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SignupService {
-  fromData: Signup
+export class AboutService {
+  fromData: About
 
   constructor() { }
 }
