@@ -27,6 +27,7 @@ import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
 import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
 import { ExamplesuModule } from './examplesu/examplesu.module';
 import { AuthuService } from './examplesu/servicesu/authu.service';
+import { VerifyEmailuComponent } from './examplesu/verify-emailu/verify-emailu.component';
 
 import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
 
@@ -53,7 +54,8 @@ var firebaseConfig = {
     SignUpuComponent,
     SignInuComponent,
     ForgotPassworduComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    VerifyEmailuComponent
   ],
   imports: [
     BrowserModule,

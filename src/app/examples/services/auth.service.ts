@@ -37,18 +37,28 @@ export class AuthService {
   }
 
   SignIn(email, password) {
-    // this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
-    // console.log("value : " + this.value.email);
-    console.log(this.workerData)
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['home']);
-        });
-        //      this.SetUserData(this.userData);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+    this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
+    this.value.subscribe(data => {
+      this.datas = data;
+      console.log(this.datas[0].uid);
+    });
+
+    if (this.datas[0].jobType == 'mason' || this.datas[0].jobType == 'painter' || this.datas[0].jobType == 'electrician' || this.datas[0].jobType == 'plumber' || this.datas[0].jobType == 'carpener' || this.datas[0].jobType == 'repair') {
+      // console.log(this.workerData.idNumber)
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then((result) => {
+          this.ngZone.run(() => {
+            window.alert("worker")
+            this.router.navigate(['home']);
+          });
+          //      this.SetUserData(this.userData);
+        }).catch((error) => {
+          window.alert(error.message)
+        })
+    }
+    else {
+      window.alert("Invalid User")
+    }
   }
 
   SignUp(email, password, workername, job, id, mobile) {
@@ -145,3 +155,4 @@ interface Item {
   jobType?: string;
   mobile?: string;
 }
+

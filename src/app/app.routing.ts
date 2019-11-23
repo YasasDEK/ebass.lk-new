@@ -23,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
 import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
+import { VerifyEmailuComponent } from './examplesu/verify-emailu/verify-emailu.component';
 
 import { ReglogComponent } from './examples/reglog/reglog.component';
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'signinu', component: SignInuComponent },
   { path: 'profileu/:uid', component: ProfileuComponent },
   { path: 'verify', component: VerifyEmailComponent },
+  { path: 'verifyu', component: VerifyEmailuComponent }
 ];
 
 @NgModule({
