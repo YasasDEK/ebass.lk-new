@@ -21,6 +21,8 @@ import { ElectriciansComponent } from './electricians/electricians.component';
 import { PlumbersComponent } from './plumbers/plumbers.component';
 import { RatingComponent } from './rating/rating.component';
 import { AboutComponent } from './about/about.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { ShopsComponent } from './shops/shops.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { AboutComponent } from './about/about.component';
         ElectriciansComponent,
         PlumbersComponent,
         RatingComponent,
-        AboutComponent
+        AboutComponent,
+        CompaniesComponent,
+        ShopsComponent
 
     ],
     entryComponents: [NgbdModalContent],

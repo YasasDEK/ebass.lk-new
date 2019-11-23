@@ -26,6 +26,8 @@ import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-pa
 import { ProfileuComponent } from './examplesu/profileu/profileu.component';
 import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
+import { ShopsComponent } from './components/shops/shops.component';
+import { CompaniesComponent } from './components/companies/companies.component';
 
 
 const routes: Routes = [
@@ -53,6 +55,9 @@ const routes: Routes = [
     { path: 'signupu',           component: SignUpuComponent },
     { path: 'signinu',            component: SignInuComponent },
     { path: 'profileu/:uid',      component: ProfileuComponent },
+    { path: 'shops',           component: ShopsComponent },
+    { path: 'companies',            component: CompaniesComponent },
+
 ];
 
 @NgModule({
