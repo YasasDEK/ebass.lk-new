@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { SignupService } from './signup.service';
+import { AuthService } from './examples/services/auth.service';
 import { NgModule, RootRenderer } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +15,17 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { SignUpComponent } from './examples/sign-up/sign-up.component';
+import { SignInComponent } from './examples/sign-in/sign-in.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ForgotPasswordComponent } from './examples/forgot-password/forgot-password.component';
+import { SearchComponent } from './search/search.component';
 
+import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
+import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
+import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
+import { ExamplesuModule } from './examplesu/examplesu.module';
+import { AuthuService } from './examplesu/servicesu/authu.service';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -31,7 +41,14 @@ var firebaseConfig = {
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    SearchComponent,
+    SignUpuComponent,
+    SignInuComponent,
+    ForgotPassworduComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +61,11 @@ var firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ExamplesuModule,
+    AngularFireAuthModule
   ],
-  providers: [SignupService , ItemService],
+  providers: [ItemService, AuthService, AuthuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
