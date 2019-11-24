@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   SignIn(email, password) {
-    this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
+    this.value = this.afs.collection('workers' || 'users', ref => ref.where('email', '==', email)).valueChanges();
     this.value.subscribe(data => {
       this.datas = data;
       console.log(this.datas[0].uid);
