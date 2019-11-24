@@ -32,6 +32,9 @@ import { ProfileuComponent } from './examplesu/profileu/profileu.component';
 import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
 
+import { ShopsComponent } from './components/shops/shops.component';
+import { CompaniesComponent } from './components/companies/companies.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -62,6 +65,8 @@ const routes: Routes = [
   { path: 'signinu', component: SignInuComponent },
   { path: 'profileu/:uid', component: ProfileuComponent },
   { path: 'verify', component: VerifyEmailComponent },
+  { path: 'shops', component: ShopsComponent },
+  { path: 'companies', component: CompaniesComponent },
   { path: 'verifyu', component: VerifyEmailuComponent }
 ];
 

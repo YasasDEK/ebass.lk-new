@@ -31,6 +31,9 @@ import { VerifyEmailuComponent } from './examplesu/verify-emailu/verify-emailu.c
 
 import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
 
+import { ShopsComponent } from './components/shops/shops.component';
+import { CompaniesComponent } from './components/companies/companies.component';
+
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
   authDomain: "ebass-892f9.firebaseapp.com",
@@ -44,6 +47,8 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    ShopsComponent,
+    CompaniesComponent,
     NavbarComponent,
     FooterComponent,
     SignInComponent,
