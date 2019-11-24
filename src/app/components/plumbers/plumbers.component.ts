@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ItemService} from '../../services/item.service';
+import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-plumbers',
@@ -8,12 +8,16 @@ import {ItemService} from '../../services/item.service';
 })
 export class PlumbersComponent implements OnInit {
   plumbers: Item[];
+  isReceived: boolean = false;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getPlumber().subscribe(plumber => {
       this.plumbers = plumber;
+      this.isReceived = true;
+
+
     });
   }
 

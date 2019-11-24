@@ -1,0 +1,380 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <!-- <a class="dropdown-item" [routerLink]="['/login']">Log-in</a> -->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<br><br><br><br><br>
+
+
+<div *ngIf="datas?.length > 0; else noItems">
+  <div *ngFor="let data of datas">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+          <ngb-tab title="Home">
+            <ng-template ngbTabContent>
+
+              <div class="container-fluid mt--7">
+                <div class="row">
+                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-12 order-lg-2">
+                          <div class="card-profile-image">
+                            <a href="javascript:void(0)">
+                              <br>
+                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200"
+                                height="200">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                        </div>
+                      </div>
+                      <div class="card-body pt-0 pt-md-4">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+                              <div>
+                                <span class="heading">8.7 </span>
+                                <span class="description"> Rating </span>
+                              </div>
+                              <div>
+                                <span class="heading"> Yes </span>
+                                <span class="description"> Available </span>
+                              </div>
+                              <div>
+                                <span class="heading"> 89 </span>
+                                <span class="description"> Comments </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h3>
+                            yasas ekanayake<span class="font-weight-light">, 27</span>
+                          </h3>
+                          <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>angoda, Colombo
+                          </div>
+                          <div class="h5 mt-4">
+                            <i class="ni business_briefcase-24 mr-2"></i>Mason
+                          </div>
+                          <div>
+                            <i class="ni education_hat mr-2"></i> CATEGORY
+                          </div>
+                          <hr class="my-4" />
+                          <p>Description About Worker</p>
+                          <a href="javascript:void(0)">Show more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-xl-8 order-xl-1">
+                    <div class="card bg-secondary shadow">
+                      <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                          <div class="col-8">
+                            <h3 class="mb-0">Worker Profile</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <form>
+                          <h6 class="heading-small text-muted mb-4">User information</h6>
+                          <div class="pl-lg-4">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-username">id</label>
+                                  <input type="text" id="input-username" class="form-control form-control-alternative"
+                                    placeholder="Username" value={{data.id}}>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-email">mail</label>
+                                  <input type="email" id="input-email" class="form-control form-control-alternative"
+                                    placeholder={{data.mail}}>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-first-name">First name</label>
+                                  <input type="text" id="input-first-name" class="form-control form-control-alternative"
+                                    placeholder="First name" value={{data.username}}>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-last-name">Last name</label>
+                                  <input type="text" id="input-last-name" class="form-control form-control-alternative"
+                                    placeholder="Last name" value="ekanayke">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr class="my-4" />
+                          <!-- Address -->
+                          <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                          <div class="pl-lg-4">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-address">Address</label>
+                                  <input id="input-address" class="form-control form-control-alternative"
+                                    placeholder="Home Address" value="bbdfdbfbf,vrsdvd,vsdvsdvsd,vdv" type="text">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-city">City</label>
+                                  <input type="text" id="input-city" class="form-control form-control-alternative"
+                                    placeholder="City" value="angoda">
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-country">Age</label>
+                                  <input type="text" id="input-country" class="form-control form-control-alternative"
+                                    placeholder="Country" value="40">
+                                </div>
+                              </div>
+                              <div class="col-lg-4">
+                                <div class="form-group">
+                                  <label class="form-control-label" for="input-country">Mobile Number</label>
+                                  <input type="number" id="text" class="form-control form-control-alternative"
+                                    placeholder="07756415563">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr class="my-4" />
+                          <!-- Description -->
+                          <h6 class="heading-small text-muted mb-4">About me</h6>
+                          <div class="pl-lg-4">
+                            <div class="form-group">
+                              <label>About Me</label>
+                              <textarea rows="4" class="form-control form-control-alternative"
+                                placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div *ngIf="ids?.length > 0; else noItems">
+                        <div class="container" style="margin-top: 70px">
+                          <table class="table table-hover">
+                            <thead>
+                            <tr>
+                              <th>#</th>
+                             
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let id of ids">
+                      
+                              <td>{{ id.firstname }}</td>
+                              
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        </div>-->
+
+
+                </div>
+              </div>
+
+
+
+
+
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Profile">
+            <ng-template ngbTabContent>
+              <div class="container-fluid mt--7">
+                <div class="row">
+                  <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-12 order-lg-2">
+                          <div class="card-profile-image">
+                            <a href="javascript:void(0)">
+                              <br>
+                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200"
+                                height="200">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                        </div>
+                      </div>
+                      <div class="card-body pt-0 pt-md-4">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+                              <div>
+                                <span class="heading">8.7 </span>
+                                <span class="description"> Rating </span>
+                              </div>
+                              <div>
+                                <span class="heading"> Yes </span>
+                                <span class="description"> Available </span>
+                              </div>
+                              <div>
+                                <span class="heading"> 89 </span>
+                                <span class="description"> Comments </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h3>
+                            yasas ekanayake<span class="font-weight-light">, 27</span>
+                          </h3>
+                          <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>angoda, Colombo
+                          </div>
+                          <div class="h5 mt-4">
+                            <i class="ni business_briefcase-24 mr-2"></i>Mason
+                          </div>
+                          <div>
+                            <i class="ni education_hat mr-2"></i> CATEGORY
+                          </div>
+                          <hr class="my-4" />
+                          <p>Description About Worker</p>
+                          <a href="javascript:void(0)">Show more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="Messages">
+            <ng-template ngbTabContent>
+              <div class="container-fluid mt--7">
+                <div class="row">
+                  <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-12 order-lg-2">
+                          <div class="card-profile-image">
+                            <a href="javascript:void(0)">
+                              <br>
+                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="200"
+                                height="200">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                        </div>
+                      </div>
+                      <div class="card-body pt-0 pt-md-4">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+                              <div>
+                                <span class="heading">8.7 </span>
+                                <span class="description"> Rating </span>
+                              </div>
+                              <div>
+                                <span class="heading"> Yes </span>
+                                <span class="description"> Available </span>
+                              </div>
+                              <div>
+                                <span class="heading"> 89 </span>
+                                <span class="description"> Comments </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h3>
+                            yasas ekanayake<span class="font-weight-light">, 27</span>
+                          </h3>
+                          <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>angoda, Colombo
+                          </div>
+                          <div class="h5 mt-4">
+                            <i class="ni business_briefcase-24 mr-2"></i>Mason
+                          </div>
+                          <div>
+                            <i class="ni education_hat mr-2"></i> CATEGORY
+                          </div>
+                          <hr class="my-4" />
+                          <p>Description About Worker</p>
+                          <a href="javascript:void(0)">Show more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+    </div>
+  </div>
+</div>

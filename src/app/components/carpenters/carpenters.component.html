@@ -1,58 +1,85 @@
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
   <div class="container">
-      
-      <div class="navbar-translate">
-          <div class="avatar">
-              <a class="navbar-brand" href="http://localhost:4200">                        
-                  <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive" width="60">
-              </a>
-          </div>
-      </div>
 
-      <div class="navbar-translate">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link" ><i class="nc-icon nc-shop" aria-hidden="true"></i>&nbsp;Home</a>
-              </li>
-              
-          </ul>   
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
       </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </nav>
+<br><br><br><br><br>
 
 <!--page-->
-<div class="container">
-  <div *ngIf="carpenters?.length > 0; else noItems">
-    <div class="container" style="margin-top: 70px;">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let carpenter of carpenters">
-  
-          <td>{{ carpenter.id }}</td>
-          <td> {{ carpenter.firstname }}</td>
-          <td> {{ carpenter.land }}</td>
-          <td>
-            <button class="btn btn-primary" > Show details</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-  
+<div *ngIf="carpenters?.length > 0; else noItems">
+  <div class="container" style="margin-top: 5px">
+
+    <div class="row" *ngIf="isReceived">
+      <div class="col-md-3" *ngFor="let carpenter of carpenters">
+        <div class="card card-profile shadow">
+
+          <div class="card-profile-image">
+            <a href="javascript:void(0)">
+              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150" height="150">
+            </a>
+          </div>
+
+          <div class="card-body pt-10">
+            <div class="text-center">
+              <h3>
+                {{ carpenter.workername }}<span class="font-weight-light">, 27</span>
+              </h3>
+              <div class="h5 font-weight-300">
+                <i class="ni location_pin mr-2"></i>{{ carpenter.email }}
+              </div>
+              <div class="h5 mt-4">
+                <i class="ni business_briefcase-24 mr-2"></i>carpenter
+              </div>
+              <div>
+                <i class="ni education_hat mr-2"></i> CATEGORY
+              </div>
+              <hr class="my-4" />
+              <p>Description About Worker</p>
+              <a [routerLink]="['/profile',carpenter.uid]" class="btn btn-primary">Show details</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--test over-->
+
     </div>
+    <!--</tbody>
+    </table>-->
   </div>
-  
-  <ng-template #noItems>-->
-    <hr>
-    <h1>There is no items</h1>
-  </ng-template>
-  </div>
+</div>
+
+
+
+<ng-template #noItems *ngIf="!isReceived">
+  <hr>
+  <h1>There is no items</h1>
+</ng-template>

@@ -1,5 +1,5 @@
 <p *ngFor="let alert of alerts">
-    <ngb-alert [type]="alert.type"  [dismissible]="false">
+    <ngb-alert [type]="alert.type" [dismissible]="false">
         <div class="container">
             <ng-container *ngIf="alert.icon">
                 <i class="nc-icon {{alert.icon}}"></i>

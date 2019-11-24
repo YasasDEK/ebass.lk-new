@@ -1,0 +1,124 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<br><br><br><br><br>
+
+<div class="content-center">
+  <div class="container">
+    <div class="title-brand">
+      <!--<div class="angular-logo">
+                        <img src="assets/img/angular2-logo.png" alt="">
+                    </div>-->
+      <!-- <h2 class="presentation-title">E-බාස්.lk</h2> -->
+      <!--<div class="fog-low">
+                        <img src="assets/img/fog-low.png" alt="">
+                    </div>
+                    <div class="fog-low right">
+                        <img src="assets/img/fog-low.png" alt="">
+                    </div>-->
+    </div>
+
+    <h3 class="presentation-subtitle text-center">The best place to find a worker</h3>
+    <br>
+
+    <!--search bar-->
+    <label>Search</label>
+    <!-- <section class="section section-lg section-hero section-shaped"> -->
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername"
+            (change)="filterName('workername', workername)">
+        </div>
+
+        <br>
+
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType"
+            (change)="filterArea('jobType', jobType)">
+        </div>
+        <br>
+
+        <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
+          (click)="send2()">Sort high to low</button>
+      </div>
+    </div>
+    <!-- </section> -->
+
+    <div class="row">
+      <div class="col-md-6" *ngFor="let results of filteredNames">
+        <div class="card shadow shadow-lg--hover mt-5">
+          <div class="card-body">
+            <div class="d-flex px-3">
+              <div>
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                  <i class="ni ni-satisfied"></i>
+                </div>
+              </div>
+
+              <div>
+                <img src="./assets/img/faces/logo.jpg"
+                  class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
+                  style="width: 150px; height: 150px;">
+              </div>
+
+              <div class="pl-5">
+                <h5 class="title text-success">Name: {{results.workername}}</h5>
+                <div class="row align-items-center justify-content-center">
+                  <div>
+                    <h6>Name: {{results.workername}}</h6>
+                    <h6>Job: {{results.jobType}}</h6>
+                    <a [routerLink]="['/profile',results.uid]" class="text-warning">Learn more</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end of the search bar-->
+  </div>
+</div>
+<!-- </div> -->
