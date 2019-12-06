@@ -30,7 +30,7 @@
 
   </div>
 </nav>
-<br><br><br><br><br><br>
+<br><br><br><br><br>
 
 <div *ngIf="datas?.length > 0; else noItems">
   <div *ngFor="let data of datas">
@@ -59,7 +59,8 @@
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
                         <div class="d-flex justify-content-between">
                           <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-4">Message</a>
+                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-default float-right">Update</button>
                         </div>
                       </div>
                       <div class="card-body pt-4">
@@ -143,235 +144,6 @@
           <ngb-tab title="Schedule">
             <ng-template ngbTabContent>
 
-              <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
-                id="bootstrap-css">
-              <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-              <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-              <!------ Include the above in your HEAD tag ---------->
-
-              <h1 class="title text-center"> November 2019 </h1>
-              <div class="calendar" data-toggle="calendar">
-                <div class="row">
-                  <div class="col-xs-12 calendar-day calendar-no-current-month">
-                    <time datetime="2014-06-29">29</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day calendar-no-current-month">
-                    <time datetime="2014-06-30">30</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-01">01</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-02">02</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-03">03</time>
-                    <div class="events">
-                      <div class="event">
-                        <h4>Mid Day Dance Break - SELF CARE</h4>
-                        <div class="desc">
-                          <p>Take a Break and enjoy</p>
-                          <p>Support for this program is provided in part from an Erie Arts & Culture Project Grant,
-                            made possible by community contributions to the Combined Arts & Cultural Campaign and the
-                            Erie Arts Endowment.</p>
-                        </div>
-                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> State St and Rt 5,
-                          Erie, Pa.</div>
-                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 12:00am - 1:00pm</div>
-                        <div class="attending">
-                          <img src="http://api.randomuser.me/portraits/women/54.jpg" />
-                          <img src="http://api.randomuser.me/portraits/men/27.jpg" />
-                          <img src="http://api.randomuser.me/portraits/men/61.jpg" />
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0"
-                            aria-valuemax="134" style="width: 4.477%;">
-                            <span class="sr-only">4.477% Filled</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-04">04</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-05">05</time>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-06">06</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-07">07</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-08">08</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-09">09</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-10">10</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-11">11</time>
-                    <div class="events">
-                      <div class="event">
-                        <h4>Local artist showing, meet and greet and feature film</h4>
-                        <div class="desc">
-                          <p>We will be showing local artists films on our new 16 foot movie screen with feature film
-                            last "Carnival Of Souls", come see the new BT, hang out and socialize while enjoying some
-                            local talent. FREE event, suggested $2 or $3 donation. Concessions, popcorn, soda etc
-                            available so come hungry!!</p>
-                          <p>*This event is all ages welcomed and also handicapped accessible (side entrance ramp)</p>
-                          <p>Featuring :</p>
-                          <ul>
-                            <li><a href="https://www.youtube.com/user/walrys11/videos">Jack Rys</a></li>
-                            <li><a href="http://society6.com/wombglow">Alex Wilson</a></li>
-                            <li><a href="http://www.erieartcompany.com/">Brad Ford</a></li>
-                            <li><a href="http://www.youtube.com/watch?v=dkTz0EvfEiY">Carnival of Souls</a> (Trailer)
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> 145 West 11th
-                          Street, Erie, Pa.</div>
-                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 7:00pm - ?</div>
-                        <div class="attending">
-                          <img src="http://api.randomuser.me/portraits/women/31.jpg" />
-                          <img src="http://api.randomuser.me/portraits/women/47.jpg" />
-                          <img src="http://api.randomuser.me/portraits/women/93.jpg" />
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="43" aria-valuemin="0"
-                            aria-valuemax="368" style="width: 11.68%;">
-                            <span class="sr-only">11.68% Filled</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-12">12</time>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-13">13</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-14">14</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-15">15</time>
-                    <div class="events">
-                      <div class="event">
-                        <h4>Erie Art Museum 91st Annual Spring Show</h4>
-                        <div class="desc">
-                          <p>This juried, regional multi-media exhibition, open to all artists living within a 250-mile
-                            radius of Erie represents all media and showcases the most current and finest artwork
-                            created in the area.</p>
-                        </div>
-                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> Presque Isle State
-                          Park </div>
-                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> ALL DAY</div>
-                        <div class="attending">
-                          <img src="http://api.randomuser.me/portraits/men/10.jpg" />
-                          <img src="http://api.randomuser.me/portraits/men/23.jpg" />
-                          <img src="http://api.randomuser.me/portraits/men/66.jpg" />
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="69" aria-valuemin="0"
-                            aria-valuemax="320" style="width: 21.56%;">
-                            <span class="sr-only">21.56% Filled</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-16">16</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-17">17</time>>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-18">18</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-19">19</time>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-20">20</time>
-                    <div class="events">
-                      <div class="event">
-                        <h4>Build a Wall</h4>
-                        <div class="desc">
-                          <p style="text-align:center;"><br />
-
-                        </div>
-                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> Erie, Pa </div>
-                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 10:00pm - 2:00am </div>
-                        <div class="attending">
-                          <img
-                            src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfa1/t1.0-9/417157_4897339837183_626079670_n.jpg" />
-                        </div>
-                        <div class="progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0"
-                            aria-valuemax="336" style="width: 0.29%;">
-                            <span class="sr-only">0.29% Filled</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-21">21</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-22">22</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-23">23</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-24">24</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-25">25</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-26">26</time>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-27">27</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-28">28</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-29">29</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-30">30</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day">
-                    <time datetime="2014-07-31">31</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day calendar-no-current-month">
-                    <time datetime="2014-08-01">01</time>
-                  </div>
-                  <div class="col-xs-12 calendar-day calendar-no-current-month">
-                    <time datetime="2014-08-02">02</time>
-                  </div>
-                </div>
-              </div>
-
             </ng-template>
           </ngb-tab>
 
@@ -397,14 +169,14 @@
                               <div class="form-group">
                                 <label class="form-control-label" for="input-username">id</label>
                                 <input type="text" id="input-username" class="form-control form-control-alternative"
-                                  placeholder="Username" value="">
+                                  placeholder="Username" value="yasas.ekanayeke">
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-email">Email address</label>
                                 <input type="email" id="input-email" class="form-control form-control-alternative"
-                                  placeholder="">
+                                  placeholder="cdcdcc@example.com">
                               </div>
                             </div>
                           </div>
@@ -413,14 +185,14 @@
                               <div class="form-group">
                                 <label class="form-control-label" for="input-first-name">First name</label>
                                 <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                                  placeholder="First name" value="">
+                                  placeholder="First name" value="yasas">
                               </div>
                             </div>
                             <div class="col-lg-6">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-last-name">Last name</label>
                                 <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                                  placeholder="Last name" value="">
+                                  placeholder="Last name" value="ekanayke">
                               </div>
                             </div>
                           </div>
@@ -433,7 +205,7 @@
                               <div class="form-group">
                                 <label class="form-control-label" for="input-address">Address</label>
                                 <input id="input-address" class="form-control form-control-alternative"
-                                  placeholder="Home Address" value="" type="text">
+                                  placeholder="Home Address" value="bbdfdbfbf,vrsdvd,vsdvsdvsd,vdv" type="text">
                               </div>
                             </div>
                           </div>
@@ -442,21 +214,21 @@
                               <div class="form-group">
                                 <label class="form-control-label" for="input-city">City</label>
                                 <input type="text" id="input-city" class="form-control form-control-alternative"
-                                  placeholder="City" value="">
+                                  placeholder="City" value="angoda">
                               </div>
                             </div>
                             <div class="col-lg-4">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-country">Age</label>
                                 <input type="text" id="input-country" class="form-control form-control-alternative"
-                                  placeholder="Country" value="">
+                                  placeholder="Country" value="40">
                               </div>
                             </div>
                             <div class="col-lg-4">
                               <div class="form-group">
                                 <label class="form-control-label" for="input-country">Mobile Number</label>
                                 <input type="number" id="text" class="form-control form-control-alternative"
-                                  placeholder="">
+                                  placeholder="07756415563">
                               </div>
                             </div>
                           </div>
@@ -467,7 +239,7 @@
                           <div class="form-group">
                             <label>About Me</label>
                             <textarea rows="4" class="form-control form-control-alternative"
-                              placeholder="A few words about you ..."></textarea>
+                              placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
                           </div>
                         </div>
 
@@ -484,8 +256,9 @@
             <ng-template ngbTabContent>
 
               <div class="container">
+
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-sm-3">
                     <div class="rating-block">
                       <h4>Average user rating</h4>
                       <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
@@ -545,20 +318,7 @@
                           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3"
                             aria-valuemin="0" aria-valuemax="5" style="width: 60%">
                             <span class="sr-only">80% Complete (danger)</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="pull-right" style="margin-left:10px;">0</div>
-                    </div>
-                    <div class="pull-left">
-                      <div class="pull-left" style="width:35px; line-height:1;">
-                        <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
-                      </div>
-                      <div class="pull-left" style="width:180px;">
-                        <div class="progress" style="height:9px; margin:8px 0;">
-                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2"
-                            aria-valuemin="0" aria-valuemax="5" style="width: 40%">
-                            <span class="sr-only">80% Complete (danger)</span>
+
                           </div>
                         </div>
                       </div>
@@ -579,10 +339,11 @@
                       <div class="pull-right" style="margin-left:10px;">0</div>
                     </div>
                   </div>
+                </div>
 
 
-
-                  <div class="col-md-6">
+                <div class="row">
+                  <div class="col-sm-7">
                     <hr />
                     <div class="review-block">
                       <div class="row">
@@ -679,8 +440,8 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
+
               </div>
 
             </ng-template>

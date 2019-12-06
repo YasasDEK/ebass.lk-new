@@ -22,18 +22,13 @@ import { RatingComponent } from './components/rating/rating.component';
 import { AboutComponent } from './components/about/about.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
-import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
-import { VerifyEmailuComponent } from './examplesu/verify-emailu/verify-emailu.component';
-
 import { ReglogComponent } from './examples/reglog/reglog.component';
 
 import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
 import { ProfileuComponent } from './examplesu/profileu/profileu.component';
 import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
-
-import { ShopsComponent } from './components/shops/shops.component';
-import { CompaniesComponent } from './components/companies/companies.component';
+import {UpdateworkerComponent} from './examples/updateworker/updateworker.component';
 
 
 const routes: Routes = [
@@ -44,6 +39,7 @@ const routes: Routes = [
   //     { path: 'profile/:id',      component: ProfileComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'profile/:uid', component: ProfileComponent },
+  { path: 'update/:uid', component: UpdateworkerComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'nucleoicons', component: NucleoiconsComponent },
   { path: 'masons', component: MasonsComponent },
@@ -64,10 +60,6 @@ const routes: Routes = [
   { path: 'signupu', component: SignUpuComponent },
   { path: 'signinu', component: SignInuComponent },
   { path: 'profileu/:uid', component: ProfileuComponent },
-  { path: 'verify', component: VerifyEmailComponent },
-  { path: 'shops', component: ShopsComponent },
-  { path: 'companies', component: CompaniesComponent },
-  { path: 'verifyu', component: VerifyEmailuComponent }
 ];
 
 @NgModule({
