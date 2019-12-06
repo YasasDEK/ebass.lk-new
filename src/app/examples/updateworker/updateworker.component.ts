@@ -33,9 +33,10 @@ export class UpdateworkerComponent implements OnInit {
     return this.data;
   }
   onUpdate(exampleForm: NgForm) {
-    console.log(exampleForm);
-
-}
+    console.log(exampleForm.value.fullname);
+    this.ebass.doc('workers/' + exampleForm.value.uid).update(exampleForm.value);
+    this.router.navigateByUrl('/profile/' + exampleForm.value.uid);
+  }
   delete(id) {
      this.ebass.doc('workers/' + id).update({'status': false});
      alert('Deleted');
