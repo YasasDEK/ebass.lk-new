@@ -1,0 +1,699 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <!-- <button type="button" [routerLink]="['/booking']" class="btn btn-danger">BOOK WORKER</button> -->
+          <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+        <li class="nav-item">
+          <!-- <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+            </div>
+          </div> -->
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<br><br><br><br><br><br>
+
+<div *ngIf="datas?.length > 0; else noItems">
+  <div *ngFor="let data of datas">
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+          <ngb-tab title="Home">
+            <ng-template ngbTabContent>
+
+              <div class="container-fluid mt--7">
+                <div class="row">
+                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-12 order-lg-2">
+                          <div class="card-profile-image">
+                            <a href="javascript:void(0)">
+                              <br>
+                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150"
+                                height="150">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+                        </div>
+                      </div>
+                      <div class="card-body pt-4">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-profile-stats d-flex justify-content-center mt-md-2">
+
+                              <div>
+                                <span class="heading">8.7 </span>
+                                <span class="description"> Rating </span>
+                              </div>
+                              <div>
+                                <span class="heading"> Yes </span>
+                                <span class="description"> Available </span>
+                              </div>
+                              <div>
+                                <span class="heading"> 89 </span>
+                                <span class="description"> Comments </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h3>
+                            {{data.workername}}<span class="font-weight-light">, 27</span>
+                          </h3>
+                          <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>{{data.email}}
+                          </div>
+                          <div class="h5 mt-4">
+                            <i class="ni business_briefcase-24 mr-2"></i>Mason
+                          </div>
+                          <div>
+                            <i class="ni education_hat mr-2"></i> CATEGORY
+                          </div>
+                          <hr class="my-4" />
+                          <p>Description About Worker</p>
+                          <a href="javascript:void(0)">Show more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-8">
+                    <div class="section" id="carousel">
+                      <div class="container">
+                        <div class="tim-title">
+                          <h3>My Work</h3>
+                        </div>
+                        <div class="card page-carousel">
+                          <ngb-carousel>
+                            <ng-template ngbSlide>
+                              <img src="./assets/img/x.jpg" alt="Random first slide">
+                              <div class="carousel-caption">
+                                <p>Somewhere</p>
+                              </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                              <img src="./assets/img/y.jpg" alt="Random second slide">
+                              <div class="carousel-caption">
+                                <p>Somewhere else</p>
+                              </div>
+                            </ng-template>
+                            <ng-template ngbSlide>
+                              <img src="./assets/img/w.jpg" alt="Random third slide">
+                              <div class="carousel-caption">
+                                <p>Here it is</p>
+                              </div>
+                            </ng-template>
+                          </ngb-carousel>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+
+          <ngb-tab title="Schedule">
+            <ng-template ngbTabContent>
+
+              <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"
+                id="bootstrap-css">
+              <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+              <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+              <!------ Include the above in your HEAD tag ---------->
+
+              <h1 class="title text-center"> November 2019 </h1>
+              <div class="calendar" data-toggle="calendar">
+                <div class="row">
+                  <div class="col-xs-12 calendar-day calendar-no-current-month">
+                    <time datetime="2014-06-29">29</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day calendar-no-current-month">
+                    <time datetime="2014-06-30">30</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-01">01</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-02">02</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-03">03</time>
+                    <div class="events">
+                      <div class="event">
+                        <h4>Mid Day Dance Break - SELF CARE</h4>
+                        <div class="desc">
+                          <p>Take a Break and enjoy</p>
+                          <p>Support for this program is provided in part from an Erie Arts & Culture Project Grant,
+                            made possible by community contributions to the Combined Arts & Cultural Campaign and the
+                            Erie Arts Endowment.</p>
+                        </div>
+                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> State St and Rt 5,
+                          Erie, Pa.</div>
+                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 12:00am - 1:00pm</div>
+                        <div class="attending">
+                          <img src="http://api.randomuser.me/portraits/women/54.jpg" />
+                          <img src="http://api.randomuser.me/portraits/men/27.jpg" />
+                          <img src="http://api.randomuser.me/portraits/men/61.jpg" />
+                        </div>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="6" aria-valuemin="0"
+                            aria-valuemax="134" style="width: 4.477%;">
+                            <span class="sr-only">4.477% Filled</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-04">04</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-05">05</time>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-06">06</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-07">07</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-08">08</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-09">09</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-10">10</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-11">11</time>
+                    <div class="events">
+                      <div class="event">
+                        <h4>Local artist showing, meet and greet and feature film</h4>
+                        <div class="desc">
+                          <p>We will be showing local artists films on our new 16 foot movie screen with feature film
+                            last "Carnival Of Souls", come see the new BT, hang out and socialize while enjoying some
+                            local talent. FREE event, suggested $2 or $3 donation. Concessions, popcorn, soda etc
+                            available so come hungry!!</p>
+                          <p>*This event is all ages welcomed and also handicapped accessible (side entrance ramp)</p>
+                          <p>Featuring :</p>
+                          <ul>
+                            <li><a href="https://www.youtube.com/user/walrys11/videos">Jack Rys</a></li>
+                            <li><a href="http://society6.com/wombglow">Alex Wilson</a></li>
+                            <li><a href="http://www.erieartcompany.com/">Brad Ford</a></li>
+                            <li><a href="http://www.youtube.com/watch?v=dkTz0EvfEiY">Carnival of Souls</a> (Trailer)
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> 145 West 11th
+                          Street, Erie, Pa.</div>
+                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 7:00pm - ?</div>
+                        <div class="attending">
+                          <img src="http://api.randomuser.me/portraits/women/31.jpg" />
+                          <img src="http://api.randomuser.me/portraits/women/47.jpg" />
+                          <img src="http://api.randomuser.me/portraits/women/93.jpg" />
+                        </div>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="43" aria-valuemin="0"
+                            aria-valuemax="368" style="width: 11.68%;">
+                            <span class="sr-only">11.68% Filled</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-12">12</time>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-13">13</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-14">14</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-15">15</time>
+                    <div class="events">
+                      <div class="event">
+                        <h4>Erie Art Museum 91st Annual Spring Show</h4>
+                        <div class="desc">
+                          <p>This juried, regional multi-media exhibition, open to all artists living within a 250-mile
+                            radius of Erie represents all media and showcases the most current and finest artwork
+                            created in the area.</p>
+                        </div>
+                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> Presque Isle State
+                          Park </div>
+                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> ALL DAY</div>
+                        <div class="attending">
+                          <img src="http://api.randomuser.me/portraits/men/10.jpg" />
+                          <img src="http://api.randomuser.me/portraits/men/23.jpg" />
+                          <img src="http://api.randomuser.me/portraits/men/66.jpg" />
+                        </div>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="69" aria-valuemin="0"
+                            aria-valuemax="320" style="width: 21.56%;">
+                            <span class="sr-only">21.56% Filled</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-16">16</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-17">17</time>>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-18">18</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-19">19</time>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-20">20</time>
+                    <div class="events">
+                      <div class="event">
+                        <h4>Build a Wall</h4>
+                        <div class="desc">
+                          <p style="text-align:center;"><br />
+
+                        </div>
+                        <div class="location"> <span class="glyphicon glyphicon-map-marker"></span> Erie, Pa </div>
+                        <div class="datetime"> <span class="glyphicon glyphicon-time"></span> 10:00pm - 2:00am </div>
+                        <div class="attending">
+                          <img
+                            src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xfa1/t1.0-9/417157_4897339837183_626079670_n.jpg" />
+                        </div>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0"
+                            aria-valuemax="336" style="width: 0.29%;">
+                            <span class="sr-only">0.29% Filled</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-21">21</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-22">22</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-23">23</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-24">24</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-25">25</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-26">26</time>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-27">27</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-28">28</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-29">29</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-30">30</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day">
+                    <time datetime="2014-07-31">31</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day calendar-no-current-month">
+                    <time datetime="2014-08-01">01</time>
+                  </div>
+                  <div class="col-xs-12 calendar-day calendar-no-current-month">
+                    <time datetime="2014-08-02">02</time>
+                  </div>
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+
+
+          <ngb-tab title="Booking">
+            <ng-template ngbTabContent>
+              <div align="center">>
+                <div class="col-md-8 order-xl-1">
+                  <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                      <div class="row align-items-center">
+                        <div class="col-8">
+                          <h3>Booking Form</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <h6 class="heading-small text-muted mb-0">User information</h6>
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-username">id</label>
+                                <input type="text" id="input-username" class="form-control form-control-alternative"
+                                  placeholder="Username" value="">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-email">Email address</label>
+                                <input type="email" id="input-email" class="form-control form-control-alternative"
+                                  placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">First name</label>
+                                <input type="text" id="input-first-name" class="form-control form-control-alternative"
+                                  placeholder="First name" value="">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-last-name">Last name</label>
+                                <input type="text" id="input-last-name" class="form-control form-control-alternative"
+                                  placeholder="Last name" value="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-address">Address</label>
+                                <input id="input-address" class="form-control form-control-alternative"
+                                  placeholder="Home Address" value="" type="text">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-city">City</label>
+                                <input type="text" id="input-city" class="form-control form-control-alternative"
+                                  placeholder="City" value="">
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-country">Age</label>
+                                <input type="text" id="input-country" class="form-control form-control-alternative"
+                                  placeholder="Country" value="">
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-country">Mobile Number</label>
+                                <input type="number" id="text" class="form-control form-control-alternative"
+                                  placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">About me</h6>
+                        <div class="pl-lg-4">
+                          <div class="form-group">
+                            <label>About Me</label>
+                            <textarea rows="4" class="form-control form-control-alternative"
+                              placeholder="A few words about you ..."></textarea>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+
+
+          <ngb-tab title="Review">
+            <ng-template ngbTabContent>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="rating-block">
+                      <h4>Average user rating</h4>
+                      <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+                      <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+                      <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <h4>Rating breakdown</h4>
+                    <div class="pull-left">
+                      <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+                      </div>
+                      <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5"
+                            aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pull-right" style="margin-left:10px;">1</div>
+                    </div>
+                    <div class="pull-left">
+                      <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+                      </div>
+                      <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4"
+                            aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pull-right" style="margin-left:10px;">1</div>
+                    </div>
+                    <div class="pull-left">
+                      <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+                      </div>
+                      <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3"
+                            aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                    <div class="pull-left">
+                      <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+                      </div>
+                      <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2"
+                            aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                    <div class="pull-left">
+                      <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+                      </div>
+                      <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1"
+                            aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                            <span class="sr-only">80% Complete (danger)</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="col-md-6">
+                    <hr />
+                    <div class="review-block">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                          <div class="review-block-name"><a href="#">nktailor</a></div>
+                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="review-block-rate">
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="review-block-title">this was nice in buy</div>
+                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
+                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
+                            buy this was nice in buy</div>
+                        </div>
+                      </div>
+                      <hr />
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                          <div class="review-block-name"><a href="#">nktailor</a></div>
+                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="review-block-rate">
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="review-block-title">this was nice in buy</div>
+                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
+                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
+                            buy this was nice in buy</div>
+                        </div>
+                      </div>
+                      <hr />
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                          <div class="review-block-name"><a href="#">nktailor</a></div>
+                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="review-block-rate">
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="review-block-title">this was nice in buy</div>
+                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
+                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
+                            buy this was nice in buy</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+
+
+        </ngb-tabset>
+      </div>
+    </div>
+
+  </div>
+</div>
