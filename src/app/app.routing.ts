@@ -37,6 +37,13 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 
+// import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
+// import { ProfileuComponent } from './examplesu/profileu/profileu.component';
+// import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
+// import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
+import {UpdateworkerComponent} from './options/updateworker/updateworker.component';
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
@@ -45,6 +52,7 @@ const routes: Routes = [
   //     { path: 'profile/:id',      component: ProfileComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'profile/:uid', component: ProfileComponent },
+  { path: 'update/:uid', component: UpdateworkerComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'nucleoicons', component: NucleoiconsComponent },
   // { path: 'masons', component: MasonsComponent },
@@ -70,7 +78,12 @@ const routes: Routes = [
   { path: 'shops', component: ShopsComponent },
   { path: 'companies', component: CompaniesComponent },
   // { path: 'verifyu', component: VerifyEmailuComponent }
-  { path: 'categories/:job', component: CategoriesComponent }
+  { path: 'categories/:job', component: CategoriesComponent },
+  // { path: 'forgot-passwordu', component: ForgotPassworduComponent },
+  { path: 'reglog', component: ReglogComponent }
+  // { path: 'signupu', component: SignUpuComponent },
+  // { path: 'signinu', component: SignInuComponent },
+  // { path: 'profileu/:uid', component: ProfileuComponent },
 ];
 
 @NgModule({
