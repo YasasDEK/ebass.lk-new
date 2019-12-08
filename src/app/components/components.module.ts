@@ -13,14 +13,15 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalComponent } from './modal/modal.component';
 import { NgbdModalContent } from './modal/modal.component';
-import { CarpentersComponent } from './carpenters/carpenters.component';
-import { MasonsComponent } from './masons/masons.component';
-import { PaintersComponent } from './painters/painters.component';
-import { RepairsComponent } from './repairs/repairs.component';
-import { ElectriciansComponent } from './electricians/electricians.component';
-import { PlumbersComponent } from './plumbers/plumbers.component';
+// import { CarpentersComponent } from './carpenters/carpenters.component';
+// import { MasonsComponent } from './masons/masons.component';
+// import { PaintersComponent } from './painters/painters.component';
+// import { RepairsComponent } from './repairs/repairs.component';
+// import { ElectriciansComponent } from './electricians/electricians.component';
+// import { PlumbersComponent } from './plumbers/plumbers.component';
 import { RatingComponent } from './rating/rating.component';
 import { AboutComponent } from './about/about.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
@@ -41,15 +42,16 @@ import { AboutComponent } from './about/about.component';
         NotificationComponent,
         NgbdModalComponent,
         NgbdModalContent,
-        CarpentersComponent,
-        MasonsComponent,
-        PaintersComponent,
-        RepairsComponent,
-        ComponentsComponent,
-        ElectriciansComponent,
-        PlumbersComponent,
+        // CarpentersComponent,
+        // MasonsComponent,
+        // PaintersComponent,
+        // RepairsComponent,
+        // ComponentsComponent,
+        // ElectriciansComponent,
+        // PlumbersComponent,
         RatingComponent,
-        AboutComponent
+        AboutComponent,
+        CategoriesComponent
 
     ],
     entryComponents: [NgbdModalContent],
