@@ -27,12 +27,7 @@ import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
 import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
 import { ExamplesuModule } from './examplesu/examplesu.module';
 import { AuthuService } from './examplesu/servicesu/authu.service';
-import { VerifyEmailuComponent } from './examplesu/verify-emailu/verify-emailu.component';
-
-import { VerifyEmailComponent } from './examples/verify-email/verify-email.component';
-
-import { ShopsComponent } from './components/shops/shops.component';
-import { CompaniesComponent } from './components/companies/companies.component';
+import {UpdateworkerComponent} from './examples/updateworker/updateworker.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -47,8 +42,6 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    ShopsComponent,
-    CompaniesComponent,
     NavbarComponent,
     FooterComponent,
     SignInComponent,
@@ -59,8 +52,7 @@ var firebaseConfig = {
     SignUpuComponent,
     SignInuComponent,
     ForgotPassworduComponent,
-    VerifyEmailComponent,
-    VerifyEmailuComponent
+    UpdateworkerComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +70,6 @@ var firebaseConfig = {
     AngularFireAuthModule
   ],
   providers: [ItemService, AuthService, AuthuService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
