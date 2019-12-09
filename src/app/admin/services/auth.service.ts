@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Worker } from './worker';
+import { Admin } from './admin';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  workerData: any;
+  adminData: any;
   value;
   data: Observable<Item[]>;
   datas: Item[];
@@ -24,21 +24,21 @@ export class AuthService {
     public ngZone: NgZone,
     public _Activatedroute: ActivatedRoute
   ) {
-    this.afAuth.authState.subscribe(worker => {
-      if (worker) {
-        this.workerData = worker;
-        localStorage.setItem('workers', JSON.stringify(this.workerData));
-        JSON.parse(localStorage.getItem('workers'));
+    this.afAuth.authState.subscribe(admin => {
+      if (admin) {
+        this.adminData = admin;
+        localStorage.setItem('admins', JSON.stringify(this.adminData));
+        JSON.parse(localStorage.getItem('admins'));
       } else {
-        localStorage.setItem('workers', null);
-        JSON.parse(localStorage.getItem('workers'));
+        localStorage.setItem('admins', null);
+        JSON.parse(localStorage.getItem('admins'));
       }
     })
 
   }
 
   // Verify(email) {
-  //   this.value = this.afs.collection('workers' || 'users', ref => ref.where('email', '==', email)).valueChanges();
+  //   this.value = this.afs.collection('admins' || 'users', ref => ref.where('email', '==', email)).valueChanges();
   //   this.value.subscribe(data => {
   //     this.datas = data;
   //     this.num = this.datas[0].jobType;
@@ -60,14 +60,14 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          // this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
+          // this.value = this.afs.collection('admins', ref => ref.where('email', '==', email)).valueChanges();
           // this.value.subscribe(data => {
           //   this.datas = data;
           //   this.num = this.datas[0].jobType;
           //   console.log(this.num)
           // });
           // if (this.datas[0].jobType == 'user') {
-            this.router.navigate(['/profile', email]);
+            this.router.navigate(['/adminprofile', email]);
           // }
           // else if (this.datas[0].jobType == 'mason' || this.datas[0].jobType == 'painter' || this.datas[0].jobType == 'electrician' || this.datas[0].jobType == 'plumber' || this.datas[0].jobType == 'carpener' || this.datas[0].jobType == 'repair') {
           //   this.router.navigate(['home']);
@@ -83,15 +83,15 @@ export class AuthService {
 
   }
 
-  SignUpWorker(email, password, workername, job, id, mobile) {
+  SignUpadmin(email, password, adminname, job, id, mobile) {
     if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
       if (id.length == 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             this.SendVerificationMail();
-            const workerData: Worker = {
+            const adminData: Admin = {
               uid: result.user.uid,
-              workername: workername,
+              adminname: adminname,
               idNumber: id,
               email: email,
               emailVerified: result.user.emailVerified,
@@ -100,7 +100,7 @@ export class AuthService {
             }
             this.SendVerificationMail();
             console.log(mobile);
-            this.SetWorkerData(workerData);
+            this.SetadminData(adminData);
             window.alert("Registration done");
           }).catch((error) => {
             window.alert(error.message)
@@ -116,15 +116,15 @@ export class AuthService {
     }
   }
 
-  SignUpUser(email, password, workername, job, id, mobile) {
+  SignUpUser(email, password, adminname, job, id, mobile) {
     if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
       if (id.length == 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             this.SendVerificationMail();
-            const workerData: Worker = {
+            const adminData: Admin = {
               uid: result.user.uid,
-              workername: workername,
+              adminname: adminname,
               idNumber: id,
               email: email,
               emailVerified: result.user.emailVerified,
@@ -133,7 +133,7 @@ export class AuthService {
             }
             this.SendVerificationMail();
             console.log(mobile);
-            this.SetWorkerData(workerData);
+            this.SetadminData(adminData);
             window.alert("Registration done");
           }).catch((error) => {
             window.alert(error.message)
@@ -166,8 +166,8 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    const worker = JSON.parse(localStorage.getItem('workers'));
-    return (worker !== null && worker.emailVerified !== false) ? true : false;
+    const admin = JSON.parse(localStorage.getItem('admins'));
+    return (admin !== null && admin.emailVerified !== false) ? true : false;
   }
 
   GoogleAuth() {
@@ -180,22 +180,22 @@ export class AuthService {
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         })
-        this.SetWorkerData(result.user);
+        this.SetadminData(result.user);
       }).catch((error) => {
         window.alert(error)
       })
   }
 
-  SetWorkerData(worker) {
-    const workerRef: AngularFirestoreDocument<any> = this.afs.doc(`workers/${worker.uid}`);
-    return workerRef.set(worker, {
+  SetadminData(admin) {
+    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`admins/${admin.uid}`);
+    return adminRef.set(admin, {
       merge: true
     })
   }
 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('worker');
+      localStorage.removeItem('admin');
       this.router.navigate(['sign-in']);
     })
   }
@@ -203,7 +203,7 @@ export class AuthService {
 
 interface Item {
   uid?: string;
-  workername?: string;
+  adminname?: string;
   idNumber?: string;
   email?: string;
   emailVerified?: boolean;

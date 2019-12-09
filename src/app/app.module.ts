@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthService } from './options/services/auth.service';
 import { NgModule, RootRenderer } from '@angular/core';
@@ -22,6 +23,13 @@ import { ForgotPasswordComponent } from './options/forgot-password/forgot-passwo
 import { SearchComponent } from './search/search.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 import { BookingComponent } from './components/booking/booking.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { AdminSignUpComponent } from './admin/admin-sign-up/admin-sign-up.component';
+import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
+import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component';
+
 
 // import { SignUpuComponent } from './user/sign-upu/sign-upu.component';
 // import { SignInuComponent } from './user/sign-inu/sign-inu.component';
@@ -55,7 +63,7 @@ var firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-
+    ViewProfileComponent,
     ShopsComponent,
     BookingComponent,
     CompaniesComponent,
@@ -67,6 +75,10 @@ var firebaseConfig = {
     SearchComponent,
     ScheduleComponent,
     VerifyEmailComponent,
+    // AdminProfileComponent,
+    AdminSignUpComponent,
+    AdminSignInComponent,
+    UpdateAdminComponent,
     // CategoriesComponent
     // SignUpuComponent,
     // SignInuComponent,
@@ -75,7 +87,8 @@ var firebaseConfig = {
     // SignUpuComponent,
     // SignInuComponent,
     // ForgotPassworduComponent,
-    UpdateworkerComponent
+    UpdateworkerComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +98,7 @@ var firebaseConfig = {
     RouterModule,
     ComponentsModule,
     WorkerModule,
+    AdminModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
