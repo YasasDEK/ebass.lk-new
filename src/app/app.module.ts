@@ -48,7 +48,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 // import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
 // import { ExamplesuModule } from './examplesu/examplesu.module';
 // import { AuthuService } from './examplesu/servicesu/authu.service';
-import {UpdateworkerComponent} from './options/updateworker/updateworker.component';
+import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",

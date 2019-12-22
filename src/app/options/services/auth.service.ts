@@ -97,6 +97,8 @@ export class AuthService {
               emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
+              status: true,
+              checked: "No"
             }
             this.SendVerificationMail();
             console.log(mobile);
@@ -130,6 +132,8 @@ export class AuthService {
               emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
+              status: true,
+              checked: "No"
             }
             this.SendVerificationMail();
             console.log(mobile);
@@ -209,5 +213,7 @@ interface Item {
   emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
+  status?: boolean;
+  checked?: string;
 }
 

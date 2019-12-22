@@ -1,30 +1,34 @@
+import { VerifyEmailComponent } from './../../options/verify-email/verify-email.component';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
+// import { ItemService } from '../../services/item.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-allusers',
+  templateUrl: './allusers.component.html',
+  styleUrls: ['./allusers.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class AllusersComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
-  name: string;
-  area: string;
-
+  username: string;
+  status: string;
+  verifyemail: string;
   filters = {}
-
   constructor(private afs: AngularFirestore) {
 
   }
 
-  //.orderBy('name')
   ngOnInit() {
-    this.afs.collection('workers'/*, ref => ref.limit(4)*/).valueChanges().subscribe(results => {
+    this.afs.collection('users'/*, ref => ref.limit(4)*/).valueChanges().subscribe(results => {
       this.results = results;
       this.applyFilters()
-    })
+    });
   }
 
   private applyFilters() {
@@ -36,12 +40,18 @@ export class SearchComponent implements OnInit {
     this.applyFilters()
   }
 
-  filterArea(property: string, rule: string) {
-    if (!rule) this.removeFilter(property)
-    else {
+  filterEmail(property: string, rule: string) {
       this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
       this.applyFilters()
-    }
+  }
+
+  filterMobile(property: string, rule: string) {
+      this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
+      this.applyFilters()
+  }
+
+  filterVerifyEmail(property: string, rule: boolean) {
+      this.applyFilters()
   }
 
   removeFilter(property: string) {
@@ -71,5 +81,4 @@ export class SearchComponent implements OnInit {
     })
     this.applyFilters()
   }
-
 }

@@ -12,8 +12,8 @@ import { SignInComponent } from './options/sign-in/sign-in.component';
 import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
 import { AdminSignUpComponent } from './admin/admin-sign-up/admin-sign-up.component';
 import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
-
-
+import { AllworkersComponent } from './admin/allworkers/allworkers.component';
+import { AllusersComponent } from './admin/allusers/allusers.component';
 import { LandingComponent } from './options/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 // import { MasonsComponent } from './components/masons/masons.component';
@@ -99,6 +99,8 @@ const routes: Routes = [
   { path: 'adminsignup', component: AdminSignUpComponent },
   { path: 'adminprofile/:email', component: AdminProfileComponent },
   { path: 'adminupdate/:email', component: UpdateAdminComponent },
+  { path: 'allworkers', component: AllworkersComponent },
+  { path: 'allusers', component: AllusersComponent },
 ];
 
 @NgModule({

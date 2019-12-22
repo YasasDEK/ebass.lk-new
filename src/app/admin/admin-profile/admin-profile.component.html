@@ -14,21 +14,27 @@
     <div class="navbar-translate">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
-          <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button> 
-          <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK admin</button></a> -->
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
         </li>
         <li class="nav-item">
-          <!-- <div ngbDropdown class="d-inline-block dropdown">
+          <a class="nav-link" [routerLink]="['/allworkers']"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;workers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/alluser']"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;users</a>
+        </li>
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                 aria-hidden="true"></i>Options</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-              <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+              <a class="dropdown-item" [routerLink]="['/adminsignup']">Add admin</a>
+              <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
+
             </div>
-          </div> -->
+          </div>
         </li>
       </ul>
     </div>
