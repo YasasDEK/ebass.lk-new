@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import {switchMap} from 'rxjs-compat/operator/switchMap';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthuService {
   userData: any;
   value;
-  data: Observable<Item[]>;
-  datas: Item[]
+  data;
+  datas: ItemU[];
 
   constructor(
     public afs: AngularFirestore,
@@ -36,33 +37,25 @@ export class AuthuService {
   }
 
   SignIn(email, password) {
-    this.value = this.afs.collection('users', ref => ref.where('email', '==', email)).valueChanges();
+    this.value = this.afs.collection( 'users'  , ref =>
+      ref.where('email', '==', email)
+    ).valueChanges();
     this.value.subscribe(data => {
       this.datas = data;
-      console.log(this.datas[0].jobType);
-    });
-
-    if (this.datas[0].jobType == 'user') {
-      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .then((result) => {
+      console.log(this.datas )
+        return this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
           this.ngZone.run(() => {
-            window.alert("User")
             this.router.navigate(['home']);
           });
-          //      this.SetUserData(this.userData);
         }).catch((error) => {
-          window.alert(error.message)
+          window.alert(error);
+          this.router.navigateByUrl('signinu');
         })
-    }
-    else {
-      console.log("error");
-      window.alert("Invalid User")
-      this.router.navigate(['signinu']);
-    }
+    });
   }
 
   SignUp(email, password, username, id, mobile) {
-    if (id.length == 10) {
+    if (id.length === 10) {
       return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           this.SendVerificationMail();
@@ -77,7 +70,8 @@ export class AuthuService {
           }
           console.log(mobile);
           this.SetUserData(userData);
-          window.alert("Registration done");
+          window.alert('Registration done');
+          this.router.navigateByUrl('home');
 
         }).catch((error) => {
           window.alert(error.message)
@@ -104,7 +98,7 @@ export class AuthuService {
     const user = JSON.parse(localStorage.getItem('users'));
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
-  
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
@@ -120,7 +114,7 @@ export class AuthuService {
         window.alert(error)
       })
   }
-  
+
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     return userRef.set(user, {
@@ -135,9 +129,9 @@ export class AuthuService {
   }
 }
 
-interface Item {
+interface ItemU {
   uid?: string;
-  userrname?: string;
+  username?: string;
   idNumber?: string;
   email?: string;
   emailVerified?: boolean;

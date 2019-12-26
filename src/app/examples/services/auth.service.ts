@@ -36,63 +36,57 @@ export class AuthService {
 
   }
 
-  SignIn(email, password) {
-    this.value = this.afs.collection('workers' || 'users', ref => ref.where('email', '==', email)).valueChanges();
-    this.value.subscribe(data => {
-      this.datas = data;
-      console.log(this.datas[0].uid);
-    });
-
-    if (this.datas[0].jobType == 'mason' || this.datas[0].jobType == 'painter' || this.datas[0].jobType == 'electrician' || this.datas[0].jobType == 'plumber' || this.datas[0].jobType == 'carpener' || this.datas[0].jobType == 'repair') {
-      // console.log(this.workerData.idNumber)
-      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .then((result) => {
-          this.ngZone.run(() => {
-            window.alert("worker")
-            this.router.navigate(['home']);
-          });
-          //      this.SetUserData(this.userData);
-        }).catch((error) => {
-          window.alert(error.message)
-        })
+    SignIn(email, password) {
+        this.value = this.afs.collection('workers', ref =>
+            ref.where('email', '==', email)
+        ).valueChanges();
+        this.value.subscribe(data => {
+            this.datas = data;
+            console.log(this.datas)
+            if (this.datas !== null) {
+                return this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
+                    this.ngZone.run(() => {
+                        this.router.navigate(['/profile/' + this.datas[0].uid]);
+                    });
+                }).catch((error) => {
+                    window.alert(error);
+                    this.router.navigateByUrl('signinu');
+                })
+            } else {
+                window.alert('Invalid user');
+            }
+        });
     }
-    else {
-      window.alert("Invalid User")
-    }
-  }
 
   SignUp(email, password, workername, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
-      if (id.length == 10) {
+    if (job === 'mason' || job === 'electrician' || job === 'plumber' || job === 'painter' || job === 'repair' || job === 'carpenter') {
+      if (id.length === 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-          .then((result) => {
-            this.SendVerificationMail();
-            const workerData: Worker = {
-              uid: result.user.uid,
-              workername: workername,
-              idNumber: id,
-              email: email,
-              emailVerified: result.user.emailVerified,
-              jobType: job,
-              mobile: mobile,
-            }
-            this.SendVerificationMail();
-            console.log(mobile);
-            this.SetWorkerData(workerData);
-            window.alert("Registration done");
-          }).catch((error) => {
-            window.alert(error.message)
-            console.log(error)
-          })
+            .then((result) => {
+              this.SendVerificationMail();
+              const workerData: Worker = {
+                uid: result.user.uid,
+                workername: workername,
+                idNumber: id,
+                email: email,
+                emailVerified: result.user.emailVerified,
+                jobType: job,
+                mobile: mobile,
+              }
+              this.SendVerificationMail();
+              console.log(mobile);
+              this.SetWorkerData(workerData);
+              window.alert('Registration done');
+            }).catch((error) => {
+              window.alert(error.message)
+              console.log(error)
+            })
+      } else {
+        window.alert('Invalid ID number ')
       }
-      else {
-        window.alert("Invalid ID number ")
+      window.alert('Job Type doen\'t available ')
       }
     }
-    else {
-      window.alert("Job Type doen't available ")
-    }
-  }
 
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
