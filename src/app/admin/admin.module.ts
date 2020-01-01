@@ -7,6 +7,8 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import {RouterModule} from '@angular/router';
 import { AllworkersComponent } from './allworkers/allworkers.component';
 import { AllusersComponent } from './allusers/allusers.component';
+import { AddshopsComponent } from './addshops/addshops.component';
+import { AddcompaniesComponent } from './addcompanies/addcompanies.component';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -23,6 +25,8 @@ import { AllusersComponent } from './allusers/allusers.component';
         AdminProfileComponent,
         AllworkersComponent,
         AllusersComponent,
+        AddshopsComponent,
+        AddcompaniesComponent,
         // ReglogComponent,
         // SignInComponent
     ]

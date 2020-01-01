@@ -30,6 +30,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
 import { VerifyEmailComponent } from './options/verify-email/verify-email.component';
+import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-verify-email.component';
 // import { VerifyEmailuComponent } from './user/verify-emailu/verify-emailu.component';
 
 import { ReglogComponent } from './options/reglog/reglog.component';
@@ -47,8 +48,10 @@ import { CategoriesComponent } from './components/categories/categories.componen
 // import { ProfileuComponent } from './examplesu/profileu/profileu.component';
 // import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 // import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
-import {UpdateworkerComponent} from './options/updateworker/updateworker.component';
-import {UpdateAdminComponent} from './admin/updateadmin/updateadmin.component';
+import { UpdateworkerComponent } from './options/updateworker/updateworker.component';
+import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component';
+import { AddshopsComponent } from './admin/addshops/addshops.component';
+import { AddcompaniesComponent } from './admin/addcompanies/addcompanies.component';
 
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 
@@ -83,6 +86,7 @@ const routes: Routes = [
   // { path: 'signinu', component: SignInuComponent },
   // { path: 'profileu/:uid', component: ProfileuComponent },
   { path: 'verify', component: VerifyEmailComponent },
+  { path: 'adminverify', component: AdminVerifyEmailComponent },
   { path: 'shops', component: ShopsComponent },
   { path: 'companies', component: CompaniesComponent },
   // { path: 'verifyu', component: VerifyEmailuComponent }
@@ -101,6 +105,8 @@ const routes: Routes = [
   { path: 'adminupdate/:email', component: UpdateAdminComponent },
   { path: 'allworkers', component: AllworkersComponent },
   { path: 'allusers', component: AllusersComponent },
+  { path: 'addshops', component: AddshopsComponent },
+  { path: 'addcompanies', component: AddcompaniesComponent },
 ];
 
 @NgModule({

@@ -6,6 +6,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Shop } from './shop';
+import { Company } from './company';
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +56,7 @@ export class AuthService {
 
   // }
 
-  SignIn(email, password) {
+  SignInadmin(email, password) {
 
 
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
@@ -83,41 +85,8 @@ export class AuthService {
 
   }
 
-  SignUpadmin(email, password, adminname, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
-      if (id.length == 10) {
-        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-          .then((result) => {
-            this.SendVerificationMail();
-            const adminData: Admin = {
-              uid: result.user.uid,
-              adminname: adminname,
-              idNumber: id,
-              email: email,
-              emailVerified: result.user.emailVerified,
-              jobType: job,
-              mobile: mobile,
-            }
-            this.SendVerificationMail();
-            console.log(mobile);
-            this.SetadminData(adminData);
-            window.alert("Registration done");
-          }).catch((error) => {
-            window.alert(error.message)
-            console.log(error)
-          })
-      }
-      else {
-        window.alert("Invalid ID number ")
-      }
-    }
-    else {
-      window.alert("Job Type doen't available ")
-    }
-  }
+  SignUpadmin(email, password, adminname, id, mobile) {
 
-  SignUpUser(email, password, adminname, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
       if (id.length == 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
@@ -128,7 +97,7 @@ export class AuthService {
               idNumber: id,
               email: email,
               emailVerified: result.user.emailVerified,
-              jobType: job,
+              jobType: "Admin",
               mobile: mobile,
             }
             this.SendVerificationMail();
@@ -144,15 +113,53 @@ export class AuthService {
         window.alert("Invalid ID number ")
       }
     }
-    else {
-      window.alert("Job Type doen't available ")
-    }
-  }
+
+    Addshops(email, shopname, mobile, url) {
+
+        // return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+          ((result) => {
+            const shopData: Shop = {
+              // uid: result.user.uid,
+              shopname: shopname,
+              email: email,
+              jobType: "shop",
+              mobile: mobile,
+              url: url
+            }
+            console.log(mobile);
+            this.SetshopData(shopData);
+            window.alert("Registration done");
+          })((error) => {
+            window.alert(error.message)
+            console.log(error)
+          })
+      }
+
+      Addcompanies(email, companyname, mobile, url) {
+
+        // return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+          ((result) => {
+            const companyData: Company = {
+              // uid: result.user.uid,
+              companyname: companyname,
+              email: email,
+              jobType: "company",
+              mobile: mobile,
+              url: url
+            }
+            console.log(mobile);
+            this.SetcompanyData(companyData);
+            window.alert("Registration done");
+          })((error) => {
+            window.alert(error.message)
+            console.log(error)
+          })
+      }
 
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
-        this.router.navigate(['verify']);
+        this.router.navigate(['adminverify']);
       })
   }
 
@@ -184,6 +191,20 @@ export class AuthService {
       }).catch((error) => {
         window.alert(error)
       })
+  }
+
+  SetshopData(shop) {
+    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
+    return adminRef.set(shop, {
+      merge: true
+    })
+  }
+
+  SetcompanyData(company) {
+    const companyRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${company.uid}`);
+    return companyRef.set(company, {
+      merge: true
+    })
   }
 
   SetadminData(admin) {

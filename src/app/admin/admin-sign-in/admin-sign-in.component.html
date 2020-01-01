@@ -69,13 +69,12 @@
 
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Log in"
-                  (click)="authService.SignIn(adminemail.value, adminPassword.value)">
+                  (click)="authService.SignInadmin(adminemail.value, adminPassword.value)">
               </div>
               <!--<button type="submit" class="btn btn-danger btn-block btn-round">Login</button>-->
               <div class="forgot">
                 <a href="#" class="btn btn-link btn-danger" [routerLink]="['/forgot-password']">Forgot password?</a>
               </div>
-              <h6>Dont have an account?<a [routerLink]="['/signup']">signup</a></h6>
             </form>
           </div>
         </div>

@@ -39,6 +39,8 @@ import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component'
 // import { VerifyEmailuComponent } from './user/verify-emailu/verify-emailu.component';
 
 import { VerifyEmailComponent } from './options/verify-email/verify-email.component';
+import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-verify-email.component';
+
 
 import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
@@ -75,6 +77,7 @@ var firebaseConfig = {
     SearchComponent,
     ScheduleComponent,
     VerifyEmailComponent,
+    AdminVerifyEmailComponent,
     // AdminProfileComponent,
     AdminSignUpComponent,
     AdminSignInComponent,
