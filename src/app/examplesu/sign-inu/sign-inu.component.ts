@@ -8,11 +8,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class SignInuComponent implements OnInit {
 
+  City: any = ['User', 'Worker']
+
   constructor(
     public authuService: AuthuService
   ) { }
 
   ngOnInit() {
+    return this.City;
   }
 
 }

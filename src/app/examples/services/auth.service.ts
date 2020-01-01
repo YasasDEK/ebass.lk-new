@@ -37,25 +37,17 @@ export class AuthService {
   }
 
     SignIn(email, password) {
-        this.value = this.afs.collection('workers', ref =>
-            ref.where('email', '==', email)
-        ).valueChanges();
-        this.value.subscribe(data => {
-            this.datas = data;
-            console.log(this.datas)
-            if (this.datas !== null) {
-                return this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-                    this.ngZone.run(() => {
-                        this.router.navigate(['/profile/' + this.datas[0].uid]);
-                    });
+                this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
+                    if (result.user.displayName === 'worker') {
+                        this.router.navigate(['/profile/' + result.user.uid]);
+                    }
+                    if (result.user.displayName === 'user') {
+                        this.router.navigate(['/home/']);
+                    }
                 }).catch((error) => {
                     window.alert(error);
                     this.router.navigateByUrl('signinu');
                 })
-            } else {
-                window.alert('Invalid user');
-            }
-        });
     }
 
   SignUp(email, password, workername, job, id, mobile) {
@@ -73,8 +65,8 @@ export class AuthService {
                 jobType: job,
                 mobile: mobile,
               }
+              result.user.updateProfile({displayName: 'worker'});
               this.SendVerificationMail();
-              console.log(mobile);
               this.SetWorkerData(workerData);
               window.alert('Registration done');
             }).catch((error) => {
@@ -148,5 +140,6 @@ interface Item {
   emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
+  status?: boolean;
 }
 

@@ -4,9 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import {switchMap} from 'rxjs-compat/operator/switchMap';
 
 @Injectable({
   providedIn: 'root'
@@ -36,22 +34,22 @@ export class AuthuService {
     })
   }
 
-  SignIn(email, password) {
-    this.value = this.afs.collection( 'users'  , ref =>
+  SignIn(email, password, type) {
+    this.value = this.afs.collection('users', ref =>
       ref.where('email', '==', email)
-    ).valueChanges();
+  ).valueChanges();
     this.value.subscribe(data => {
       this.datas = data;
-      console.log(this.datas )
+      if(this.datas[0].jobType === 'user') {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
           this.ngZone.run(() => {
             this.router.navigate(['home']);
           });
         }).catch((error) => {
-          window.alert(error);
-          this.router.navigateByUrl('signinu');
-        })
-    });
+          window.alert('invalid data');
+          this.router.navigate(['signinu']);
+        }) }
+      });
   }
 
   SignUp(email, password, username, id, mobile) {
@@ -69,6 +67,7 @@ export class AuthuService {
             jobType: 'user',
           }
           console.log(mobile);
+          result.user.updateProfile({displayName: 'user'});
           this.SetUserData(userData);
           window.alert('Registration done');
           this.router.navigateByUrl('home');
@@ -138,3 +137,4 @@ interface ItemU {
   jobType?: string;
   mobile?: string;
 }
+
