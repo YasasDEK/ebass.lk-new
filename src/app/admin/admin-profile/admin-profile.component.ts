@@ -4,15 +4,15 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { UpdateworkerComponent} from '../updateworker/updateworker.component';
+import { UpdateAdminComponent } from '../updateadmin/updateadmin.component';
 
 @Component({
-    selector: 'app-profile',
-    templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss']
+    selector: 'app-admin-profile',
+    templateUrl: './admin-profile.component.html',
+    styleUrls: ['./admin-profile.component.scss']
 })
 
-export class ProfileComponent implements OnInit {
+export class AdminProfileComponent implements OnInit {
     value: string;
     data: Observable<Item[]>;
     datas: Item[];
@@ -26,13 +26,15 @@ export class ProfileComponent implements OnInit {
     ngOnInit() {
         this.getData().subscribe(data => {
             this.datas = data;
-            console.log('value : ' + this.datas[0]);
+            console.log('value : ' + this.data);
         })
     }
 
     getData() {
-        this.data = this.ebass.collection('workers', ref => ref.where('email', '==', this.value)).valueChanges();
+        this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
+        console.log("data" + this.data);
         return this.data;
+
     }
 
 }
@@ -40,7 +42,7 @@ export class ProfileComponent implements OnInit {
 
 interface Item {
     uid?: string;
-    workername?: string;
+    adminname?: string;
     idNumber?: string;
     email?: string;
     emailVerified?: boolean;
