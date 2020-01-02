@@ -6,11 +6,11 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-updateworker',
-  templateUrl: './updateworker.component.html',
-  styleUrls: ['./updateworker.component.scss']
+  selector: 'app-updateadmin',
+  templateUrl: './updateadmin.component.html',
+  styleUrls: ['./updateadmin.component.scss']
 })
-export class UpdateworkerComponent implements OnInit {
+export class UpdateAdminComponent implements OnInit {
   value: string;
   data: Observable<Item[]>;
   datas: Item[];
@@ -29,16 +29,16 @@ export class UpdateworkerComponent implements OnInit {
   }
 
   getData() {
-    this.data = this.ebass.collection('workers', ref => ref.where('email', '==', this.value)).valueChanges();
+    this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
     return this.data;
   }
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
-    this.ebass.doc('workers/' + exampleForm.value.uid).update(exampleForm.value);
+    this.ebass.doc('admins/' + exampleForm.value.uid).update(exampleForm.value);
     this.router.navigateByUrl('/profile/' + exampleForm.value.email);
   }
   delete(id) {
-     this.ebass.doc('workers/' + id).update({'status': false});
+     this.ebass.doc('admins/' + id).update({'status': false});
      alert('Deleted');
       this.router.navigateByUrl('/home');
   }
@@ -47,7 +47,7 @@ export class UpdateworkerComponent implements OnInit {
 
 interface Item {
   uid?: string;
-  workername?: string;
+  adminname?: string;
   idNumber?: string;
   email?: string;
   emailVerified?: boolean;

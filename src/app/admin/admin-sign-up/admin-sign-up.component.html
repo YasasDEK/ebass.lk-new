@@ -44,15 +44,15 @@
               </a>
             </div>
             <form class="register-form">
-              <label>Username</label>
+              <label>Adminname</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-single-02"></i>
                   </span>
                 </div>
-                <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
-                  (blur)="focus=false" #username required>
+                <input name="adminname" type="text" class="form-control" placeholder="adminname" (focus)="focus=true"
+                  (blur)="focus=false" #adminname required>
               </div>
 
               <label>ID Number</label>
@@ -63,7 +63,7 @@
                   </span>
                 </div>
                 <input name="id" type="text" class="form-control" placeholder="ID Number" (focus)="focus=true"
-                  (blur)="focus=false" #useridnum required>
+                  (blur)="focus=false" #adminidnum required>
               </div>
 
               <label>E-Mail</label>
@@ -74,7 +74,7 @@
                   </span>
                 </div>
                 <input name="mail" type="email" class="form-control" placeholder="E-Mail" (focus)="focus=true"
-                  (blur)="focus=false" #userEmail required>
+                  (blur)="focus=false" #adminEmail required>
               </div>
 
               <label>Mobile Number</label>
@@ -85,20 +85,9 @@
                   </span>
                 </div>
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
-                  (blur)="focus=false" #usermobile required>
+                  (blur)="focus=false" #adminmobile required>
               </div>
-              <label>Job Type</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-mobile"></i>
-                  </span>
-                </div>
-                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
-                  (blur)="focus=false" #userjob required>
-              </div>
-
-
+              
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
@@ -107,14 +96,24 @@
                   </span>
                 </div>
                 <input name="password_one" type="password" class="form-control" placeholder="Password"
-                  (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
+                  (focus)="focus1=true" (blur)="focus1=false" #adminPwd required>
               </div>
 
+              <!-- <label>Re-Enter Password</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                          <i class="nc-icon nc-key-25"></i>
+                                      </span>
+                </div>
+                <input name="password_two" type="password" class="form-control" placeholder="Re-Enter Password" (focus)="focus1=true" (blur)="focus1=false" required>
+              </div> -->
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                  (click)="authService.SignUpadmin(adminEmail.value, adminPwd.value, adminname.value, adminidnum.value, adminmobile.value)">
               </div>
 
+              <!--              <button type="submit" class="btn btn-danger btn-block btn-round">Register</button>-->
             </form>
 
           </div>

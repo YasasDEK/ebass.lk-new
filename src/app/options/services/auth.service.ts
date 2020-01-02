@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Worker } from './worker';
+import { User } from './user';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -37,50 +38,18 @@ export class AuthService {
 
   }
 
-  // Verify(email) {
-  //   this.value = this.afs.collection('workers' || 'users', ref => ref.where('email', '==', email)).valueChanges();
-  //   this.value.subscribe(data => {
-  //     this.datas = data;
-  //     this.num = this.datas[0].jobType;
-  //     console.log(this.num)
-  //   });
-
-  //   if (this.datas[0].jobType == 'mason' || this.datas[0].jobType == 'painter' || this.datas[0].jobType == 'electrician' || this.datas[0].jobType == 'plumber' || this.datas[0].jobType == 'carpener' || this.datas[0].jobType == 'repair') {
-  //     this.router.navigate(['home']);
-  //   }
-  //   else {
-  //     window.alert("Invalid User")
-  //   }
-
-  // }
-
   SignIn(email, password) {
-
-
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.value = this.afs.collection('workers', ref => ref.where('email', '==', email)).valueChanges();
-          this.value.subscribe(data => {
-            this.datas = data;
-            this.num = this.datas[0].jobType;
-            console.log(this.num)
-          });
-          if (this.datas[0].jobType == 'user') {
-            this.router.navigate(['signin']);
-          }
-          else if (this.datas[0].jobType == 'mason' || this.datas[0].jobType == 'painter' || this.datas[0].jobType == 'electrician' || this.datas[0].jobType == 'plumber' || this.datas[0].jobType == 'carpener' || this.datas[0].jobType == 'repair') {
-            this.router.navigate(['home']);
-          }
-          else {
-            window.alert("error");
-          }
-
-        });
-      }).catch((error) => {
-        window.alert(error.message);
-      })
-
+    this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
+      if (result.user.displayName === 'worker') {
+        this.router.navigate(['/profile/' + result.user.uid]);
+      }
+      if (result.user.displayName === 'user') {
+        this.router.navigate(['/home/']);
+      }
+    }).catch((error) => {
+      window.alert(error);
+      this.router.navigateByUrl('signin');
+    })
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
@@ -97,8 +66,11 @@ export class AuthService {
               emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
+              status: true,
+              checked: "No"
             }
             this.SendVerificationMail();
+            result.user.updateProfile({ displayName: 'worker' });
             console.log(mobile);
             this.SetWorkerData(workerData);
             window.alert("Registration done");
@@ -116,36 +88,34 @@ export class AuthService {
     }
   }
 
-  SignUpUser(email, password, workername, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
-      if (id.length == 10) {
-        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-          .then((result) => {
-            this.SendVerificationMail();
-            const workerData: Worker = {
-              uid: result.user.uid,
-              workername: workername,
-              idNumber: id,
-              email: email,
-              emailVerified: result.user.emailVerified,
-              jobType: job,
-              mobile: mobile,
-            }
-            this.SendVerificationMail();
-            console.log(mobile);
-            this.SetWorkerData(workerData);
-            window.alert("Registration done");
-          }).catch((error) => {
-            window.alert(error.message)
-            console.log(error)
-          })
-      }
-      else {
-        window.alert("Invalid ID number ")
-      }
+  SignUpUser(email, password, username, id, mobile) {
+    console.log(id);
+    if (id.length == 10) {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then((result) => {
+          // this.SendVerificationMail();
+          const userData: User = {
+            uid: result.user.uid,
+            username: username,
+            idNumber: id,
+            email: email,
+            emailVerified: result.user.emailVerified,
+            jobType: "user",
+            mobile: mobile,
+            checked: "No"
+          }
+          this.SendVerificationMail();
+          result.user.updateProfile({ displayName: 'user' });
+          console.log(mobile);
+          this.SetUserData(userData);
+          window.alert("Registration done");
+        }).catch((error) => {
+          window.alert(error.message)
+          console.log(error)
+        })
     }
     else {
-      window.alert("Job Type doen't available ")
+      window.alert("Invalid ID number ")
     }
   }
 
@@ -193,6 +163,13 @@ export class AuthService {
     })
   }
 
+  SetUserData(user) {
+    const workerRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+    return workerRef.set(user, {
+      merge: true
+    })
+  }
+
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
@@ -209,5 +186,7 @@ interface Item {
   emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
+  status?: boolean;
+  checked?: string;
 }
 

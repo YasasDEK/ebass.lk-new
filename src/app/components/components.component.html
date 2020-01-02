@@ -25,32 +25,16 @@
                     <a class="nav-link" [routerLink]="['/about']"><i class="nc-icon nc-satisfied"
                             aria-hidden="true"></i>&nbsp;About us</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/about']"><i class="nc-icon nc-satisfied" aria-hidden="true"></i>&nbsp;Register</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/about']"><i class="nc-icon nc-satisfied" aria-hidden="true"></i>&nbsp;log-in</a>
-                </li> -->
-                <!-- <button type="button" [routerLink]="['/signup']" class="btn btn-warning btn-sm"><i
-                        class="fa fa-search"></i>Register</button>
-                <button type="button" [routerLink]="['/signin']" class="btn btn-danger btn-sm"><i
-                        class="fa fa-search"></i>log-in</button> -->
-                <li class="nav-item">
-                    <div ngbDropdown class="d-inline-block dropdown">
-                        <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                                aria-hidden="true"></i>Log-in</a>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                            <a class="dropdown-item" [routerLink]="['/signinu']">Log-in as an user</a>
-                            <a class="dropdown-item" [routerLink]="['/signin']">Log-in as a worker</a>
-                        </div>
-                    </div>
+                    <a class="nav-link" [routerLink]="['/signin']"><i class="nc-icon nc-satisfied"
+                            aria-hidden="true"></i>&nbsp;Log in</a>
                 </li>
                 <li class="nav-item">
                     <div ngbDropdown class="d-inline-block dropdown">
                         <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                                 aria-hidden="true"></i>REGISTER</a>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-warning">
-                            <a class="dropdown-item" [routerLink]="['/signupu']">register as an user</a>
+                            <a class="dropdown-item" [routerLink]="['/signupuser']">register as an user</a>
                             <a class="dropdown-item" [routerLink]="['/signup']">register as a worker</a>
                         </div>
                     </div>
@@ -241,7 +225,7 @@
             <div class="container">
                 <div class="row example-page">
                     <div class="col-md-6 text-center" routerLinkActive="active">
-                        <a [routerLink]="['/landing']">
+                        <a [routerLink]="['/companies']">
                             <img src="./assets/img/examples/companies.jpeg" alt="Rounded Image"
                                 class="img-rounded img-responsive" style="width: 100%">
                             <a [routerLink]="['/landing']" class="btn btn-outline-neutral btn-round">Companies</a>
@@ -249,7 +233,7 @@
                     </div>
 
                     <div class="col-md-6 text-center" routerLinkActive="active">
-                        <a [routerLink]="['/user-profile']">
+                        <a [routerLink]="['/shops']">
                             <img src="./assets/img/examples/shops.jpeg" alt="Rounded Image"
                                 class="img-rounded img-responsive" style="width: 100%">
                             <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Shops</a>

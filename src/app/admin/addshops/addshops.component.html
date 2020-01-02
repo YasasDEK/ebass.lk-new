@@ -44,26 +44,15 @@
               </a>
             </div>
             <form class="register-form">
-              <label>Username</label>
+              <label>shopname</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-single-02"></i>
                   </span>
                 </div>
-                <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
-                  (blur)="focus=false" #username required>
-              </div>
-
-              <label>ID Number</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-check-2"></i>
-                  </span>
-                </div>
-                <input name="id" type="text" class="form-control" placeholder="ID Number" (focus)="focus=true"
-                  (blur)="focus=false" #useridnum required>
+                <input name="shopname" type="text" class="form-control" placeholder="shopname" (focus)="focus=true"
+                  (blur)="focus=false" #shopname required>
               </div>
 
               <label>E-Mail</label>
@@ -74,7 +63,7 @@
                   </span>
                 </div>
                 <input name="mail" type="email" class="form-control" placeholder="E-Mail" (focus)="focus=true"
-                  (blur)="focus=false" #userEmail required>
+                  (blur)="focus=false" #shopEmail required>
               </div>
 
               <label>Mobile Number</label>
@@ -85,36 +74,35 @@
                   </span>
                 </div>
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
-                  (blur)="focus=false" #usermobile required>
+                  (blur)="focus=false" #shopmobile required>
               </div>
-              <label>Job Type</label>
+              
+              <label>Shop's URL</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-mobile"></i>
                   </span>
                 </div>
-                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
-                  (blur)="focus=false" #userjob required>
+                <input name="url" type="text" class="form-control" placeholder="Shop's URL" (focus)="focus=true"
+                  (blur)="focus=false" #shopurl required>
               </div>
-
-
-              <label>Password</label>
+              
+              <!-- <label>Re-Enter Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-key-25"></i>
-                  </span>
+                                      <span class="input-group-text">
+                                          <i class="nc-icon nc-key-25"></i>
+                                      </span>
                 </div>
-                <input name="password_one" type="password" class="form-control" placeholder="Password"
-                  (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
-              </div>
-
+                <input name="password_two" type="password" class="form-control" placeholder="Re-Enter Password" (focus)="focus1=true" (blur)="focus1=false" required>
+              </div> -->
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                  (click)="authService.Addshops(shopEmail.value, shopname.value, shopmobile.value, shopurl.value)">
               </div>
 
+              <!--              <button type="submit" class="btn btn-danger btn-block btn-round">Register</button>-->
             </form>
 
           </div>
