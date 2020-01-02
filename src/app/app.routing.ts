@@ -60,7 +60,6 @@ const routes: Routes = [
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'signin', component: SignInComponent },
-  //     { path: 'profile/:id',      component: ProfileComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'profile/:email', component: ProfileComponent },
   { path: 'update/:email', component: UpdateworkerComponent },
