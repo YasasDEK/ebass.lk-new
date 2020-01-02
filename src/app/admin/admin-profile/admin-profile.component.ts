@@ -19,7 +19,7 @@ export class AdminProfileComponent implements OnInit {
     isReceived = false;
 
     constructor(public _Activatedroute: ActivatedRoute, public ebass: AngularFirestore, public authService: AuthService) {
-        this.value = this._Activatedroute.snapshot.paramMap.get('email');
+        this.value = this._Activatedroute.snapshot.paramMap.get('uid');
         console.log('value : ' + this.value);
     }
 
@@ -31,7 +31,7 @@ export class AdminProfileComponent implements OnInit {
     }
 
     getData() {
-        this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
+        this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
         console.log("data" + this.data);
         return this.data;
 

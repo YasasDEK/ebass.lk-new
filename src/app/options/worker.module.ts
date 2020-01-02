@@ -7,6 +7,7 @@ import { LandingComponent } from './landing/landing.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReglogComponent } from './reglog/reglog.component';
 import {RouterModule} from '@angular/router';
+import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -22,6 +23,7 @@ import {RouterModule} from '@angular/router';
         // SignUpComponent,
         ProfileComponent,
         ReglogComponent,
+        SignUpUserComponent,
         // SignInComponent
     ]
 })

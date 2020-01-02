@@ -1,12 +1,11 @@
-export interface Worker {
+export interface User {
     uid: string;
-    workername: string;
+    username: string;
     idNumber: string;
     email: string;
     emailVerified: boolean;
     jobType: string;
     mobile: string;
-    status: boolean;
     checked: string;
     displayName?: string;
 }
