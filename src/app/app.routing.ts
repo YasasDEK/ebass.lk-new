@@ -8,6 +8,12 @@ import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './options/profile/profile.component';
 import { SignUpComponent } from './options/sign-up/sign-up.component';
 import { SignInComponent } from './options/sign-in/sign-in.component';
+
+import { AdminProfileComponent } from './admin/admin-profile/admin-profile.component';
+import { AdminSignUpComponent } from './admin/admin-sign-up/admin-sign-up.component';
+import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
+import { AllworkersComponent } from './admin/allworkers/allworkers.component';
+import { AllusersComponent } from './admin/allusers/allusers.component';
 import { LandingComponent } from './options/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 // import { MasonsComponent } from './components/masons/masons.component';
@@ -24,6 +30,7 @@ import { BookingComponent } from './components/booking/booking.component';
 import { ScheduleComponent } from './schedule/schedule/schedule.component';
 
 import { VerifyEmailComponent } from './options/verify-email/verify-email.component';
+import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-verify-email.component';
 // import { VerifyEmailuComponent } from './user/verify-emailu/verify-emailu.component';
 
 import { ReglogComponent } from './options/reglog/reglog.component';
@@ -41,8 +48,12 @@ import { CategoriesComponent } from './components/categories/categories.componen
 // import { ProfileuComponent } from './examplesu/profileu/profileu.component';
 // import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
 // import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
-import {UpdateworkerComponent} from './options/updateworker/updateworker.component';
+import { UpdateworkerComponent } from './options/updateworker/updateworker.component';
+import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component';
+import { AddshopsComponent } from './admin/addshops/addshops.component';
+import { AddcompaniesComponent } from './admin/addcompanies/addcompanies.component';
 
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -51,8 +62,8 @@ const routes: Routes = [
   { path: 'signin', component: SignInComponent },
   //     { path: 'profile/:id',      component: ProfileComponent },
   { path: 'signin', component: SignInComponent },
-  { path: 'profile/:uid', component: ProfileComponent },
-  { path: 'update/:uid', component: UpdateworkerComponent },
+  { path: 'profile/:email', component: ProfileComponent },
+  { path: 'update/:email', component: UpdateworkerComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'nucleoicons', component: NucleoiconsComponent },
   // { path: 'masons', component: MasonsComponent },
@@ -75,15 +86,27 @@ const routes: Routes = [
   // { path: 'signinu', component: SignInuComponent },
   // { path: 'profileu/:uid', component: ProfileuComponent },
   { path: 'verify', component: VerifyEmailComponent },
+  { path: 'adminverify', component: AdminVerifyEmailComponent },
   { path: 'shops', component: ShopsComponent },
   { path: 'companies', component: CompaniesComponent },
   // { path: 'verifyu', component: VerifyEmailuComponent }
   { path: 'categories/:job', component: CategoriesComponent },
   // { path: 'forgot-passwordu', component: ForgotPassworduComponent },
-  { path: 'reglog', component: ReglogComponent }
+  { path: 'reglog', component: ReglogComponent },
+  { path: 'viewprofile/:uid', component: ViewProfileComponent },
   // { path: 'signupu', component: SignUpuComponent },
   // { path: 'signinu', component: SignInuComponent },
   // { path: 'profileu/:uid', component: ProfileuComponent },
+  { path: 'signin', component: SignInComponent },
+  //     { path: 'profile/:id',      component: ProfileComponent },
+  { path: 'adminsignin', component: AdminSignInComponent },
+  { path: 'adminsignup', component: AdminSignUpComponent },
+  { path: 'adminprofile/:email', component: AdminProfileComponent },
+  { path: 'adminupdate/:email', component: UpdateAdminComponent },
+  { path: 'allworkers', component: AllworkersComponent },
+  { path: 'allusers', component: AllusersComponent },
+  { path: 'addshops', component: AddshopsComponent },
+  { path: 'addcompanies', component: AddcompaniesComponent },
 ];
 
 @NgModule({

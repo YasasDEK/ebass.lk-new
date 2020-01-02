@@ -1,11 +1,9 @@
-export interface Worker {
+export interface Admin {
     uid: string;
-    workername: string;
+    adminname: string;
     idNumber: string;
     email: string;
     emailVerified: boolean;
     jobType: string;
     mobile: string;
-    status: boolean;
-    checked: string;
 }

@@ -14,9 +14,8 @@
     <div class="navbar-translate">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
-          <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button> 
-          <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
+          <!-- <button type="button" [routerLink]="['/booking']" class="btn btn-danger">BOOK WORKER</button> -->
+          <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
@@ -63,9 +62,8 @@
                       <br>
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
                         <div class="d-flex justify-content-between">
-                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a>
-                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-6">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-6">Message</a>
                         </div>
                       </div>
                       <div class="card-body pt-4">
@@ -96,7 +94,7 @@
                             <i class="ni location_pin mr-2"></i>{{data.email}}
                           </div>
                           <div class="h5 mt-4">
-                            <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
+                            <i class="ni business_briefcase-24 mr-2"></i>Mason
                           </div>
                           <div>
                             <i class="ni education_hat mr-2"></i> CATEGORY
@@ -146,13 +144,118 @@
             </ng-template>
           </ngb-tab>
 
-          <ngb-tab title="My Schedule">
+          <ngb-tab title="Schedule">
             <ng-template ngbTabContent>
 
             </ng-template>
           </ngb-tab>
 
-          <ngb-tab title="My Reviews">
+
+          <ngb-tab title="Booking">
+            <ng-template ngbTabContent>
+              <div align="center">>
+                <div class="col-md-8 order-xl-1">
+                  <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                      <div class="row align-items-center">
+                        <div class="col-8">
+                          <h3>Booking Form</h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <h6 class="heading-small text-muted mb-0">User information</h6>
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-username">id</label>
+                                <input type="text" id="input-username" class="form-control form-control-alternative"
+                                  placeholder="Username" value="yasas.ekanayeke">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-email">Email address</label>
+                                <input type="email" id="input-email" class="form-control form-control-alternative"
+                                  placeholder="cdcdcc@example.com">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-first-name">First name</label>
+                                <input type="text" id="input-first-name" class="form-control form-control-alternative"
+                                  placeholder="First name" value="yasas">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-last-name">Last name</label>
+                                <input type="text" id="input-last-name" class="form-control form-control-alternative"
+                                  placeholder="Last name" value="ekanayke">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-address">Address</label>
+                                <input id="input-address" class="form-control form-control-alternative"
+                                  placeholder="Home Address" value="bbdfdbfbf,vrsdvd,vsdvsdvsd,vdv" type="text">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-city">City</label>
+                                <input type="text" id="input-city" class="form-control form-control-alternative"
+                                  placeholder="City" value="angoda">
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-country">Age</label>
+                                <input type="text" id="input-country" class="form-control form-control-alternative"
+                                  placeholder="Country" value="40">
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-country">Mobile Number</label>
+                                <input type="number" id="text" class="form-control form-control-alternative"
+                                  placeholder="07756415563">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">About me</h6>
+                        <div class="pl-lg-4">
+                          <div class="form-group">
+                            <label>About Me</label>
+                            <textarea rows="4" class="form-control form-control-alternative"
+                              placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-tab>
+
+
+          <ngb-tab title="Review">
             <ng-template ngbTabContent>
 
               <div class="container">
