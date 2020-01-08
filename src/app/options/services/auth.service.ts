@@ -41,7 +41,7 @@ export class AuthService {
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.displayName === 'worker') {
-        this.router.navigate(['/profile/' + result.user.uid]);
+        this.router.navigate(['/profile/', email]);
       }
       if (result.user.displayName === 'user') {
         this.router.navigate(['/home/']);
@@ -66,8 +66,7 @@ export class AuthService {
               emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
-              status: true,
-              checked: "No"
+              status: 'unavailable',
             }
             this.SendVerificationMail();
             result.user.updateProfile({ displayName: 'worker' });
@@ -102,7 +101,7 @@ export class AuthService {
             emailVerified: result.user.emailVerified,
             jobType: "user",
             mobile: mobile,
-            checked: "No"
+            status: 'available'
           }
           this.SendVerificationMail();
           result.user.updateProfile({ displayName: 'user' });
@@ -186,7 +185,6 @@ interface Item {
   emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
-  status?: boolean;
-  checked?: string;
+  status?: string;
 }
 

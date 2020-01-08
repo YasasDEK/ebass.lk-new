@@ -6,7 +6,6 @@ export interface Worker {
     emailVerified: boolean;
     jobType: string;
     mobile: string;
-    status: boolean;
-    checked: string;
+    status: string;
     displayName?: string;
 }

@@ -33,11 +33,10 @@
                 aria-hidden="true"></i>Options</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
               <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
-              <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+              <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
               <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
               <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
               <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
-              <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
             </div>
           </div>
         </li>
@@ -104,7 +103,7 @@
 
 <div class="container" style="margin-top: 5px">
 
-  <table class="table table-bordered">
+  <table class="table">
     <thead>
 
       <tr class="table100-head">
@@ -119,15 +118,16 @@
       <tr class="table100-data" *ngFor="let results of filteredNames">
         <td class="column1">{{results.workername}}</td>
         <td class="column2">{{results.email}}</td>
-        <td class="column2">{{results.mobile}}</td>
-        <td class="column2">{{results.jobType}}</td>
-        <td class="column2">{{results.emailVerified}}</td>
-        <td class="column2">{{results.status}}</td>
-        <td class="column2"><a class="dropdown-item" [routerLink]="['/adminupdate',results.email]"><i
-              class="nc-icon nc-minimal-right" aria-hidden="true"></i> Edit</a></td>
-        <td class="column2"><a class="dropdown-item" [routerLink]="['/viewprofile',results.uid]"><i
-              class="nc-icon nc-minimal-right" aria-hidden="true"></i> View profile</a></td>
+        <td class="column3">{{results.mobile}}</td>
+        <td class="column4">{{results.jobType}}</td>
+        <td class="column5">{{results.emailVerified}}</td>
+        <td class="column6">{{results.status}}</td>
+        <td><a [routerLink]="['/adminupdate',results.email]"><i class="nc-icon nc-minimal-right"></i> Edit</a></td>
+        <td><a [routerLink]="['/viewprofile',results.uid]"><i class="nc-icon nc-minimal-right"></i>View profile</a></td>
+        <button type="button" class="btn btn-info btn-just-icon btn-small" (click)="send3(results.uid)"><i class="nc-icon nc-check-2"></i></button>
+        
       </tr>
+
 
     </thead>
   </table>

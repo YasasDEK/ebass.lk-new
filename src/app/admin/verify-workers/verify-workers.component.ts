@@ -9,11 +9,11 @@ import * as _ from 'lodash';
 // import { ItemService } from '../../services/item.service';
 
 @Component({
-  selector: 'app-allworkers',
-  templateUrl: './allworkers.component.html',
-  styleUrls: ['./allworkers.component.scss']
+  selector: 'app-verify-workers',
+  templateUrl: './verify-workers.component.html',
+  styleUrls: ['./verify-workers.component.scss']
 })
-export class AllworkersComponent implements OnInit {
+export class VerifyWorkersComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -27,11 +27,11 @@ export class AllworkersComponent implements OnInit {
 
   ngOnInit() {
     this.afs.collection('workers', ref => ref
-    .where('status', '==' , 'available'))
-    .valueChanges().subscribe(results => {
-      this.results = results;
-      this.applyFilters()
-    })
+      .where('status', '==', 'unavailable'))
+      .valueChanges().subscribe(results => {
+        this.results = results;
+        this.applyFilters()
+      })
   }
 
   private applyFilters() {
@@ -76,6 +76,7 @@ export class AllworkersComponent implements OnInit {
     //   :n2.localeComapare(n1);
     // });
   }
+
   send2() {
     this.results = this.results.sort((n1, n2) => {
       if (n1.uid < n2.uid) { return 1 }
@@ -84,5 +85,11 @@ export class AllworkersComponent implements OnInit {
 
     })
     this.applyFilters()
+  }
+
+  send3(id) {
+    this.afs.doc('workers/' + id).update({'status': 'available'});
+     alert('Worker verified');
+
   }
 }
