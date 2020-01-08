@@ -29,9 +29,15 @@ export class ProfileComponent implements OnInit {
             console.log('value : ' + this.datas[0]);
         })
     }
+<<<<<<< Updated upstream:src/app/options/profile/profile.component.ts
 
     getData() {
         this.data = this.ebass.collection('workers', ref => ref.where('email', '==', this.value)).valueChanges();
+=======
+  
+    getData(){
+        this.data = this.ebass.collection('workers', ref => ref.where('uid', '==', this.value )).valueChanges();
+>>>>>>> Stashed changes:src/app/examples/profile/profile.component.ts
         return this.data;
     }
 
