@@ -1,15 +1,14 @@
-<app-navbar></app-navbar>
 <br><br><br><br><br><br>
 <div class="container">
 
       <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" >
           <div *ngIf="datas?.length > 0; else noItems">
               <div *ngFor="let data of datas">
-                  <h1>{{data.workername}} Profile</h1>
+                  <h1>{{data.adminname}} Profile</h1>
           <input type="hidden" name="uid" [(ngModel)]="data.uid" class="form-control">
           <div class="form-group">
-              <label>Worker Name</label>
-              <input name="workername" [(ngModel)]="data.workername" class="form-control">
+              <label>admin Name</label>
+              <input name="adminname" [(ngModel)]="data.adminname" class="form-control">
           </div>
           <div class="form-group">
               <label>ID Number</label>
@@ -22,10 +21,6 @@
           <div class="form-group">
               <label>E-Mail</label>
               <input name="email" [(ngModel)]="data.email" class="form-control">
-          </div>
-          <div class="form-group">
-              <label>Job</label>
-              <input name="jobType" [(ngModel)]="data.jobType" class="form-control">
           </div>
           <div class="form-group">
               <button type="submit" class="btn btn-default btn-group-vertical ">Save</button>

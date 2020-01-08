@@ -40,6 +40,9 @@ import { AddcompaniesComponent } from './admin/addcompanies/addcompanies.compone
 
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 
+import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.component';
+import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
@@ -53,7 +56,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'rating', component: RatingComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'booking', component: BookingComponent },
+  { path: 'booking/:uid', component: BookingComponent },
   { path: 'component', component: ComponentsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'schedule', component: ScheduleComponent },
@@ -73,6 +76,9 @@ const routes: Routes = [
   { path: 'allusers', component: AllusersComponent },
   { path: 'addshops', component: AddshopsComponent },
   { path: 'addcompanies', component: AddcompaniesComponent },
+  { path: 'verifyworker', component: VerifyWorkersComponent },
+  { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
+
 ];
 
 @NgModule({

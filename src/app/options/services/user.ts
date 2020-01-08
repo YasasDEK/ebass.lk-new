@@ -6,6 +6,6 @@ export interface User {
     emailVerified: boolean;
     jobType: string;
     mobile: string;
-    checked: string;
     displayName?: string;
+    status: string;
 }

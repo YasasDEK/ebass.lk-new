@@ -29,18 +29,18 @@ export class UpdateAdminComponent implements OnInit {
   }
 
   getData() {
-    this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
+    this.data = this.ebass.collection('workers', ref => ref.where('email', '==', this.value)).valueChanges();
     return this.data;
   }
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
-    this.ebass.doc('admins/' + exampleForm.value.uid).update(exampleForm.value);
-    this.router.navigateByUrl('/profile/' + exampleForm.value.email);
+    this.ebass.doc('workers/' + exampleForm.value.uid).update(exampleForm.value);
+    this.router.navigateByUrl('allworkers');
   }
   delete(id) {
-     this.ebass.doc('admins/' + id).update({'status': false});
+     this.ebass.doc('workers/' + id).update({'status': 'deleted'});
      alert('Deleted');
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/allworkers');
   }
 
 }

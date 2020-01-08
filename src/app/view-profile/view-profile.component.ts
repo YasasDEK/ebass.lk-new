@@ -16,7 +16,7 @@ export class ViewProfileComponent implements OnInit {
   datas: Item[];
   isReceived = false;
 
-  constructor(public _Activatedroute: ActivatedRoute, public ebass: AngularFirestore, public authService: AuthService) {
+  constructor(public _Activatedroute: ActivatedRoute, public ebass: AngularFirestore) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value : ' + this.value);
 }

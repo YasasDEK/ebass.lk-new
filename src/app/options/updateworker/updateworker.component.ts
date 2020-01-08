@@ -38,7 +38,7 @@ export class UpdateworkerComponent implements OnInit {
     this.router.navigateByUrl('/profile/' + exampleForm.value.email);
   }
   delete(id) {
-     this.ebass.doc('workers/' + id).update({'status': false});
+     this.ebass.doc('workers/' + id).update({'status': 'deleted'});
      alert('Deleted');
       this.router.navigateByUrl('/home');
   }
