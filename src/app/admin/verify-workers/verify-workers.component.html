@@ -1,51 +1,66 @@
 <!--top nav bar-->
 <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
-  <div class="container">
-
-    <div class="navbar-translate">
-      <div class="avatar">
-        <a class="navbar-brand" href="http://localhost:4200">
-          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
-            width="60">
-        </a>
+    <div class="container">
+  
+      <div class="navbar-translate">
+        <div class="avatar">
+          <a class="navbar-brand" href="http://localhost:4200">
+            <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+              width="60">
+          </a>
+        </div>
       </div>
-    </div>
-
-    <div class="navbar-translate">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allworkers']"><i class="nc-icon nc-align-center"
-              aria-hidden="true"></i>&nbsp;workers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allusers']"><i class="nc-icon nc-align-center"
-              aria-hidden="true"></i>&nbsp;users</a>
-        </li>
-        <li class="nav-item">
-          <div ngbDropdown class="d-inline-block dropdown">
-            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                aria-hidden="true"></i>Options</a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-              <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
-              <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
-              <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
-              <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
-              <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
+  
+      <div class="navbar-translate">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Customers</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                  <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+                
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Notifications</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+  
+              </div>
+            </div>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Options</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
+                <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+                <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
+                <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
+                <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
+                <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
+              </div>
+            </div>
+          </li>
+  
+        </ul>
+      </div>
+  
     </div>
-
-  </div>
-</nav>
-<br><br><br><br><br><br>
+  </nav>
+  <br><br><br><br><br><br>
 
 <div class="content-center">
   <div class="container">

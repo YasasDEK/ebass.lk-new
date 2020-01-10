@@ -27,11 +27,11 @@ export class AllworkersComponent implements OnInit {
 
   ngOnInit() {
     this.afs.collection('workers', ref => ref
-    .where('status', '==' , 'available'))
-    .valueChanges().subscribe(results => {
-      this.results = results;
-      this.applyFilters()
-    })
+      .where('status', '==', 'available'))
+      .valueChanges().subscribe(results => {
+        this.results = results;
+        this.applyFilters()
+      })
   }
 
   private applyFilters() {
