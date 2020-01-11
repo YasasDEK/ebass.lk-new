@@ -38,6 +38,7 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+import { GmapComponent } from './gmap/gmap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 var firebaseConfig = {
@@ -72,6 +73,7 @@ var firebaseConfig = {
     // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
+    GmapComponent
   ],
   imports: [
     BrowserModule,
