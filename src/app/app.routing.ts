@@ -42,9 +42,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.component';
 import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
-import { GmapComponent } from './gmap/gmap.component';
-import { GooglemapComponent} from './googlemap/googlemap.component'
-
+import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -81,11 +79,8 @@ const routes: Routes = [
   { path: 'addcompanies', component: AddcompaniesComponent },
   { path: 'verifyworker', component: VerifyWorkersComponent },
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
-  { path: 'map', component: GmapComponent },
-  { path: 'gmap' , component: GooglemapComponent },
+  { path: 'viewmessages', component: ViewMessagesComponent },
   
-  
-
 ];
 
 @NgModule({

@@ -66,8 +66,8 @@
   <div class="container">
 
     <!--search bar-->
-    <label>Filter</label>
-    <!-- <section class="section section-lg section-hero section-shaped"> -->
+    <!-- <label>Filter</label>
+
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-12 text-center">
         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -76,48 +76,26 @@
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
-          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username"
-            (change)="filterName('username', username)">
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername"
+            (change)="filterName('workername', workername)">
           <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
-          <input class="form-control" placeholder="Email" type="text" [(ngModel)]="email"
-            (change)="filterEmail('email', email)">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="nc-icon nc-email-85"></i>
-            </span>
-          </div>
-          <!-- <input class="form-control" placeholder="Email Verified" type="text" [(ngModel)]="emailVerified"
-            (change)="filterVerifyEmail('emailVerified', emailVerified)">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="nc-icon nc-email-85"></i>
-            </span>
-          </div> -->
-          <input class="form-control" placeholder="Mobile" type="text" [(ngModel)]="mobile"
-            (change)="filterMobile('mobile', mobile)">
+
+          <input class="form-control" placeholder="Status" type="text" [(ngModel)]="status"
+            (change)="filterStatus('status', status)">
           <div class="input-group-prepend">
             <span class="input-group-text">
             </span>
           </div>
         </div> <br>
 
-        <!-- <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="nc-icon nc-email-85"></i>
-            </span>
-          </div>
-          <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType"
-            (change)="filterArea('jobType', jobType)">
-        </div> -->
         <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
           (click)="send2()">Sort high to low</button>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -129,53 +107,23 @@
     <thead>
 
       <tr class="table100-head">
-        <th class="column1">Name</th>
-        <th class="column2">Email</th>
-        <th class="column2">mobile</th>
-        <th class="column2">Email Verified</th>
+        <th class="column2">User name</th>
+        <th class="column1">User email</th>
+        <th class="column2">User mobile</th>
+        <th class="column2">User message</th>
       </tr>
 
-      <tr class="table100-data" *ngFor="let results of filteredNames">
-        <td class="column1">{{results.username}}</td>
-        <td class="column2">{{results.email}}</td>
-        <td class="column2">{{results.mobile}}</td>
-        <td class="column2">{{results.emailVerified}}</td>
-        <td class="column2"><a class="dropdown-item" [routerLink]="['/adminupdate',results.email]"><i
+      <tr class="table100-data" *ngFor="let result of results">
+        <td class="column1">{{result.username}}</td>
+        <td class="column2">{{result.usermail}}</td>
+        <td class="column2">{{result.usermoblie}}</td>
+        <td class="column2">{{result.usermessage}}</td>
+        <!-- <td class="column2"><a class="dropdown-item" [routerLink]="['/adminupdate',results.email]"><i
               class="nc-icon nc-minimal-right" aria-hidden="true"></i> Edit</a></td>
+        <td class="column2"><a class="dropdown-item" [routerLink]="['/viewprofile',results.uid]"><i
+              class="nc-icon nc-minimal-right" aria-hidden="true"></i> View profile</a></td> -->
       </tr>
 
     </thead>
   </table>
-  (status :False: not deleted) (Verify :yes :True )
 </div>
-
-<!-- <div class="limiter">
-        <div class="container-table100">
-          <div class="wrap-table100">
-            <div class="table100">
-              <table>
-                <thead>
-                  <tr class="table100-head">
-                    <th class="column1">Date</th>
-                    <th class="column2">Order ID</th>
-                    <th class="column3">Name</th>
-                    <th class="column4">Price</th>
-                    <th class="column5">Quantity</th>
-                    <th class="column6">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="column1">2017-09-29 01:22</td>
-                    <td class="column2">200398</td>
-                    <td class="column3">iPhone X 64Gb Grey</td>
-                    <td class="column4">$999.00</td>
-                    <td class="column5">1</td>
-                    <td class="column6">$999.00</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div> -->
