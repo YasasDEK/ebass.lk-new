@@ -31,18 +31,24 @@
             </div>
           </div> -->
             </li>
+            <li>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Book ME
+              </button>
+            </li>
           </ul>
         </div>
+        
 
       </div>
     </nav>
     <br><br><br><br><br>  
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Launch demo modal
-    </button>
+
+
+    
     
     <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -86,7 +92,7 @@
                             <div class="form-group">
                               <label class="form-control-label" for="input-last-name">Contact number</label>
                               <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                              placeholder={{data.mobile}} value={{data.mobile}} readonly>>
+                              placeholder={{data.mobile}} value={{data.mobile}} readonly>
                             </div>
                           </div>
                         </div>
@@ -141,16 +147,28 @@
                           </div>
                         </div>
                       </div>
+                      
                       <hr class="my-4" />
-                      <h6 class="heading-small text-muted mb-4">About me</h6>
+                      <h6 class="heading-small text-muted mb-4">Date</h6>
+                      <div class="col-lg-8">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-country">Enter Date</label>
+                          <input type="date" id="text" class="form-control form-control-alternative" placeholder="Date">
+                        </div>
+                      </div>
+
+                      <hr class="my-4" />
+                      <h6 class="heading-small text-muted mb-4">Description about the work </h6>
                       <div class="pl-lg-4">
                         <div class="form-group">
-                          <label>Description about the work </label>
+                          <!-- <label>Description about the work </label> -->
                           <textarea rows="4" class="form-control form-control-alternative"
                             placeholder="A few words about the work to do"></textarea>
                         </div>
                       </div>
-        
+                      <hr class="my-4" />
+                      <app-googlemap></app-googlemap>
+
                     </form>
                   </div>
                 </div>
@@ -160,7 +178,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-danger">BOOK NOW</button>
           </div>
         </div>
       </div>

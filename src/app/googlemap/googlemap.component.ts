@@ -1,13 +1,14 @@
 
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, OnDestroy } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { GeoService } from '../geo.service'
 
 @Component({
   selector: 'app-googlemap',
   templateUrl: './googlemap.component.html',
   styleUrls: ['./googlemap.component.scss']
 })
-export class GooglemapComponent implements OnInit {
+export class GooglemapComponent implements OnInit, OnDestroy {
 
   title: string = 'AGM project';
   latitude: number;
@@ -15,21 +16,24 @@ export class GooglemapComponent implements OnInit {
   zoom: number;
   address: string;
   private geoCoder;
+
+  markers: any;
+  subscription: any;
  
   @ViewChild('search')
   public searchElementRef: ElementRef;
  
- 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private geo: GeoService
   ) { }
- 
  
   ngOnInit() {
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
+      this.subscription = this.geo.hits.subscribe(hits => this.markers = hits)
       this.geoCoder = new google.maps.Geocoder;
  
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -53,6 +57,9 @@ export class GooglemapComponent implements OnInit {
       });
     });
   }
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
  
   // Get Current Location Coordinates
   private setCurrentLocation() {
@@ -63,6 +70,7 @@ export class GooglemapComponent implements OnInit {
         this.zoom = 8;
         this.getAddress(this.latitude, this.longitude);
       });
+      this.geo.getLocations(100, [this.latitude, this.longitude])
     }
   }
  

@@ -77,7 +77,7 @@ var firebaseConfig = {
     UpdateworkerComponent,
     ViewProfileComponent,
     GmapComponent,
-    GooglemapComponent
+    GooglemapComponent,
   ],
   imports: [
     BrowserModule,

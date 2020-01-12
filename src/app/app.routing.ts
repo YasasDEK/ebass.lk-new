@@ -84,6 +84,7 @@ const routes: Routes = [
   { path: 'map', component: GmapComponent },
   { path: 'gmap' , component: GooglemapComponent },
   
+  
 
 ];
 
