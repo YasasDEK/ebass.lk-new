@@ -82,20 +82,19 @@ export class AuthService {
 
   Addshops(email, shopname, mobile, url) {
 
-    // return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    ((result) => {
-      const shopData: Shop = {
-        // uid: result.user.uid,
-        shopname: shopname,
-        email: email,
-        jobType: "shop",
-        mobile: mobile,
-        url: url
-      }
-      console.log(mobile);
-      this.SetshopData(shopData);
-      window.alert("Registration done");
-    })((error) => {
+    const shopData: Shop = {
+      // uid: result.user.uid,
+      shopname: shopname,
+      email: email,
+      jobType: "shop",
+      mobile: mobile,
+      url: url
+    }
+    console.log(mobile);
+    this.SetshopData(shopData);
+    window.alert("Registration done");
+
+    ((error) => {
       window.alert(error.message)
       console.log(error)
     })
@@ -103,10 +102,8 @@ export class AuthService {
 
   Addcompanies(email, companyname, mobile, url) {
 
-    // return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    ((result) => {
+    {
       const companyData: Company = {
-        // uid: result.user.uid,
         companyname: companyname,
         email: email,
         jobType: "company",
@@ -116,10 +113,13 @@ export class AuthService {
       console.log(mobile);
       this.SetcompanyData(companyData);
       window.alert("Registration done");
-    })((error) => {
+    }
+
+    ((error) => {
       window.alert(error.message)
       console.log(error)
     })
+
   }
 
   SendVerificationMail() {
@@ -160,17 +160,21 @@ export class AuthService {
   }
 
   SetshopData(shop) {
-    const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
-    return adminRef.set(shop, {
-      merge: true
-    })
+    this.afs.collection('shops').add(shop);
+    this.router.navigate(['shops']);
+    // const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
+    // return adminRef.set(shop, {
+    //   merge: true
+    // })
   }
 
   SetcompanyData(company) {
-    const companyRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${company.uid}`);
-    return companyRef.set(company, {
-      merge: true
-    })
+    this.afs.collection('companies').add(company);
+    this.router.navigate(['companies']);
+    // const companyRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${company.uid}`);
+    // return companyRef.set(company, {
+    //   merge: true
+    // })
   }
 
   SetadminData(admin) {

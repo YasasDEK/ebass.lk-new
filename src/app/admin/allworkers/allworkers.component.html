@@ -16,17 +16,30 @@
         <li class="nav-item">
           <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Customers</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+              
+            </div>
+          </div>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allworkers']"><i class="nc-icon nc-align-center"
-              aria-hidden="true"></i>&nbsp;workers</a>
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Notifications</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+
+            </div>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allusers']"><i class="nc-icon nc-align-center"
-              aria-hidden="true"></i>&nbsp;users</a>
-        </li>
+
         <li class="nav-item">
           <div ngbDropdown class="d-inline-block dropdown">
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
@@ -41,6 +54,7 @@
             </div>
           </div>
         </li>
+
       </ul>
     </div>
 
@@ -131,7 +145,6 @@
 
     </thead>
   </table>
-  (status :False: not deleted) (Verify :yes :True )
 </div>
 
 <!-- <div class="limiter">
