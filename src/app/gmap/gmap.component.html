@@ -17,9 +17,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let location of locations">
-            <td>{% raw %}{{ location.Location.Address.Label }}{% endraw %}</td>
-            <td>{% raw %}{{ location.Location.DisplayPosition.Latitude }}{% endraw %}</td>
-            <td>{% raw %}{{ location.Location.DisplayPosition.Longitude }}{% endraw %}</td>
+            <td>{{'{'}}% raw %{{'}'}}{{ location.Location.Address.Label }}{{'{'}}% endraw %{{'}'}}</td>
+            <td>{{'{'}}% raw %{{'}'}}{{ location.Location.DisplayPosition.Latitude }}{{'{'}}% endraw %{{'}'}}</td>
+            <td>{{'{'}}% raw %{{'}'}}{{ location.Location.DisplayPosition.Longitude }}{{'{'}}% endraw %{{'}'}}</td>
         </tr>
     </tbody>
 </table> -->
+
+<div #map [style.width]="width" [style.height]="height"></div>

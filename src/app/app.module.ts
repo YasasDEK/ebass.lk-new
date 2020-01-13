@@ -38,10 +38,11 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
-import { GmapComponent } from './gmap/gmap.component';
+// import { GmapComponent } from './gmap/gmap.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
 
 
 var firebaseConfig = {
@@ -76,8 +77,11 @@ var firebaseConfig = {
     // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
-    GmapComponent,
+    // GmapComponent,
     GooglemapComponent,
+    UserprofileComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -99,7 +103,7 @@ var firebaseConfig = {
     })
     // UserModule,
   ],
-  providers: [/*ItemService,*/ AuthService  /*, AuthuService*/],
+  providers: [/*ItemService,*/ AuthService,  /*, AuthuService*/],
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
 //   bootstrap: [AppComponent]

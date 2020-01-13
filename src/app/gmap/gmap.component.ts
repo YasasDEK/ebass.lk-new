@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { HereService } from "../here.service";
+
+declare var H: any;
 
 @Component({
   selector: 'app-gmap',
@@ -8,35 +10,49 @@ import { HereService } from "../here.service";
 })
 export class GmapComponent implements OnInit {
 
- public query: string;
-    public position: string;
-    public locations: Array<any>;
+ 
+    @ViewChild("map")
+    public mapElement: ElementRef;
 
-    public constructor(private here: HereService) {
-        this.query = "Tracy, CA";
-        this.position = "37.7397,-121.4252";
-    }
-    ngOnInit() { 
-    }
-    
-    public getAddress() {
-      if(this.query != "") {
-          this.here.getAddress(this.query).then(result => {
-              this.locations = <Array<any>>result;
-          }, error => {
-              console.error(error);
-          });
-      }
-  } 
-  public getAddressFromLatLng() {
-    if(this.position != "") {
-        this.here.getAddressFromLatLng(this.position).then(result => {
-            this.locations = <Array<any>>result;
-        }, error => {
-            console.error(error);
+    @Input()
+    public appId: any;
+
+    @Input()
+    public appCode: any;
+
+    @Input()
+    public lat: any;
+
+    @Input()
+    public lng: any;
+
+    @Input()
+    public width: any;
+
+    @Input()
+    public height: any;
+
+    public constructor() { }
+
+    public ngOnInit() { }
+
+    public ngAfterViewInit() {
+        let platform = new H.service.Platform({
+            "app_id": this.appId,
+            "app_code": this.appCode
         });
+        let defaultLayers = platform.createDefaultLayers();
+        let map = new H.Map(
+            this.mapElement.nativeElement,
+            defaultLayers.normal.map,
+            {
+                zoom: 10,
+                center: { lat: this.lat, lng: this.lng }
+            }
+        );
     }
+
 }
   
-}
+
 

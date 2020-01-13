@@ -43,6 +43,11 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.component';
 import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
+// import { GmapComponent } from './gmap/gmap.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -80,6 +85,10 @@ const routes: Routes = [
   { path: 'verifyworker', component: VerifyWorkersComponent },
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
   { path: 'viewmessages', component: ViewMessagesComponent },
+  // { path: 'map', component: GmapComponent },
+  { path: 'gmap', component: GooglemapComponent },
+  { path: 'userprofile', component: UserprofileComponent },
+  
   
 ];
 
