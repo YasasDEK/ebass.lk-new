@@ -36,6 +36,7 @@
   </div>
 </nav>
 <br><br><br><br><br>
+<br>
 
 <div *ngIf="datas?.length > 0; else noItems">
   <div *ngFor="let data of datas">
@@ -45,8 +46,8 @@
           <ngb-tab title="Home">
             <ng-template ngbTabContent>
 
-              <div class="container-fluid mt--7">
-                <div class="row">
+              <div class="container-fluid mt--7 ">
+                <div class="row justify-content-md-center">
                   <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
                     <div class="card card-profile shadow">
                       <div class="row justify-content-center">
@@ -104,12 +105,12 @@
                     </div>
                   </div>
 
-                  <div class="col-md-8">
+                  <div class="col-md-6">
                     <div class="section" id="carousel">
                       <div class="container">
-                        <div class="tim-title">
+                        <!-- <div class="tim-title">
                           <h3>My Work</h3>
-                        </div>
+                        </div> -->
                         <div class="card page-carousel">
                           <ngb-carousel>
                             <ng-template ngbSlide>
