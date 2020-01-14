@@ -40,12 +40,16 @@ export class AuthService {
 
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if (result.user.displayName === 'worker') {
-        this.router.navigate(['/profile/', email]);
-      }
-      if (result.user.displayName === 'user') {
-        this.router.navigate(['/home/']);
-      }
+      if(result.user.emailVerified === true){
+        if (result.user.displayName === 'worker') {
+          this.router.navigate(['/profile/', email]);
+        }
+        if (result.user.displayName === 'user') {
+          this.router.navigate(['/home/']);
+        }
+      } else {
+        console.log("check email");
+    }     
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
@@ -59,11 +63,9 @@ export class AuthService {
           .then((result) => {
             this.SendVerificationMail();
             const workerData: Worker = {
-              uid: result.user.uid,
               workername: workername,
               idNumber: id,
               email: email,
-              emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
               status: 'unavailable',
@@ -94,11 +96,9 @@ export class AuthService {
         .then((result) => {
           // this.SendVerificationMail();
           const userData: User = {
-            uid: result.user.uid,
             username: username,
             idNumber: id,
             email: email,
-            emailVerified: result.user.emailVerified,
             jobType: "user",
             mobile: mobile,
             status: 'available'
@@ -175,14 +175,16 @@ export class AuthService {
       this.router.navigate(['sign-in']);
     })
   }
+
 }
+
+
 
 interface Item {
   uid?: string;
   workername?: string;
   idNumber?: string;
   email?: string;
-  emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
   status?: string;

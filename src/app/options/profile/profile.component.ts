@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UpdateworkerComponent} from '../updateworker/updateworker.component';
+import * as firebase from 'firebase/app';
+
 
 @Component({
     selector: 'app-profile',
