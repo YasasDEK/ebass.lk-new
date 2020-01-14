@@ -43,6 +43,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { UserprofileComponent } from './users/userprofile/userprofile.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 
 
 var firebaseConfig = {
@@ -80,6 +81,7 @@ var firebaseConfig = {
     // GmapComponent,
     GooglemapComponent,
     UserprofileComponent,
+    FormvalidComponent,
     
     
   ],

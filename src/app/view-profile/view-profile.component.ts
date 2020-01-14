@@ -16,6 +16,7 @@ import { Book} from './book'
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
+  
   value: string;
   data: Observable<Item[]>;
   datas: Item[];
