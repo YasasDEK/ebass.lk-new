@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container"> 
  
 <button class="btn btn-danger" (click)="setCurrentLocation()">Fetch my Location</button>
 <h6>Move the Pin where you want to </h6>
@@ -12,7 +12,7 @@
  
   <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
     <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-      (dragEnd)="markerDragEnd($event)">
+      (dragEnd)="markerDragEnd($event)" >
     
     <agm-info-window>
       <p>You are HERE!!</p>

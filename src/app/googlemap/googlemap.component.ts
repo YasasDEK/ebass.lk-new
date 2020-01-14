@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 // import { GeoService } from '../geo.service'
 
@@ -16,6 +16,9 @@ export class GooglemapComponent implements OnInit {
   zoom: number;
   address: string;
   private geoCoder;
+
+
+  @Output() public childEvent =  new EventEmitter();
  
   @ViewChild('search')
   public searchElementRef: ElementRef;
@@ -53,6 +56,8 @@ export class GooglemapComponent implements OnInit {
         });
       });
     });
+
+    this.childEvent.emit(this.latitude)
   }
  
   // Get Current Location Coordinates
