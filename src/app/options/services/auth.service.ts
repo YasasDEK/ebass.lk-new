@@ -48,7 +48,7 @@ export class AuthService {
           this.router.navigate(['/home/']);
         }
       } else {
-        console.log("check email");
+        console.log('check email');
     }     
     }).catch((error) => {
       window.alert(error);
@@ -57,12 +57,13 @@ export class AuthService {
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
+    if (job === 'mason' || job === 'electrician' || job === 'plumber' || job === 'painter' || job === 'repair' || job === 'carpenter') {
       if (id.length == 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             this.SendVerificationMail();
             const workerData: Worker = {
+              uid: result.user.uid,
               workername: workername,
               idNumber: id,
               email: email,
@@ -74,32 +75,33 @@ export class AuthService {
             result.user.updateProfile({ displayName: 'worker' });
             console.log(mobile);
             this.SetWorkerData(workerData);
-            window.alert("Registration done");
+            window.alert('Registration done');
           }).catch((error) => {
             window.alert(error.message)
             console.log(error)
           })
       }
       else {
-        window.alert("Invalid ID number ")
+        window.alert('Invalid ID number ')
       }
     }
     else {
-      window.alert("Job Type doen't available ")
+      window.alert('Job Type doen\'t available ')
     }
   }
 
   SignUpUser(email, password, username, id, mobile) {
     console.log(id);
-    if (id.length == 10) {
+    if (id.length === 10) {
       return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           // this.SendVerificationMail();
           const userData: User = {
+            uid: result.user.uid,
             username: username,
             idNumber: id,
             email: email,
-            jobType: "user",
+            jobType: 'user',
             mobile: mobile,
             status: 'available'
           }
@@ -107,14 +109,14 @@ export class AuthService {
           result.user.updateProfile({ displayName: 'user' });
           console.log(mobile);
           this.SetUserData(userData);
-          window.alert("Registration done");
+          window.alert('Registration done');
         }).catch((error) => {
           window.alert(error.message)
           console.log(error)
         })
     }
     else {
-      window.alert("Invalid ID number ")
+      window.alert('Invalid ID number ')
     }
   }
 
