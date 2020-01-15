@@ -47,9 +47,8 @@
 <br>
 
     <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" >
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Booking Form</h5>
@@ -63,46 +62,25 @@
               <div class="card-body">
                 <form>
                   <h6 class="heading-small text-muted mb-0">Worker information</h6>
+                  <br>
+
+
+                  <!-- ------------ -->
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Worker name</label>
-                          <input type="text" id="input-workername" class="form-control form-control-alternative"
-                            placeholder={{data.workername}} value="{{data.workername}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Woker Email </label>
-                          <input type="email" id="input-email" class="form-control form-control-alternative"
-                            placeholder={{data.email}} value={{data.email}} readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-first-name">Worker ID</label>
-                          <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                            placeholder={{data.idNumber}} value="{{data.idNumber}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-last-name">Contact number</label>
-                          <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                            placeholder={{data.mobile}} value={{data.mobile}} readonly>
-                        </div>
-                      </div>
+                        <p><b>Worker Name:</b>    {{data.workername}}</p> 
+                        <p><b>Woker Email:</b>    {{data.email}}</p>
+                        <p><b>Worker ID:</b>      {{data.idNumber}}</p>
+                        <p><b>Contact Number:</b> {{data.mobile}}</p>
                     </div>
                   </div>
 
-                  <hr class="my-4" />
+<!-- -------------------- -->
+                  <hr class="my-10 width" />
                   <h6 class="heading-small text-muted mb-4">Contact information</h6>
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-4">
+                      <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-city">Name</label>
                           <input name="username" type="text" class="form-control" placeholder="Custmoer name"
@@ -118,7 +96,7 @@
                             </div>
                           </div> -->
 
-                      <div class="col-lg-4">
+                      <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-country">Email</label>
                           <input name="useremail" type="text" class="form-control" placeholder="user email"
