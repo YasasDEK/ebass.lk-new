@@ -46,6 +46,8 @@ import { ViewMessagesComponent } from './admin/view-messages/view-messages.compo
 // import { GmapComponent } from './gmap/gmap.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { UserprofileComponent } from './users/userprofile/userprofile.component';
+import { BasicelementsComponent } from './components/basicelements/basicelements.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 
 
 
@@ -88,6 +90,11 @@ const routes: Routes = [
   // { path: 'map', component: GmapComponent },
   { path: 'gmap', component: GooglemapComponent },
   { path: 'userprofile', component: UserprofileComponent },
+  { path: 'bootstraps', component: BasicelementsComponent },
+  { path: 'formvalid', component: FormvalidComponent },
+
+
+
   
   
 ];

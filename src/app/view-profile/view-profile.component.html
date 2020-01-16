@@ -32,7 +32,8 @@
           </div> -->
             </li>
             <li>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" class="btn btn-danger btn-round" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-heart"></i>
                 Book ME
               </button>
             </li>
@@ -43,14 +44,11 @@
       </div>
     </nav>
     <br><br><br><br><br>
-
-
-
+<br>
 
     <!-- Modal -->
-    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" >
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Booking Form</h5>
@@ -64,46 +62,25 @@
               <div class="card-body">
                 <form>
                   <h6 class="heading-small text-muted mb-0">Worker information</h6>
+                  <br>
+
+
+                  <!-- ------------ -->
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Worker name</label>
-                          <input type="text" id="input-workername" class="form-control form-control-alternative"
-                            placeholder={{data.workername}} value="{{data.workername}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Woker Email </label>
-                          <input type="email" id="input-email" class="form-control form-control-alternative"
-                            placeholder={{data.email}} value={{data.email}} readonly>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-first-name">Worker ID</label>
-                          <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                            placeholder={{data.idNumber}} value="{{data.idNumber}}" readonly>
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-last-name">Contact number</label>
-                          <input type="text" id="input-last-name" class="form-control form-control-alternative"
-                            placeholder={{data.mobile}} value={{data.mobile}} readonly>
-                        </div>
-                      </div>
+                        <p><b>Worker Name:</b>    {{data.workername}}</p> 
+                        <p><b>Woker Email:</b>    {{data.email}}</p>
+                        <p><b>Worker ID:</b>      {{data.idNumber}}</p>
+                        <p><b>Contact Number:</b> {{data.mobile}}</p>
                     </div>
                   </div>
 
-                  <hr class="my-4" />
+<!-- -------------------- -->
+                  <hr class="my-10 width" />
                   <h6 class="heading-small text-muted mb-4">Contact information</h6>
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-4">
+                      <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-city">Name</label>
                           <input name="username" type="text" class="form-control" placeholder="Custmoer name"
@@ -119,7 +96,7 @@
                             </div>
                           </div> -->
 
-                      <div class="col-lg-4">
+                      <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-country">Email</label>
                           <input name="useremail" type="text" class="form-control" placeholder="user email"
@@ -159,10 +136,21 @@
                   <h6 class="heading-small text-muted mb-4">Date</h6>
                   <div class="col-lg-8">
                     <div class="form-group">
-                      <label class="form-control-label" for="input-country">Enter Date</label>
-                      <input name="bookingdate" type="date" class="form-control" 
-                        (focus)="focus=true" (blur)="focus=false" #bookingdate required> </div>
+                      <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                          <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="bookingdate" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true"
+                                (blur)="focus=false" #bookingdate require >
+                          <div class="input-group-append">
+                              <span class="glyphicon glyphicon-calendar input-group-text">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </span>
+                          </div>
+                      </div>
                   </div>
+
+                  </div>
+
+                  
 
                   <hr class="my-4" />
                   <h6 class="heading-small text-muted mb-4">Description about the work </h6>
@@ -170,13 +158,14 @@
                     <div class="form-group">
                       <!-- <label>Description about the work </label> -->
                       <textarea rows="4" class="form-control form-control-alternative" name="bookingdesc" type="text"
-                        class="form-control" (focus)="focus=true" (blur)="focus=false" 
-                        placeholder="A few words about the work to do"  #bookingdesc required></textarea>
+                        class="form-control" (focus)="focus=true" (blur)="focus=false"
+                        placeholder="A few words about the work to do" #bookingdesc required></textarea>
                     </div>
                   </div>
                   <hr class="my-4" />
 
                   <app-googlemap></app-googlemap>
+
 
                   <div class="formGroup">
                     <input type="button" class="btn btnPrimary" value="Booking"
@@ -197,16 +186,16 @@
       </div>
     </div>
 
-
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'">
+          
           <ngb-tab title="Home">
             <ng-template ngbTabContent>
 
               <div class="container-fluid mt--7">
-                <div class="row">
-                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+                <div class="row justify-content-md-center">
+                  <div class="col-xl-3 md-6 order-xl-2 mb-5 mb-xl-0">
                     <div class="card card-profile shadow">
                       <div class="row justify-content-center">
                         <div class="col-lg-12 order-lg-2">
@@ -233,26 +222,27 @@
 
                               <div>
                                 <span class="heading">8.7 </span>
-                                <span class="description"> Rating </span>
+                                <!-- <span class="description"> Rating </span> -->
                               </div>
-                              <div>
+                              <!-- <div>
                                 <span class="heading"> Yes </span>
                                 <span class="description"> Available </span>
                               </div>
                               <div>
                                 <span class="heading"> 89 </span>
                                 <span class="description"> Comments </span>
-                              </div>
+                              </div> -->
                             </div>
                           </div>
                         </div>
                         <div class="text-center">
                           <h3>
-                            {{data.workername}}<span class="font-weight-light">, 27</span>
+                            {{data.workername}}<span class="font-weight-light"></span>
                           </h3>
                           <div class="h5 font-weight-300">
                             <i class="ni location_pin mr-2"></i>{{data.email}}
                           </div>
+                          <hr>
                           <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>Mason
                           </div>
@@ -262,7 +252,7 @@
                     </div>
                   </div>
 
-                  <!------------------------------------------------------------------------------------------------------>
+                  <!---------------------------------------------------------------------------------------------------------------->
 
                   <!---------------------------------------------------------------------------------------------------------------->
 
@@ -306,7 +296,7 @@
               <div class="container">
 
                 <div class="row">
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <div class="rating-block">
                       <h4>Average user rating</h4>
                       <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
@@ -327,7 +317,7 @@
                       </button>
                     </div>
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <h4>Rating breakdown</h4>
                     <div class="pull-left">
                       <div class="pull-left" style="width:35px; line-height:1;">
@@ -387,11 +377,9 @@
                       <div class="pull-right" style="margin-left:10px;">0</div>
                     </div>
                   </div>
-                </div>
 
 
-                <div class="row">
-                  <div class="col-sm-7">
+                  <div class="col-md-6">
                     <hr />
                     <div class="review-block">
                       <div class="row">
@@ -424,68 +412,10 @@
                             buy this was nice in buy</div>
                         </div>
                       </div>
-                      <hr />
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                          <div class="review-block-name"><a href="#">nktailor</a></div>
-                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                          <div class="review-block-rate">
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                          </div>
-                          <div class="review-block-title">this was nice in buy</div>
-                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
-                            buy this was nice in buy</div>
-                        </div>
-                      </div>
-                      <hr />
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                          <div class="review-block-name"><a href="#">nktailor</a></div>
-                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                          <div class="review-block-rate">
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                          </div>
-                          <div class="review-block-title">this was nice in buy</div>
-                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
-                            buy this was nice in buy</div>
-                        </div>
-                      </div>
+
+
+                     
+                    
                     </div>
                   </div>
                 </div>
@@ -502,3 +432,5 @@
 
   </div>
 </div>
+
+
