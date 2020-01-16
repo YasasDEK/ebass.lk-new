@@ -8,4 +8,6 @@ export interface Book {
     bookingdesc: string,
     bookingdate: Date,
     usercity: string,
+    latitude: number;
+    longitude: number;
 }
