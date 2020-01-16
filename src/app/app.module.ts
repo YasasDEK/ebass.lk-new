@@ -44,6 +44,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import { AgmCoreModule } from '@agm/core';
 import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
 
 
 var firebaseConfig = {
@@ -82,6 +83,7 @@ var firebaseConfig = {
     GooglemapComponent,
     UserprofileComponent,
     FormvalidComponent,
+    CollapseComponent,
     
     
   ],

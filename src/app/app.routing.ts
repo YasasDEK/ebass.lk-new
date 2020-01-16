@@ -48,6 +48,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { BasicelementsComponent } from './components/basicelements/basicelements.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
 
 
 
@@ -92,6 +93,7 @@ const routes: Routes = [
   { path: 'userprofile', component: UserprofileComponent },
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
+  { path: 'collapse', component: CollapseComponent },
 
 
 
