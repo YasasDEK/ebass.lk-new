@@ -45,6 +45,7 @@ import { AgmCoreModule } from '@agm/core';
 import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
 
 
 var firebaseConfig = {
@@ -84,6 +85,7 @@ var firebaseConfig = {
     UserprofileComponent,
     FormvalidComponent,
     CollapseComponent,
+    ImageComponent,
     
     
   ],
