@@ -80,7 +80,6 @@ const routes: Routes = [
   { path: 'verifyworker', component: VerifyWorkersComponent },
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
   { path: 'viewmessages', component: ViewMessagesComponent },
-  
 ];
 
 @NgModule({

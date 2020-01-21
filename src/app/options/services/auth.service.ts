@@ -57,7 +57,6 @@ export class AuthService {
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
-    if (job === 'mason' || job === 'electrician' || job === 'plumber' || job === 'painter' || job === 'repair' || job === 'carpenter') {
       if (id.length == 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
@@ -84,10 +83,6 @@ export class AuthService {
       else {
         window.alert('Invalid ID number ')
       }
-    }
-    else {
-      window.alert('Job Type doen\'t available ')
-    }
   }
 
   SignUpUser(email, password, username, id, mobile) {

@@ -3,7 +3,7 @@ export interface Worker {
     workername: string;
     idNumber: string;
     email: string;
-    jobType: string;
+    jobType: Array<string>;
     mobile: string;
     status: string;
     displayName?: string;

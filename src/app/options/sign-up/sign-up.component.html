@@ -1,4 +1,4 @@
-<!--top nav bar-->
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
   <div class="container">
 
@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<!--sign up content-->
+
 <div class="wrapper">
   <div class="page-header" style="background-image: url('./assets/img/z.jpg');">
     <div class="filter"></div>
@@ -48,7 +48,7 @@
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="nc-iconm nc-single-02"></i>
                   </span>
                 </div>
                 <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
@@ -87,16 +87,18 @@
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
                   (blur)="focus=false" #usermobile required>
               </div>
+
               <label>Job Type</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="nc-icon nc-mobile"></i>
-                  </span>
-                </div>
-                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
-                  (blur)="focus=false" #userjob required>
-              </div>
+              <br>
+                  <div class="form-check-inline" *ngFor="let control of jobArray.controls; let i = index;">
+                  <input type="checkbox"  (change)="getSelectedJobType()" [formControl]="control" name="" id="inlineCheckBox{{i}}">
+                  <label class="form-check-label" for="inlineCheckBox{{i}}">{{jobType[i]}}</label>
+                  </div>
+                  <br><br>
+                  <div>
+                    <small *ngIf="jobError && determineErrorDisplay()">u have to choose atleast one or more</small>
+                  </div>
+             <br>     
 
 
               <label>Password</label>
@@ -112,7 +114,7 @@
 
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, selectedJobArray , useridnum.value, usermobile.value)">
               </div>
 
             </form>
