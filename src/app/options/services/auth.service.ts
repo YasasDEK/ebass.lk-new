@@ -49,7 +49,7 @@ export class AuthService {
         }
       } else {
         console.log('check email');
-    }     
+    }
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
-      if (id.length == 10) {
+      if (id.length === 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             this.SendVerificationMail();
@@ -133,7 +133,7 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     const worker = JSON.parse(localStorage.getItem('workers'));
-    return (worker !== null && worker.emailVerified !== false) ? true : false;
+    return (worker !== null && worker .emailVerified !== false) ? true : false;
   }
 
   GoogleAuth() {
@@ -169,7 +169,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['signin']);
     })
   }
 
