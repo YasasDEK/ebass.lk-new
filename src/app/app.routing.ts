@@ -45,6 +45,8 @@ import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
 
 const routes: Routes = [
+
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
