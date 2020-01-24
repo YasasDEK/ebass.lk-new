@@ -38,6 +38,7 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 var firebaseConfig = {
@@ -86,7 +87,8 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
     // UserModule,
   ],
   providers: [/*ItemService,*/ AuthService  /*, AuthuService*/],

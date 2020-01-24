@@ -45,6 +45,8 @@ import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
 
 const routes: Routes = [
+
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
@@ -80,7 +82,6 @@ const routes: Routes = [
   { path: 'verifyworker', component: VerifyWorkersComponent },
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
   { path: 'viewmessages', component: ViewMessagesComponent },
-  
 ];
 
 @NgModule({
