@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
         } else {
             // no worker logged in
             this.router.navigate(['signin']);
-            window.alert('First u have to log to access this page');
+            window.alert('First you have to log to access this page');
             console.log('please loging before access this page');
         }
     }
