@@ -3,7 +3,6 @@ export interface User {
     username: string;
     idNumber: string;
     email: string;
-    emailVerified: boolean;
     jobType: string;
     mobile: string;
     displayName?: string;
