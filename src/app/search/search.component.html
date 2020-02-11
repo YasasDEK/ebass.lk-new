@@ -74,12 +74,12 @@
             </span>
           </div>
           <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType"
-            (change)="filterArea('jobType', jobType)">
+            (change)="filterJob('jobType', jobType)">
         </div>
         <br>
 
-        <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
-          (click)="send2()">Sort high to low</button>
+        <button class="btn btn-danger" (click)="send()">Sort low to high</button>
+        <button class="btn btn-danger"(click)="send2()">Sort high to low</button>
       </div>
     </div>
     <!-- </section> -->
@@ -107,7 +107,7 @@
                   <div>
                     <h6>Name: {{results.workername}}</h6>
                     <h6>Job: {{results.jobType}}</h6>
-                    <a [routerLink]="['/profile',results.uid]" class="text-warning">Learn more</a>
+                    <a [routerLink]="['/viewprofile',results.uid]" class="text-warning">Learn more</a>
                   </div>
                 </div>
               </div>

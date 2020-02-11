@@ -38,7 +38,17 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { GmapComponent } from './gmap/gmap.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -72,6 +82,14 @@ var firebaseConfig = {
     // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
+    // GmapComponent,
+    GooglemapComponent,
+    UserprofileComponent,
+    FormvalidComponent,
+    CollapseComponent,
+    ImageComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -86,13 +104,18 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCX6twQwi3PezVEReDhC5IMLyiaqC8f_rA',
+      libraries: ['places']
+    })
     // UserModule,
   ],
-  providers: [/*ItemService,*/ AuthService  /*, AuthuService*/],
+  providers: [/*ItemService,*/ AuthService,  /*, AuthuService*/],
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
-//   bootstrap: [AppComponent]
+//   bootstrap: [AppCompone1nt]
 // >>>>>>> origin/newtest
 })
 export class AppModule { }
