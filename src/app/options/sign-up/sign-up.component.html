@@ -29,8 +29,8 @@
     <div class="filter"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-sm-8 mr-auto ml-auto">
-          <div class="card card-register">
+        <div class="col-lg-4 col-md-6 col-sm-8 mr-auto ml-auto">
+          <div class="card card-register ">
             <h3 class="title">Welcome</h3>
             <div class="social-line text-center">
               <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
@@ -100,7 +100,53 @@
                   </div>
              <br>     
 
+              <!-- <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-mobile"></i>
+                  </span>
+                </div>
+                <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
+                  (blur)="focus=false" #userjob required>
+              </div> -->
 
+              <div class="row">
+                <div class="col">
+              <div class="form-check">
+                <label class="form-check-label">
+                    <input name="jobtype" class="form-check-input" type="checkbox" value="mason" #userjob>
+                    mason
+                    <span class="form-check-sign"></span>
+                </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="">
+                  sfss
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+            
+          </div>
+            
+          <div class="col">
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input name="jobtype" class="form-check-input" type="checkbox" value="plumber" #userjob >
+                  plumber
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" #userPwd>
+                fssf
+                <span class="form-check-sign"></span>
+            </label>
+        </div>
+      </div>
+     </div>
+            
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">

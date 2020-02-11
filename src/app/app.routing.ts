@@ -43,6 +43,15 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.component';
 import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
+// import { GmapComponent } from './gmap/gmap.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
+import { BasicelementsComponent } from './components/basicelements/basicelements.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
+
+
 
 const routes: Routes = [
 
@@ -82,6 +91,14 @@ const routes: Routes = [
   { path: 'verifyworker', component: VerifyWorkersComponent },
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
   { path: 'viewmessages', component: ViewMessagesComponent },
+  // { path: 'map', component: GmapComponent },
+  { path: 'gmap', component: GooglemapComponent },
+  { path: 'userprofile', component: UserprofileComponent },
+  { path: 'bootstraps', component: BasicelementsComponent },
+  { path: 'formvalid', component: FormvalidComponent },
+  { path: 'collapse', component: CollapseComponent },
+  { path: 'image', component: ImageComponent },
+
 ];
 
 @NgModule({
