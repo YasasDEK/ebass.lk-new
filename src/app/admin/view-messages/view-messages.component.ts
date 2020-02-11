@@ -35,7 +35,8 @@ export class ViewMessagesComponent implements OnInit {
 }
 
 
-});
+
+
 
 interface Item {
   username?: string;
