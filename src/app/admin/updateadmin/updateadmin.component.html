@@ -5,11 +5,11 @@
       <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" >
           <div *ngIf="datas?.length > 0; else noItems">
               <div *ngFor="let data of datas">
-                  <h1>{{data.adminname}} Profile</h1>
+                  <h1>{{data.workername}} Profile</h1>
           <input type="hidden" name="uid" [(ngModel)]="data.uid" class="form-control">
           <div class="form-group">
-              <label>admin Name</label>
-              <input name="adminname" [(ngModel)]="data.adminname" class="form-control">
+              <label>Worker Name</label>
+              <input name="workername" [(ngModel)]="data.workername" class="form-control">
           </div>
           <div class="form-group">
               <label>ID Number</label>

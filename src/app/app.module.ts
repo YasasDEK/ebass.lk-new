@@ -30,14 +30,6 @@ import { AdminSignUpComponent } from './admin/admin-sign-up/admin-sign-up.compon
 import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
 import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component';
 
-
-// import { SignUpuComponent } from './user/sign-upu/sign-upu.component';
-// import { SignInuComponent } from './user/sign-inu/sign-inu.component';
-// import { ForgotPassworduComponent } from './user/forgot-passwordu/forgot-passwordu.component';
-// import { UserModule } from './user/user.module';
-// import { AuthuService } from './user/servicesu/authu.service';
-// import { VerifyEmailuComponent } from './user/verify-emailu/verify-emailu.component';
-
 import { VerifyEmailComponent } from './options/verify-email/verify-email.component';
 import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-verify-email.component';
 
@@ -45,12 +37,18 @@ import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-veri
 import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
-// import { SignUpuComponent } from './examplesu/sign-upu/sign-upu.component';
-// import { SignInuComponent } from './examplesu/sign-inu/sign-inu.component';
-// import { ForgotPassworduComponent } from './examplesu/forgot-passwordu/forgot-passwordu.component';
-// import { ExamplesuModule } from './examplesu/examplesu.module';
-// import { AuthuService } from './examplesu/servicesu/authu.service';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { GmapComponent } from './gmap/gmap.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -78,20 +76,20 @@ var firebaseConfig = {
     ScheduleComponent,
     VerifyEmailComponent,
     AdminVerifyEmailComponent,
-    // AdminProfileComponent,
     AdminSignUpComponent,
     AdminSignInComponent,
     UpdateAdminComponent,
-    // CategoriesComponent
-    // SignUpuComponent,
-    // SignInuComponent,
-    // ForgotPassworduComponent,
-    //VerifyEmailuComponent
-    // SignUpuComponent,
-    // SignInuComponent,
-    // ForgotPassworduComponent,
+    // CategoriesComponent,
     UpdateworkerComponent,
-    ViewProfileComponent
+    ViewProfileComponent,
+    // GmapComponent,
+    GooglemapComponent,
+    UserprofileComponent,
+    FormvalidComponent,
+    CollapseComponent,
+    ImageComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -106,13 +104,18 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCX6twQwi3PezVEReDhC5IMLyiaqC8f_rA',
+      libraries: ['places']
+    })
     // UserModule,
   ],
-  providers: [/*ItemService,*/ AuthService  /*, AuthuService*/],
+  providers: [/*ItemService,*/ AuthService,  /*, AuthuService*/],
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
-//   bootstrap: [AppComponent]
+//   bootstrap: [AppCompone1nt]
 // >>>>>>> origin/newtest
 })
 export class AppModule { }

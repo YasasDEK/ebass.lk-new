@@ -16,26 +16,45 @@
         <li class="nav-item">
           <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Customers</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+              
+            </div>
+          </div>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allworkers']"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;workers</a>
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Notifications</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+
+            </div>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/allusers']"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;users</a>
-        </li>
+
         <li class="nav-item">
           <div ngbDropdown class="d-inline-block dropdown">
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                 aria-hidden="true"></i>Options</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-              <a class="dropdown-item" [routerLink]="['/adminsignup']">Add admin</a>
+              <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
+              <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+              <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
+              <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
+              <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
               <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
-
             </div>
           </div>
         </li>
+
       </ul>
     </div>
 
@@ -59,13 +78,6 @@
           </div>
           <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername"
             (change)="filterName('workername', workername)">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="nc-icon nc-email-85"></i>
-            </span>
-          </div>
-          <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType"
-            (change)="filterJob('jobType', jobType)">
           <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="nc-icon nc-email-85"></i>
@@ -116,7 +128,6 @@
         <th class="column2">Job type</th>
         <th class="column2">Email Verified</th>
         <th class="column2">Status</th>
-        <th class="column2">Checked</th>
       </tr>
 
       <tr class="table100-data" *ngFor="let results of filteredNames">
@@ -126,8 +137,7 @@
         <td class="column2">{{results.jobType}}</td>
         <td class="column2">{{results.emailVerified}}</td>
         <td class="column2">{{results.status}}</td>
-        <td class="column2">{{results.checked}}</td>
-        <td class="column2"><a class="dropdown-item" [routerLink]="['/update',results.email]"><i
+        <td class="column2"><a class="dropdown-item" [routerLink]="['/adminupdate',results.email]"><i
               class="nc-icon nc-minimal-right" aria-hidden="true"></i> Edit</a></td>
         <td class="column2"><a class="dropdown-item" [routerLink]="['/viewprofile',results.uid]"><i
               class="nc-icon nc-minimal-right" aria-hidden="true"></i> View profile</a></td>
@@ -135,7 +145,6 @@
 
     </thead>
   </table>
-  (status :False: not deleted) (Verify :yes :True )
 </div>
 
 <!-- <div class="limiter">

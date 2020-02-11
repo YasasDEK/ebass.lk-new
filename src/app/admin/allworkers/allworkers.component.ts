@@ -26,10 +26,12 @@ export class AllworkersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.afs.collection('workers'/*, ref => ref.limit(4)*/).valueChanges().subscribe(results => {
-      this.results = results;
-      this.applyFilters()
-    });
+    this.afs.collection('workers', ref => ref
+      .where('status', '==', 'available'))
+      .valueChanges().subscribe(results => {
+        this.results = results;
+        this.applyFilters()
+      })
   }
 
   private applyFilters() {
@@ -42,18 +44,18 @@ export class AllworkersComponent implements OnInit {
   }
 
   filterJob(property: string, rule: string) {
-      this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
-      this.applyFilters()
+    this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
+    this.applyFilters()
   }
 
   filterStatus(property: string, rule: string) {
-      this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
-      this.applyFilters()
+    this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
+    this.applyFilters()
   }
 
   filterVerifyEmail(property: string, rule: string) {
-      this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
-      this.applyFilters()
+    this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
+    this.applyFilters()
   }
 
   removeFilter(property: string) {

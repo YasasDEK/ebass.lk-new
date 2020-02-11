@@ -10,7 +10,7 @@
         </a>
       </div>
     </div>
-
+    
     <div class="navbar-translate">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -36,17 +36,18 @@
   </div>
 </nav>
 <br><br><br><br><br>
+<br>
 
 <div *ngIf="datas?.length > 0; else noItems">
   <div *ngFor="let data of datas">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'">
-          <ngb-tab title="Home">
+          <ngb-tab title="My Profile">
             <ng-template ngbTabContent>
 
-              <div class="container-fluid mt--7">
-                <div class="row">
+              <div class="container-fluid mt--7 ">
+                <div class="row justify-content-md-center">
                   <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
                     <div class="card card-profile shadow">
                       <div class="row justify-content-center">
@@ -98,24 +99,19 @@
                           <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
                           </div>
-                          <div>
-                            <i class="ni education_hat mr-2"></i> CATEGORY
-                          </div>
-                          <hr class="my-4" />
-                          <p>Description About Worker</p>
-                          <a href="javascript:void(0)">Show more</a>
+    
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="col-md-8">
+                  <div class="col-md-6">
                     <div class="section" id="carousel">
-                      <div class="container">
-                        <div class="tim-title">
+                      <div class="container ">
+                        <!-- <div class="tim-title">
                           <h3>My Work</h3>
-                        </div>
-                        <div class="card page-carousel">
+                        </div> -->
+                        <div class="card page-carousel ">
                           <ngb-carousel>
                             <ng-template ngbSlide>
                               <img src="./assets/img/x.jpg" alt="Random first slide">
@@ -154,11 +150,10 @@
 
           <ngb-tab title="My Reviews">
             <ng-template ngbTabContent>
-
               <div class="container">
 
                 <div class="row">
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <div class="rating-block">
                       <h4>Average user rating</h4>
                       <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
@@ -179,7 +174,7 @@
                       </button>
                     </div>
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-md-3">
                     <h4>Rating breakdown</h4>
                     <div class="pull-left">
                       <div class="pull-left" style="width:35px; line-height:1;">
@@ -239,11 +234,9 @@
                       <div class="pull-right" style="margin-left:10px;">0</div>
                     </div>
                   </div>
-                </div>
 
 
-                <div class="row">
-                  <div class="col-sm-7">
+                  <div class="col-md-6">
                     <hr />
                     <div class="review-block">
                       <div class="row">
@@ -276,68 +269,10 @@
                             buy this was nice in buy</div>
                         </div>
                       </div>
-                      <hr />
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                          <div class="review-block-name"><a href="#">nktailor</a></div>
-                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                          <div class="review-block-rate">
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                          </div>
-                          <div class="review-block-title">this was nice in buy</div>
-                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
-                            buy this was nice in buy</div>
-                        </div>
-                      </div>
-                      <hr />
-                      <div class="row">
-                        <div class="col-sm-3">
-                          <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                          <div class="review-block-name"><a href="#">nktailor</a></div>
-                          <div class="review-block-date">January 29, 2016<br />1 day ago</div>
-                        </div>
-                        <div class="col-sm-9">
-                          <div class="review-block-rate">
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                            <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            </button>
-                          </div>
-                          <div class="review-block-title">this was nice in buy</div>
-                          <div class="review-block-description">this was nice in buy. this was nice in buy. this was
-                            nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in
-                            buy this was nice in buy</div>
-                        </div>
-                      </div>
+
+  
+                     
+                    
                     </div>
                   </div>
                 </div>

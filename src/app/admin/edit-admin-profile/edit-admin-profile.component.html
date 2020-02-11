@@ -1,0 +1,35 @@
+<br><br><br><br><br><br>
+<div class="container">
+
+      <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" >
+          <div *ngIf="datas?.length > 0; else noItems">
+              <div *ngFor="let data of datas">
+                  <h1>{{data.adminname}} Profile</h1>
+          <input type="hidden" name="uid" [(ngModel)]="data.uid" class="form-control">
+          <div class="form-group">
+              <label>admin Name</label>
+              <input name="adminname" [(ngModel)]="data.adminname" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>ID Number</label>
+              <input name="idNumber" [(ngModel)]="data.idNumber" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>Mobile</label>
+              <input name="mobile" [(ngModel)]="data.mobile" class="form-control">
+          </div>
+          <div class="form-group">
+              <label>E-Mail</label>
+              <input name="email" [(ngModel)]="data.email" class="form-control">
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-default btn-group-vertical ">Save</button>
+          </div>
+                  <div class="form-group">
+                      <button (click)="delete(data.email)" class="btn btn-danger btn-group-vertical ">Delete</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+
+</div>

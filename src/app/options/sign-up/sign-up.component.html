@@ -1,4 +1,4 @@
-<!--top nav bar-->
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
   <div class="container">
 
@@ -23,14 +23,14 @@
   </div>
 </nav>
 
-<!--sign up content-->
+
 <div class="wrapper">
   <div class="page-header" style="background-image: url('./assets/img/z.jpg');">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-sm-8 mr-auto ml-auto">
-          <div class="card card-register">
+        <div class="col-lg-4 col-md-6 col-sm-8 mr-auto ml-auto">
+          <div class="card card-register ">
             <h3 class="title">Welcome</h3>
             <div class="social-line text-center">
               <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
@@ -48,7 +48,7 @@
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="nc-iconm nc-single-02"></i>
                   </span>
                 </div>
                 <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
@@ -87,8 +87,20 @@
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
                   (blur)="focus=false" #usermobile required>
               </div>
+
               <label>Job Type</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+              <br>
+                  <div class="form-check-inline" *ngFor="let control of jobArray.controls; let i = index;">
+                  <input type="checkbox"  (change)="getSelectedJobType()" [formControl]="control" name="" id="inlineCheckBox{{i}}">
+                  <label class="form-check-label" for="inlineCheckBox{{i}}">{{jobType[i]}}</label>
+                  </div>
+                  <br><br>
+                  <div>
+                    <small *ngIf="jobError && determineErrorDisplay()">u have to choose atleast one or more</small>
+                  </div>
+             <br>     
+
+              <!-- <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-mobile"></i>
@@ -96,9 +108,45 @@
                 </div>
                 <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
                   (blur)="focus=false" #userjob required>
-              </div>
+              </div> -->
 
-
+              <div class="row">
+                <div class="col">
+              <div class="form-check">
+                <label class="form-check-label">
+                    <input name="jobtype" class="form-check-input" type="checkbox" value="mason" #userjob>
+                    mason
+                    <span class="form-check-sign"></span>
+                </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="">
+                  sfss
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+            
+          </div>
+            
+          <div class="col">
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input name="jobtype" class="form-check-input" type="checkbox" value="plumber" #userjob >
+                  plumber
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" #userPwd>
+                fssf
+                <span class="form-check-sign"></span>
+            </label>
+        </div>
+      </div>
+     </div>
+            
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
@@ -110,21 +158,11 @@
                   (focus)="focus1=true" (blur)="focus1=false" #userPwd required>
               </div>
 
-              <!-- <label>Re-Enter Password</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                <div class="input-group-prepend">
-                                      <span class="input-group-text">
-                                          <i class="nc-icon nc-key-25"></i>
-                                      </span>
-                </div>
-                <input name="password_two" type="password" class="form-control" placeholder="Re-Enter Password" (focus)="focus1=true" (blur)="focus1=false" required>
-              </div> -->
               <div class="formGroup">
                 <input type="button" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, selectedJobArray , useridnum.value, usermobile.value)">
               </div>
 
-              <!--              <button type="submit" class="btn btn-danger btn-block btn-round">Register</button>-->
             </form>
 
           </div>

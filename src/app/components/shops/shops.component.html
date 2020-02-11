@@ -1,3 +1,51 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<br><br><br><br><br><br>
+
 <div *ngFor="let item of items">
-  {{item.payload.doc.data().shopname}}
+  <div class="card card-profile shadow">
+
+    <div class="card-profile-image">
+      <a href="javascript:void(0)">
+        <br>
+        <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150" height="150">
+      </a>
+    </div>
+    <div class="card-body pt-10">
+      <div class="text-center">
+        <h3>
+          {{ item.payload.doc.data().shopname }}<span class="font-weight-light">, 27</span>
+        </h3>
+        <div class="h5 font-weight-300">
+          <i class="ni location_pin mr-2"></i>{{ item.payload.doc.data().mobile }}<br>
+          <i class="ni location_pin mr-2"></i>{{ item.payload.doc.data().email }}
+        </div>
+        <div class="h5 mt-4">
+          <i class="ni business_briefcase-24 mr-2"></i>{{ item.payload.doc.data().url}}
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
