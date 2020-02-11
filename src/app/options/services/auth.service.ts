@@ -40,12 +40,16 @@ export class AuthService {
 
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if (result.user.displayName === 'worker') {
-        this.router.navigate(['/profile/', email]);
-      }
-      if (result.user.displayName === 'user') {
-        this.router.navigate(['/home/']);
-      }
+      if(result.user.emailVerified === true){
+        if (result.user.displayName === 'worker') {
+          this.router.navigate(['/profile/', email]);
+        }
+        if (result.user.displayName === 'user') {
+          this.router.navigate(['/home/']);
+        }
+      } else {
+        console.log('check email');
+    }
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
@@ -53,8 +57,7 @@ export class AuthService {
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
-    if (job == "mason" || job == "electrician" || job == "plumber" || job == "painter" || job == "repair" || job == "carpenter") {
-      if (id.length == 10) {
+      if (id.length === 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             this.SendVerificationMail();
@@ -63,7 +66,6 @@ export class AuthService {
               workername: workername,
               idNumber: id,
               email: email,
-              emailVerified: result.user.emailVerified,
               jobType: job,
               mobile: mobile,
               status: 'unavailable',
@@ -72,24 +74,20 @@ export class AuthService {
             result.user.updateProfile({ displayName: 'worker' });
             console.log(mobile);
             this.SetWorkerData(workerData);
-            window.alert("Registration done");
+            window.alert('Registration done');
           }).catch((error) => {
             window.alert(error.message)
             console.log(error)
           })
       }
       else {
-        window.alert("Invalid ID number ")
+        window.alert('Invalid ID number ')
       }
-    }
-    else {
-      window.alert("Job Type doen't available ")
-    }
   }
 
   SignUpUser(email, password, username, id, mobile) {
     console.log(id);
-    if (id.length == 10) {
+    if (id.length === 10) {
       return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           // this.SendVerificationMail();
@@ -98,8 +96,7 @@ export class AuthService {
             username: username,
             idNumber: id,
             email: email,
-            emailVerified: result.user.emailVerified,
-            jobType: "user",
+            jobType: 'user',
             mobile: mobile,
             status: 'available'
           }
@@ -107,14 +104,14 @@ export class AuthService {
           result.user.updateProfile({ displayName: 'user' });
           console.log(mobile);
           this.SetUserData(userData);
-          window.alert("Registration done");
+          window.alert('Registration done');
         }).catch((error) => {
           window.alert(error.message)
           console.log(error)
         })
     }
     else {
-      window.alert("Invalid ID number ")
+      window.alert('Invalid ID number ')
     }
   }
 
@@ -136,7 +133,7 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     const worker = JSON.parse(localStorage.getItem('workers'));
-    return (worker !== null && worker.emailVerified !== false) ? true : false;
+    return (worker !== null && worker .emailVerified !== false) ? true : false;
   }
 
   GoogleAuth() {
@@ -172,17 +169,19 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['signin']);
     })
   }
+
 }
+
+
 
 interface Item {
   uid?: string;
   workername?: string;
   idNumber?: string;
   email?: string;
-  emailVerified?: boolean;
   jobType?: string;
   mobile?: string;
   status?: string;

@@ -38,6 +38,8 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { GmapComponent } from './gmap/gmap.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -103,6 +105,7 @@ var firebaseConfig = {
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCX6twQwi3PezVEReDhC5IMLyiaqC8f_rA',
       libraries: ['places']
@@ -112,7 +115,7 @@ var firebaseConfig = {
   providers: [/*ItemService,*/ AuthService,  /*, AuthuService*/],
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
-//   bootstrap: [AppComponent]
+//   bootstrap: [AppCompone1nt]
 // >>>>>>> origin/newtest
 })
 export class AppModule { }

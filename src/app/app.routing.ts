@@ -54,6 +54,8 @@ import { ImageComponent } from './temp/image/image.component';
 
 
 const routes: Routes = [
+
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
@@ -97,10 +99,6 @@ const routes: Routes = [
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
 
-
-
-  
-  
 ];
 
 @NgModule({
