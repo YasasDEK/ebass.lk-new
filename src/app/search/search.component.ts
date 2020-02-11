@@ -36,12 +36,12 @@ export class SearchComponent implements OnInit {
     this.applyFilters()
   }
 
-  filterArea(property: string, rule: string) {
-    if (!rule) this.removeFilter(property)
-    else {
+  filterJob(property: string, rule: string) {
+    // if (!rule) this.removeFilter(property)
+    // else {
       this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
       this.applyFilters()
-    }
+    // }
   }
 
   removeFilter(property: string) {
