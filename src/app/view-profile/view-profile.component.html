@@ -15,10 +15,13 @@
 
         <div class="navbar-translate">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <button type="button" [routerLink]="['/booking',data.uid]" class="btn btn-danger">BOOK WORKER</button>
-              <!-- <a class="dropdown-item" [routerLink]="['/booking']">Book worker</a> -->
+            <li>
+              <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#exampleModal">
+                Book ME
+              </button>
             </li>
+
+
             <li class="nav-item">
               <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
             </li>
@@ -31,12 +34,7 @@
             </div>
           </div> -->
             </li>
-            <li>
-              <button type="button" class="btn btn-danger btn-round" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-heart"></i>
-                Book ME
-              </button>
-            </li>
+            
           </ul>
         </div>
 
