@@ -49,6 +49,7 @@ export class AuthService {
         }
       } else {
         console.log('check email');
+        console.log('Verified if sent email');
     }
     }).catch((error) => {
       window.alert(error);
@@ -90,7 +91,6 @@ export class AuthService {
     if (id.length === 10) {
       return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
-          // this.SendVerificationMail();
           const userData: User = {
             uid: result.user.uid,
             username: username,
@@ -115,6 +115,7 @@ export class AuthService {
     }
   }
 
+  
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
       .then(() => {
@@ -174,8 +175,6 @@ export class AuthService {
   }
 
 }
-
-
 
 interface Item {
   uid?: string;
