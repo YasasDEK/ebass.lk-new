@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app.routing';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { ItemService } from './services/item.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -29,11 +28,8 @@ import { AdminProfileComponent } from './admin/admin-profile/admin-profile.compo
 import { AdminSignUpComponent } from './admin/admin-sign-up/admin-sign-up.component';
 import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
 import { UpdateAdminComponent } from './admin/updateadmin/updateadmin.component';
-
 import { VerifyEmailComponent } from './options/verify-email/verify-email.component';
 import { AdminVerifyEmailComponent } from './admin/admin-verify-email/admin-verify-email.component';
-
-
 import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
@@ -79,10 +75,8 @@ var firebaseConfig = {
     AdminSignUpComponent,
     AdminSignInComponent,
     UpdateAdminComponent,
-    // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
-    // GmapComponent,
     GooglemapComponent,
     UserprofileComponent,
     FormvalidComponent,
@@ -116,6 +110,7 @@ var firebaseConfig = {
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
 //   bootstrap: [AppCompone1nt]
-// >>>>>>> origin/newtest
+
+  
 })
 export class AppModule { }
