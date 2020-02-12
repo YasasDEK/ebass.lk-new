@@ -102,12 +102,13 @@
               </div>
 
               <div class="pl-5">
-                <h5 class="title text-success">Name: {{results.workername}}</h5>
                 <div class="row align-items-center justify-content-center">
                   <div>
+                    <br>
+                    <h6 class="text-success">Name: {{results.workername}}</h6>
                     <h6>Name: {{results.workername}}</h6>
                     <h6>Job: {{results.jobType}}</h6>
-                    <a [routerLink]="['/viewprofile',results.uid]" class="text-warning">Learn more</a>
+                    <a [routerLink]="['/viewprofile',results.uid]" class="btn btn-danger btn-sm">Learn more</a>
                   </div>
                 </div>
               </div>

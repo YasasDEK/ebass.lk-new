@@ -1,5 +1,5 @@
 <!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+<!-- <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
   <div class="col-lg-12 text-center">
     <div class="container">
   
@@ -61,7 +61,7 @@
   
     </div>
   </div>
-  </nav>
+  </nav> -->
   <br><br><br><br><br><br>
 
 <div class="content-center">
@@ -78,15 +78,15 @@
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
-          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername"
-            (change)="filterName('workername', workername)">
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username"
+            (change)="filterName('username', username)">
           <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
 
-          <input class="form-control" placeholder="Status" type="text" [(ngModel)]="status"
+          <input class="form-control" placeholder="Status" (focus)="focus=true" type="text" [(ngModel)]="status"
             (change)="filterStatus('status', status)">
           <div class="input-group-prepend">
             <span class="input-group-text">
@@ -109,23 +109,21 @@
     <thead>
 
       <tr class="table100-head">
-        <th class="column1">Name</th>
-        <th class="column2">Email</th>
+        <th class="column2">Customer name</th>
+        <th class="column1">Date</th>
+        <th class="column2">Description</th>
         <th class="column2">mobile</th>
-        <th class="column2">Job type</th>
-        <th class="column2">Status</th>
+        <th class="column2">Area</th>
       </tr>
 
       <tr class="table100-data" *ngFor="let results of filteredNames">
-        <td class="column1">{{results.workername}}</td>
-        <td class="column2">{{results.email}}</td>
-        <td class="column3">{{results.mobile}}</td>
-        <td class="column4">{{results.jobType}}</td>
-        <td class="column6">{{results.status}}</td>
-        <td><a [routerLink]="['/adminupdate',results.email]"><i class="nc-icon nc-minimal-right"></i> Edit</a></td>
-        <td><a [routerLink]="['/viewprofile',results.uid]"><i class="nc-icon nc-minimal-right"></i>View profile</a></td>
-        <button type="button" class="btn btn-info btn-just-icon btn-small" (click)="send3(results.uid)"><i class="nc-icon nc-check-2"></i></button>
-        
+        <td class="column1">{{results.username}}</td>
+        <td class="column2">{{results.bookingdate}}</td>
+        <td class="column4">{{results.bookingdesc}}</td>
+        <td class="column3">{{results.mobilenumber}}</td>
+        <td class="column6">{{results.usercity}}</td>
+        <button type="button" class="btn btn-success btn-sm" (click)="completed(results.bookingid)">completed</button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="cancel(results.bookingid)">cancel</button>
       </tr>
 
 

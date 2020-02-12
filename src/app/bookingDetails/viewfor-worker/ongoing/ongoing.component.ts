@@ -1,4 +1,3 @@
-import { VerifyEmailComponent } from './../../options/verify-email/verify-email.component';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -6,28 +5,30 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
-// import { ItemService } from '../../services/item.service';
 
 @Component({
-  selector: 'app-verify-workers',
-  templateUrl: './verify-workers.component.html',
-  styleUrls: ['./verify-workers.component.scss']
+  selector: 'app-ongoing',
+  templateUrl: './ongoing.component.html',
+  styleUrls: ['./ongoing.component.scss']
 })
-export class VerifyWorkersComponent implements OnInit {
+export class OngoingComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
   jobtype: string;
   status: string;
+  value: string;
   verifyemail: string;
   filters = {}
-  constructor(private afs: AngularFirestore) {
-
+  constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
+    this.value = this._Activatedroute.snapshot.paramMap.get('uid');
+    console.log('value ' + this.value);
   }
 
   ngOnInit() {
-    this.afs.collection('workers', ref => ref
-      .where('status', '==', 'unavailable'))
+    this.afs.collection('bookings', ref => ref
+      .where('workerid', '==', this.value)
+      .where('status', '==' , 'ongoing'))
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
@@ -87,9 +88,16 @@ export class VerifyWorkersComponent implements OnInit {
     this.applyFilters()
   }
 
-  send3(id) {
-    this.afs.doc('workers/' + id).update({'status': 'available'});
-    alert('Worker verified');
+  Completed(id) {
+    alert('Booking accepted' + id);
+    this.afs.doc('bookings/' + id).update({'status': 'completed'});
+     alert('Booking accepted');
+
+  }
+
+  cancel(id) {
+      this.afs.collection('bookings').doc('imdvIDBArVhlfR2p3FUJ').update({'status': 'canceled'});
+      alert('Booking canceled');
 
   }
 }

@@ -45,7 +45,7 @@ export class AuthService {
           this.router.navigate(['/profile/', email]);
         }
         if (result.user.displayName === 'user') {
-          this.router.navigate(['/home/']);
+          this.router.navigate(['/userprofile/']);
         }
       } else {
         console.log('check email');

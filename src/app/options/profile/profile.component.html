@@ -1,45 +1,58 @@
-<!--top nav bar-->
-<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
-  <div class="container">
+<div *ngIf="datas?.length > 0; else noItems">
+  <div *ngFor="let data of datas">
 
-    <div class="navbar-translate">
-      <div class="avatar">
-        <a class="navbar-brand" href="http://localhost:4200">
-          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
-            width="60">
-        </a>
-      </div>
-    </div>
-    
-    <div class="navbar-translate">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
-          <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button> 
-          <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
-        </li>
-        <li class="nav-item">
-          <!-- <div ngbDropdown class="d-inline-block dropdown">
+    <!--top nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+      <div class="container">
+
+        <div class="navbar-translate">
+          <div class="avatar">
+            <a class="navbar-brand" href="http://localhost:4200">
+              <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+                width="60">
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-translate">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
+              <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button>
+              <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <!-- <div ngbDropdown class="d-inline-block dropdown">
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                 aria-hidden="true"></i>Options</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
               <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
             </div>
           </div> -->
-        </li>
-      </ul>
-    </div>
+            </li>
 
-  </div>
-</nav>
-<br><br><br><br><br>
-<br>
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Booking</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/bookingworkernew',data.uid]">New Bookings</a>
+                  <a class="dropdown-item" [routerLink]="['/ongoingworker',data.uid]">Ongoing Work</a>
+                </div>
+              </div>
+            </li>
 
-<div *ngIf="datas?.length > 0; else noItems">
-  <div *ngFor="let data of datas">
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <br><br><br><br><br>
+    <br>
+
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
         <ngb-tabset [justify]="'center'">
@@ -99,7 +112,7 @@
                           <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
                           </div>
-    
+
                         </div>
                       </div>
                     </div>
@@ -270,9 +283,9 @@
                         </div>
                       </div>
 
-  
-                     
-                    
+
+
+
                     </div>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+import { BookingComponent } from './../components/booking/booking.component';
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -5,10 +6,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../options/services/auth.service';
 import { GooglemapComponent } from '../googlemap/googlemap.component';
-import { Book } from './book'
-
-
-
+import { Book } from './book';
 
 @Component({
   selector: 'app-view-profile',
@@ -16,7 +14,7 @@ import { Book } from './book'
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-  
+  public bookingId: string;
   value: string;
   data: Observable<Item[]>;
   datas: Item[];
@@ -26,7 +24,6 @@ export class ViewProfileComponent implements OnInit {
   public longitude: number;
 
   constructor(public _Activatedroute: ActivatedRoute,
-    public ebass: AngularFirestore,
     public afs: AngularFirestore,
     public router: Router, ) {
 
@@ -40,36 +37,30 @@ export class ViewProfileComponent implements OnInit {
     })
   }
 
-  // ngAfterViewInit() {
-  //   this.latitude = this.map.latitude;
-  //   this.longitude = this.map.longitude;
-  // }
-
-  // recieveMessage($event) {
-  //   this.latitude = $event;
-  // }
-
   getData() {
-    this.data = this.ebass.collection('workers', ref => ref.where('uid', '==', this.value)).valueChanges();
+    this.data = this.afs.collection('workers', ref => ref.where('uid', '==', this.value)).valueChanges();
     return this.data;
   }
 
   setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity) {
-
+    this.bookingId = this.afs.createId();
     const bookingData: Book = {
       // uid: result.user.uid,
+      workerid: this.value,
+      bookingid: this.bookingId,
       useremail: useremail,
       username: username,
       mobilenumber: mobilenumber,
       bookingdesc: bookingdesc,
       bookingdate: bookingdate,
       usercity: usercity,
+      status: 'pending',
       latitude: this.map.latitude,
       longitude: this.map.longitude
     }
 
     this.SetBookingData(bookingData);
-    this.router.navigate(['']);
+    this.router.navigate(['/home']);
     ((error) => {
       window.alert(error.message)
       console.log(error)
@@ -77,14 +68,10 @@ export class ViewProfileComponent implements OnInit {
   }
 
   SetBookingData(Book) {
-    this.afs.collection('bookings').add(Book);
-    window.alert("Booking Done");
-    // const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
-    // return adminRef.set(shop, {
-    //   merge: true
-    // })
-  }
-
+      //  this.afs.collection('bookings').doc(this.bookingId);
+       this.afs.collection('bookings').doc(this.bookingId).set(Book);
+       alert('Your booking placed successfully');
+    }
 }
 
 interface Item {

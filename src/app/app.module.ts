@@ -48,6 +48,9 @@ import { UserprofileComponent } from './users/userprofile/userprofile.component'
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
+import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
+import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
+import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 
 
 var firebaseConfig = {
@@ -88,6 +91,9 @@ var firebaseConfig = {
     FormvalidComponent,
     CollapseComponent,
     ImageComponent,
+    ViewforWorkerComponent,
+    ViewforUserComponent,
+    OngoingComponent,
     
     
   ],

@@ -35,9 +35,8 @@ export class CategoriesComponent implements OnInit {
 
   getData() {
     this.type = this.ebass.collection('workers', ref => ref
-      .where('jobType', '==', this.value)
-      .where('status', '==', "available")
-      .where('emailVerified', '==', true)
+      .where('jobType', 'array-contains', this.value)
+      .where('status', '==', 'available')
     ).valueChanges();
     // && (this.ebass.collection('workers', ref => ref.where('status', '==', true)).valueChanges());
     return this.type;

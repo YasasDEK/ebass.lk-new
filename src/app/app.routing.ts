@@ -50,8 +50,8 @@ import { BasicelementsComponent } from './components/basicelements/basicelements
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
-
-
+import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
+import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 
 const routes: Routes = [
 
@@ -79,6 +79,7 @@ const routes: Routes = [
   { path: 'categories/:job', component: CategoriesComponent },
   { path: 'reglog', component: ReglogComponent },
   { path: 'viewprofile/:uid', component: ViewProfileComponent },
+  { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'adminsignin', component: AdminSignInComponent },
   { path: 'adminsignup', component: AdminSignUpComponent },
@@ -98,7 +99,7 @@ const routes: Routes = [
   { path: 'formvalid', component: FormvalidComponent },
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
-
+  { path: 'ongoingworker/:uid', component: OngoingComponent },
 ];
 
 @NgModule({
