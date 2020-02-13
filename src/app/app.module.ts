@@ -51,6 +51,7 @@ import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 var firebaseConfig = {
@@ -99,6 +100,7 @@ var firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    MatButtonModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
