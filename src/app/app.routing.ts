@@ -52,6 +52,7 @@ import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 
 const routes: Routes = [
 
@@ -100,6 +101,7 @@ const routes: Routes = [
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent },
+  { path: 'gmapworker', component: WorkerViewMapComponent}
 ];
 
 @NgModule({

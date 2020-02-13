@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -6,12 +6,24 @@ import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
 
+
+import { WorkerViewMapComponent } from '../../googlemap/worker-view-map/worker-view-map.component';
+
+
 @Component({
   selector: 'app-viewfor-worker',
   templateUrl: './viewfor-worker.component.html',
-  styleUrls: ['./viewfor-worker.component.scss']
+  styleUrls: ['./viewfor-worker.component.scss'],
+
 })
+
 export class ViewforWorkerComponent implements OnInit {
+
+  
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+  public latitude: number;
+  public longitude: number;
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -32,7 +44,10 @@ export class ViewforWorkerComponent implements OnInit {
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
-      })
+      });
+      
+    this.latitude = 6.9;
+    this.longitude = 80.1;
   }
 
   private applyFilters() {
@@ -98,5 +113,10 @@ export class ViewforWorkerComponent implements OnInit {
     this.afs.doc('bookings/' + id).update({'status': 'canceled'});
       alert('Booking canceled');
 
+  } 
+
+  loation(id){
+    // this.afs.doc('booking/' + id).get('latitude');
+    this.afs.doc('booking/' + id).get();
   }
 }

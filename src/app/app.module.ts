@@ -51,6 +51,7 @@ import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 
 
 var firebaseConfig = {
@@ -94,10 +95,10 @@ var firebaseConfig = {
     ViewforWorkerComponent,
     ViewforUserComponent,
     OngoingComponent,
-    
-    
+    WorkerViewMapComponent,
   ],
   imports: [
+    // WorkerViewMapComponent,
     BrowserModule,
     NgbModule,
     FormsModule,
