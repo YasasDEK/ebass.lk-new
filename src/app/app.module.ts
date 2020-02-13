@@ -52,7 +52,6 @@ import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
-import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -98,7 +97,6 @@ var firebaseConfig = {
     ViewforUserComponent,
     OngoingComponent,
     WorkerViewMapComponent,
-    MatButtonModule,
     
   ],
   imports: [
