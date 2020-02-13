@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import 'firebase/firestore';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 // import { ItemService } from '../../services/item.service';
@@ -34,10 +35,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   getData() {
-    this.type = this.ebass.collection('workers', ref => ref
-      .where('jobType', 'array-contains', this.value)
-      .where('status', '==', 'available')
-    ).valueChanges();
+    this.type = this.ebass.collection('workers', ref => ref.where('jobType',"array-contains", this.value).
+    where('status', '==', "available")).valueChanges();
     // && (this.ebass.collection('workers', ref => ref.where('status', '==', true)).valueChanges());
     return this.type;
   }

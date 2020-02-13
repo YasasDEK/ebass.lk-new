@@ -48,7 +48,8 @@ export class AuthService {
           this.router.navigate(['/userprofile/']);
         }
       } else {
-        console.log('check email');
+        window.alert('check your email and verify');
+        this.router.navigateByUrl('signin');
     }
     }).catch((error) => {
       window.alert(error);
@@ -60,7 +61,6 @@ export class AuthService {
       if (id.length === 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
-            this.SendVerificationMail();
             const workerData: Worker = {
               uid: result.user.uid,
               workername: workername,
@@ -68,7 +68,7 @@ export class AuthService {
               email: email,
               jobType: job,
               mobile: mobile,
-              status: 'unavailable',
+              status: 'available',
             }
             this.SendVerificationMail();
             result.user.updateProfile({ displayName: 'worker' });
@@ -174,8 +174,6 @@ export class AuthService {
   }
 
 }
-
-
 
 interface Item {
   uid?: string;
