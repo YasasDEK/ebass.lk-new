@@ -62,7 +62,7 @@
     </div>
   </div>
   </nav> -->
-  <br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 <div class="content-center">
   <div class="container">
@@ -124,9 +124,77 @@
         <td class="column6">{{results.usercity}}</td>
         <button type="button" class="btn btn-success btn-sm" (click)="confirm(results.bookingid)">confirm</button>
         <button type="button" class="btn btn-danger btn-sm" (click)="cancel(results.bookingid)">cancel</button>
-      </tr>
 
+
+        <button type="button" class="btn btn-success btn-sm " data-toggle="modal" (click)="getMap(results.latitude,results.longitude)" data-target="#exampleModal">View
+          Location</button>
+
+      </tr>
 
     </thead>
   </table>
+</div>
+
+
+<!-- modal for google map -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog justify-content-center" role="document">
+    <div class="modal-content" style="width: 800px;">
+      <div class="modal-header" style="background-color:#fabf8f">
+        <h5 class="modal-title" id="exampleModalLabel">Map Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div align="center">
+          <div class="card-body">
+            <!-- <h6 class="heading-small text-muted mb-0">Map Location</h6> -->
+            <br>
+
+            <!-- -------------------- -->
+
+            <div class="container">
+
+              <!-- <button class="btn btn-danger" (click)="setCurrentLocation()">Fetch my Location</button>
+  <h6>Move the Pin where you want to </h6> -->
+
+              <!--   
+    <div class="form-group">
+      <label>Enter address</label>
+      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    </div> -->
+
+              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false"
+                  (dragEnd)="markerDragEnd($event)">
+                  <agm-info-window>
+                    <p>You are HERE!!</p>
+                  </agm-info-window>
+                </agm-marker>
+              </agm-map>
+
+
+              <h5>Address: {{address}}</h5>
+              <div>Latitude: {{latitude}}</div>
+              <div>Longitude: {{longitude}}</div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-danger">BOOK NOW</button> -->
+      </div>
+    </div>
+  </div>
 </div>

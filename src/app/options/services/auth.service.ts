@@ -40,15 +40,16 @@ export class AuthService {
 
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if(result.user.emailVerified === true){
+      if (result.user.emailVerified === true) {
         if (result.user.displayName === 'worker') {
           this.router.navigate(['/profile/', email]);
+
         }
         if (result.user.displayName === 'user') {
-          this.router.navigate(['/userprofile/']);
+          this.router.navigate(['/userprofile/', email]);
         }
       } else {
-        console.log('check email');
+        console.log('You need to verify your email!');
     }
     }).catch((error) => {
       window.alert(error);
@@ -166,9 +167,10 @@ export class AuthService {
     })
   }
 
-  SignOut() {
+  SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
+      localStorage.clear();
       this.router.navigate(['signin']);
     })
   }
