@@ -50,6 +50,8 @@ import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import {MatButtonModule} from '@angular/material/button';
+
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
@@ -105,6 +107,7 @@ var firebaseConfig = {
   imports: [
     // WorkerViewMapComponent,
     BrowserModule,
+    MatButtonModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
