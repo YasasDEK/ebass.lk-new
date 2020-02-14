@@ -13,13 +13,15 @@ import { Book } from './book';
   templateUrl: './view-profile.component.html',
   styleUrls: ['./view-profile.component.scss']
 })
+
 export class ViewProfileComponent implements OnInit {
+
+  @ViewChild(GooglemapComponent) map;
   public bookingId: string;
   value: string;
   data: Observable<Item[]>;
   datas: Item[];
   isReceived = false;
-  @ViewChild(GooglemapComponent) map;
   public latitude: number;
   public longitude: number;
 

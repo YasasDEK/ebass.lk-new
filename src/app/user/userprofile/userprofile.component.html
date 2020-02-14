@@ -1,0 +1,157 @@
+<div *ngIf="datas?.length > 0; else noItems">
+  <div *ngFor="let data of datas">
+    <!--top nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+      <div class="container">
+
+        <div class="navbar-translate">
+          <div class="avatar">
+            <a class="navbar-brand" href="http://localhost:4200">
+              <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+                width="60">
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-translate">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
+              <button type="button" (click)="authService.SignOutUser()" class="btn btn-danger">SIGN OUT</button>
+              <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/home"><i class="nc-icon nc-align-center"
+                  aria-hidden="true"></i>&nbsp;Reports</a>
+            </li>
+
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Customers</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                  <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Notifications</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Options</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <!-- <a class="dropdown-item" [routerLink]="['/signup']">add user</a> -->
+                  <a class="dropdown-item" [routerLink]="['/edituserprofile',data.email]">edit my profile</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a> -->
+                  <!-- <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a> -->
+                  <!-- <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a> -->
+                  <a class="dropdown-item" [routerLink]="['/signin']">sign out</a>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <br><br><br><br><br><br>
+
+
+    <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+        <ngb-tabset [justify]="'center'">
+          <ngb-tab title="Home">
+            <ng-template ngbTabContent>
+
+              <div class="container-fluid mt--7">
+                <div class="row">
+                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+                    <div class="card card-profile shadow">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-12 order-lg-2">
+                          <div class="card-profile-image">
+                            <a href="javascript:void(0)">
+                              <br>
+                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150"
+                                height="150">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
+                        <div class="d-flex justify-content-between">
+                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a>
+                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                        </div>
+                      </div>
+                      <div class="card-body pt-4">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card-profile-stats d-flex justify-content-center mt-md-2">
+
+                              <div>
+                                <span class="heading">8.7 </span>
+                                <span class="description"> Rating </span>
+                              </div>
+                              <div>
+                                <span class="heading"> Yes </span>
+                                <span class="description"> Available </span>
+                              </div>
+                              <div>
+                                <span class="heading"> 89 </span>
+                                <span class="description"> Comments </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <h3>
+                            {{data.username}}<span class="font-weight-light">, 27</span>
+                          </h3>
+                          <div class="h5 font-weight-300">
+                            <i class="ni location_pin mr-2"></i>{{data.email}}
+                          </div>
+                          <div class="h5 mt-4">
+                            <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
+                          </div>
+                          <div>
+                            <i class="ni education_hat mr-2"></i> CATEGORY
+                          </div>
+                          <hr class="my-4" />
+                          <p>Description About user</p>
+                          <a href="javascript:void(0)">Show more</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </ng-template>
+          </ngb-tab>
+
+
+
+        </ngb-tabset>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -46,13 +46,18 @@ import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.co
 import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
-import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { BasicelementsComponent } from './components/basicelements/basicelements.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+
+// import { UpdateuserComponent } from './options/updateuser/updateuser.component';
+// import { UserprofileComponent } from './options/userprofile/userprofile.component';
 
 const routes: Routes = [
 
@@ -82,6 +87,7 @@ const routes: Routes = [
   { path: 'viewprofile/:uid', component: ViewProfileComponent },
   { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent, canActivate: [AuthGuard] },
   { path: 'signin', component: SignInComponent },
+
   { path: 'adminsignin', component: AdminSignInComponent },   //admin
   { path: 'adminsignup', component: AdminSignUpComponent },   //admin
   { path: 'adminprofile/:email', component: AdminProfileComponent, canActivate: [AuthGuard] },    //admin
@@ -93,13 +99,20 @@ const routes: Routes = [
   { path: 'verifyworker', component: VerifyWorkersComponent, canActivate: [AuthGuard] },    //admin
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent, canActivate: [AuthGuard] },    //admin
   { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin   
-  { path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
+  //{ path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
   { path: 'userprofile/:uid', component: UserprofileComponent, canActivate: [AuthGuard] },
+
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent, canActivate: [AuthGuard] },
+  { path: 'gmapworker', component: WorkerViewMapComponent},
+  { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
+  // { path: 'updateuser/:email', component: UpdateuserComponent},
+  // { path: 'userprofile/:email', component: UserprofileComponent}
+
 ];
 
 @NgModule({

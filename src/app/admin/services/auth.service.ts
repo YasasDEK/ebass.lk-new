@@ -42,6 +42,7 @@ export class AuthService {
   SignInadmin(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.displayName === 'admin') {
+        // localStorage.setItem('admins', email);
         this.router.navigate(['/adminprofile', email]);
       }
     }).catch((error) => {
@@ -186,6 +187,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('admin');
+      localStorage.clear();
       this.router.navigate(['adminsignin']);
     })
   }

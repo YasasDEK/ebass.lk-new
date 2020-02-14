@@ -3,24 +3,24 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
-import { UpdateAdminComponent } from '../updateadmin/updateadmin.component';
+import { AuthService } from '../service/auth.service';
+import { EdituserprofileComponent } from '../edituserprofile/edituserprofile.component';
 import * as firebase from 'firebase/app';
 
 
 @Component({
-    selector: 'app-admin-profile',
-    templateUrl: './admin-profile.component.html',
-    styleUrls: ['./admin-profile.component.scss']
+    selector: 'app-userprofile',
+    templateUrl: './userprofile.component.html',
+    styleUrls: ['./userprofile.component.scss']
 })
 
-export class AdminProfileComponent implements OnInit {
+export class UserprofileComponent implements OnInit {
     value: string;
     data: Observable<Item[]>;
     datas: Item[];
     isReceived = false;
     [x: string]: any;
-    admin = JSON.parse(localStorage.getItem('admins'));
+    user = JSON.parse(localStorage.getItem('users'));
 
 
     constructor(public _Activatedroute: ActivatedRoute,
@@ -34,8 +34,8 @@ export class AdminProfileComponent implements OnInit {
     ngOnInit() {
             this.value = this._Activatedroute.snapshot.paramMap.get('email');
             console.log('value : ' + this.value);
-            if (this.admin) {
-                if ( this.admin.email === this.value) {
+            if (this.user) {
+                if ( this.user.email === this.value) {
                     this.getData().subscribe(data => {
                         this.datas = data;
                         console.log('value : ' + this.datas[0]);
@@ -46,15 +46,15 @@ export class AdminProfileComponent implements OnInit {
                     console.log('please log with ' + this.value);
                 }
             } else {
-                // no admin logged in
-                this.router.navigate(['adminsignin']);
+                // no user logged in
+                this.router.navigate(['signin']);
                 window.alert('First u have to log to access this page');
                 console.log('please loging before access this page');
             }
     }
 
     getData() {
-        this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
+        this.data = this.ebass.collection('users', ref => ref.where('email', '==', this.value)).valueChanges();
         console.log("data" + this.data);
         return this.data;
 
@@ -65,7 +65,7 @@ export class AdminProfileComponent implements OnInit {
 
 interface Item {
     uid?: string;
-    adminname?: string;
+    username?: string;
     idNumber?: string;
     email?: string;
     emailVerified?: boolean;

@@ -40,13 +40,13 @@ export class AuthService {
 
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if(result.user.emailVerified === true){
+      if (result.user.emailVerified === true) {
         if (result.user.displayName === 'worker') {
-          this.router.navigate(['/profile/', email]);
-          
+          this.router.navigate(['/profile/', email]);    
         }
         if (result.user.displayName === 'user') {
-          this.router.navigate(['/userprofile/', result.user.uid]);
+           this.router.navigate(['/userprofile/', email]);
+//           this.router.navigate(['/userprofile/', result.user.uid]);
         }
       } else {
         window.alert('check your email and verify');
@@ -55,7 +55,7 @@ export class AuthService {
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
-    })
+   })
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
@@ -168,9 +168,10 @@ export class AuthService {
     })
   }
 
-  SignOut() {
+  SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('worker');
+      localStorage.clear();
       this.router.navigate(['signin']);
     })
   }

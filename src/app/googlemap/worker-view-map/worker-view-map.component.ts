@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
-import { MapsAPILoader, MouseEvent } from '@agm/core';
-import { ViewProfileComponent } from '../view-profile/view-profile.component'
 
-// import { GeoService } from '../geo.service'
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Input, EventEmitter, AfterViewInit } from '@angular/core';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
+// import { ViewforWorkerComponent } from '../../bookingDetails/viewfor-worker/viewfor-worker.component';
 
 @Component({
-  selector: 'app-googlemap',
-  templateUrl: './googlemap.component.html',
-  styleUrls: ['./googlemap.component.scss']
+  selector: 'app-worker-view-map',
+  templateUrl: './worker-view-map.component.html',
+  styleUrls: ['./worker-view-map.component.scss']
 })
-export class GooglemapComponent implements OnInit {
+export class WorkerViewMapComponent implements OnInit {
 
+  // @ViewChild(ViewforWorkerComponent) map;
   title: string = 'AGM project';
   public latitude: number;
   public longitude: number;
@@ -53,11 +53,10 @@ export class GooglemapComponent implements OnInit {
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 20;
+          this.zoom = 15;
         });
       });
     });
-
     // this.childEvent.emit(this.latitude)
   }
  
@@ -65,9 +64,12 @@ export class GooglemapComponent implements OnInit {
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 8;
+
+        //place to give map cordinates to retrive
+        // this.latitude = this.map.latitude;
+        // this.longitude = this.map.longitude;
+        console.log('x  ' + this.latitude);
+        this.zoom = 15;
         this.getAddress(this.latitude, this.longitude);
       });
     }
@@ -78,7 +80,7 @@ export class GooglemapComponent implements OnInit {
     console.log($event);
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
-    this.getAddress(this.latitude, this.longitude);
+    // this.getAddress(this.latitude, this.longitude);
   }
  
   getAddress(latitude, longitude) {
@@ -87,7 +89,7 @@ export class GooglemapComponent implements OnInit {
       console.log(status);
       if (status === 'OK') {
         if (results[0]) {
-          this.zoom = 20;
+          this.zoom = 15;
           this.address = results[0].formatted_address;
         } else {
           window.alert('No results found');
