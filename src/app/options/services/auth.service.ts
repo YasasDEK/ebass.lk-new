@@ -43,9 +43,10 @@ export class AuthService {
       if(result.user.emailVerified === true){
         if (result.user.displayName === 'worker') {
           this.router.navigate(['/profile/', email]);
+          
         }
         if (result.user.displayName === 'user') {
-          this.router.navigate(['/userprofile/']);
+          this.router.navigate(['/userprofile/', result.user.uid]);
         }
       } else {
         window.alert('check your email and verify');
@@ -157,6 +158,7 @@ export class AuthService {
     return workerRef.set(worker, {
       merge: true
     })
+    
   }
 
   SetUserData(user) {
@@ -176,12 +178,12 @@ export class AuthService {
 }
 
 interface Item {
-  uid?: string;
-  workername?: string;
-  idNumber?: string;
-  email?: string;
-  jobType?: string;
-  mobile?: string;
-  status?: string;
+  uid: string;
+  workername: string;
+  idNumber: string;
+  email: string;
+  jobType: string;
+  mobile: string;
+  status: string;
 }
 

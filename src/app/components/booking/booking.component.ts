@@ -26,6 +26,7 @@ export class BookingComponent implements OnInit {
   ngOnInit() {
     this.getData().subscribe(data => {
       this.datas = data;
+      
     })
   }
 
