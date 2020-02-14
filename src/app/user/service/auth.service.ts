@@ -1,4 +1,4 @@
-import { User } from './../../options/services/user';
+import { User } from './../service/user';
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -46,9 +46,13 @@ export class AuthService {
 
   SignOutUser() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
+      // localStorage.removeItem('user');
       localStorage.clear();
-      this.router.navigate(['signin']);
+      localStorage.clear();
+      localStorage.clear();
+      localStorage.clear();
+      this.router.navigate(['home']);
+      
     })
   }
 }
@@ -62,4 +66,3 @@ interface Item {
   jobType?: string;
   mobile?: string;
 }
-

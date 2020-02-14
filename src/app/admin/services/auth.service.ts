@@ -31,10 +31,11 @@ export class AuthService {
         this.adminData = admin;
         localStorage.setItem('admins', JSON.stringify(this.adminData));
         JSON.parse(localStorage.getItem('admins'));
-      } else {
-        localStorage.setItem('admins', null);
-        JSON.parse(localStorage.getItem('admins'));
       }
+      // else {
+      //   localStorage.setItem('admins', null);
+      //   JSON.parse(localStorage.getItem('admins'));
+      // }
     })
 
   }
@@ -43,7 +44,7 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.displayName === 'admin') {
         // localStorage.setItem('admins', email);
-        this.router.navigate(['/adminprofile', email]);
+        this.router.navigate(['/adminprofile/', email]);
       }
     }).catch((error) => {
       window.alert(error);
@@ -186,9 +187,12 @@ export class AuthService {
 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('admin');
+      // localStorage.removeItem('admin');
       localStorage.clear();
-      this.router.navigate(['adminsignin']);
+      localStorage.clear();
+      localStorage.clear();
+      localStorage.clear();
+      this.router.navigate(['home']);
     })
   }
 }

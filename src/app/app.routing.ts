@@ -84,13 +84,13 @@ const routes: Routes = [
   { path: 'companies', component: CompaniesComponent },
   { path: 'categories/:job', component: CategoriesComponent },
   { path: 'reglog', component: ReglogComponent },
-  { path: 'viewprofile/:uid', component: ViewProfileComponent },
+  { path: 'viewprofile/:uid', component: ViewProfileComponent, canActivate: [AuthGuard] },
   { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent, canActivate: [AuthGuard] },
   { path: 'signin', component: SignInComponent },
 
   { path: 'adminsignin', component: AdminSignInComponent },   //admin
   { path: 'adminsignup', component: AdminSignUpComponent },   //admin
-  { path: 'adminprofile/:email', component: AdminProfileComponent, canActivate: [AuthGuard] },    //admin
+  { path: 'adminprofile/:email', component: AdminProfileComponent},    //admin
   { path: 'adminupdate/:email', component: UpdateAdminComponent, canActivate: [AuthGuard] },      //admin
   { path: 'allworkers', component: AllworkersComponent, canActivate: [AuthGuard] },   //admin
   { path: 'allusers', component: AllusersComponent, canActivate: [AuthGuard] },   //admin
@@ -100,7 +100,7 @@ const routes: Routes = [
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent, canActivate: [AuthGuard] },    //admin
   { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin   
   //{ path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
-  { path: 'userprofile/:uid', component: UserprofileComponent, canActivate: [AuthGuard] },
+  // { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard] },
 
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
@@ -108,7 +108,7 @@ const routes: Routes = [
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent, canActivate: [AuthGuard] },
   { path: 'gmapworker', component: WorkerViewMapComponent},
-  { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'userprofile/:email', component: UserprofileComponent },
   { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
   // { path: 'updateuser/:email', component: UpdateuserComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
