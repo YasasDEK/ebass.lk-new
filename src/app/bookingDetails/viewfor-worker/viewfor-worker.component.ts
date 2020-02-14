@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 
-
-import { WorkerViewMapComponent } from '../../googlemap/worker-view-map/worker-view-map.component';
+// import { WorkerViewMapComponent } from '../../googlemap/worker-view-map/worker-view-map.component';
 
 
 @Component({
@@ -19,9 +19,6 @@ import { WorkerViewMapComponent } from '../../googlemap/worker-view-map/worker-v
 
 export class ViewforWorkerComponent implements OnInit {
 
-  
-  @ViewChild('search')
-  public searchElementRef: ElementRef;
   public latitude: number;
   public longitude: number;
   results: any;
@@ -32,7 +29,19 @@ export class ViewforWorkerComponent implements OnInit {
   value: string;
   verifyemail: string;
   filters = {}
-  constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
+  title: string = 'AGM project';
+  zoom: number;
+  address: string;
+  private geoCoder;
+
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+
+  constructor(private afs: AngularFirestore,
+    public _Activatedroute: ActivatedRoute,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone
+  ) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value ' + this.value);
   }
@@ -40,14 +49,52 @@ export class ViewforWorkerComponent implements OnInit {
   ngOnInit() {
     this.afs.collection('bookings', ref => ref
       .where('workerid', '==', this.value)
-      .where('status', '==' , 'pending'))
+      .where('status', '==', 'pending'))
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
       });
-      
-    this.latitude = 6.9;
-    this.longitude = 80.1;
+
+  }
+
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+
+        //place to give map cordinates to retrive
+        // this.latitude = this.map.latitude;
+        // this.longitude = this.map.longitude;
+        console.log('x  ' + this.latitude);
+        this.zoom = 15;
+        this.getAddress(this.latitude, this.longitude);
+      });
+    }
+  }
+
+
+  markerDragEnd($event: MouseEvent) {
+    console.log($event);
+    this.latitude = $event.coords.lat;
+    this.longitude = $event.coords.lng;
+    // this.getAddress(this.latitude, this.longitude);
+  }
+
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 15;
+          this.address = results[0].formatted_address;
+        } else {
+          window.alert('No results found');
+        }
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
+
+    });
   }
 
   private applyFilters() {
@@ -104,19 +151,49 @@ export class ViewforWorkerComponent implements OnInit {
   }
 
   confirm(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'ongoing'});
-     alert('Booking accepted');
+    this.afs.doc('bookings/' + id).update({ 'status': 'ongoing' });
+    alert('Booking accepted');
 
   }
 
   cancel(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'canceled'});
-      alert('Booking canceled');
+    this.afs.doc('bookings/' + id).update({ 'status': 'canceled' });
+    alert('Booking canceled');
 
-  } 
-
-  loation(id){
-    // this.afs.doc('booking/' + id).get('latitude');
-    this.afs.doc('booking/' + id).get();
   }
+
+  getMap(lat, long) {
+    this.latitude = lat;
+    console.log('lat ' + lat)
+    this.longitude = long;
+    console.log('long ' + long)
+
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 15;
+        });
+      });
+    });
+    // this.childEvent.emit(this.latitude)
+
+  }
+
 }

@@ -29,8 +29,9 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log('value 1: ' + this.worker.email);
         this.value = this._Activatedroute.snapshot.paramMap.get('email');
-        console.log('value : ' + this.value);
+        console.log('value 2: ' + this.value);
         if (this.worker) {
             if ( this.worker.email === this.value) {
                 this.getData().subscribe(data => {

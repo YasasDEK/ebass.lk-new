@@ -45,7 +45,6 @@ import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
 // import { GmapComponent } from './gmap/gmap.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
-import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { BasicelementsComponent } from './components/basicelements/basicelements.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
@@ -53,6 +52,11 @@ import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+
+// import { UpdateuserComponent } from './options/updateuser/updateuser.component';
+// import { UserprofileComponent } from './options/userprofile/userprofile.component';
 
 const routes: Routes = [
 
@@ -95,13 +99,16 @@ const routes: Routes = [
   { path: 'viewmessages', component: ViewMessagesComponent },
   // { path: 'map', component: GmapComponent },
   { path: 'gmap', component: GooglemapComponent },
-  { path: 'userprofile', component: UserprofileComponent },
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent },
-  { path: 'gmapworker', component: WorkerViewMapComponent}
+  { path: 'gmapworker', component: WorkerViewMapComponent},
+  { path: 'userprofile/:email', component: UserprofileComponent},
+  { path: 'edituserprofile/:email', component: EdituserprofileComponent},
+  // { path: 'updateuser/:email', component: UpdateuserComponent},
+  // { path: 'userprofile/:email', component: UserprofileComponent}
 ];
 
 @NgModule({

@@ -44,7 +44,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
-import { UserprofileComponent } from './users/userprofile/userprofile.component';
 import { FormvalidComponent } from './temp/formvalid/formvalid.component';
 import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
@@ -52,8 +51,9 @@ import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
-
-
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+// import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -87,9 +87,9 @@ var firebaseConfig = {
     // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
+    // UpdateuserComponent,
     // GmapComponent,
     GooglemapComponent,
-    UserprofileComponent,
     FormvalidComponent,
     CollapseComponent,
     ImageComponent,
@@ -97,6 +97,9 @@ var firebaseConfig = {
     ViewforUserComponent,
     OngoingComponent,
     WorkerViewMapComponent,
+    UserprofileComponent,
+    EdituserprofileComponent,
+    // UpdateuserComponent,
     
   ],
   imports: [

@@ -1,7 +1,7 @@
 
-import { Component, OnInit, ViewChild, ElementRef, NgZone, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone, Input, EventEmitter, AfterViewInit } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
-import { ViewforWorkerComponent } from '../../bookingDetails/viewfor-worker/viewfor-worker.component';
+// import { ViewforWorkerComponent } from '../../bookingDetails/viewfor-worker/viewfor-worker.component';
 
 @Component({
   selector: 'app-worker-view-map',
@@ -10,7 +10,7 @@ import { ViewforWorkerComponent } from '../../bookingDetails/viewfor-worker/view
 })
 export class WorkerViewMapComponent implements OnInit {
 
-  @ViewChild(ViewforWorkerComponent) map;
+  // @ViewChild(ViewforWorkerComponent) map;
   title: string = 'AGM project';
   public latitude: number;
   public longitude: number;
@@ -66,8 +66,8 @@ export class WorkerViewMapComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
 
         //place to give map cordinates to retrive
-        this.latitude = this.map.latitude;
-        this.longitude = this.map.longitude;
+        // this.latitude = this.map.latitude;
+        // this.longitude = this.map.longitude;
         console.log('x  ' + this.latitude);
         this.zoom = 15;
         this.getAddress(this.latitude, this.longitude);
