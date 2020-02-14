@@ -83,16 +83,16 @@ const routes: Routes = [
   { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent, canActivate:[AuthGuard] },
   { path: 'signin', component: SignInComponent },
   { path: 'adminsignin', component: AdminSignInComponent },   //admin
-  { path: 'adminsignup', component: AdminSignUpComponent },   //admin
-  { path: 'adminprofile/:email', component: AdminProfileComponent },    //admin
-  { path: 'adminupdate/:email', component: UpdateAdminComponent },      //admin
-  { path: 'allworkers', component: AllworkersComponent },   //admin
-  { path: 'allusers', component: AllusersComponent },   //admin
-  { path: 'addshops', component: AddshopsComponent },   //admin
-  { path: 'addcompanies', component: AddcompaniesComponent },   //admin
-  { path: 'verifyworker', component: VerifyWorkersComponent },    //admin
-  { path: 'editadminprofile/:email', component: EditAdminProfileComponent },    //admin
-  { path: 'viewmessages', component: ViewMessagesComponent },       //admin   
+  { path: 'adminsignup', component: AdminSignUpComponent},   //admin
+  { path: 'adminprofile/:email', component: AdminProfileComponent,canActivate:[AuthGuard] },    //admin
+  { path: 'adminupdate/:email', component: UpdateAdminComponent,canActivate:[AuthGuard] },      //admin
+  { path: 'allworkers', component: AllworkersComponent,canActivate:[AuthGuard] },   //admin
+  { path: 'allusers', component: AllusersComponent,canActivate:[AuthGuard] },   //admin
+  { path: 'addshops', component: AddshopsComponent, canActivate:[AuthGuard] },   //admin
+  { path: 'addcompanies', component: AddcompaniesComponent, canActivate:[AuthGuard] },   //admin
+  { path: 'verifyworker', component: VerifyWorkersComponent, canActivate:[AuthGuard] },    //admin
+  { path: 'editadminprofile/:email', component: EditAdminProfileComponent,canActivate:[AuthGuard] },    //admin
+  { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin   
   { path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
   { path: 'userprofile/:uid', component: UserprofileComponent, canActivate: [AuthGuard] },
   { path: 'bootstraps', component: BasicelementsComponent },
