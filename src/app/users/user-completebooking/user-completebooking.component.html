@@ -1,0 +1,40 @@
+
+<style>
+  body  {
+    background-image: url("./123.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  </style>
+
+ 
+<div class="container" style="margin-top: 5px">
+
+  <table class="table" >
+    <thead>
+
+      <tr class="table100-head" style="background-color: rgb(216, 216, 216);">
+        <th class="column2">Worker name</th>
+        <th class="column1">Date</th>
+        <th class="column2">Description</th>
+        <th class="column2">mobile</th>
+        <th class="column2">Area</th>
+      </tr>
+
+      <tr class="table100-data" *ngFor="let results of filteredNames" style="background-color: rgb(152, 232, 235);">
+        <td class="column1">{{results.username}}</td>
+        <td class="column2">{{results.bookingdate}}</td>
+        <td class="column4">{{results.bookingdesc}}</td>
+        <td class="column3">{{results.mobilenumber}}</td>
+        <td class="column6">{{results.usercity}}</td>
+        <button type="button" class="btn btn-danger btn-sm " style="margin-top: 6px">Rate Work</button>
+        <!-- (click)="cancel(results.bookingid)" -->
+      </tr>
+
+
+    </thead>
+  </table>
+</div>
+
+
+

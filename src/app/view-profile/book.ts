@@ -14,4 +14,5 @@ export interface Book {
     status: string;
     workerid: string;
     bookingid: string;
+    workername: string;
 }

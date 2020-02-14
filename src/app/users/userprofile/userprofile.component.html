@@ -198,10 +198,19 @@
                   <h2>NAME<small>EMAIL</small></h2>
                   </div>
               </div>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Pending Bookings</button>
+             
+              <br>
+              <a [routerLink]="['/UserNewBooking']" class="btn btn-primary btn-sm">New Bookings</a>
               <br><br>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Completed Bookings</button>
-        <!-- <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+              <a [routerLink]="['/UserOnBooking']" class="btn btn-danger btn-sm">Pending Bookings</a>
+              <br><br>
+              <a [routerLink]="['/UserCompletedBooking']" class="btn btn-danger btn-sm">Completed Bookings</a>
+
+
+           
+        
+              <!-- <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+
           <h6 class="mt-2">Upload a different photo</h6>
           <label class="custom-file">
               <input type="file" id="file" class="custom-file-input">

@@ -52,6 +52,12 @@ import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
 import {MatButtonModule} from '@angular/material/button';
+import { UserNewbookingComponent } from './users/user-newbooking/user-newbooking.component';
+import { UserOngoingbookingComponent } from './users/user-ongoingbooking/user-ongoingbooking.component';
+import { UserCompletebookingComponent } from './users/user-completebooking/user-completebooking.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 var firebaseConfig = {
@@ -95,12 +101,17 @@ var firebaseConfig = {
     ViewforWorkerComponent,
     ViewforUserComponent,
     OngoingComponent,
+    UserNewbookingComponent,
+    UserOngoingbookingComponent,
+    UserCompletebookingComponent,
     
     
   ],
   imports: [
     BrowserModule,
     MatButtonModule,
+    MatTableModule,
+    MatFormFieldModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,

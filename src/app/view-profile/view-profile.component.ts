@@ -42,10 +42,11 @@ export class ViewProfileComponent implements OnInit {
     return this.data;
   }
 
-  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity) {
+  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername) {
     this.bookingId = this.afs.createId();
     const bookingData: Book = {
       // uid: result.user.uid,
+      workername: workername,
       workerid: this.value,
       bookingid: this.bookingId,
       useremail: useremail,
@@ -65,6 +66,7 @@ export class ViewProfileComponent implements OnInit {
       window.alert(error.message)
       console.log(error)
     })
+
   }
 
   SetBookingData(Book) {

@@ -83,15 +83,14 @@ export class OngoingComponent implements OnInit {
       if (n1.uid < n2.uid) { return 1 }
       if (n1.uid > n2.uid) { return -1 }
       return 0;
-
     })
     this.applyFilters()
   }
 
   Completed(id) {
-    alert('Booking accepted' + id);
+    alert('Booking completed' + id);
     this.afs.doc('bookings/' + id).update({'status': 'completed'});
-     alert('Booking accepted');
+    alert('Booking completed' + id);
 
   }
 

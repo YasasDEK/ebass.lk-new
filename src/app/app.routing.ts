@@ -52,6 +52,9 @@ import { CollapseComponent } from './temp/collapse/collapse.component';
 import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { UserOngoingbookingComponent } from './users/user-ongoingbooking/user-ongoingbooking.component';
+import { UserNewbookingComponent } from './users/user-newbooking/user-newbooking.component';
+import { UserCompletebookingComponent } from './users/user-completebooking/user-completebooking.component';
 
 const routes: Routes = [
 
@@ -100,6 +103,13 @@ const routes: Routes = [
   { path: 'collapse', component: CollapseComponent },
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent },
+  { path: 'UserNewBooking', component: UserNewbookingComponent },
+  { path: 'UserOnBooking', component: UserOngoingbookingComponent },
+  { path: 'UserCompletedBooking', component: UserCompletebookingComponent },
+
+
+
+
 ];
 
 @NgModule({

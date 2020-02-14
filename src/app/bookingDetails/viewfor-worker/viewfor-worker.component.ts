@@ -11,6 +11,7 @@ import * as _ from 'lodash';
   templateUrl: './viewfor-worker.component.html',
   styleUrls: ['./viewfor-worker.component.scss']
 })
+
 export class ViewforWorkerComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
