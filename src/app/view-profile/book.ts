@@ -2,15 +2,15 @@ import { Observable } from 'rxjs';
 import { Url } from "url";
 
 export interface Book {
-    // uid: string;
+ //   uid: any;
     useremail: string,
     username: string,
     mobilenumber: number,
     bookingdesc: string,
     bookingdate: Date,
     usercity: string,
-    latitude: number;
-    longitude: number;
+ //   latitude: number;
+  //  longitude: number;
     status: string;
     workerid: string;
     bookingid: string;

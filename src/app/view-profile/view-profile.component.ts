@@ -27,15 +27,17 @@ export class ViewProfileComponent implements OnInit {
 
   constructor(public _Activatedroute: ActivatedRoute,
     public afs: AngularFirestore,
-    public router: Router, ) {
+    public router: Router,
+    public log: AuthService ) {
 
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value : ' + this.value);
+
   }
 
   ngOnInit() {
     this.getData().subscribe(data => {
-      this.datas = data;
+        this.datas = data;
     })
   }
 
@@ -47,7 +49,7 @@ export class ViewProfileComponent implements OnInit {
   setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity) {
     this.bookingId = this.afs.createId();
     const bookingData: Book = {
-      // uid: result.user.uid,
+   //   uid: this.userId,
       workerid: this.value,
       bookingid: this.bookingId,
       useremail: useremail,
@@ -56,9 +58,9 @@ export class ViewProfileComponent implements OnInit {
       bookingdesc: bookingdesc,
       bookingdate: bookingdate,
       usercity: usercity,
-      status: 'pending',
-      latitude: this.map.latitude,
-      longitude: this.map.longitude
+      status: 'pending'
+   //   latitude: this.map.latitude,
+   //   longitude: this.map.longitude
     }
 
     this.SetBookingData(bookingData);
@@ -68,6 +70,7 @@ export class ViewProfileComponent implements OnInit {
       console.log(error)
     })
   }
+
 
   SetBookingData(Book) {
       //  this.afs.collection('bookings').doc(this.bookingId);

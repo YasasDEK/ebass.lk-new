@@ -42,26 +42,26 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.emailVerified === true) {
         if (result.user.displayName === 'worker') {
-          this.router.navigate(['/profile/', email]);
-
+          this.router.navigate(['/profile/', email]);    
         }
         if (result.user.displayName === 'user') {
-          this.router.navigate(['/userprofile/', email]);
+           this.router.navigate(['/userprofile/', email]);
+//           this.router.navigate(['/userprofile/', result.user.uid]);
         }
       } else {
-        console.log('You need to verify your email!');
+        window.alert('check your email and verify');
+        this.router.navigateByUrl('signin');
     }
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
-    })
+   })
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
       if (id.length === 10) {
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
-            this.SendVerificationMail();
             const workerData: Worker = {
               uid: result.user.uid,
               workername: workername,
@@ -69,7 +69,7 @@ export class AuthService {
               email: email,
               jobType: job,
               mobile: mobile,
-              status: 'unavailable',
+              status: 'available',
             }
             this.SendVerificationMail();
             result.user.updateProfile({ displayName: 'worker' });
@@ -158,6 +158,7 @@ export class AuthService {
     return workerRef.set(worker, {
       merge: true
     })
+    
   }
 
   SetUserData(user) {
@@ -177,15 +178,13 @@ export class AuthService {
 
 }
 
-
-
 interface Item {
-  uid?: string;
-  workername?: string;
-  idNumber?: string;
-  email?: string;
-  jobType?: string;
-  mobile?: string;
-  status?: string;
+  uid: string;
+  workername: string;
+  idNumber: string;
+  email: string;
+  jobType: string;
+  mobile: string;
+  status: string;
 }
 

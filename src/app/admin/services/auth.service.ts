@@ -84,7 +84,6 @@ export class AuthService {
   Addshops(email, shopname, mobile, url) {
 
     const shopData: Shop = {
-      // uid: result.user.uid,
       shopname: shopname,
       email: email,
       jobType: "shop",
