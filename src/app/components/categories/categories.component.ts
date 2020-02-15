@@ -41,7 +41,6 @@ export class CategoriesComponent implements OnInit {
   getData() {
     this.type = this.ebass.collection('workers', ref => ref.where('jobType', "array-contains", this.value).
       where('status', '==', "available")).valueChanges();
-    // && (this.ebass.collection('workers', ref => ref.where('status', '==', true)).valueChanges());
     return this.type;
   }
 
@@ -54,12 +53,14 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
+
   checklog(test) {
     console.log("test " + test)
-    const user = JSON.parse(localStorage.getItem('users'));
-    console.log("one " + user.uid)
-    if ( user.uid === null ) {
-      console.log('not logged in');
+    const userone = JSON.parse(localStorage.getItem('users'));
+    console.log("one " + userone )
+    if ( userone === null ) {
+      window.alert("You should login first");
+ //     console.log('not logged in');
       this.router.navigate(['signin']);
     }else {
       console.log('logged in');
