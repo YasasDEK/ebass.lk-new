@@ -60,6 +60,7 @@ export class AuthService {
 
   SignUpWorker(email, password, workername, job, id, mobile) {
       if (id.length === 10) {
+        if(mobile.length === 10){
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
           .then((result) => {
             const workerData: Worker = {
@@ -82,9 +83,13 @@ export class AuthService {
           })
       }
       else {
+        window.alert('Invalid Mobile number')
+      }
+    }
+      else {
         window.alert('Invalid ID number ')
       }
-  }
+    }
 
   SignUpUser(email, password, username, id, mobile) {
     console.log(id);

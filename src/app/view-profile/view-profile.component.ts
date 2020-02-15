@@ -64,18 +64,19 @@ export class ViewProfileComponent implements OnInit {
     }
 
     this.SetBookingData(bookingData);
-    this.router.navigate(['/home']);
     ((error) => {
       window.alert(error.message)
       console.log(error)
     })
+    
   }
-
 
   SetBookingData(Book) {
       //  this.afs.collection('bookings').doc(this.bookingId);
        this.afs.collection('bookings').doc(this.bookingId).set(Book);
        alert('Your booking placed successfully');
+       this.router.navigate(['/succesbooking']);
+
     }
 }
 

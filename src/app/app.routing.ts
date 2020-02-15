@@ -55,6 +55,7 @@ import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoin
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
 
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
@@ -112,6 +113,7 @@ const routes: Routes = [
   { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
   // { path: 'updateuser/:email', component: UpdateuserComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
+  { path: 'succesbooking' , component: SuccesBookingComponent}
 
 ];
 

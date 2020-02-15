@@ -55,6 +55,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
@@ -101,6 +102,7 @@ var firebaseConfig = {
     WorkerViewMapComponent,
     UserprofileComponent,
     EdituserprofileComponent,
+    SuccesBookingComponent,
     // UpdateuserComponent,
     
   ],
