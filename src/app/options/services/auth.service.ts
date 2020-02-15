@@ -58,10 +58,10 @@ export class AuthService {
               console.log("aaa")
               this.router.navigate(['userprofile/', email]);
             }
-            // else {
-            //   localStorage.setItem('users', null);
-            //   JSON.parse(localStorage.getItem('users'));
-            // }
+            else {
+              localStorage.setItem('users', null);
+              JSON.parse(localStorage.getItem('users'));
+            }
           })
           // this.router.navigate(['/userprofile/', email]);
           // this.router.navigate(['/userprofile/', result.user.uid]);

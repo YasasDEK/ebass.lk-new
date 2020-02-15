@@ -54,8 +54,10 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
-  checklog(test){
+  checklog(test) {
+    console.log("test " + test)
     const user = JSON.parse(localStorage.getItem('users'));
+    console.log("one " + user.uid)
     if ( user.uid === null ) {
       console.log('not logged in');
       this.router.navigate(['signin']);
@@ -64,10 +66,6 @@ export class CategoriesComponent implements OnInit {
       this.router.navigate(['viewprofile', test]);
     }
   }
-
- 
-
-
 }
 
 interface Item {

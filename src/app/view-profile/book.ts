@@ -9,9 +9,11 @@ export interface Book {
     bookingdesc: string,
     bookingdate: Date,
     usercity: string,
- //   latitude: number;
-  //  longitude: number;
+    latitude: number;
+    longitude: number;
     status: string;
     workerid: string;
     bookingid: string;
+    userid: string;
+    rate: number;
 }

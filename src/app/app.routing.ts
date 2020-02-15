@@ -84,7 +84,7 @@ const routes: Routes = [
   { path: 'companies', component: CompaniesComponent },
   { path: 'categories/:job', component: CategoriesComponent },
   { path: 'reglog', component: ReglogComponent },
-  { path: 'viewprofile/:uid', component: ViewProfileComponent, canActivate: [AuthGuard] },
+  { path: 'viewprofile/:uid', component: ViewProfileComponent },
   { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent, canActivate: [AuthGuard] },
   { path: 'signin', component: SignInComponent },
 
