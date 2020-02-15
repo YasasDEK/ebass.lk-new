@@ -25,7 +25,7 @@
 
 
 <div class="wrapper">
-  <div class="page-header" style="background-image: url('./assets/img/z.jpg');">
+  <div class="page-header" style="background-image: url('./assets/img/register.jpg');  ;">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
@@ -94,11 +94,10 @@
                   <input type="checkbox"  (change)="getSelectedJobType()" [formControl]="control" name="" id="inlineCheckBox{{i}}">
                   <label class="form-check-label" for="inlineCheckBox{{i}}">{{jobType[i]}}</label>
                   </div>
-                  <br><br>
                   <div>
                     <small *ngIf="jobError && determineErrorDisplay()">u have to choose atleast one or more</small>
                   </div>
-             <br>     
+             
 
               <!-- <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
@@ -110,7 +109,7 @@
                   (blur)="focus=false" #userjob required>
               </div> -->
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col">
               <div class="form-check">
                 <label class="form-check-label">
@@ -145,7 +144,7 @@
             </label>
         </div>
       </div>
-     </div>
+     </div> -->
             
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
