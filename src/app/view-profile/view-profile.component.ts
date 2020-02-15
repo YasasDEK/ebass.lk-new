@@ -46,7 +46,7 @@ export class ViewProfileComponent implements OnInit {
     return this.data;
   }
 
-  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity) {
+  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername, workeremail, workermobile) {
     const val = JSON.parse(localStorage.getItem('users'));
     if (val.uid == null){ 
       console.log('you should log in first');
@@ -56,7 +56,10 @@ export class ViewProfileComponent implements OnInit {
     this.bookingId = this.afs.createId();
     const bookingData: Book = {
       //   uid: this.userId,
-      rate: 10,
+      workername: workername,
+      workeremail: workername,
+      workermobile: workermobile,
+      rate: 5,
       userid: val.uid,
       workerid: this.value,
       bookingid: this.bookingId,

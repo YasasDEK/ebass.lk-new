@@ -16,4 +16,7 @@ export interface Book {
     bookingid: string;
     userid: string;
     rate: number;
+    workermobile: number;
+    workername: string;
+    workeremail: string;
 }

@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
 
+
 @Component({
-  selector: 'app-ongoing',
-  templateUrl: './ongoing.component.html',
-  styleUrls: ['./ongoing.component.scss']
+  selector: 'app-userpending',
+  templateUrl: './userpending.component.html',
+  styleUrls: ['./userpending.component.scss']
 })
-export class OngoingComponent implements OnInit {
+export class UserpendingComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -22,13 +23,13 @@ export class OngoingComponent implements OnInit {
   filters = {}
   constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
-    console.log('value ' + this.value);
+    console.log('value x ' + this.value);
   }
 
   ngOnInit() {
     this.afs.collection('bookings', ref => ref
-      .where('workerid', '==', this.value)
-      .where('status', '==' , 'ongoing'))
+      .where('userid', '==', this.value)
+      .where('status', '==' , 'pending'))
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
@@ -88,15 +89,10 @@ export class OngoingComponent implements OnInit {
     this.applyFilters()
   }
 
-  Completed(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'completed'});
-     alert('Booking accepted');
-
-  }
-
   cancel(id) {
     this.afs.doc('bookings/' + id).update({'status': 'canceled'});
-    alert('Booking canceled');
+     alert('Booking canceled');
 
   }
 }
+

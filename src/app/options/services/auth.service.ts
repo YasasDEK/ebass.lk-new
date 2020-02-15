@@ -58,6 +58,7 @@ export class AuthService {
               console.log("aaa")
               this.router.navigate(['userprofile/', email]);
             }
+
             else {
               localStorage.setItem('users', null);
               JSON.parse(localStorage.getItem('users'));
@@ -188,11 +189,11 @@ export class AuthService {
 
   SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.clear();
-      localStorage.clear();
-      localStorage.clear();
-      localStorage.clear();
-      // localStorage.removeItem('worker');
+      // localStorage.clear();
+      // localStorage.clear();
+      // localStorage.clear();
+      // localStorage.clear();
+      localStorage.removeItem('worker');
       // localStorage.clear();
       this.router.navigate(['home']);
     })

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { Shop } from './shop';
 import { Company } from './company';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,25 +27,31 @@ export class AuthService {
     public ngZone: NgZone,
     public _Activatedroute: ActivatedRoute
   ) {
-    this.afAuth.authState.subscribe(admin => {
-      if (admin) {
-        this.adminData = admin;
-        localStorage.setItem('admins', JSON.stringify(this.adminData));
-        JSON.parse(localStorage.getItem('admins'));
-      }
-      // else {
-      //   localStorage.setItem('admins', null);
-      //   JSON.parse(localStorage.getItem('admins'));
-      // }
-    })
 
   }
 
+
   SignInadmin(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if (result.user.displayName === 'admin') {
-        // localStorage.setItem('admins', email);
-        this.router.navigate(['/adminprofile/', email]);
+      if (result.user.emailVerified === true) {
+        if (result.user.displayName === 'admin') {
+          this.afAuth.authState.subscribe(admin => {
+            if (admin) {
+              this.adminData = admin;
+              localStorage.setItem('admins', JSON.stringify(this.adminData));
+              JSON.parse(localStorage.getItem('admins'));
+              this.router.navigate(['/adminprofile/', email]);
+            }
+            else {
+              localStorage.setItem('admins', null);
+              JSON.parse(localStorage.getItem('admins'));
+            }
+          })
+          // this.router.navigate(['/profile/', email]);
+        }
+      } else {
+        window.alert('check your email and verify');
+        this.router.navigateByUrl('adminsignin');
       }
     }).catch((error) => {
       window.alert(error);
@@ -187,12 +194,9 @@ export class AuthService {
 
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
-      // localStorage.removeItem('admin');
-      localStorage.clear();
-      localStorage.clear();
-      localStorage.clear();
-      localStorage.clear();
-      this.router.navigate(['home']);
+      localStorage.removeItem('admin');
+      // localStorage.clear();
+      this.router.navigate(['adminsignin']);
     })
   }
 }

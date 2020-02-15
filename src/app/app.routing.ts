@@ -55,6 +55,10 @@ import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoin
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/userongoing.component';
+import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
+import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
+import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
 
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
@@ -110,6 +114,10 @@ const routes: Routes = [
   { path: 'gmapworker', component: WorkerViewMapComponent},
   { path: 'userprofile/:email', component: UserprofileComponent },
   { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'userongoing/:uid', component: UserongoingComponent },
+  { path: 'userpending/:uid', component: UserpendingComponent },
+  { path: 'usercompleted/:uid', component: UsercompletedComponent },
+  { path: 'completed/:uid', component: CompletedComponent }
   // { path: 'updateuser/:email', component: UpdateuserComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
 
