@@ -85,6 +85,7 @@ export class AuthService {
             const workerData: Worker = {
               uid: result.user.uid,
               workername: workername,
+              rate: 10,
               idNumber: id,
               email: email,
               jobType: job,

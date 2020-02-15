@@ -61,6 +61,7 @@ import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/
 import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
 import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
 import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
+import { AdminbookingviewComponent } from './admin/adminbookingview/adminbookingview.component';
 
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
@@ -123,7 +124,8 @@ const routes: Routes = [
   { path: 'rated/:uid', component: UserratedComponent },
   // { path: 'updateuser/:email', component: UpdateuserComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
-  { path: 'succesbooking' , component: SuccesBookingComponent}
+  { path: 'succesbooking' , component: SuccesBookingComponent},
+  { path: 'adminbookingview', component: AdminbookingviewComponent}
 
 ];
 

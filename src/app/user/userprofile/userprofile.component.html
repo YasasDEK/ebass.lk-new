@@ -55,7 +55,8 @@
                     aria-hidden="true"></i>Options</a>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
                   <!-- <a class="dropdown-item" [routerLink]="['/signup']">add user</a> -->
-                  <a class="dropdown-item" [routerLink]="['/edituserprofile',data.email]">edit my profile</a>
+                  <a class="dropdown-item" [routerLink]="['/edituserprofile',data.email]"><i class="nc-icon nc-single-02                                "
+                    aria-hidden="true"></i> Edit my profile</a>
                   <!-- <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a> -->
                   <!-- <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a> -->
                   <!-- <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a> -->
@@ -68,15 +69,10 @@
         </div>
 
       </div>
-    </nav>
+    </nav>   
+
+    
     <br><br><br><br><br><br>
-
-
-    <div class="nav-tabs-navigation">
-      <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-          <ngb-tab title="Home">
-            <ng-template ngbTabContent>
 
               <div class="container-fluid mt--7">
                 <div class="row">
@@ -96,8 +92,6 @@
                       <br>
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
                         <div class="d-flex justify-content-between">
-                          <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a> -->
-                          <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a> -->
                           <!-- <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button> -->
                         </div>
                       </div>
@@ -110,29 +104,18 @@
                                 <span class="heading">8.7 </span>
                                 <span class="description"> Rating </span>
                               </div>
-                              <div>
-                                <span class="heading"> Yes </span>
-                                <span class="description"> Available </span>
-                              </div>
-                              <div>
-                                <span class="heading"> 89 </span>
-                                <span class="description"> Comments </span>
-                              </div>
                             </div>
                           </div>
                         </div>
                         <div class="text-center">
                           <h3>
-                            {{data.username}}<span class="font-weight-light">, 27</span>
+                            {{data.username}}<span class="font-weight-light"></span>
                           </h3>
                           <div class="h5 font-weight-300">
                             <i class="ni location_pin mr-2"></i>{{data.email}}
                           </div>
                           <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
-                          </div>
-                          <div>
-                            <i class="ni education_hat mr-2"></i> CATEGORY
                           </div>
                           <hr class="my-4" />
                           <p>Description About user</p>
@@ -142,17 +125,21 @@
                     </div>
                   </div>
 
+
+                  <div class="col-md-4">
+                    <div class="row justify-content-center">
+                    <br>
+                  <a class="btn btn-danger" [routerLink]="['/userpending',data.uid]">Pending</a>
+                  <br>
+                  <a class="btn btn-danger" [routerLink]="['/userongoing',data.uid]">Ongoing</a>
+                  <br>
+                  <a class="btn btn-danger" [routerLink]="['/usercompleted',data.uid]">Rate worker</a>
+                  <br>
+                  <a class="btn btn-danger" [routerLink]="['/rated',data.uid]">Completed</a>
+                  </div>
+                </div>
+
                 </div>
               </div>
-
-            </ng-template>
-          </ngb-tab>
-
-
-
-        </ngb-tabset>
-      </div>
-    </div>
-
   </div>
 </div>
