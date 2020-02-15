@@ -55,7 +55,7 @@
                     aria-hidden="true"></i>Options</a>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
                   <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
-                  <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a> -->
                   <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
                   <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
                   <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
@@ -91,7 +91,7 @@
                           <div class="card-profile-image">
                             <a href="javascript:void(0)">
                               <br>
-                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150"
+                              <img class="mx-auto rounded-circle" src="{{data.image}}" width="150"
                                 height="150">
                             </a>
                           </div>
@@ -100,27 +100,17 @@
                       <br>
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
                         <div class="d-flex justify-content-between">
-                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a>
-                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                          <button [routerLink]="['/adminimage',data.uid]" class="btn btn-sm btn-info mr-3">Update image</button>
+                          <button [routerLink]="['/editadminprofile',value]" class="btn btn-sm btn-info mr-3">Update</button>
                         </div>
                       </div>
                       <div class="card-body pt-4">
                         <div class="row">
                           <div class="col">
                             <div class="card-profile-stats d-flex justify-content-center mt-md-2">
-
-                              <div>
-                                <span class="heading">8.7 </span>
-                                <span class="description"> Rating </span>
-                              </div>
                               <div>
                                 <span class="heading"> Yes </span>
                                 <span class="description"> Available </span>
-                              </div>
-                              <div>
-                                <span class="heading"> 89 </span>
-                                <span class="description"> Comments </span>
                               </div>
                             </div>
                           </div>
@@ -135,12 +125,6 @@
                           <div class="h5 mt-4">
                             <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
                           </div>
-                          <div>
-                            <i class="ni education_hat mr-2"></i> CATEGORY
-                          </div>
-                          <hr class="my-4" />
-                          <p>Description About admin</p>
-                          <a href="javascript:void(0)">Show more</a>
                         </div>
                       </div>
                     </div>

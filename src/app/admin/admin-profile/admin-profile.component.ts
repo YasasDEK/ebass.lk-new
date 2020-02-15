@@ -54,7 +54,7 @@ export class AdminProfileComponent implements OnInit {
     }
 
     getData() {
-        this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
+        this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
         console.log("data" + this.data);
         return this.data;
 

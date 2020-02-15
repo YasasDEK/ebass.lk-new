@@ -29,25 +29,25 @@ export class UpdateAdminComponent implements OnInit {
   }
 
   getData() {
-    this.data = this.ebass.collection('workers', ref => ref.where('email', '==', this.value)).valueChanges();
+    this.data = this.ebass.collection('wokers', ref => ref.where('email', '==', this.value)).valueChanges();
     return this.data;
   }
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
-    this.ebass.doc('workers/' + exampleForm.value.uid).update(exampleForm.value);
-    this.router.navigateByUrl('allworkers');
+    this.ebass.doc('wokers/' + exampleForm.value.uid).update(exampleForm.value);
+    this.router.navigate(['/allworkers']);
   }
   delete(id) {
-     this.ebass.doc('workers/' + id).update({'status': 'deleted'});
+     this.ebass.doc('wokers/' + id).update({'status': 'deleted'});
      alert('Deleted');
-      this.router.navigateByUrl('/allworkers');
+      this.router.navigateByUrl('/home');
   }
 
 }
 
 interface Item {
   uid?: string;
-  adminname?: string;
+  worername?: string;
   idNumber?: string;
   email?: string;
   emailVerified?: boolean;

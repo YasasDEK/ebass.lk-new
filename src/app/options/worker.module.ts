@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ReglogComponent } from './reglog/reglog.component';
 import { RouterModule } from '@angular/router';
 import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
+// import { WorkerimageComponent } from './workerimage/workerimage.component';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -25,6 +26,7 @@ import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
         ProfileComponent,
         ReglogComponent,
         SignUpUserComponent,
+        // WorkerimageComponent,
         // UserprofileComponent,
         // SignInComponent
     ]
