@@ -1,3 +1,4 @@
+import { UserprofileComponent } from '../../user/userprofile/userprofile.component';
 import { Injectable, NgZone } from '@angular/core';
 import { Worker } from './worker';
 import { User } from './user';
@@ -13,6 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   workerData: any;
+  userData: any;
   value;
   data: Observable<Item[]>;
   datas: Item[];
@@ -24,38 +26,55 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     public _Activatedroute: ActivatedRoute
-  ) {
-    this.afAuth.authState.subscribe(worker => {
-      if (worker) {
-        this.workerData = worker;
-        localStorage.setItem('workers', JSON.stringify(this.workerData));
-        JSON.parse(localStorage.getItem('workers'));
-      } else {
-        localStorage.setItem('workers', null);
-        JSON.parse(localStorage.getItem('workers'));
-      }
-    })
+  ) {}
 
-  }
 
   SignIn(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.emailVerified === true) {
         if (result.user.displayName === 'worker') {
-          this.router.navigate(['/profile/', email]);    
+          this.afAuth.authState.subscribe(worker => {
+            if (worker) {
+              this.workerData = worker;
+              localStorage.setItem('workers', JSON.stringify(this.workerData));
+              JSON.parse(localStorage.getItem('workers'));
+              this.router.navigate(['/profile/', email]);
+            } 
+            else {
+              localStorage.setItem('workers', null);
+              JSON.parse(localStorage.getItem('workers'));
+            }
+          })
+          // this.router.navigate(['/profile/', email]);
         }
+
         if (result.user.displayName === 'user') {
-           this.router.navigate(['/userprofile/', email]);
-//           this.router.navigate(['/userprofile/', result.user.uid]);
+          // this.router.navigate(['/userprofile/', email]);
+          this.afAuth.authState.subscribe(user => {
+            if (user) {
+              this.userData = user;
+              localStorage.setItem('users', JSON.stringify(this.userData));
+              JSON.parse(localStorage.getItem('users'));
+              console.log("aaa")
+              this.router.navigate(['userprofile/', email]);
+            }
+
+            else {
+              localStorage.setItem('users', null);
+              JSON.parse(localStorage.getItem('users'));
+            }
+          })
+          // this.router.navigate(['/userprofile/', email]);
+          // this.router.navigate(['/userprofile/', result.user.uid]);
         }
       } else {
         window.alert('check your email and verify');
         this.router.navigateByUrl('signin');
-    }
+      }
     }).catch((error) => {
       window.alert(error);
       this.router.navigateByUrl('signin');
-   })
+    })
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
@@ -139,7 +158,7 @@ export class AuthService {
 
   get isLoggedIn(): boolean {
     const worker = JSON.parse(localStorage.getItem('workers'));
-    return (worker !== null && worker .emailVerified !== false) ? true : false;
+    return (worker !== null && worker.emailVerified !== false) ? true : false;
   }
 
   GoogleAuth() {
@@ -163,7 +182,7 @@ export class AuthService {
     return workerRef.set(worker, {
       merge: true
     })
-    
+
   }
 
   SetUserData(user) {
@@ -175,9 +194,13 @@ export class AuthService {
 
   SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
+      // localStorage.clear();
+      // localStorage.clear();
+      // localStorage.clear();
+      // localStorage.clear();
       localStorage.removeItem('worker');
-      localStorage.clear();
-      this.router.navigate(['signin']);
+      // localStorage.clear();
+      this.router.navigate(['home']);
     })
   }
 

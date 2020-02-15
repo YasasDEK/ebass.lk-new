@@ -27,8 +27,8 @@ export class AdminProfileComponent implements OnInit {
                 public ebass: AngularFirestore,
                 public authService: AuthService,
                 public router: Router) {
-        this.value = this._Activatedroute.snapshot.paramMap.get('uid');
-        console.log('value : ' + this.value);
+        // this.value = this._Activatedroute.snapshot.paramMap.get('uid');
+        // console.log('value : ' + this.value);
     }
 
     ngOnInit() {
@@ -38,7 +38,7 @@ export class AdminProfileComponent implements OnInit {
                 if ( this.admin.email === this.value) {
                     this.getData().subscribe(data => {
                         this.datas = data;
-                        console.log('value : ' + this.datas[0]);
+                        console.log('value : ' + this.admin.email);
                     })
                 } else {
                     // someone logged & parameter email is not his

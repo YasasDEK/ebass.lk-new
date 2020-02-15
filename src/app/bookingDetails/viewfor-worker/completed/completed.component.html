@@ -1,0 +1,132 @@
+<!--top nav bar-->
+<!-- <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="col-lg-12 text-center">
+    <div class="container">
+  
+      <div class="navbar-translate">
+        <div class="avatar">
+          <a class="navbar-brand" href="http://localhost:4200">
+            <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+              width="60">
+          </a>
+        </div>
+      </div>
+  
+      <div class="navbar-translate">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Customers</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                  <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+                
+              </div>
+            </div>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Notifications</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+  
+              </div>
+            </div>
+          </li>
+  
+          <li class="nav-item">
+            <div ngbDropdown class="d-inline-block dropdown">
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                  aria-hidden="true"></i>Options</a>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
+                <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+                <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
+                <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
+                <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
+                <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
+              </div>
+            </div>
+          </li>
+  
+        </ul>
+      </div>
+  
+    </div>
+  </div>
+  </nav> -->
+  <br><br><br><br><br><br>
+
+<div class="content-center">
+  <div class="container">
+
+    <!--search bar-->
+    <label>Filter</label>
+    <!-- <section class="section section-lg section-hero section-shaped"> -->
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username"
+            (change)="filterName('username', username)">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+
+          <input class="form-control" placeholder="Status" (focus)="focus=true" type="text" [(ngModel)]="status"
+            (change)="filterStatus('status', status)">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+            </span>
+          </div>
+        </div> <br>
+
+        <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
+          (click)="send2()">Sort high to low</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container" style="margin-top: 5px">
+
+  <table class="table">
+    <thead>
+
+      <tr class="table100-head">
+        <th class="column2">Worker name</th>
+        <th class="column1">Date</th>
+        <th class="column2">Description</th>
+        <th class="column2">Worker mobile</th>
+        <!-- <th class="column2">Area</th> -->
+      </tr>
+
+      <tr class="table100-data" *ngFor="let results of filteredNames">
+        <td class="column1">{{results.username}}</td>
+        <td class="column2">{{results.bookingdate}}</td>
+        <td class="column4">{{results.bookingdesc}}</td>
+        <td class="column3">{{results.rate}}</td>
+        <!-- <td class="column6">{{results.}}</td> -->
+        <!-- <button type="button" class="btn btn-success btn-sm" (click)="completed(results.bookingid)">completed</button> -->
+        <!-- <button type="button" class="btn btn-danger btn-sm" (click)="rate(results.bookingid)">Rate Worker </button>  -->
+      </tr>
+
+
+    </thead>
+  </table>
+</div>

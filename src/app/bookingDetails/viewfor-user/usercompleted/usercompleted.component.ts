@@ -5,13 +5,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
+import { Ratedata } from './ratedata';
+
 
 @Component({
-  selector: 'app-ongoing',
-  templateUrl: './ongoing.component.html',
-  styleUrls: ['./ongoing.component.scss']
+  selector: 'app-usercompleted',
+  templateUrl: './usercompleted.component.html',
+  styleUrls: ['./usercompleted.component.scss']
 })
-export class OngoingComponent implements OnInit {
+export class UsercompletedComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -19,16 +21,20 @@ export class OngoingComponent implements OnInit {
   status: string;
   value: string;
   verifyemail: string;
+  finalrating: number;
+  rateid: Ratedata;
   filters = {}
+  rateId: string;
+  rateObservable: Observable<Ratedata>;
   constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
-    console.log('value ' + this.value);
+    console.log('value x ' + this.value);
   }
 
   ngOnInit() {
     this.afs.collection('bookings', ref => ref
-      .where('workerid', '==', this.value)
-      .where('status', '==' , 'ongoing'))
+      .where('userid', '==', this.value)
+      .where('status', '==' , 'completed'))
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
@@ -88,15 +94,26 @@ export class OngoingComponent implements OnInit {
     this.applyFilters()
   }
 
-  Completed(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'completed'});
-     alert('Booking accepted');
+  rate(rateval, bookid, desc, wid) {
+    console.log('rating ' + rateval + ' id ' + bookid + ' decs ' + desc + ' wid');
+    this.afs.doc('bookings/' + bookid).update({'rate': rateval});
+    this.afs.doc('bookings/' + bookid).update({'ratedesc': desc });
+    this.afs.doc('bookings/' + bookid).update({'status': 'rated' });
 
-  }
+    this.rateObservable = this.afs.collection('workers', ref => ref
+      .where('uid', '==', wid))
+      .valueChanges() as unknown as Observable<Ratedata>;
 
-  cancel(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'canceled'});
-    alert('Booking canceled');
+    // this.finalrating = this.results.email;
+    // console.log('x ' + this.finalrating + ' y ' + this.results.email);
+    // this.eventId = localStorage.getItem("curEventId");
+    this.rateObservable.subscribe(curRate => {
+    this.rateid = curRate as Ratedata;
+    console.log(this.rateid.rate);
+    })
+
+
 
   }
 }
+

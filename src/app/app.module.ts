@@ -56,6 +56,11 @@ import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
 import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
+import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/userongoing.component';
+import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
+import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
+import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
+import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
@@ -103,6 +108,11 @@ var firebaseConfig = {
     UserprofileComponent,
     EdituserprofileComponent,
     SuccesBookingComponent,
+    UserongoingComponent,
+    UserpendingComponent,
+    UsercompletedComponent,
+    CompletedComponent,
+    UserratedComponent
     // UpdateuserComponent,
     
   ],

@@ -20,24 +20,25 @@
               <button type="button" (click)="authService.SignOutUser()" class="btn btn-danger">SIGN OUT</button>
               <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/home"><i class="nc-icon nc-align-center"
                   aria-hidden="true"></i>&nbsp;Reports</a>
             </li>
-
+              -->
             <li class="nav-item">
               <div ngbDropdown class="d-inline-block dropdown">
                 <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                    aria-hidden="true"></i>Customers</a>
+                    aria-hidden="true"></i>Bookings</a>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                  <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
-                  <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
-
+                  <a class="dropdown-item" [routerLink]="['/userpending',data.uid]">Pending</a>
+                  <a class="dropdown-item" [routerLink]="['/userongoing',data.uid]">Ongoing</a>
+                  <a class="dropdown-item" [routerLink]="['/usercompleted',data.uid]">Rate worker</a>
+                  <a class="dropdown-item" [routerLink]="['/rated',data.uid]">Completed</a>
                 </div>
               </div>
-            </li>
+            </li> 
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <div ngbDropdown class="d-inline-block dropdown">
                 <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                     aria-hidden="true"></i>Notifications</a>
@@ -46,7 +47,7 @@
 
                 </div>
               </div>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <div ngbDropdown class="d-inline-block dropdown">
@@ -58,7 +59,7 @@
                   <!-- <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a> -->
                   <!-- <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a> -->
                   <!-- <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a> -->
-                  <a class="dropdown-item" [routerLink]="['/signin']">sign out</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/signin']">sign out</a> -->
                 </div>
               </div>
             </li>
@@ -95,9 +96,9 @@
                       <br>
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
                         <div class="d-flex justify-content-between">
-                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a>
-                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                          <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a> -->
+                          <!-- <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a> -->
+                          <!-- <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button> -->
                         </div>
                       </div>
                       <div class="card-body pt-4">

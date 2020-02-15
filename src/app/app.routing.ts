@@ -56,6 +56,11 @@ import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
 import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
+import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/userongoing.component';
+import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
+import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
+import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
+import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
 
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
@@ -91,7 +96,7 @@ const routes: Routes = [
 
   { path: 'adminsignin', component: AdminSignInComponent },   //admin
   { path: 'adminsignup', component: AdminSignUpComponent },   //admin
-  { path: 'adminprofile/:email', component: AdminProfileComponent, canActivate: [AuthGuard] },    //admin
+  { path: 'adminprofile/:email', component: AdminProfileComponent},    //admin
   { path: 'adminupdate/:email', component: UpdateAdminComponent, canActivate: [AuthGuard] },      //admin
   { path: 'allworkers', component: AllworkersComponent, canActivate: [AuthGuard] },   //admin
   { path: 'allusers', component: AllusersComponent, canActivate: [AuthGuard] },   //admin
@@ -101,7 +106,7 @@ const routes: Routes = [
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent, canActivate: [AuthGuard] },    //admin
   { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin   
   //{ path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
-  { path: 'userprofile/:uid', component: UserprofileComponent, canActivate: [AuthGuard] },
+  // { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard] },
 
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
@@ -109,8 +114,13 @@ const routes: Routes = [
   { path: 'image', component: ImageComponent },
   { path: 'ongoingworker/:uid', component: OngoingComponent, canActivate: [AuthGuard] },
   { path: 'gmapworker', component: WorkerViewMapComponent},
-  { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'userprofile/:email', component: UserprofileComponent },
   { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'userongoing/:uid', component: UserongoingComponent },
+  { path: 'userpending/:uid', component: UserpendingComponent },
+  { path: 'usercompleted/:uid', component: UsercompletedComponent },
+  { path: 'completed/:uid', component: CompletedComponent },
+  { path: 'rated/:uid', component: UserratedComponent },
   // { path: 'updateuser/:email', component: UpdateuserComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
   { path: 'succesbooking' , component: SuccesBookingComponent}

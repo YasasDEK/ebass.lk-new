@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import { ajax } from 'rxjs/ajax';
-import * as _ from 'lodash';
+  import { Component, OnInit } from '@angular/core';
+  import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+  import { Observable } from 'rxjs';
+  import { ActivatedRoute } from '@angular/router';
+  import { Router } from '@angular/router';
+  import { ajax } from 'rxjs/ajax';
+  import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-ongoing',
-  templateUrl: './ongoing.component.html',
-  styleUrls: ['./ongoing.component.scss']
+  selector: 'app-userongoing',
+  templateUrl: './userongoing.component.html',
+  styleUrls: ['./userongoing.component.scss']
 })
-export class OngoingComponent implements OnInit {
+export class UserongoingComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -22,12 +22,12 @@ export class OngoingComponent implements OnInit {
   filters = {}
   constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
-    console.log('value ' + this.value);
+    console.log('value x ' + this.value);
   }
 
   ngOnInit() {
     this.afs.collection('bookings', ref => ref
-      .where('workerid', '==', this.value)
+      .where('userid', '==', this.value)
       .where('status', '==' , 'ongoing'))
       .valueChanges().subscribe(results => {
         this.results = results;
@@ -88,15 +88,9 @@ export class OngoingComponent implements OnInit {
     this.applyFilters()
   }
 
-  Completed(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'completed'});
-     alert('Booking accepted');
-
-  }
-
   cancel(id) {
     this.afs.doc('bookings/' + id).update({'status': 'canceled'});
-    alert('Booking canceled');
+     alert('Booking canceled');
 
   }
 }
