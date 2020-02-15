@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="form-group">
+    <label> Upload profile picture</label>
+    <input type="file" id="$img" (change)="upload($event)" class="form-control" formControlName="image"
+      accept=".png,.jpg">
+
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+
+  </form>
+</div>

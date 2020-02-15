@@ -61,8 +61,17 @@ import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/
 import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
 import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
 import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
+
 import { AdminbookingviewComponent } from './admin/adminbookingview/adminbookingview.component';
 
+
+import { UserimageComponent } from './user/userimage/userimage.component';
+import { WorkerimageComponent } from './options/workerimage/workerimage.component';
+import { AdminimageComponent } from './admin/adminimage/adminimage.component';
+import { AllcompaniesComponent } from './admin/allcompanies/allcompanies.component';
+import { AllshopsComponent } from './admin/allshops/allshops.component';
+import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
+import { ShopimageComponent } from './admin/shopimage/shopimage.component';
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
 
@@ -72,7 +81,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'signin', component: SignInComponent },
+  { path: 'companyimage/:uid', component: CompanyimageComponent },
+  { path: 'shopimage/:uid', component: ShopimageComponent },
   { path: 'signupuser', component: SignUpUserComponent },
   { path: 'profile/:email', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'update/:email', component: UpdateworkerComponent },
@@ -122,7 +132,11 @@ const routes: Routes = [
   { path: 'usercompleted/:uid', component: UsercompletedComponent },
   { path: 'completed/:uid', component: CompletedComponent },
   { path: 'rated/:uid', component: UserratedComponent },
-  // { path: 'updateuser/:email', component: UpdateuserComponent},
+  { path: 'userimage/:uid', component: UserimageComponent },
+  { path: 'workerimage/:uid', component: WorkerimageComponent },
+  { path: 'adminimage/:uid', component: AdminimageComponent },
+  { path: 'allcompanies', component: AllcompaniesComponent },
+  { path: 'allshops', component: AllshopsComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
   { path: 'succesbooking' , component: SuccesBookingComponent},
   { path: 'adminbookingview', component: AdminbookingviewComponent}

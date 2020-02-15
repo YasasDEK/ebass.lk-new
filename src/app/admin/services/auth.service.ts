@@ -19,7 +19,8 @@ export class AuthService {
   data: Observable<Item[]>;
   datas: Item[];
   num: string;
-
+  shop;
+  company;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -90,8 +91,9 @@ export class AuthService {
   }
 
   Addshops(email, shopname, mobile, url) {
-
+    this.shop = this.afs.createId();
     const shopData: Shop = {
+      shopid:  this.shop,
       shopname: shopname,
       email: email,
       jobType: "shop",
@@ -109,9 +111,10 @@ export class AuthService {
   }
 
   Addcompanies(email, companyname, mobile, url) {
-
+    this.company = this.afs.createId();
     {
       const companyData: Company = {
+        companyid: this.company ,
         companyname: companyname,
         email: email,
         jobType: "company",
@@ -168,7 +171,7 @@ export class AuthService {
   }
 
   SetshopData(shop) {
-    this.afs.collection('shops').add(shop);
+    this.afs.collection('shops').doc(this.shop).set(shop);
     this.router.navigate(['shops']);
     // const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
     // return adminRef.set(shop, {
@@ -177,7 +180,7 @@ export class AuthService {
   }
 
   SetcompanyData(company) {
-    this.afs.collection('companies').add(company);
+    this.afs.collection('companies').doc(this.company).set(company);
     this.router.navigate(['companies']);
     // const companyRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${company.uid}`);
     // return companyRef.set(company, {

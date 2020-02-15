@@ -50,7 +50,7 @@ import { ImageComponent } from './temp/image/image.component';
 import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
 import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
 import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
@@ -61,6 +61,14 @@ import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/
 import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
 import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
 import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { UserimageComponent } from './user/userimage/userimage.component';
+import { WorkerimageComponent } from './options/workerimage/workerimage.component';
+import { AdminimageComponent } from './admin/adminimage/adminimage.component';
+import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
+import { ShopimageComponent } from './admin/shopimage/shopimage.component';
+
+
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
@@ -112,9 +120,14 @@ var firebaseConfig = {
     UserpendingComponent,
     UsercompletedComponent,
     CompletedComponent,
-    UserratedComponent
-    // UpdateuserComponent,
+    UserratedComponent,
+    UserimageComponent,
+    WorkerimageComponent,
+    AdminimageComponent,
+    CompanyimageComponent,
+    ShopimageComponent,
     
+    // UpdateuserComponent,
   ],
   imports: [
     // WorkerViewMapComponent,
@@ -133,7 +146,8 @@ var firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    
+    AngularFireStorageModule,
+
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCX6twQwi3PezVEReDhC5IMLyiaqC8f_rA',
       libraries: ['places']
