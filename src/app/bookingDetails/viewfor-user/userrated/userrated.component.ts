@@ -6,13 +6,12 @@ import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
 
-
 @Component({
-  selector: 'app-usercompleted',
-  templateUrl: './usercompleted.component.html',
-  styleUrls: ['./usercompleted.component.scss']
+  selector: 'app-userrated',
+  templateUrl: './userrated.component.html',
+  styleUrls: ['./userrated.component.scss']
 })
-export class UsercompletedComponent implements OnInit {
+export class UserratedComponent implements OnInit {
   results: any;
   filteredNames: any[] = [];
   workername: string;
@@ -29,7 +28,7 @@ export class UsercompletedComponent implements OnInit {
   ngOnInit() {
     this.afs.collection('bookings', ref => ref
       .where('userid', '==', this.value)
-      .where('status', '==' , 'completed'))
+      .where('status', '==' , 'rated'))
       .valueChanges().subscribe(results => {
         this.results = results;
         this.applyFilters()
@@ -89,11 +88,5 @@ export class UsercompletedComponent implements OnInit {
     this.applyFilters()
   }
 
-  rate(rateval, bookid, desc) {
-    console.log('rating ' + rateval + ' id ' + bookid + ' decs ' + desc);
-    this.afs.doc('bookings/' + bookid).update({'rate': rateval});
-    this.afs.doc('bookings/' + bookid).update({'ratedesc': desc });
-    this.afs.doc('bookings/' + bookid).update({'status': 'rated' });
-  }
 }
 

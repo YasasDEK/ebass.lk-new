@@ -59,6 +59,7 @@ import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/
 import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
 import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
 import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
+import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
@@ -108,7 +109,8 @@ var firebaseConfig = {
     UserongoingComponent,
     UserpendingComponent,
     UsercompletedComponent,
-    CompletedComponent
+    CompletedComponent,
+    UserratedComponent
     // UpdateuserComponent,
     
   ],
