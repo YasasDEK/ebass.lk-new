@@ -78,33 +78,37 @@ export class AuthService {
   }
 
   SignUpWorker(email, password, workername, job, id, mobile) {
-    if (id.length === 10) {
-      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then((result) => {
-          const workerData: Worker = {
-            rate: 3,
-            uid: result.user.uid,
-            workername: workername,
-            idNumber: id,
-            email: email,
-            jobType: job,
-            mobile: mobile,
-            status: 'available',
-          }
-          this.SendVerificationMail();
-          result.user.updateProfile({ displayName: 'worker' });
-          console.log(mobile);
-          this.SetWorkerData(workerData);
-          window.alert('Registration done');
-        }).catch((error) => {
-          window.alert(error.message)
-          console.log(error)
-        })
+      if (id.length === 10) {
+        if(mobile.length === 10){
+        return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+          .then((result) => {
+            const workerData: Worker = {
+              uid: result.user.uid,
+              workername: workername,
+              idNumber: id,
+              email: email,
+              jobType: job,
+              mobile: mobile,
+              status: 'available',
+            }
+            this.SendVerificationMail();
+            result.user.updateProfile({ displayName: 'worker' });
+            console.log(mobile);
+            this.SetWorkerData(workerData);
+            window.alert('Registration done');
+          }).catch((error) => {
+            window.alert(error.message)
+            console.log(error)
+          })
+      }
+      else {
+        window.alert('Invalid Mobile number')
+      }
     }
-    else {
-      window.alert('Invalid ID number ')
+      else {
+        window.alert('Invalid ID number ')
+      }
     }
-  }
 
   SignUpUser(email, password, username, id, mobile) {
     console.log(id);
