@@ -45,6 +45,18 @@ export class CategoriesComponent implements OnInit {
     // && (this.ebass.collection('workers', ref => ref.where('status', '==', true)).valueChanges());
     return this.type;
   }
+  
+   checklog(test) {
+    console.log("test " + test)
+    const userone = JSON.parse(localStorage.getItem('users'));
+    console.log("one " + userone )
+    if ( userone === null ) {
+      window.alert("You should login first");
+ //     console.log('not logged in');
+      this.router.navigate(['signin']);
+    }//else
+  }
+  
 
 }
 
