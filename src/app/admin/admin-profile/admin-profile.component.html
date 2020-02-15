@@ -64,6 +64,17 @@
               </div>
             </li>
 
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>View Bookings</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/adminbookingview']">All Bookings</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
+                </div>
+              </div>
+            </li>
+
           </ul>
         </div>
 
@@ -144,3 +155,91 @@
 
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-6 col-lg-4 col-sm-12 " >
+        <div class="card detail-card">
+            <div class="card-image" >
+                <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                        <h3 class="card-title card-top">Total Workers</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalDoctorCount}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-sm-12 " >
+      <div class="card detail-card">
+          <div class="card-image" >
+              <div class="text-white d-flex blue-gradient-rgba">
+                  <div class="p-3">
+                      <h3 class="card-title card-top">Total Bookings</h3>
+                  </div>
+                  <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+          <h1 class="text-center card-text" style="color: slateblue;">{{totalSupplierCount}}</h1>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 " >
+        <div class="card detail-card">
+            <div class="card-image" >
+                <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                        <h3 class="card-title card-top">Total Shops</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                        <i class="fas fa-users fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalSpaCount}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-sm-12 " >
+      <div class="card detail-card">
+          <div class="card-image" >
+              <div class="text-white d-flex blue-gradient-rgba">
+                  <div class="p-3">
+                      <h3 class="card-title card-top">Total Companies</h3>
+                  </div>
+                  <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+          <h1 class="text-center card-text" style="color: slateblue;">{{totalUserCount}}</h1>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 " >
+      <div class="card detail-card">
+          <div class="card-image" >
+              <div class="text-white d-flex blue-gradient-rgba">
+                  <div class="p-3">
+                      <h3 class="card-title card-top">Total Articles</h3>
+                  </div>
+                  <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                  </div>
+              </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+          <h1 class="text-center card-text" style="color: slateblue;">{{totalPostCount}}</h1>
+          </div>
+      </div>
+  </div>
+  </div>

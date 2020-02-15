@@ -60,13 +60,26 @@
           </div>
         </li>
 
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>View Bookings</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/adminbookingview']">All Bookings</a>
+              <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
+            </div>
+          </div>
+        </li>
+
       </ul>
     </div>
 
   </div>
 </nav>
 
-  <br><br><br><br><br><br>
+
+<br><br><br><br>
+<br><br>
 
 <div class="content-center">
   <div class="container">
@@ -82,15 +95,15 @@
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
-          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="workername"
-            (change)="filterName('workername', workername)">
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username"
+            (change)="filterName('username', username)">
           <div class="input-group-prepend">
             <span class="input-group-text">
               <i class="nc-icon nc-email-85"></i>
             </span>
           </div>
 
-          <input class="form-control" placeholder="Status" type="text" [(ngModel)]="status"
+          <input class="form-control" placeholder="Status" (focus)="focus=true" type="text" [(ngModel)]="status"
             (change)="filterStatus('status', status)">
           <div class="input-group-prepend">
             <span class="input-group-text">
@@ -107,32 +120,34 @@
 
 <br>
 
+
+
 <div class="container" style="margin-top: 5px">
-
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
-
+  
       <tr class="table100-head">
-        <th class="column1">Name</th>
-        <th class="column2">Email</th>
-        <th class="column2">mobile</th>
-        <th class="column2">Job type</th>
-        <th class="column2">Status</th>
+        <th class="column1">Worker Email</th>
+        <th class="column2">User Email</th>
+        <th class="column2">Booking status</th>
+        <th class="column2">Booking Date</th>
       </tr>
-
-      <tr class="table100-data" *ngFor="let results of filteredNames">
-        <td class="column1">{{results.workername}}</td>
-        <td class="column2">{{results.email}}</td>
-        <td class="column3">{{results.mobile}}</td>
-        <td class="column4">{{results.jobType}}</td>
-        <td class="column6">{{results.status}}</td>
-        <td><a [routerLink]="['/adminupdate',results.email]"><i class="nc-icon nc-minimal-right"></i> Edit</a></td>
-        <td><a [routerLink]="['/viewprofile',results.uid]"><i class="nc-icon nc-minimal-right"></i>View profile</a></td>
-        <button type="button" class="btn btn-info btn-just-icon btn-small" (click)="send3(results.uid)"><i class="nc-icon nc-check-2"></i></button>
+  
+      <tr class="table100-data" *ngFor="let data of datas">
+        <td class="column1">{{data.useremail}}</td>
+        <td class="column2">{{data.workeremail}}</td>
+        <td class="column2">{{data.status}}</td>
+        <td class="column2">{{data.bookingdate}}</td>
         
+
+          <button type="button" class="btn btn-danger btn-sm" (click)="cancel(data.bookingid)">cancel</button>
+
+        <!-- <td class="column2"><a class="dropdown-item" (click)="del()"><i
+              class="nc-icon nc-minimal-right" aria-hidden="true"></i> Delete</a></td> -->
       </tr>
-
-
+  
     </thead>
   </table>
-</div>
+  (status :False: not deleted) (Verify :yes :True )
+  </div>
+  

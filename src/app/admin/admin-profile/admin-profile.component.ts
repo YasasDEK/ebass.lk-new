@@ -15,6 +15,17 @@ import * as firebase from 'firebase/app';
 })
 
 export class AdminProfileComponent implements OnInit {
+  totalUserCount: number;
+  totalSpaCount: number;
+  totalSupplierCount: number;
+  totalWorkerCount: number;
+  totalPostCount: number;
+
+  total : number = 0 ;
+  getUserList: any;
+
+
+
     value: string;
     data: Observable<Item[]>;
     datas: Item[];
@@ -32,6 +43,10 @@ export class AdminProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getworkers();
+
+
+
             this.value = this._Activatedroute.snapshot.paramMap.get('email');
             console.log('value : ' + this.value);
             if (this.admin) {
@@ -59,6 +74,22 @@ export class AdminProfileComponent implements OnInit {
         return this.data;
 
     }
+
+
+    getWorkers = () =>
+      this.crudService
+      .getWorkers()
+      .subscribe(dataArray => {
+        this.totalDoctorCount = dataArray.length;
+        console.log(this.totalDoctorCount); 
+        // this.getUserList = dataArray.map(item =>{
+        //   this.total ++ ;
+        //   console.log(this.total);          
+        //   return {id : item.payload.doc.id,
+        //   ...item.payload.doc.data() 
+        //   }  
+        // })  
+      });
 
 }
 
