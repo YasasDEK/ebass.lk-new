@@ -82,6 +82,7 @@ export class AuthService {
       return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           const workerData: Worker = {
+            rate: 3,
             uid: result.user.uid,
             workername: workername,
             idNumber: id,

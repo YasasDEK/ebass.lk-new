@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
 import * as _ from 'lodash';
+import { Ratedata } from './ratedata';
 
 
 @Component({
@@ -20,7 +21,11 @@ export class UsercompletedComponent implements OnInit {
   status: string;
   value: string;
   verifyemail: string;
+  finalrating: number;
+  rateid: Ratedata;
   filters = {}
+  rateId: string;
+  rateObservable: Observable<Ratedata>;
   constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value x ' + this.value);
@@ -89,11 +94,26 @@ export class UsercompletedComponent implements OnInit {
     this.applyFilters()
   }
 
-  rate(rateval, bookid, desc) {
-    console.log('rating ' + rateval + ' id ' + bookid + ' decs ' + desc);
+  rate(rateval, bookid, desc, wid) {
+    console.log('rating ' + rateval + ' id ' + bookid + ' decs ' + desc + ' wid');
     this.afs.doc('bookings/' + bookid).update({'rate': rateval});
     this.afs.doc('bookings/' + bookid).update({'ratedesc': desc });
     this.afs.doc('bookings/' + bookid).update({'status': 'rated' });
+
+    this.rateObservable = this.afs.collection('workers', ref => ref
+      .where('uid', '==', wid))
+      .valueChanges() as unknown as Observable<Ratedata>;
+
+    // this.finalrating = this.results.email;
+    // console.log('x ' + this.finalrating + ' y ' + this.results.email);
+    // this.eventId = localStorage.getItem("curEventId");
+    this.rateObservable.subscribe(curRate => {
+    this.rateid = curRate as Ratedata;
+    console.log(this.rateid.rate);
+    })
+
+
+
   }
 }
 

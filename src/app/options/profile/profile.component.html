@@ -54,115 +54,143 @@
     <br><br><br><br><br>
     <br>
 
+    <!-- <div class="col-md-6"> -->
+      <!-- <div class="card shadow mt-5"> -->
+        <!-- <div class="card-body">
+          <div class="d-flex px-3">
+            <div>
+              <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                <i class="ni ni-satisfied"></i>
+              </div>
+            </div>
+
+            <div>
+              <img src="./assets/img/faces/logo.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
+                style="width: 150px; height: 150px;">
+            </div>
+
+            <div class="pl-5">
+              <div class="row align-items-center justify-content-center">
+                <div>
+                  <br>
+                  <h6 class="text-success">Name: {{ data.workername }}</h6>
+                  <h6>Job: {{ data.jobType }} </h6>
+                  <h6>District : Colombo | Rating : 4.6 </h6>
+                  <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button> -->
+                  <!-- <a (click)="checklog(data.uid)" class="btn btn-danger btn-sm">more details</a> -->
+                <!-- </div>
+              </div>
+            </div>
+
+          </div>
+        </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-          <ngb-tab title="My Profile">
-            <ng-template ngbTabContent>
+        <!-- <ngb-tabset [justify]="'center'">
+          <ngb-tab title="My Profile"> -->
+        <!-- <ng-template ngbTabContent> -->
 
-              <div class="container-fluid mt--7 ">
-                <div class="row justify-content-md-center">
-                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
-                    <div class="card card-profile shadow">
-                      <div class="row justify-content-center">
-                        <div class="col-lg-12 order-lg-2">
-                          <div class="card-profile-image">
-                            <a href="javascript:void(0)">
-                              <br>
-                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150"
-                                height="150">
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
-                        <div class="d-flex justify-content-between">
-                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-3">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-3">Message</a>
-                          <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
-                        </div>
-                      </div>
-                      <div class="card-body pt-4">
-                        <div class="row">
-                          <div class="col">
-                            <div class="card-profile-stats d-flex justify-content-center mt-md-2">
-
-                              <div>
-                                <span class="heading">8.7 </span>
-                                <span class="description"> Rating </span>
-                              </div>
-                              <div>
-                                <span class="heading"> Yes </span>
-                                <span class="description"> Available </span>
-                              </div>
-                              <div>
-                                <span class="heading"> 89 </span>
-                                <span class="description"> Comments </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="text-center">
-                          <h3>
-                            {{data.workername}}<span class="font-weight-light">, 27</span>
-                          </h3>
-                          <div class="h5 font-weight-300">
-                            <i class="ni location_pin mr-2"></i>{{data.email}}
-                          </div>
-                          <div class="h5 mt-4">
-                            <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="section" id="carousel">
-                      <div class="container ">
-                        <!-- <div class="tim-title">
-                          <h3>My Work</h3>
-                        </div> -->
-                        <div class="card page-carousel ">
-                          <ngb-carousel>
-                            <ng-template ngbSlide>
-                              <img src="./assets/img/x.jpg" alt="Random first slide">
-                              <div class="carousel-caption">
-                                <p>Somewhere</p>
-                              </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                              <img src="./assets/img/y.jpg" alt="Random second slide">
-                              <div class="carousel-caption">
-                                <p>Somewhere else</p>
-                              </div>
-                            </ng-template>
-                            <ng-template ngbSlide>
-                              <img src="./assets/img/w.jpg" alt="Random third slide">
-                              <div class="carousel-caption">
-                                <p>Here it is</p>
-                              </div>
-                            </ng-template>
-                          </ngb-carousel>
-                        </div>
-                      </div>
+        <div class="container-fluid mt--7 ">
+          <div class="row justify-content-md-left">
+            <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+              <div >
+                <div class="row justify-content-center">
+                  <div class="col-lg-12 order-lg-2">
+                    <div class="card-profile-image">
+                      <a href="javascript:void(0)">
+                        <br>
+                        <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150" height="150">
+                      </a>
                     </div>
                   </div>
                 </div>
+                <br>
+                <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
+                  <div class="d-flex justify-content-center">
+                    <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                    
+                  </div>
+                </div>
+                <div class="card-body pt-4">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card-profile-stats d-flex justify-content-center mt-md-2">
+
+                        <div>
+                          <span class="heading">8.7 </span>
+                          <span class="description"> Rating </span>
+                        </div>
+                        <div>
+                          <span class="heading"> Yes </span>
+                          <span class="description"> Available </span>
+                        </div>
+                        <div>
+                          <span class="heading"> 89 </span>
+                          <span class="description"> Comments </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <h3>
+                      {{data.workername}}<span class="font-weight-light">, 27</span>
+                    </h3>
+                    <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>{{data.email}}
+                    </div>
+                    <div class="h5 mt-4">
+                      <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
+                    </div>
+
+                  </div>
+                </div>
               </div>
+            </div>
 
-            </ng-template>
-          </ngb-tab>
+            <!-- <div class="col-md-7" >
+              <div class="justify-content-md-right" id="carousel">
+                <div class="container ">
+                  <div class="card page-carousel ">
+                    <ngb-carousel>
+                      <ng-template ngbSlide>
+                        <img src="./assets/img/x.jpg" alt="Random first slide">
+                        <div class="carousel-caption">
+                          <p>Somewhere</p>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbSlide>
+                        <img src="./assets/img/y.jpg" alt="Random second slide">
+                        <div class="carousel-caption">
+                          <p>Somewhere else</p>
+                        </div>
+                      </ng-template>
+                      <ng-template ngbSlide>
+                        <img src="./assets/img/w.jpg" alt="Random third slide">
+                        <div class="carousel-caption">
+                          <p>Here it is</p>
+                        </div>
+                      </ng-template>
+                    </ngb-carousel>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
 
-          <ngb-tab title="My Schedule">
+        <!-- </ng-template>
+          </ngb-tab> -->
+
+        <!-- <ngb-tab title="My Schedule">
             <ng-template ngbTabContent>
 
             </ng-template>
-          </ngb-tab>
+          </ngb-tab> -->
 
-          <ngb-tab title="My Reviews">
+        <!-- <ngb-tab title="My Reviews">
             <ng-template ngbTabContent>
               <div class="container">
 
@@ -294,10 +322,10 @@
               </div>
 
             </ng-template>
-          </ngb-tab>
+          </ngb-tab> -->
 
 
-        </ngb-tabset>
+        <!-- </ngb-tabset> -->
       </div>
     </div>
 

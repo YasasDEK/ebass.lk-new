@@ -7,4 +7,7 @@ export interface Worker {
     mobile: string;
     status: string;
     displayName?: string;
+    rate: number;
+
 }
+
