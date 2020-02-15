@@ -32,6 +32,10 @@ export class CategoriesComponent implements OnInit {
       this.isReceived = true;
     });
   }
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('users'));
+    return (user !== null ) ? true : false;
+  }
 
   getData() {
     this.type = this.ebass.collection('workers', ref => ref
