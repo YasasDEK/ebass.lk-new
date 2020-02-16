@@ -9,8 +9,6 @@ import { GooglemapComponent } from '../googlemap/googlemap.component';
 import { Book } from './book';
 import { NgbDateStruct,NgbCalendar ,NgbDatepickerConfig,NgbDateParserFormatter } from "@ng-bootstrap/ng-bootstrap";
 
-import { NgbDateStruct,NgbCalendar ,NgbDatepickerConfig,NgbDateParserFormatter } from "@ng-bootstrap/ng-bootstrap";
-
 @Component({
   selector: 'app-view-profile',
   templateUrl: './view-profile.component.html',
@@ -36,11 +34,11 @@ export class ViewProfileComponent implements OnInit {
   public latitude: number;
   public longitude: number;
 
-  minDate = undefined;
-  dateModel: NgbDateStruct;
-  date: {day: number, month: number,year:number};
-  startDateStr : string;
-  endDateStr : string;
+  // minDate = undefined;
+  // dateModel: NgbDateStruct;
+  // date: {day: number, month: number,year:number};
+  // startDateStr : string;
+  // endDateStr : string;
 
   constructor(public _Activatedroute: ActivatedRoute,
     public afs: AngularFirestore,
