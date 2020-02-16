@@ -77,7 +77,7 @@ export class AuthService {
     })
   }
 
-  SignUpWorker(email, password, workername, job, id, mobile) {
+  SignUpWorker(email, password, workername, job, id, mobile, district) {
       if (id.length === 10) {
         if(mobile.length === 10){
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -90,7 +90,8 @@ export class AuthService {
               email: email,
               jobType: job,
               mobile: mobile,
-              status: 'available',
+              status: 'unavailable',
+              district: district
             }
             this.SendVerificationMail();
             result.user.updateProfile({ displayName: 'worker' });
