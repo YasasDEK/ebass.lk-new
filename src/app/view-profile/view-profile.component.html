@@ -45,7 +45,7 @@
       <div class="modal-dialog justify-content-center" role="document" >
         <div class="modal-content" style="width: 800px;">
           <div class="modal-header" style="background-color:#fabf8f">
-            <h5 class="modal-title" id="exampleModalLabel">Booking Form</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Booking Me!</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -61,12 +61,10 @@
 
                   <!-- ------------ -->
                   <div class="pl-lg-4">
-                    <div class="row">
-                        <p><b>Worker Name:</b>    {{data.workername}}</p> 
+                        <p><b>Worker Name:</b>    {{data.workername}}</p>
                         <p><b>Woker Email:</b>    {{data.email}}</p>
                         <p><b>Worker ID:</b>      {{data.idNumber}}</p>
                         <p><b>Contact Number:</b> {{data.mobile}}</p>
-                    </div>
                   </div>
 
 <!-- -------------------- -->
@@ -113,19 +111,22 @@
                   </div>
 
                   <hr class="my-4" />
-                  <h6 class="heading-small text-muted mb-4">Date</h6>
+                  <h6 class="heading-small text-muted mb-4">Booking Date</h6>
                   <div class="col-lg-8">
                     <div class="form-group">
-                      <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                      <!-- <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
                           <input class="form-control" placeholder="yyyy-mm-dd"
-                               name="bookingdate" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true"
-                                (blur)="focus=false" #bookingdate require >
+                               name="bookingdate" [(ngModel)]="model"  ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true"
+                                (blur)="focus=false" #bookingdate required >
                           <div class="input-group-append">
                               <span class="glyphicon glyphicon-calendar input-group-text">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                               </span>
                           </div>
-                      </div>
+                      </div> -->
+                        <input class="form-control" name="bookingdate" ngbDatepicker [minDate]="minDate" (click)="datePicker1.toggle()" #datePicker1="ngbDatepicker"  placeholder="yyyy-mm-dd" #bookingdate required>
+
+
                   </div>
 
                   </div>
