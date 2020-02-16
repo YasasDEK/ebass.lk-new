@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import 'firebase/firestore';
 import { Router } from '@angular/router';
 import { ajax } from 'rxjs/ajax';
-// import { ItemService } from '../../services/item.service';
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -19,7 +18,6 @@ export class CategoriesComponent implements OnInit {
   job: any;
   isReceived: boolean = false;
   value;
-  // data: Observable<Item[]>;
   type: Observable<Item[]>;
   datas: Item[];
 
@@ -36,6 +34,8 @@ export class CategoriesComponent implements OnInit {
       this.datas = data;
       this.isReceived = true;
     });
+    
+
   }
 
   getData() {
@@ -60,7 +60,6 @@ export class CategoriesComponent implements OnInit {
     console.log("one " + userone )
     if ( userone === null ) {
       window.alert("You should login first");
- //     console.log('not logged in');
       this.router.navigate(['signin']);
     }else {
       console.log('logged in');
