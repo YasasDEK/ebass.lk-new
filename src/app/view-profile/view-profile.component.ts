@@ -47,17 +47,30 @@ export class ViewProfileComponent implements OnInit {
   }
 
   setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername, workeremail, workermobile) {
+    if ( username == '' ) {
+      window.alert('you can not keep empty fields');
+      this.router.navigate(['/viewprofile', this.value]);
+    } else if ( useremail == '' ){
+      window.alert('you can not keep empty fields');
+      this.router.navigate(['/viewprofile', this.value]);
+    } else if ( usercity == '' ) {
+      window.alert('you can not keep empty fields');
+      this.router.navigate(['/viewprofile', this.value]);
+    } else if ( mobilenumber == '' ) {
+      window.alert('you can not keep empty fields');
+      this.router.navigate(['/viewprofile', this.value]);
+    } else {
     const val = JSON.parse(localStorage.getItem('users'));
-    // if (val.uid == null){
-    //   console.log('you should log in first');
-    //   window.alert('you should log in first');
-    //   this.router.navigate(['/signin']);
-    // }
+    if (val.uid == null){ 
+      console.log('you should log in first');
+      window.alert('you should log in first');
+      this.router.navigate(['/signin']);
+    }
     this.bookingId = this.afs.createId();
     const bookingData: Book = {
       //   uid: this.userId,
       workername: workername,
-      workeremail: workername,
+      workeremail: workeremail,
       workermobile: workermobile,
       rate: 5,
       userid: val.uid,
@@ -75,19 +88,19 @@ export class ViewProfileComponent implements OnInit {
     }
 
     this.SetBookingData(bookingData);
+    this.router.navigate(['/home']);
     ((error) => {
       window.alert(error.message)
       console.log(error)
     })
-    
   }
+  }
+
 
   SetBookingData(Book) {
       //  this.afs.collection('bookings').doc(this.bookingId);
        this.afs.collection('bookings').doc(this.bookingId).set(Book);
        alert('Your booking placed successfully');
-       this.router.navigate(['/succesbooking']);
-
     }
 }
 

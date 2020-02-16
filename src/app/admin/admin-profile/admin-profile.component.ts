@@ -16,19 +16,17 @@ import * as firebase from 'firebase/app';
 
 export class AdminProfileComponent implements OnInit {
     totalUserCount: number;
-    totalSpaCount: number;
-    totalSupplierCount: number;
+    totalBookCount: number;
+    totalCompanyCount: number;
     totalWorkerCount: number;
-    totalPostCount: number;
-
+    totalShopCount: number;
     total: number = 0;
     getUserList: any;
-
-
-
     value: string;
-    data: Observable<Item[]>;
-    datas: Item[];
+    // data: Observable<Item[]>;
+    // wor: Observable<Wor[]>;
+    // boo: Observable<Boo[]>;
+    // datas: Item[];
     isReceived = false;
     [x: string]: any;
     admin = JSON.parse(localStorage.getItem('admins'));
@@ -43,7 +41,6 @@ export class AdminProfileComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getworkers();
         this.value = this._Activatedroute.snapshot.paramMap.get('email');
         console.log('value : ' + this.value);
         if (this.admin) {
@@ -63,6 +60,31 @@ export class AdminProfileComponent implements OnInit {
             window.alert('First u have to log to access this page');
             console.log('please loging before access this page');
         }
+
+        this.work = this.ebass.collection('workers', ref => ref).valueChanges();
+        this.work.subscribe(dataArray => {
+        this.totalWorkerCount = dataArray.length;
+        });
+
+        this.book = this.ebass.collection('bookings', ref => ref).valueChanges();
+        this.book.subscribe(dataArray => {
+        this.totalBookCount = dataArray.length;
+        });
+
+        this.use = this.ebass.collection('users', ref => ref).valueChanges();
+        this.use.subscribe(dataArray => {
+        this.totalUserCount = dataArray.length;
+        });
+
+        this.com = this.ebass.collection('companies', ref => ref).valueChanges();
+        this.com.subscribe(dataArray => {
+        this.totalCompanyCount = dataArray.length;
+        });
+
+        this.sho = this.ebass.collection('shops', ref => ref).valueChanges();
+        this.sho.subscribe(dataArray => {
+        this.totalShopCount = dataArray.length;
+        });
     }
 
     getData() {
@@ -71,32 +93,58 @@ export class AdminProfileComponent implements OnInit {
         return this.data;
 
     }
-
-
-    getWorkers = () =>
-        this.crudService
-            .getWorkers()
-            .subscribe(dataArray => {
-                this.totalDoctorCount = dataArray.length;
-                console.log(this.totalDoctorCount);
-                // this.getUserList = dataArray.map(item =>{
-                //   this.total ++ ;
-                //   console.log(this.total);          
-                //   return {id : item.payload.doc.id,
-                //   ...item.payload.doc.data() 
-                //   }  
-                // })  
-            });
-
 }
 
 
-interface Item {
-    uid?: string;
-    adminname?: string;
-    idNumber?: string;
-    email?: string;
-    emailVerified?: boolean;
-    jobType?: string;
-    mobile?: string;
-}
+// interface Item {
+//     uid?: string;
+//     adminname?: string;
+//     idNumber?: string;
+//     email?: string;
+//     emailVerified?: boolean;
+//     jobType?: string;
+//     mobile?: string;
+// }
+
+// interface Wor {
+//     uid: string;
+//     workername: string;
+//     idNumber: string;
+//     email: string;
+//     jobType: Array<string>;
+//     mobile: string;
+//     status: string;
+//     displayName?: string;
+//     rate: number;
+// }
+
+// interface Boo {
+//     useremail: string,
+//     username: string,
+//     mobilenumber: number,
+//     bookingdesc: string,
+//     bookingdate: Date,
+//     usercity: string,
+//     latitude: number;
+//     longitude: number;
+//     status: string;
+//     workerid: string;
+//     bookingid: string;
+//     userid: string;
+//     rate: number;
+//     workermobile: number;
+//     workername: string;
+//     workeremail: string;
+// }
+
+// interface Wor {
+//     uid: string;
+//     workername: string;
+//     idNumber: string;
+//     email: string;
+//     jobType: Array<string>;
+//     mobile: string;
+//     status: string;
+//     displayName?: string;
+//     rate: number;
+// }
