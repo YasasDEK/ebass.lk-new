@@ -81,15 +81,19 @@
   </div>
 </nav>
 
+<!-- ------------ -->
+
 <!-- </div>
 </div> -->
+
 <br><br><br><br><br><br>
 
 <div *ngIf="datas?.length > 0; else noItems">
   <div *ngFor="let data of datas">
-    <div class="nav-tabs-navigation">
-      <div class="nav-tabs-wrapper">
-        <div class="container-fluid mt--7">
+    
+    
+
+        <div class="container-fluid ">
           <div class="row">
             <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
               <div class="card card-profile shadow">
@@ -124,7 +128,7 @@
                   </div>
                   <div class="text-center">
                     <h3>
-                      {{data.adminname}}<span class="font-weight-light">, 27</span>
+                      {{data.adminname}}<span class="font-weight-light"></span>
                     </h3>
                     <div class="h5 font-weight-300">
                       <i class="ni location_pin mr-2"></i>{{data.email}}
@@ -137,99 +141,100 @@
               </div>
             </div>
 
+
+            <div class="col-md-3 order-xl-2 mb-5 mb-xl-0">
+              <div class="card detail-card" style="background-color: rgb(235, 138, 102);">
+                <div class="card-image">
+                  <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                      <h3 class="card-title card-top">Total Workers</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto mr-4 mb-2">
+                  <h1 class="text-center card-text" style="color: slateblue;">{{totalWorkerCount}}</h1>
+                </div>
+              </div>
+            
+              <div class="card detail-card" style="background-color: rgb(235, 138, 102);">
+                <div class="card-image">
+                  <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                      <h3 class="card-title card-top">Total Bookings</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto mr-4 mb-2">
+                  <h1 class="text-center card-text" style="color: slateblue;">{{totalBookCount}}</h1>
+                </div>
+              </div>
+            </div>
+
+
+    <div class="col-md-3 order-xl-2 mb-5 mb-xl-0">
+              <div class="card detail-card" style="background-color: rgb(235, 138, 102);">
+                <div class="card-image">
+                  <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                      <h3 class="card-title card-top">Total Shops</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto mr-4 mb-2">
+                  <h1 class="text-center card-text" style="color: slateblue;">{{totalShopCount}}</h1>
+                </div>
+              </div>
+
+              <div class="card detail-card" style="background-color: rgb(235, 138, 102);">
+                <div class="card-image">
+                  <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                      <h3 class="card-title card-top">Total Users</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto mr-4 mb-2">
+                  <h1 class="text-center card-text" style="color: slateblue;">{{totalUserCount}}</h1>
+                </div>
+              </div>
+            </div>
+
+
+    <div class="col-md-2 order-xl-2 mb-5 mb-xl-0">
+              <div class="card detail-card" style="background-color: rgb(235, 138, 102);">
+                <div class="card-image">
+                  <div class="text-white d-flex blue-gradient-rgba">
+                    <div class="p-3">
+                      <h3 class="card-title card-top">Total Company</h3>
+                    </div>
+                    <div class="align-self-center mx-auto">
+                      <i class="fas fa-users fa-3x"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-auto mr-4 mb-2">
+                  <h1 class="text-center card-text" style="color: slateblue;">{{totalCompanyCount}}</h1>
+                </div>
+              </div>
+            </div>
+            
+            
+
           </div>
         </div>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6 col-lg-4 col-sm-12 ">
-    <div class="card detail-card">
-      <div class="card-image">
-        <div class="text-white d-flex blue-gradient-rgba">
-          <div class="p-3">
-            <h3 class="card-title card-top">Total Workers</h3>
-          </div>
-          <div class="align-self-center mx-auto">
-            <i class="fas fa-users fa-3x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="ml-auto mr-4 mb-2">
-        <h1 class="text-center card-text" style="color: slateblue;">{{totalWorkerCount}}</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 ">
-    <div class="card detail-card">
-      <div class="card-image">
-        <div class="text-white d-flex blue-gradient-rgba">
-          <div class="p-3">
-            <h3 class="card-title card-top">Total Bookings</h3>
-          </div>
-          <div class="align-self-center mx-auto">
-            <i class="fas fa-users fa-3x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="ml-auto mr-4 mb-2">
-        <h1 class="text-center card-text" style="color: slateblue;">{{totalBookCount}}</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 ">
-    <div class="card detail-card">
-      <div class="card-image">
-        <div class="text-white d-flex blue-gradient-rgba">
-          <div class="p-3">
-            <h3 class="card-title card-top">Total Shops</h3>
-          </div>
-          <div class="align-self-center mx-auto">
-            <i class="fas fa-users fa-3x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="ml-auto mr-4 mb-2">
-        <h1 class="text-center card-text" style="color: slateblue;">{{totalShopCount}}</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 ">
-    <div class="card detail-card">
-      <div class="card-image">
-        <div class="text-white d-flex blue-gradient-rgba">
-          <div class="p-3">
-            <h3 class="card-title card-top">Total Users</h3>
-          </div>
-          <div class="align-self-center mx-auto">
-            <i class="fas fa-users fa-3x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="ml-auto mr-4 mb-2">
-        <h1 class="text-center card-text" style="color: slateblue;">{{totalUserCount}}</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 ">
-    <div class="card detail-card">
-      <div class="card-image">
-        <div class="text-white d-flex blue-gradient-rgba">
-          <div class="p-3">
-            <h3 class="card-title card-top">Total Company</h3>
-          </div>
-          <div class="align-self-center mx-auto">
-            <i class="fas fa-users fa-3x"></i>
-          </div>
-        </div>
-      </div>
-      <div class="ml-auto mr-4 mb-2">
-        <h1 class="text-center card-text" style="color: slateblue;">{{totalCompanyCount}}</h1>
-      </div>
-    </div>
-  </div>
-  </div>
-  
+ 
