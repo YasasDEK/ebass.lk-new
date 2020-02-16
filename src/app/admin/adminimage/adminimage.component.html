@@ -1,15 +1,60 @@
-<div class="container">
-  <div class="form-group">
-    <label> Upload profile picture</label>
-    <input type="file" id="$img" (change)="upload($event)" class="form-control" formControlName="image"
-      accept=".png,.jpg">
+<div *ngIf="datas?.length > 0; else noItems">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
+    <div class="container">
 
-  </div>
+      <div class="navbar-translate">
+        <div class="avatar">
+          <a class="navbar-brand" href="http://localhost:4200">
+            <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+              width="60">
+          </a>
+        </div>
+      </div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary">Update</button>
+      <div class="navbar-translate">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link"><i class="nc-icon nc-shop" aria-hidden="true" (click)="back(data.email)"></i>&nbsp;Back</a>
+          </li>
+          <!-- <button type="submit" class="btn btn-primary">Update</button> -->
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</div>
+
+<div class="page-header section-dark" style="background-image: url('assets/img/z1.jpg')">
+
+  <!-- <div class="filter"></div> -->
+
+  <div class="row">
+    <div class="column">
+      <div class="container">
+        <div class="form-group">
+          <label> Upload Profile Image</label>
+          <input type="file" id="$img" (change)="upload($event)" class="form-control" formControlName="image"
+            accept=".png,.jpg">
+
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngIf="datas?.length > 0; else noItems">
+        <div *ngFor="let data of datas">
+          <img class="mx-auto rounded-circle" src="{{data.image}}" width="150" height="150">
+
+        </div>
+      </div>
     </div>
 
-  </form>
-</div>
+
+  </div>

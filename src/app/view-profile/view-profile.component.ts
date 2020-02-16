@@ -9,6 +9,8 @@ import { GooglemapComponent } from '../googlemap/googlemap.component';
 import { Book } from './book';
 import { NgbDateStruct,NgbCalendar ,NgbDatepickerConfig,NgbDateParserFormatter } from "@ng-bootstrap/ng-bootstrap";
 
+import { NgbDateStruct,NgbCalendar ,NgbDatepickerConfig,NgbDateParserFormatter } from "@ng-bootstrap/ng-bootstrap";
+
 @Component({
   selector: 'app-view-profile',
   templateUrl: './view-profile.component.html',
@@ -34,6 +36,11 @@ export class ViewProfileComponent implements OnInit {
   public latitude: number;
   public longitude: number;
 
+  minDate = undefined;
+  dateModel: NgbDateStruct;
+  date: {day: number, month: number,year:number};
+  startDateStr : string;
+  endDateStr : string;
 
   constructor(public _Activatedroute: ActivatedRoute,
     public afs: AngularFirestore,
@@ -44,7 +51,13 @@ export class ViewProfileComponent implements OnInit {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value : ' + this.value);
 
+
     const currDate = new Date();
+      this.minDate = {
+        year: currDate.getFullYear(),
+        month: currDate.getMonth() + 1,
+        day: currDate.getDate()
+      };
 
   }
 
@@ -126,7 +139,7 @@ export class ViewProfileComponent implements OnInit {
     }
 
     this.SetBookingData(bookingData);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/succesbooking']);
     ((error) => {
       window.alert(error.message)
       console.log(error)
@@ -134,9 +147,8 @@ export class ViewProfileComponent implements OnInit {
   }
   }
 
-
   SetBookingData(Book) {
-      //  this.afs.collection('bookings').doc(this.bookingId);
+
        this.afs.collection('bookings').doc(this.bookingId).set(Book);
        alert('Your booking placed successfully');
     }

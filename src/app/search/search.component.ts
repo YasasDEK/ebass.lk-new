@@ -49,8 +49,12 @@ export class SearchComponent implements OnInit {
   }
 
   filterArea(property: string, rule: string) {
-    this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
-    this.applyFilters()
+    console.log("pro " + property + "rule " + rule)
+    if (!rule) this.removeFilter(property)
+    else {
+      this.filters[property] = val => val.includes(rule)
+      this.applyFilters()
+    }
   }
 
   removeFilter(property: string) {

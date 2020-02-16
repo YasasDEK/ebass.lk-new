@@ -129,7 +129,7 @@
         <th class="column2">Email</th>
         <th class="column2">mobile</th>
         <th class="column2">Job type</th>
-        <th class="column2">Email Verified</th>
+        <!-- <th class="column2">Email Verified</th> -->
         <th class="column2">Status</th>
       </tr>
 
@@ -138,10 +138,8 @@
         <td class="column2">{{results.email}}</td>
         <td class="column2">{{results.mobile}}</td>
         <td class="column2">{{results.jobType}}</td>
-        <td class="column2">{{results.emailVerified}}</td>
+        <!-- <td class="column2">{{results.emailVerified}}</td> -->
         <td class="column2">{{results.status}}</td>
-        <td class="column2"><a class="btn btn-primary" [routerLink]="['/adminupdate',results.email]"><i
-              class="nc-icon nc-minimal-right" aria-hidden="true"></i> Edit</a></td>
         <td class="column2"><a class="btn btn-primary" [routerLink]="['/viewprofile',results.uid]"><i
               class="nc-icon nc-minimal-right" aria-hidden="true"></i> View profile</a></td>
       </tr>

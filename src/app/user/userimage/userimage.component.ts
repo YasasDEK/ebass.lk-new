@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -22,35 +23,41 @@ export class UserimageComponent implements OnInit {
   value: string;
   image: String;
   download;
+  data: Observable<Item[]>;
+  datas: Item[];
   updatesuccess: boolean;
   form = new FormGroup({
     image: new FormControl(),
   });
   formControls = this.form.controls;
+  results: any;
   constructor(public _Activatedroute: ActivatedRoute,
-              public ebass: AngularFirestore,
-              public authService: AuthService,
-              public router: Router,
-              private afst: AngularFireStorage
-    ) {
+    public ebass: AngularFirestore,
+    public authService: AuthService,
+    public router: Router,
+    private afst: AngularFireStorage,
+  ) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value : ' + this.value);
-          this.ebass.doc<Users>('users/' + this.value).valueChanges().subscribe(
-        );
-      }
+    this.ebass.doc<Users>('users/' + this.value).valueChanges().subscribe(
+    );
+  }
 
   ngOnInit() {
+    this.getData().subscribe(data => {
+      this.datas = data;
+    })
 
   }
 
-  onSubmit(){
+  onSubmit() {
     this.download = this.afst.ref('/userimage/' + this.randomId).getDownloadURL().subscribe(a => {
       this.download = a;
       // this.form.value.image = this.download;
       console.log('download url', this.form.value.image);
       this.update(this.download);
     });
-    }
+  }
 
   randomId;
   upload(event) {
@@ -61,7 +68,7 @@ export class UserimageComponent implements OnInit {
 
   update(value) {
     console.log("updates");
-    this.ebass.doc('users/' + this.value).update({'image': value });
+    this.ebass.doc('users/' + this.value).update({ 'image': value });
     alert('Updated..');
 
     // this.ebass.doc('users' + spa1.email).update(spa1).then(res=>{
@@ -73,6 +80,30 @@ export class UserimageComponent implements OnInit {
   }
 
 
+
+  getData() {
+    this.data = this.ebass.collection('users', ref => ref.where('uid', '==', this.value)).valueChanges();
+    console.log("data" + this.data);
+    return this.data;
+
+  }
+
+  back(val) {
+    this.router.navigate(['/userhome/']);
+  }
+
+
   // this.afs.doc('bookings/' + id).update({'status': 'canceled'});
   // alert('Booking canceled');
+}
+
+
+interface Item {
+  uid?: string;
+  username?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
 }

@@ -31,13 +31,10 @@ export class UserprofileComponent implements OnInit {
         public ebass: AngularFirestore,
         public authService: AuthService,
         public router: Router) {
-        // this.value = this._Activatedroute.snapshot.paramMap.get('uid');
-        // console.log('value : ' + this.value);
     }
 
     ngOnInit() {
         this.value = this._Activatedroute.snapshot.paramMap.get('email');
-        console.log('value2 : ' + this.value);
         if (this.user) {
             if (this.user.email === this.value) {
                 this.getData().subscribe(data => {
@@ -70,6 +67,7 @@ export class UserprofileComponent implements OnInit {
             .where('useremail', '==', this.value)).valueChanges();
         this.pendingwork.subscribe(dataArray => {
             this.totalpendingBookCount = dataArray.length;
+            console.log('XX' + this.totalpendingBookCount )
         });
 
         this.notrated = this.ebass.collection('bookings', ref => ref

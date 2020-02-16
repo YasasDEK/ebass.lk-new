@@ -66,6 +66,44 @@
                   (blur)="focus=false" #useridnum required>
               </div>
 
+
+              <label>District</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
+                </div>
+                    <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eventType" #eventType="ngModel" [(ngModel)]="eventType.value" (change)="filterJob('jobType', eventType.value)"> 
+                        <option value="" disabled selected> Select District </option>
+                        <option value="ampara"> Ampara </option>
+                        <option value="anuradhapura"> Anuradhapura </option>
+                        <option value="badulla"> Badulla </option>
+                        <option value="batticaloa"> Batticaloa </option>
+                        <option value="colombo"> Colombo </option>
+                        <option value="galle"> Galle </option>
+                        <option value="gampaha"> Gampaha </option>
+                        <option value="hambantota"> Hambantota </option>
+                        <option value="jaffna"> Jaffna </option>
+                        <option value="kalutara"> Kalutara </option>
+                        <option value="kandy"> Kandy </option>
+                        <option value="kegalle"> Kegalle </option>
+                        <option value="kilinochchi"> Kilinochchi </option>
+                        <option value="kurunegala"> Kurunegala </option>
+                        <option value="mannar"> Mannar </option>
+                        <option value="matale"> Matale </option>
+                        <option value="matara"> Matara </option>
+                        <option value="monaragala"> Monaragala </option>
+                        <option value="mullaitivu"> Mullaitivu </option>
+                        <option value="nuwara Eliya"> Nuwara Eliya </option>
+                        <option value="polonnaruwa"> Polonnaruwa </option>
+                        <option value="puttalam"> Puttalam </option>
+                        <option value="ratnapura"> Ratnapura </option>
+                        <option value="trincomalee"> Trincomalee </option>
+                        <option value="vavuniya"> Vavuniya </option>
+                    </select>
+                </div>
+
               <label>E-Mail</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
@@ -159,7 +197,7 @@
 
               <div class="formGroup">
                 <input type="submit" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, selectedJobArray , useridnum.value, usermobile.value)">
+                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, selectedJobArray , useridnum.value, usermobile.value, eventType.value)">
               </div>
 
             </form>

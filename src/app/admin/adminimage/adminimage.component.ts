@@ -20,7 +20,8 @@ export interface Admins {
 export class AdminimageComponent implements OnInit {
   value: string;
   image: String;
-  data: any;
+  data: Observable<Item[]>;
+  datas: Item[];
   download;
   updatesuccess: boolean;
   form = new FormGroup({
@@ -43,6 +44,9 @@ export class AdminimageComponent implements OnInit {
       }
 
   ngOnInit() {
+    this.getData().subscribe(data => {
+      this.datas = data;
+    })
 
   }
 
@@ -75,6 +79,28 @@ export class AdminimageComponent implements OnInit {
     // });
   }
 
+  getData() {
+    this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
+    console.log("data" + this.data);
+    return this.data;
+
+  }
+
+  back(val) {
+    this.router.navigate(['/userhome/']);
+  }
   // this.afs.doc('bookings/' + id).update({'status': 'canceled'});
   // alert('Booking canceled');
 }
+
+
+interface Item {
+  uid?: string;
+  username?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
+}
+

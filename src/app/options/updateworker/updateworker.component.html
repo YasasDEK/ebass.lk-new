@@ -4,7 +4,7 @@
   
       <div class="navbar-translate">
         <div class="avatar">
-          <a class="navbar-brand" href="http://localhost:4200">
+          <a class="navbar-brand" [routerLink]="['/workerhome']">
             <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
               width="60">
           </a>
@@ -14,15 +14,10 @@
       <div class="navbar-translate">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Home</a>
-          </li>
-          <li class="nav-item">
             <div ngbDropdown class="d-inline-block dropdown">
-              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                  aria-hidden="true"></i>Options</a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
-              </div>
+            <li>
+              <button type="button" (click)="authService.SignOutWorker()" class="btn btn-danger">SIGN OUT</button>
+            </li>
             </div>
           </li>
         </ul>
