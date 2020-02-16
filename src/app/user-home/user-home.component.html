@@ -26,6 +26,9 @@
                 <a class="nav-link" [routerLink]="['/userprofile', value]"><i class="nc-icon nc-shop"
                         aria-hidden="true"></i>&nbsp;User Profile</a>
             </li>
+            <li>
+                <button type="button" (click)="authService.SignOutuser()" class="btn btn-danger">SIGN OUT</button>
+             </li>
               
           </ul>
       </div>

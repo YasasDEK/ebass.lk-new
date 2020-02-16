@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../options/services/auth.service';
 
 @Component({
   selector: 'app-user-home',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserHomeComponent implements OnInit {
   value: string;
 
-  constructor(public _Activatedroute: ActivatedRoute) { }
+  constructor(public _Activatedroute: ActivatedRoute,  public authService: AuthService) { }
 
   ngOnInit() {
 

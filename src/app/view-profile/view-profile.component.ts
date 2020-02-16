@@ -97,9 +97,8 @@ export class ViewProfileComponent implements OnInit {
   }
   }
 
-
   SetBookingData(Book) {
-      //  this.afs.collection('bookings').doc(this.bookingId);
+
        this.afs.collection('bookings').doc(this.bookingId).set(Book);
        alert('Your booking placed successfully');
     }

@@ -11,7 +11,7 @@ import { AuthService } from '../options/services/auth.service';
 export class WorkerHomeComponent implements OnInit {
   value: any;
 
-  constructor(public _Activatedroute: ActivatedRoute, public authService: AuthService,) { }
+  constructor(public _Activatedroute: ActivatedRoute, public authService: AuthService) { }
 
   ngOnInit() {
 
