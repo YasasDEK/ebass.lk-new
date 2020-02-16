@@ -19,7 +19,8 @@ export interface Shops {
 export class ShopimageComponent implements OnInit {
   value: string;
   image: String;
-  data: any;
+  data: Observable<Item[]>;
+  datas: Item[];
   download;
   updatesuccess: boolean;
   form = new FormGroup({
@@ -27,32 +28,34 @@ export class ShopimageComponent implements OnInit {
   });
   formControls = this.form.controls;
   constructor(public _Activatedroute: ActivatedRoute,
-              public ebass: AngularFirestore,
-              public authService: AuthService,
-              public router: Router,
-              private afst: AngularFireStorage
-    ) {
+    public ebass: AngularFirestore,
+    public authService: AuthService,
+    public router: Router,
+    private afst: AngularFireStorage
+  ) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     // this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
     // return this.data
     // this.test()
     console.log('value : ' + this.value);
-          this.ebass.doc<Shops>('shops/' + this.value).valueChanges().subscribe(
-        );
-      }
-
-  ngOnInit() {
-
+    this.ebass.doc<Shops>('shops/' + this.value).valueChanges().subscribe(
+    );
   }
 
-  onSubmit(){
+  ngOnInit() {
+    this.getData().subscribe(data => {
+      this.datas = data;
+    })
+  }
+
+  onSubmit() {
     this.download = this.afst.ref('/shopimage/' + this.randomId).getDownloadURL().subscribe(a => {
       this.download = a;
       // this.form.value.image = this.download;
       console.log('download url', this.form.value.image);
       this.update(this.download);
     });
-    }
+  }
 
   randomId;
   upload(event) {
@@ -63,9 +66,9 @@ export class ShopimageComponent implements OnInit {
 
   update(value) {
     console.log("updates");
-    this.ebass.doc('shops/' + this.value).update({'image': value });
+    this.ebass.doc('shops/' + this.value).update({ 'image': value });
     alert('Updated..');
-    this.router.navigate(['/shops']);
+    // this.router.navigate(['/shops']);
     // this.ebass.doc('admins' + spa1.email).update(spa1).then(res=>{
     //console.log(spa1.telephone);
     //console.log(spa1.email);
@@ -73,8 +76,25 @@ export class ShopimageComponent implements OnInit {
     //this.router.navigateByUrl('/spa-view');
     // });
   }
+  getData() {
+    this.data = this.ebass.collection('shops', ref => ref.where('shopid', '==', this.value)).valueChanges();
+    console.log("data" + this.data);
+    return this.data;
+
+  }
 
   // this.afs.doc('bookings/' + id).update({'status': 'canceled'});
   // alert('Booking canceled');
 }
+
+interface Item {
+  uid?: string;
+  username?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
+}
+
 

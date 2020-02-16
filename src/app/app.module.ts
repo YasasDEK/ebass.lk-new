@@ -67,6 +67,8 @@ import { WorkerimageComponent } from './options/workerimage/workerimage.componen
 import { AdminimageComponent } from './admin/adminimage/adminimage.component';
 import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
 import { ShopimageComponent } from './admin/shopimage/shopimage.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { WorkerHomeComponent } from './worker-home/worker-home.component';
 
 
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
@@ -126,6 +128,8 @@ var firebaseConfig = {
     AdminimageComponent,
     CompanyimageComponent,
     ShopimageComponent,
+    UserHomeComponent,
+    WorkerHomeComponent,
     
     // UpdateuserComponent,
   ],

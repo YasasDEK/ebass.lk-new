@@ -132,16 +132,16 @@
         <th class="column1">Name</th>
         <th class="column2">Email</th>
         <th class="column2">mobile</th>
-        <th class="column2">Email Verified</th>
+        <!-- <th class="column2">Email Verified</th> -->
       </tr>
 
       <tr class="table100-data" *ngFor="let results of filteredNames">
         <td class="column1">{{results.username}}</td>
         <td class="column2">{{results.email}}</td>
         <td class="column2">{{results.mobile}}</td>
-        <td class="column2">{{results.emailVerified}}</td>
-        <td class="column2"><a class="btn btn-danger" [routerLink]="['/adminupdate',results.email]"><i
-              class="nc-icon nc-minimal-right" aria-hidden="true"></i> Edit</a></td>
+        <!-- <td class="column2">{{results.emailVerified}}</td> -->
+        <td class="column2"><a class="btn btn-danger" [routerLink]="['/adminupdate']"><i
+              class="nc-icon nc-minimal-right" aria-hidden="true"></i> Delete</a></td>
       </tr>
 
     </thead>

@@ -23,8 +23,48 @@
 </nav>
 <br><br><br><br><br><br>
 
-<div *ngFor="let item of items">
-  <div class="card card-profile shadow">
+<div class="page-header section-dark" style="background-image: url('assets/img/reg.jpg');  background-attachment: fixed;">
+<div class="content-center">
+<div class="container">
+<div class="row">
+<div class="col-md-6" *ngFor="let item of items">
+  <div class="card shadow shadow-lg--hover mt-5">
+    <div class="card-body">
+      <div class="d-flex px-3">
+        <div>
+          <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+            <i class="ni ni-satisfied"></i>
+          </div>
+        </div>
+
+        <div>
+          <img src="{{item.payload.doc.data().image}}"
+            class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
+            style="width: 150px; height: 150px;">
+        </div>
+
+        <div class="pl-5">
+          <div class="row align-items-center justify-content-center">
+            <div>
+              
+              <br>
+              <h6 class="text-success">Name: {{ item.payload.doc.data().companyname }}</h6>
+              <h6>{{ item.payload.doc.data().mobile }}</h6>
+              <h6>{{ item.payload.doc.data().email }}</h6>
+              <a href="{{ item.payload.doc.data().url }}">Visit to site</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <div class="card card-profile shadow">
 
     <div class="card-profile-image">
       <a href="javascript:void(0)">
@@ -47,5 +87,9 @@
       </div>
       
     </div>
-  </div>
+  </div> -->
+</div>
+</div>
+</div>
+</div>
 </div>

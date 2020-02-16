@@ -45,7 +45,6 @@ export class AuthService {
               JSON.parse(localStorage.getItem('workers'));
             }
           })
-          // this.router.navigate(['/profile/', email]);
         }
 
         if (result.user.displayName === 'user') {
@@ -77,7 +76,7 @@ export class AuthService {
     })
   }
 
-  SignUpWorker(email, password, workername, job, id, mobile) {
+  SignUpWorker(email, password, workername, job, id, mobile, district) {
       if (id.length === 10) {
         if(mobile.length === 10){
         return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -90,7 +89,8 @@ export class AuthService {
               email: email,
               jobType: job,
               mobile: mobile,
-              status: 'available',
+              status: 'unavailable',
+              district: district
             }
             this.SendVerificationMail();
             result.user.updateProfile({ displayName: 'worker' });
@@ -195,12 +195,13 @@ export class AuthService {
 
   SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
-      // localStorage.clear();
-      // localStorage.clear();
-      // localStorage.clear();
-      // localStorage.clear();
       localStorage.removeItem('worker');
-      // localStorage.clear();
+      this.router.navigate(['home']);
+    })
+  }
+  SignOutuser() {
+    return this.afAuth.auth.signOut().then(() => {
+      localStorage.removeItem('user');
       this.router.navigate(['home']);
     })
   }

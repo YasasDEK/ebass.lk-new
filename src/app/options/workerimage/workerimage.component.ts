@@ -22,6 +22,8 @@ export class WorkerimageComponent implements OnInit {
   value: string;
   image: String;
   download;
+  data: Observable<Item[]>;
+  datas: Item[];
   updatesuccess: boolean;
   form = new FormGroup({
     image: new FormControl(),
@@ -40,8 +42,10 @@ export class WorkerimageComponent implements OnInit {
       }
 
   ngOnInit() {
-
-  }
+    this.getData().subscribe(data => {
+      this.datas = data;
+    })
+  } 
 
   onSubmit(){
     this.download = this.afst.ref('/workerimage/' + this.randomId).getDownloadURL().subscribe(a => {
@@ -71,8 +75,30 @@ export class WorkerimageComponent implements OnInit {
     //this.router.navigateByUrl('/spa-view');
     // });
   }
+  getData() {
+    this.data = this.ebass.collection('workers', ref => ref.where('uid', '==', this.value)).valueChanges();
+    console.log("data" + this.data);
+    return this.data;
 
+  }
+
+  back(val) {
+        this.router.navigate(['/userhome/']);
+  }
 
   // this.afs.doc('bookings/' + id).update({'status': 'canceled'});
   // alert('Booking canceled');
 }
+
+
+interface Item {
+  uid?: string;
+  username?: string;
+  idNumber?: string;
+  email?: string;
+  emailVerified?: boolean;
+  jobType?: string;
+  mobile?: string;
+}
+
+
