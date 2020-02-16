@@ -17,53 +17,7 @@
             <button type="button" (click)="authService.SignOutUser()" class="btn btn-danger">SIGN OUT</button>
             <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="/home"><i class="nc-icon nc-align-center"
-                aria-hidden="true"></i>&nbsp;Reports</a>
-          </li>
-            -->
-          <li class="nav-item">
-            <div ngbDropdown class="d-inline-block dropdown">
-              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                  aria-hidden="true"></i>Bookings</a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                <a class="dropdown-item" [routerLink]="['/userpending',data.uid]">Pending</a>
-                <a class="dropdown-item" [routerLink]="['/userongoing',data.uid]">Ongoing</a>
-                <a class="dropdown-item" [routerLink]="['/usercompleted',data.uid]">Rate worker</a>
-                <a class="dropdown-item" [routerLink]="['/rated',data.uid]">Completed</a>
-              </div>
-            </div>
-          </li>
-
-          <!-- <li class="nav-item">
-            <div ngbDropdown class="d-inline-block dropdown">
-              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                  aria-hidden="true"></i>Notifications</a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
-
-              </div>
-            </div>
-          </li> -->
-
-          <li class="nav-item">
-            <div ngbDropdown class="d-inline-block dropdown">
-              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                  aria-hidden="true"></i>Options</a>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                <!-- <a class="dropdown-item" [routerLink]="['/signup']">add user</a> -->
-                <a class="dropdown-item" [routerLink]="['/edituserprofile',data.email]"><i
-                    class="nc-icon nc-single-02" aria-hidden="true"></i> Edit my
-                  profile</a>
-                <!-- <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a> -->
-                <!-- <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a> -->
-                <!-- <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a> -->
-                <!-- <a class="dropdown-item" [routerLink]="['/signin']">sign out</a> -->
-              </div>
-            </div>
-          </li>
-
-        </ul>
+       </ul>
       </div>
 
     </div>
@@ -71,12 +25,9 @@
 
 
 
-<br><br><br><br><br><br>
-<div class="page-header section-dark" style="background-image: url('assets/img/succesbook.jpg');  background-attachment: fixed;">
-    <!-- <div class="filter"></div> -->
+<br><br>
+<div class="page-header section-dark" style="background-image: url('assets/img/succesbook.jpg'); " >
 <div class="container" style="color: rgb(255, 255, 255);">
-    
-
       <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" >
           <div *ngIf="datas?.length > 0; else noItems">
               <div *ngFor="let data of datas">
@@ -108,4 +59,5 @@
           </div>
       </form>
 
+</div>
 </div>
