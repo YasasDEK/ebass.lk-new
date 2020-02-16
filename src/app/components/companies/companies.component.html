@@ -24,72 +24,42 @@
 <br><br><br><br><br><br>
 
 <div class="page-header section-dark" style="background-image: url('assets/img/reg.jpg');  background-attachment: fixed;">
-<div class="content-center">
-<div class="container">
-<div class="row">
-<div class="col-md-6" *ngFor="let item of items">
-  <div class="card shadow shadow-lg--hover mt-5">
-    <div class="card-body">
-      <div class="d-flex px-3">
-        <div>
-          <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-            <i class="ni ni-satisfied"></i>
+  <div class="content-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let item of items">
+          <div class="card shadow shadow-lg--hover mt-5">
+            <div class="card-body">
+              <div class="d-flex px-3">
+                <div>
+                  <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                    <i class="ni ni-satisfied"></i>
+                  </div>
+                </div>
+  
+          <div>
+            <img src="{{item.payload.doc.data().image}}"
+              class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
+              style="width: 150px; height: 150px;">
           </div>
-        </div>
-
-        <div>
-          <img src="{{item.payload.doc.data().image}}"
-            class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
-            style="width: 150px; height: 150px;">
-        </div>
-
-        <div class="pl-5">
-          <div class="row align-items-center justify-content-center">
-            <div>
-              
-              <br>
-              <h6 class="text-success">Name: {{ item.payload.doc.data().companyname }}</h6>
-              <h6>{{ item.payload.doc.data().mobile }}</h6>
-              <h6>{{ item.payload.doc.data().email }}</h6>
-              <a href="{{ item.payload.doc.data().url }}">Visit to site</a>
+  
+          <div class="pl-5">
+            <div class="row align-items-center justify-content-center">
+              <div>
+                
+                <br>
+                <h6 class="text-success">Mobile: {{ item.payload.doc.data().Mobile }}</h6>
+                <h6>{{ item.payload.doc.data().email }}</h6>
+                <a href="{{ item.payload.doc.data().url }}">Visit to site</a>
+              </div>
             </div>
           </div>
+  
         </div>
-
       </div>
     </div>
   </div>
-
-
-
-
-
-  <!-- <div class="card card-profile shadow">
-
-    <div class="card-profile-image">
-      <a href="javascript:void(0)">
-        <br>
-        <img class="mx-auto rounded-circle" src="{{item.payload.doc.data().image}}" width="150" height="150">
-      </a>
-    </div>
-    <div class="card-body pt-10">
-      <div class="text-center">
-        <h3>
-          <span class="font-weight-light">{{ item.payload.doc.data().companyname }}</span>
-        </h3>
-        <div class="h5 font-weight-300">
-          <i class="ni location_pin mr-2"></i>{{ item.payload.doc.data().mobile }}<br>
-          <i class="ni location_pin mr-2"></i>{{ item.payload.doc.data().email }}
-        </div>
-        <div class="h5 mt-4">
-          <a href="{{ item.payload.doc.data().url }}">Visit to site</a>
-        </div>
-      </div>
-      
-    </div>
-  </div> -->
 </div>
-</div>
-</div>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
