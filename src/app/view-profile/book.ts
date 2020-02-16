@@ -3,6 +3,7 @@ import { Url } from "url";
 
 export interface Book {
  //   uid: any;
+    workerprevrate: number,
     useremail: string,
     username: string,
     mobilenumber: number,

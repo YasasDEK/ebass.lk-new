@@ -25,7 +25,8 @@ export class UsercompletedComponent implements OnInit {
   rateid: Ratedata;
   filters = {}
   rateId: string;
-  rateObservable: Observable<Ratedata>;
+  finalrate: number;
+  // rateObservable: Observable<Ratedata>;
   constructor(private afs: AngularFirestore, public _Activatedroute: ActivatedRoute) {
     this.value = this._Activatedroute.snapshot.paramMap.get('uid');
     console.log('value x ' + this.value);
@@ -94,25 +95,15 @@ export class UsercompletedComponent implements OnInit {
     this.applyFilters()
   }
 
-  rate(rateval, bookid, desc, wid) {
+  rate(rateval, bookid, desc, wid, prevrate) {
     console.log('rating ' + rateval + ' id ' + bookid + ' decs ' + desc + ' wid');
     this.afs.doc('bookings/' + bookid).update({'rate': rateval});
     this.afs.doc('bookings/' + bookid).update({'ratedesc': desc });
     this.afs.doc('bookings/' + bookid).update({'status': 'rated' });
 
-    this.rateObservable = this.afs.collection('workers', ref => ref
-      .where('uid', '==', wid))
-      .valueChanges() as unknown as Observable<Ratedata>;
-
-    // this.finalrating = this.results.email;
-    // console.log('x ' + this.finalrating + ' y ' + this.results.email);
-    // this.eventId = localStorage.getItem("curEventId");
-    this.rateObservable.subscribe(curRate => {
-    this.rateid = curRate as Ratedata;
-    console.log(this.rateid.rate);
-    })
-
-
+    this.finalrate = (rateval + prevrate) / 2;
+    this.afs.doc('workers/' + wid).update({'rate': this.finalrate});
+    console.log('finalrate ' + this.finalrate + ' rateval ' + rateval + ' prevrate ' + prevrate);
 
   }
 }

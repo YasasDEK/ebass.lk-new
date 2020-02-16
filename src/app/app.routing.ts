@@ -126,7 +126,7 @@ const routes: Routes = [
   { path: 'ongoingworker/:uid', component: OngoingComponent, canActivate: [AuthGuard] },
   { path: 'gmapworker', component: WorkerViewMapComponent},
   { path: 'userprofile/:email', component: UserprofileComponent },
-  { path: 'edituserprofile/:email', component: EdituserprofileComponent, canActivate: [AuthGuard]},
+  { path: 'edituserprofile/:email', component: EdituserprofileComponent },
   { path: 'userongoing/:uid', component: UserongoingComponent },
   { path: 'userpending/:uid', component: UserpendingComponent },
   { path: 'usercompleted/:uid', component: UsercompletedComponent },

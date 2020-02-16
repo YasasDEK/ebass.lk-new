@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { UpdateworkerComponent} from '../updateworker/updateworker.component';
+import { UpdateworkerComponent } from '../updateworker/updateworker.component';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 
@@ -21,11 +21,15 @@ export class ProfileComponent implements OnInit {
     datas: Item[];
     isReceived = false;
     worker = JSON.parse(localStorage.getItem('workers'));
+    totalpendingBookCount: number;
+    totalfinishedratedBookCount: number;
+    totalOngoingBookCount: string;
+
 
     constructor(public _Activatedroute: ActivatedRoute,
-                public ebass: AngularFirestore,
-                public authService: AuthService,
-                public router: Router) {
+        public ebass: AngularFirestore,
+        public authService: AuthService,
+        public router: Router) {
     }
 
     ngOnInit() {
@@ -33,7 +37,7 @@ export class ProfileComponent implements OnInit {
         this.value = this._Activatedroute.snapshot.paramMap.get('email');
         console.log('value 2: ' + this.value);
         if (this.worker) {
-            if ( this.worker.email === this.value) {
+            if (this.worker.email === this.value) {
                 this.getData().subscribe(data => {
                     this.datas = data;
                     console.log('value : ' + this.datas[0]);
@@ -49,6 +53,30 @@ export class ProfileComponent implements OnInit {
             window.alert('First you have to log to access this page');
             console.log('please loging before access this page');
         }
+
+        this.pendingwork = this.ebass.collection('bookings', ref => ref
+            .where('status', '==', 'pending')
+            .where('workeremail', '==', this.value)).valueChanges();
+        this.pendingwork.subscribe(dataArray => {
+            this.totalpendingBookCount = dataArray.length;
+        });
+
+        this.completed = this.ebass.collection('bookings', ref => ref
+            .where('status', '==', 'ongoing')
+            .where('workeremail', '==', this.value)).valueChanges();
+        this.completed.subscribe(dataArray => {
+            this.totalOngoingBookCount = dataArray.length;
+        });
+
+        this.completed = this.ebass.collection('bookings', ref => ref
+            .where('status', '==', 'rated')
+            .where('workeremail', '==', this.value)).valueChanges();
+        this.completed.subscribe(dataArray => {
+            this.totalfinishedratedBookCount = dataArray.length;
+        });
+
+
+
     }
 
     getData() {

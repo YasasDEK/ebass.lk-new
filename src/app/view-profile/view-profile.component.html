@@ -148,7 +148,7 @@
 
                   <div class="formGroup">
                     <input type="button" class="btn btnPrimary" value="Booking"
-                      (click)="setBooking(useremail.value,username.value,mobilenumber.value,bookingdesc.value,bookingdate.value,usercity.value,data.workername,data.email,data.mobile)">
+                      (click)="setBooking(useremail.value,username.value,mobilenumber.value,bookingdesc.value,bookingdate.value,usercity.value,data.workername,data.email,data.mobile,data.rate)">
                   </div>
                 </form>
               </div>
@@ -168,10 +168,10 @@
 
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
+        <!-- <ngb-tabset [justify]="'center'">
           
           <ngb-tab title="Home">
-            <ng-template ngbTabContent>
+            <ng-template ngbTabContent> -->
 
               <div class="container-fluid mt--7">
                 <div class="row justify-content-md-center">
@@ -182,7 +182,7 @@
                           <div class="card-profile-image">
                             <a href="javascript:void(0)">
                               <br>
-                              <img class="mx-auto rounded-circle" src="assets/img/happy man.jpg" width="150"
+                              <img class="mx-auto rounded-circle" src="{{data.image}}" width="150"
                                 height="150">
                             </a>
                           </div>
@@ -191,19 +191,18 @@
                       <br>
                       <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2" style="background-color:#dad4d4">
                         <div class="d-flex justify-content-between">
-                          <a href="javascript:void(0)" class="btn btn-sm btn-info mr-6">Connect</a>
-                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-6">Message</a>
+                          <!-- <a href="javascript:void(0)" class="btn btn-sm btn-info mr-6">Connect</a>
+                          <a href="javascript:void(0)" class="btn btn-sm btn-default mr-6">Message</a> -->
                         </div>
                       </div>
                       <div class="card-body pt-4">
                         <div class="row">
                           <div class="col">
                             <div class="card-profile-stats d-flex justify-content-center mt-md-2">
-
-                              <div>
-                                <span class="heading">8.7 </span>
-                                <!-- <span class="description"> Rating </span> -->
-                              </div>
+                              <div class="rating-block" justify-content-center >
+                                <h4>Average user rating</h4>
+                                <h2 class="bold padding-bottom-7">{{data.rate}}<small>/ 10</small></h2>
+                              </div>  
                               <!-- <div>
                                 <span class="heading"> Yes </span>
                                 <span class="description"> Available </span>
@@ -267,9 +266,13 @@
                 </div>
               </div>
 
-            </ng-template>
-          </ngb-tab>
-
+            <!-- </ng-template>
+          </ngb-tab> -->
+<!-- 
+          <div class="rating-block">
+            <h4>Average user rating</h4>
+            <h2 class="bold padding-bottom-7">{{data.rate}}<small>/ 10</small></h2> -->
+<!-- 
           <ngb-tab title="Review">
             <ng-template ngbTabContent>
 
@@ -277,9 +280,7 @@
 
                 <div class="row">
                   <div class="col-md-3">
-                    <div class="rating-block">
-                      <h4>Average user rating</h4>
-                      <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
+                    
                       <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                       </button>
@@ -405,8 +406,8 @@
             </ng-template>
           </ngb-tab>
 
-
-        </ngb-tabset>
+ -->
+        <!-- </ngb-tabset> -->
       </div>
     </div>
 

@@ -46,7 +46,7 @@ export class ViewProfileComponent implements OnInit {
     return this.data;
   }
 
-  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername, workeremail, workermobile) {
+  setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername, workeremail, workermobile, prevrate) {
     if ( username == '' ) {
       window.alert('you can not keep empty fields');
       this.router.navigate(['/viewprofile', this.value]);
@@ -69,6 +69,7 @@ export class ViewProfileComponent implements OnInit {
     this.bookingId = this.afs.createId();
     const bookingData: Book = {
       //   uid: this.userId,
+      workerprevrate: prevrate ,
       workername: workername,
       workeremail: workeremail,
       workermobile: workermobile,
