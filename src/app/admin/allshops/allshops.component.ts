@@ -46,7 +46,7 @@ export class AllshopsComponent implements OnInit {
 }
 
 interface Item {
-  compnyname?: string;
+  shopname?: string;
   url?: Url;
   email?: string;
   mobile?: number;

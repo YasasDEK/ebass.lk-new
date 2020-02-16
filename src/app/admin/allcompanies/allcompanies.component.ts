@@ -40,6 +40,7 @@ export class AllcompaniesComponent implements OnInit {
   }
 
   image(id){
+    console.log(id);
     this.router.navigate(['/companyimage', id]);
   }
 }

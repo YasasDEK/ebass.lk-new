@@ -67,6 +67,7 @@ export class UserprofileComponent implements OnInit {
             .where('useremail', '==', this.value)).valueChanges();
         this.pendingwork.subscribe(dataArray => {
             this.totalpendingBookCount = dataArray.length;
+            console.log('XX' + this.totalpendingBookCount )
         });
 
         this.notrated = this.ebass.collection('bookings', ref => ref

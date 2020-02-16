@@ -8,6 +8,6 @@ export interface Worker {
     status: string;
     displayName?: string;
     rate: number;
-
+    district : string;
 }
 
