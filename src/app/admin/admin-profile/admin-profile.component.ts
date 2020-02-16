@@ -15,14 +15,14 @@ import * as firebase from 'firebase/app';
 })
 
 export class AdminProfileComponent implements OnInit {
-  totalUserCount: number;
-  totalSpaCount: number;
-  totalSupplierCount: number;
-  totalWorkerCount: number;
-  totalPostCount: number;
+    totalUserCount: number;
+    totalSpaCount: number;
+    totalSupplierCount: number;
+    totalWorkerCount: number;
+    totalPostCount: number;
 
-  total : number = 0 ;
-  getUserList: any;
+    total: number = 0;
+    getUserList: any;
 
 
 
@@ -35,37 +35,34 @@ export class AdminProfileComponent implements OnInit {
 
 
     constructor(public _Activatedroute: ActivatedRoute,
-                public ebass: AngularFirestore,
-                public authService: AuthService,
-                public router: Router) {
+        public ebass: AngularFirestore,
+        public authService: AuthService,
+        public router: Router) {
         // this.value = this._Activatedroute.snapshot.paramMap.get('uid');
         // console.log('value : ' + this.value);
     }
 
     ngOnInit() {
-        this.getworkers();
-
-
-
-            this.value = this._Activatedroute.snapshot.paramMap.get('email');
-            console.log('value : ' + this.value);
-            if (this.admin) {
-                if ( this.admin.email === this.value) {
-                    this.getData().subscribe(data => {
-                        this.datas = data;
-                        console.log('value : ' + this.admin.email);
-                    })
-                } else {
-                    // someone logged & parameter email is not his
-                    window.alert('please login with ' + this._Activatedroute.snapshot.paramMap.get('email'));
-                    console.log('please log with ' + this.value);
-                }
+        // this.getworkers();
+        this.value = this._Activatedroute.snapshot.paramMap.get('email');
+        console.log('value : ' + this.value);
+        if (this.admin) {
+            if (this.admin.email === this.value) {
+                this.getData().subscribe(data => {
+                    this.datas = data;
+                    console.log('value : ' + this.admin.email);
+                })
             } else {
-                // no admin logged in
-                this.router.navigate(['adminsignin']);
-                window.alert('First u have to log to access this page');
-                console.log('please loging before access this page');
+                // someone logged & parameter email is not his
+                window.alert('please login with ' + this._Activatedroute.snapshot.paramMap.get('email'));
+                console.log('please log with ' + this.value);
             }
+        } else {
+            // no admin logged in
+            this.router.navigate(['adminsignin']);
+            window.alert('First u have to log to access this page');
+            console.log('please loging before access this page');
+        }
     }
 
     getData() {
@@ -77,19 +74,19 @@ export class AdminProfileComponent implements OnInit {
 
 
     getWorkers = () =>
-      this.crudService
-      .getWorkers()
-      .subscribe(dataArray => {
-        this.totalDoctorCount = dataArray.length;
-        console.log(this.totalDoctorCount); 
-        // this.getUserList = dataArray.map(item =>{
-        //   this.total ++ ;
-        //   console.log(this.total);          
-        //   return {id : item.payload.doc.id,
-        //   ...item.payload.doc.data() 
-        //   }  
-        // })  
-      });
+        this.crudService
+            .getWorkers()
+            .subscribe(dataArray => {
+                this.totalDoctorCount = dataArray.length;
+                console.log(this.totalDoctorCount);
+                // this.getUserList = dataArray.map(item =>{
+                //   this.total ++ ;
+                //   console.log(this.total);          
+                //   return {id : item.payload.doc.id,
+                //   ...item.payload.doc.data() 
+                //   }  
+                // })  
+            });
 
 }
 

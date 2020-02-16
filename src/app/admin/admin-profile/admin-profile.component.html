@@ -1,87 +1,87 @@
 <!-- <div *ngIf="datas?.length > 0; else noItems">
   <div *ngFor="let data of datas"> -->
 
-    <!--top nav bar-->
-    <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
-      <div class="container">
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
 
-        <div class="navbar-translate">
-          <div class="avatar">
-            <a class="navbar-brand" href="http://localhost:4200">
-              <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
-                width="60">
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-translate">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
-              <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button>
-              <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/home"><i class="nc-icon nc-align-center"
-                  aria-hidden="true"></i>&nbsp;Reports</a>
-            </li>
-
-            <li class="nav-item">
-              <div ngbDropdown class="d-inline-block dropdown">
-                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                    aria-hidden="true"></i>Customers</a>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                  <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
-                  <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
-
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <div ngbDropdown class="d-inline-block dropdown">
-                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                    aria-hidden="true"></i>Notifications</a>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                  <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
-
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <div ngbDropdown class="d-inline-block dropdown">
-                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                    aria-hidden="true"></i>Options</a>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                  <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
-                  <!-- <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a> -->
-                  <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
-                  <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
-                  <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
-                  <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <div ngbDropdown class="d-inline-block dropdown">
-                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
-                    aria-hidden="true"></i>View Bookings</a>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-                  <a class="dropdown-item" [routerLink]="['/adminbookingview']">All Bookings</a>
-                  <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
       </div>
-    </nav>
+    </div>
 
-  <!-- </div>
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Customers</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+              <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Notifications</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
+              <!-- <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a> -->
+              <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
+              <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
+              <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
+              <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>View Bookings</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/adminbookingview']">All Bookings</a>
+              <!-- <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a> -->
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
+          <button type="button" (click)="authService.SignOut()" class="btn btn-danger">SIGN OUT</button>
+          <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- </div>
 </div> -->
 <br><br><br><br><br><br>
 
@@ -89,67 +89,56 @@
   <div *ngFor="let data of datas">
     <div class="nav-tabs-navigation">
       <div class="nav-tabs-wrapper">
-        <ngb-tabset [justify]="'center'">
-          <ngb-tab title="Home">
-            <ng-template ngbTabContent>
-
-              <div class="container-fluid mt--7">
-                <div class="row">
-                  <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
-                    <div class="card card-profile shadow">
-                      <div class="row justify-content-center">
-                        <div class="col-lg-12 order-lg-2">
-                          <div class="card-profile-image">
-                            <a href="javascript:void(0)">
-                              <br>
-                              <img class="mx-auto rounded-circle" src="{{data.image}}" width="150"
-                                height="150">
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
-                        <div class="d-flex justify-content-between">
-                          <button [routerLink]="['/adminimage',data.uid]" class="btn btn-sm btn-info mr-3">Update image</button>
-                          <button [routerLink]="['/editadminprofile',value]" class="btn btn-sm btn-info mr-3">Update</button>
-                        </div>
-                      </div>
-                      <div class="card-body pt-4">
-                        <div class="row">
-                          <div class="col">
-                            <div class="card-profile-stats d-flex justify-content-center mt-md-2">
-                              <div>
-                                <span class="heading"> Yes </span>
-                                <span class="description"> Available </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="text-center">
-                          <h3>
-                            {{data.adminname}}<span class="font-weight-light">, 27</span>
-                          </h3>
-                          <div class="h5 font-weight-300">
-                            <i class="ni location_pin mr-2"></i>{{data.email}}
-                          </div>
-                          <div class="h5 mt-4">
-                            <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
-                          </div>
+        <div class="container-fluid mt--7">
+          <div class="row">
+            <div class="col-xl-3 order-xl-2 mb-5 mb-xl-0">
+              <div class="card card-profile shadow">
+                <div class="row justify-content-center">
+                  <div class="col-lg-12 order-lg-2">
+                    <div class="card-profile-image">
+                      <a href="javascript:void(0)">
+                        <br>
+                        <img class="mx-auto rounded-circle" src="{{data.image}}" width="150" height="150">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="card-header text-center border-0 pt-0 pt-md-2 pb-0 pb-md-2">
+                  <div class="d-flex justify-content-between">
+                    <button [routerLink]="['/adminimage',data.uid]" class="btn btn-sm btn-info mr-3">Update
+                      image</button>
+                    <button [routerLink]="['/editadminprofile',value]" class="btn btn-sm btn-info mr-3">Update</button>
+                  </div>
+                </div>
+                <div class="card-body pt-4">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card-profile-stats d-flex justify-content-center mt-md-2">
+                        <div>
+                          <span class="heading"> Yes </span>
+                          <span class="description"> Available </span>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                  <div class="text-center">
+                    <h3>
+                      {{data.adminname}}<span class="font-weight-light">, 27</span>
+                    </h3>
+                    <div class="h5 font-weight-300">
+                      <i class="ni location_pin mr-2"></i>{{data.email}}
+                    </div>
+                    <div class="h5 mt-4">
+                      <i class="ni business_briefcase-24 mr-2"></i>{{data.jobType}}
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
 
-            </ng-template>
-          </ngb-tab>
-
-
-
-        </ngb-tabset>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -157,89 +146,89 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-lg-4 col-sm-12 " >
-        <div class="card detail-card">
-            <div class="card-image" >
-                <div class="text-white d-flex blue-gradient-rgba">
-                    <div class="p-3">
-                        <h3 class="card-title card-top">Total Workers</h3>
-                    </div>
-                    <div class="align-self-center mx-auto">
-                        <i class="fas fa-users fa-3x"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="ml-auto mr-4 mb-2">
-            <h1 class="text-center card-text" style="color: slateblue;">{{totalDoctorCount}}</h1>
-            </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 ">
+    <div class="card detail-card">
+      <div class="card-image">
+        <div class="text-white d-flex blue-gradient-rgba">
+          <div class="p-3">
+            <h3 class="card-title card-top">Total Workers</h3>
+          </div>
+          <div class="align-self-center mx-auto">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
         </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-sm-12 " >
-      <div class="card detail-card">
-          <div class="card-image" >
-              <div class="text-white d-flex blue-gradient-rgba">
-                  <div class="p-3">
-                      <h3 class="card-title card-top">Total Bookings</h3>
-                  </div>
-                  <div class="align-self-center mx-auto">
-                      <i class="fas fa-users fa-3x"></i>
-                  </div>
-              </div>
-          </div>
-          <div class="ml-auto mr-4 mb-2">
-          <h1 class="text-center card-text" style="color: slateblue;">{{totalSupplierCount}}</h1>
-          </div>
       </div>
+      <div class="ml-auto mr-4 mb-2">
+        <h1 class="text-center card-text" style="color: slateblue;">{{totalDoctorCount}}</h1>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 " >
-        <div class="card detail-card">
-            <div class="card-image" >
-                <div class="text-white d-flex blue-gradient-rgba">
-                    <div class="p-3">
-                        <h3 class="card-title card-top">Total Shops</h3>
-                    </div>
-                    <div class="align-self-center mx-auto">
-                        <i class="fas fa-users fa-3x"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="ml-auto mr-4 mb-2">
-            <h1 class="text-center card-text" style="color: slateblue;">{{totalSpaCount}}</h1>
-            </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 ">
+    <div class="card detail-card">
+      <div class="card-image">
+        <div class="text-white d-flex blue-gradient-rgba">
+          <div class="p-3">
+            <h3 class="card-title card-top">Total Bookings</h3>
+          </div>
+          <div class="align-self-center mx-auto">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
         </div>
+      </div>
+      <div class="ml-auto mr-4 mb-2">
+        <h1 class="text-center card-text" style="color: slateblue;">{{totalSupplierCount}}</h1>
+      </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-sm-12 " >
-      <div class="card detail-card">
-          <div class="card-image" >
-              <div class="text-white d-flex blue-gradient-rgba">
-                  <div class="p-3">
-                      <h3 class="card-title card-top">Total Companies</h3>
-                  </div>
-                  <div class="align-self-center mx-auto">
-                      <i class="fas fa-users fa-3x"></i>
-                  </div>
-              </div>
+  </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 ">
+    <div class="card detail-card">
+      <div class="card-image">
+        <div class="text-white d-flex blue-gradient-rgba">
+          <div class="p-3">
+            <h3 class="card-title card-top">Total Shops</h3>
           </div>
-          <div class="ml-auto mr-4 mb-2">
-          <h1 class="text-center card-text" style="color: slateblue;">{{totalUserCount}}</h1>
+          <div class="align-self-center mx-auto">
+            <i class="fas fa-users fa-3x"></i>
           </div>
+        </div>
       </div>
-  </div>
-  <div class="col-md-6 col-lg-4 col-sm-12 " >
-      <div class="card detail-card">
-          <div class="card-image" >
-              <div class="text-white d-flex blue-gradient-rgba">
-                  <div class="p-3">
-                      <h3 class="card-title card-top">Total Articles</h3>
-                  </div>
-                  <div class="align-self-center mx-auto">
-                      <i class="fas fa-users fa-3x"></i>
-                  </div>
-              </div>
-          </div>
-          <div class="ml-auto mr-4 mb-2">
-          <h1 class="text-center card-text" style="color: slateblue;">{{totalPostCount}}</h1>
-          </div>
+      <div class="ml-auto mr-4 mb-2">
+        <h1 class="text-center card-text" style="color: slateblue;">{{totalSpaCount}}</h1>
       </div>
+    </div>
   </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 ">
+    <div class="card detail-card">
+      <div class="card-image">
+        <div class="text-white d-flex blue-gradient-rgba">
+          <div class="p-3">
+            <h3 class="card-title card-top">Total Companies</h3>
+          </div>
+          <div class="align-self-center mx-auto">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ml-auto mr-4 mb-2">
+        <h1 class="text-center card-text" style="color: slateblue;">{{totalUserCount}}</h1>
+      </div>
+    </div>
   </div>
+  <div class="col-md-6 col-lg-4 col-sm-12 ">
+    <div class="card detail-card">
+      <div class="card-image">
+        <div class="text-white d-flex blue-gradient-rgba">
+          <div class="p-3">
+            <h3 class="card-title card-top">Total Articles</h3>
+          </div>
+          <div class="align-self-center mx-auto">
+            <i class="fas fa-users fa-3x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ml-auto mr-4 mb-2">
+        <h1 class="text-center card-text" style="color: slateblue;">{{totalPostCount}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
