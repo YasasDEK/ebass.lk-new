@@ -89,7 +89,7 @@ export class OngoingComponent implements OnInit {
   }
 
   Completed(id) {
-    this.afs.doc('bookings/' + id).update({'status': 'completed'});
+    this.afs.doc('bookings/' + id).update({'status': 'Booking Completed'});
      alert('Booking accepted');
 
   }
