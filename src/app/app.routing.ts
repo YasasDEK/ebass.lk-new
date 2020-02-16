@@ -72,8 +72,12 @@ import { AllcompaniesComponent } from './admin/allcompanies/allcompanies.compone
 import { AllshopsComponent } from './admin/allshops/allshops.component';
 import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
 import { ShopimageComponent } from './admin/shopimage/shopimage.component';
+import { WorkerHomeComponent } from './worker-home/worker-home.component';  //new
+import { UserHomeComponent } from './user-home/user-home.component';
 // import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 // import { UserprofileComponent } from './options/userprofile/userprofile.component';
+
+
 
 const routes: Routes = [
 
@@ -115,9 +119,7 @@ const routes: Routes = [
   { path: 'addcompanies', component: AddcompaniesComponent, canActivate: [AuthGuard] },   //admin
   { path: 'verifyworker', component: VerifyWorkersComponent, canActivate: [AuthGuard] },    //admin
   { path: 'editadminprofile/:email', component: EditAdminProfileComponent, canActivate: [AuthGuard] },    //admin
-  { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin   
-  //{ path: 'gmap', component: GooglemapComponent, canActivate: [AuthGuard] },
-  // { path: 'userprofile/:email', component: UserprofileComponent, canActivate: [AuthGuard] },
+  { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin 
 
   { path: 'bootstraps', component: BasicelementsComponent },
   { path: 'formvalid', component: FormvalidComponent },
@@ -139,7 +141,10 @@ const routes: Routes = [
   { path: 'allshops', component: AllshopsComponent},
   // { path: 'userprofile/:email', component: UserprofileComponent}
   { path: 'succesbooking' , component: SuccesBookingComponent},
-  { path: 'adminbookingview', component: AdminbookingviewComponent}
+  { path: 'adminbookingview', component: AdminbookingviewComponent},
+
+  { path: 'workerhome', component: WorkerHomeComponent },
+  { path: 'userhome', component: UserHomeComponent },
 
 ];
 

@@ -1,0 +1,162 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg   fixed-top navbar-transparent " color-on-scroll="500">
+  <div class="container ">
+
+      <div class="navbar-translate">
+          <div class="avatar">
+              <a class="navbar-brand" [routerLink]="['/userhome']">
+                  <img src="./assets/img/faces/logo.jpg" alt="Circle Image"
+                      class="img-circle img-no-padding img-responsive" width="60">
+              </a>
+          </div>
+      </div>
+
+      
+      <div class="navbar-translate">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="#categories"><i class="nc-icon nc-align-center"
+                          aria-hidden="true"></i>&nbsp;Worker categories</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#shops&companies"><i class="nc-icon nc-shop"
+                          aria-hidden="true"></i>&nbsp;Companies & Shops</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/userprofile', value]"><i class="nc-icon nc-shop"
+                        aria-hidden="true"></i>&nbsp;User Profile</a>
+            </li>
+              
+          </ul>
+      </div>
+
+  </div>
+</nav>
+
+<!--Page-->
+<div class="wrapper">
+  <div class="page-header section-dark" style="background-image: url('assets/img/z1.jpg')">
+      
+      <!-- <div class="filter"></div> -->
+      <div class="content-center">
+          <div class="container">
+              <div class="title-brand">
+              </div>
+              <br>
+              <br>
+              <br><br><br><br>
+              <div class="text-center">
+                  <br><br><br><br><br><br><br><br><br><br><br><br>
+                  <button type="button" [routerLink]="['/search']" class="btn btn-danger btn-round"><i
+                          class="fa fa-search"></i> Find the most suitable worker for you</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--categories-->
+  <section class="bg-light page-section" id="categories">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading text-uppercase">Categories</h2>
+                  <h3 class="section-subheading text-muted">Select the category that you want</h3>
+                  <br>
+              </div>
+          </div>
+          <div class="row">
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','mason']">
+                      <img class="img-fluid" src="assets/img/mason.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      
+                      <a [routerLink]="['/categories','mason']" class="text-muted"><h4>Masons</h4></a>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','painter']">
+                      <img class="img-fluid" src="assets/img/painter.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      <a [routerLink]="['/categories','painter']" class="text-muted"><h4>Painter</h4></a>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','carpenter']">
+                      <img class="img-fluid" src="assets/img/carpenter.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      
+                      <a [routerLink]="['/categories','carpenter']" class="text-muted"><h4>Carpenter</h4></a>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','electrician']">
+                      <br><br>
+                      <img class="img-fluid" src="assets/img/electrician.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      <a [routerLink]="['/categories','electrician']" class="text-muted"><h4>Electrician</h4></a>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','plumber']">
+                      <br><br>
+                      <img class="img-fluid" src="assets/img/plumber.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      <a [routerLink]="['/categories','plumber']" class="text-muted"><h4>Plumber</h4></a>
+                  </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" [routerLink]="['/categories','repair']">
+                      <br><br>
+                      <img class="img-fluid" src="assets/img/repair.jpg" alt="">
+                  </a>
+                  <div class="portfolio-caption">
+                      <a [routerLink]="['/categories','repair']" class="text-muted"><h4>Repairs & Others</h4></a>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <!--Companies and shops-->
+  <br><br>
+  <section class="bg-light page-section" id="shops&companies">
+      <div class="section section-dark">
+          <h2 align="center">Companies & Shops</h2>
+          <div class="container">
+              <div class="row example-page">
+                  <div class="col-md-6 text-center" routerLinkActive="active">
+                      <a [routerLink]="['/companies']">
+                          <img src="./assets/img/examples/companies.jpeg" alt="Rounded Image"
+                              class="img-rounded img-responsive" style="width: 100%">
+                          <a [routerLink]="['/companies']" class="btn btn-outline-neutral btn-round">Companies</a>
+                      </a>
+                  </div>
+
+                  <div class="col-md-6 text-center" routerLinkActive="active">
+                      <a [routerLink]="['/shops']">
+                          <img src="./assets/img/examples/shops.jpeg" alt="Rounded Image"
+                              class="img-rounded img-responsive" style="width: 100%">
+                          <a [routerLink]="['/shops']" class="btn btn-outline-neutral btn-round">Shops</a>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+<!-- -------------------------------------------------------------------------------------- -->
+
+  
+</div>
