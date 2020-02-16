@@ -195,13 +195,13 @@ export class AuthService {
 
   SignOutWorker() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('worker');
+      localStorage.removeItem('workers');
       this.router.navigate(['home']);
     })
   }
   SignOutuser() {
     return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
+      localStorage.removeItem('users');
       this.router.navigate(['home']);
     })
   }
