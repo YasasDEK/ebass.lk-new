@@ -1,7 +1,10 @@
 <br><br><br><br><br><br>
+
+<div class="page-header section-dark" style="background-image: url('assets/img/succesbook.jpg')">
+
 <div class="container">
 
-    <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)">
+    <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" style="color: aliceblue;">
         <div *ngIf="datas?.length > 0; else noItems">
             <div *ngFor="let data of datas">
                 <h1>{{data.adminname}} Profile</h1>
@@ -32,4 +35,5 @@
         </div>
     </form>
 
+</div>
 </div>
