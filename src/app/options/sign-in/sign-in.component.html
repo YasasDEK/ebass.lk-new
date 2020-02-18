@@ -24,14 +24,14 @@
 
 <!--sign up content-->
 <div class="wrapper">
-  <div class="page-header" style="background-image: url('./assets/img/z.jpg');">
+  <div class="page-header" style="background-image: url('./assets/img/sign.png');">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-sm-8 mr-auto ml-auto">
           <div class="card card-register">
             <h3 class="title">Welcome</h3>
-            <div class="social-line text-center">
+            <!-- <div class="social-line text-center">
               <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
                 <i class="fa fa-facebook-square"></i>
               </a>
@@ -41,7 +41,7 @@
               <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
                 <i class="fa fa-twitter"></i>
               </a>
-            </div>
+            </div> -->
             <form class="register-form">
               <label>E-Mail</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -68,14 +68,14 @@
               </div>
 
               <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Log in"
+                <input type="submit" class="btn btn-danger btn-block btn-round" value="Log in"
                   (click)="authService.SignIn(workeremail.value, workerPassword.value)">
               </div>
-              <!--<button type="submit" class="btn btn-danger btn-block btn-round">Login</button>-->
               <div class="forgot">
                 <a href="#" class="btn btn-link btn-danger" [routerLink]="['/forgot-password']">Forgot password?</a>
               </div>
-              <h6>Dont have an account?<a [routerLink]="['/signup']">signup</a></h6>
+              <h6>Dont have an account?<br><a [routerLink]="['/signup']">signup A Worker</a><br>
+                <a color="red" [routerLink]="['/signupuser']">signup as a User</a></h6>
             </form>
           </div>
         </div>

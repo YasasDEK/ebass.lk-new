@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   filteredNames: any[] = [];
   name: string;
   area: string;
+  jobType: string;
 
   filters = {}
 
@@ -29,17 +30,29 @@ export class SearchComponent implements OnInit {
 
   private applyFilters() {
     this.filteredNames = _.filter(this.results, _.conforms(this.filters))
+    console.log("this.filteredNames " + this.filteredNames);
   }
 
   filterName(property: string, rule: string) {
+    console.log("pro " + property + "rule " + rule)
     this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
     this.applyFilters()
   }
 
-  filterArea(property: string, rule: string) {
+  filterJob(property: string, rule: string) {
+    console.log("pro " + property + "rule " + rule)
     if (!rule) this.removeFilter(property)
     else {
-      this.filters[property] = val => val.toLowerCase().includes(rule.toLowerCase())
+      this.filters[property] = val => val.includes(rule)
+      this.applyFilters()
+    }
+  }
+
+  filterArea(property: string, rule: string) {
+    console.log("pro " + property + "rule " + rule)
+    if (!rule) this.removeFilter(property)
+    else {
+      this.filters[property] = val => val.includes(rule)
       this.applyFilters()
     }
   }

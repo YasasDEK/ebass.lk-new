@@ -7,4 +7,5 @@ export interface Shop {
     jobType: string;
     mobile: string;
     url: Url;
+    shopid: string;
 }

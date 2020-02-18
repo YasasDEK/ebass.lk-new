@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" [routerLink]="['/userhome']">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <!-- <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignOut()"> -->
+          <!-- <button type="button" (click)="authService.SignOutUser()" class="btn btn-danger">SIGN OUT</button> -->
+          <!-- <a href="http://localhost:4200/#/booking"><button class="btn btn-danger pull-right" ><i class="fa fa-search"></i> BOOK WORKER</button></a> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <br><br><br><br><br><br>
+
+<div class="content-center">
+  <div class="container">
+
+    <!--search bar-->
+    <label>Filter</label>
+    <!-- <section class="section section-lg section-hero section-shaped"> -->
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-12 text-center">
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+          <input class="form-control" placeholder="Name" (focus)="focus=true" type="text" [(ngModel)]="username"
+            (change)="filterName('username', username)">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="nc-icon nc-email-85"></i>
+            </span>
+          </div>
+
+          <input class="form-control" placeholder="Status" (focus)="focus=true" type="text" [(ngModel)]="status"
+            (change)="filterStatus('status', status)">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+            </span>
+          </div>
+        </div> <br>
+
+        <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
+          (click)="send2()">Sort high to low</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container" style="margin-top: 5px">
+
+  <table class="table">
+    <thead>
+
+      <tr class="table100-head">
+        <th class="column2">Worker name</th>
+        <th class="column1">Date</th>
+        <th class="column2">Description</th>
+        <th class="column2">Worker mobile</th>
+        <!-- <th class="column2">Area</th> -->
+      </tr>
+
+      <tr class="table100-data" *ngFor="let results of filteredNames">
+        <td class="column1">{{results.workername}}</td>
+        <td class="column2">{{results.bookingdate}}</td>
+        <td class="column4">{{results.bookingdesc}}</td>
+        <td class="column3">{{results.workermobile}}</td>
+        <!-- <td class="column6">{{results.}}</td> -->
+        <!-- <button type="button" class="btn btn-success btn-sm" (click)="completed(results.bookingid)">completed</button> -->
+        <button type="button" class="btn btn-danger btn-sm" (click)="cancel(results.bookingid)">cancel</button>
+      </tr>
+
+
+    </thead>
+  </table>
+</div>

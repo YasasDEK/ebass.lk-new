@@ -89,7 +89,7 @@ export class VerifyWorkersComponent implements OnInit {
 
   send3(id) {
     this.afs.doc('workers/' + id).update({'status': 'available'});
-     alert('Worker verified');
+    alert('Worker verified');
 
   }
 }

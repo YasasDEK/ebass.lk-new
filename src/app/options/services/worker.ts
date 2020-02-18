@@ -3,9 +3,11 @@ export interface Worker {
     workername: string;
     idNumber: string;
     email: string;
-    emailVerified: boolean;
-    jobType: string;
+    jobType: Array<string>;
     mobile: string;
     status: string;
     displayName?: string;
+    rate: number;
+    district : string;
 }
+

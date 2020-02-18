@@ -38,7 +38,40 @@ import { ShopsComponent } from './components/shops/shops.component';
 import { CompaniesComponent } from './components/companies/companies.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { UpdateworkerComponent} from './options/updateworker/updateworker.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { GmapComponent } from './gmap/gmap.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
+import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
+import { ViewforUserComponent } from './bookingDetails/viewfor-user/viewfor-user.component';
+import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { MatButtonModule } from '@angular/material/button';
+
+import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
+import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/userongoing.component';
+import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
+import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
+import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
+import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { UserimageComponent } from './user/userimage/userimage.component';
+import { WorkerimageComponent } from './options/workerimage/workerimage.component';
+import { AdminimageComponent } from './admin/adminimage/adminimage.component';
+import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
+import { ShopimageComponent } from './admin/shopimage/shopimage.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { WorkerHomeComponent } from './worker-home/worker-home.component';
+
+
+// import { UpdateuserComponent } from './options/updateuser/updateuser.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBjFU2WTS5w4p_SbIpMO3h9uEQ0TmliCn8",
@@ -72,9 +105,38 @@ var firebaseConfig = {
     // CategoriesComponent,
     UpdateworkerComponent,
     ViewProfileComponent,
+    // UpdateuserComponent,
+    // GmapComponent,
+    GooglemapComponent,
+    FormvalidComponent,
+    CollapseComponent,
+    ImageComponent,
+    ViewforWorkerComponent,
+    ViewforUserComponent,
+    OngoingComponent,
+    WorkerViewMapComponent,
+    UserprofileComponent,
+    EdituserprofileComponent,
+    SuccesBookingComponent,
+    UserongoingComponent,
+    UserpendingComponent,
+    UsercompletedComponent,
+    CompletedComponent,
+    UserratedComponent,
+    UserimageComponent,
+    WorkerimageComponent,
+    AdminimageComponent,
+    CompanyimageComponent,
+    ShopimageComponent,
+    UserHomeComponent,
+    WorkerHomeComponent,
+    
+    // UpdateuserComponent,
   ],
   imports: [
+    // WorkerViewMapComponent,
     BrowserModule,
+    MatButtonModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,13 +148,20 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig, 'ebass'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    AngularFireStorageModule,
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCX6twQwi3PezVEReDhC5IMLyiaqC8f_rA',
+      libraries: ['places']
+    })
     // UserModule,
   ],
-  providers: [/*ItemService,*/ AuthService  /*, AuthuService*/],
+  providers: [/*ItemService,*/ AuthService,  /*, AuthuService*/],
   bootstrap: [AppComponent],
 //   providers: [ItemService, AuthService, AuthuService],
-//   bootstrap: [AppComponent]
+//   bootstrap: [AppCompone1nt]
 // >>>>>>> origin/newtest
 })
 export class AppModule { }
