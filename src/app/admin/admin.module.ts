@@ -12,6 +12,13 @@ import { AddcompaniesComponent } from './addcompanies/addcompanies.component';
 import { VerifyWorkersComponent } from './verify-workers/verify-workers.component';
 import { EditAdminProfileComponent } from './edit-admin-profile/edit-admin-profile.component';
 import { ViewMessagesComponent } from './view-messages/view-messages.component';
+
+import { AdminbookingviewComponent } from './adminbookingview/adminbookingview.component';
+
+import { AllshopsComponent } from './allshops/allshops.component';
+import { AllcompaniesComponent } from './allcompanies/allcompanies.component';
+
+
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { SignInComponent } from './sign-in/sign-in.component';
 
@@ -33,6 +40,12 @@ import { ViewMessagesComponent } from './view-messages/view-messages.component';
         VerifyWorkersComponent,
         EditAdminProfileComponent,
         ViewMessagesComponent,
+
+        AdminbookingviewComponent,
+
+        AllshopsComponent,
+        AllcompaniesComponent,
+
         // ReglogComponent,
         // SignInComponent
     ]

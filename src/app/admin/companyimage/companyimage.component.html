@@ -1,0 +1,33 @@
+<div class="page-header section-dark" style="background-image: url('assets/img/z1.jpg')">
+
+  <!-- <div class="filter"></div> -->
+
+  <div class="row">
+    <div class="column">
+      <div class="container">
+        <div class="form-group">
+          <label> Upload Company Image</label>
+          <input type="file" id="$img" (change)="upload($event)" class="form-control" formControlName="image"
+            accept=".png,.jpg">
+
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngIf="datas?.length > 0; else noItems">
+        <div *ngFor="let data of datas">
+          <img class="mx-auto rounded-circle" src="{{data.image}}" width="150" height="150">
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>

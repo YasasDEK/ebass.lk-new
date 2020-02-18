@@ -1,0 +1,185 @@
+<div *ngIf="datas?.length > 0; else noItems">
+  <div *ngFor="let data of datas">
+    <!--top nav bar-->
+    <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+      <div class="container">
+
+
+        <div class="navbar-translate">
+          <div class="avatar">
+            <a class="navbar-brand" [routerLink]="['/userhome']">
+              <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+                width="60">
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-translate">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Bookings</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <a class="dropdown-item" [routerLink]="['/userpending',data.uid]">Pending</a>
+                  <a class="dropdown-item" [routerLink]="['/userongoing',data.uid]">Ongoing</a>
+                  <a class="dropdown-item" [routerLink]="['/usercompleted',data.uid]">Rate worker</a>
+                  <a class="dropdown-item" [routerLink]="['/rated',data.uid]">Completed</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <div ngbDropdown class="d-inline-block dropdown">
+                <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                    aria-hidden="true"></i>Options</a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                  <!-- <a class="dropdown-item" [routerLink]="['/signup']">add user</a> -->
+                  <a class="dropdown-item" [routerLink]="['/edituserprofile',data.email]"><i
+                      class="nc-icon nc-single-02" aria-hidden="true"></i> Edit my
+                    profile</a>
+                  <!-- <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a> -->
+                  <!-- <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a> -->
+                  <!-- <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a> -->
+                  <!-- <a class="dropdown-item" [routerLink]="['/signin']">sign out</a> -->
+                </div>
+              </div>
+            </li>
+            <li class="nav-item">
+              <button type="button" (click)="authService.SignOutUser()" class="btn btn-danger">SIGN OUT</button>
+            </li>
+            
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+
+    <br><br><br><br><br><br>
+
+
+      <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-md-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-12 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="javascript:void(0)">
+                    <br>
+                    <img class="mx-auto rounded-circle" src="{{data.image}}" width="170" height="170">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="card-header text-center border-0 pt-0 pt-md-3 pb-0 pb-md-3">
+              <div class="d-flex justify-content-center">
+                <!-- <button [routerLink]="['/update',value]" class="btn btn-sm btn-info mr-3">Update</button> -->
+                <button type="button" class="btn btn-success btn-sm " data-toggle="modal"
+                  [routerLink]="['/userimage',data.uid]">Edit profile picture</button>
+              </div>
+            </div>
+            <div class="card-body pt-4">
+              <div class="text-center">
+                <h3>
+                  {{data.username}}<span class="font-weight-light"></span>
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>{{data.email}}
+                </div>
+                <div class="h5 mt-4">
+                  <i class="ni business_briefcase-24 mr-2"></i><b>{{data.jobType}}</b>
+                </div>
+                <hr class="my-4" />
+                <!-- <p>Description About user</p>
+                <a href="javascript:void(0)">Show more</a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+     
+
+<div class="col-md-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- <div class="col-md-6 col-lg-4 col-sm-12 "> -->
+        <div class="card detail-card" style="background-color: coral;">
+          <div class="card-image">
+            <div class="text-white d-flex blue-gradient-rgba">
+              <div class="p-3">
+                <h3 class="card-title card-top">Total Pending Bookings</h3>
+              </div>
+              <div class="align-self-center mx-auto">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalpendingBookCount}}</h1>
+          </div>
+        </div>
+      <!-- </div> -->
+
+      <!-- <div class="col-md-6 col-lg-4 col-sm-12 "> -->
+        <div class="card detail-card" style="background-color: rgb(228, 145, 115);">
+          <div class="card-image">
+            <div class="text-white d-flex blue-gradient-rgba">
+              <div class="p-3">
+                <h3 class="card-title card-top">Total Not Rated Bookings</h3>
+              </div>
+              <div class="align-self-center mx-auto">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalnotratedBookCount}}</h1>
+          </div>
+        </div>
+      <!-- </div> -->
+</div>
+
+<div class="col-md-4 order-xl-2 mb-5 mb-xl-0">
+      <!-- <div class="col-md-12 col-lg-4 col-sm-12 "> -->
+        <div class="card detail-card" style="background-color: rgb(134, 119, 113);">
+          <div class="card-image">
+            <div class="text-white d-flex blue-gradient-rgba">
+              <div class="p-3">
+                <h3 class="card-title card-top">Total Completed Bookings</h3>
+              </div>
+              <div class="align-self-center mx-auto">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalcompletedBookCount}}</h1>
+          </div>
+        </div>
+      <!-- </div> -->
+
+
+      <!-- <div class="col-md-4 col-lg-4 col-sm-12 "> -->
+        <div class="card detail-card" style="background-color: rgb(143, 168, 236);">
+          <div class="card-image">
+            <div class="text-white d-flex blue-gradient-rgba">
+              <div class="p-3">
+                <h3 class="card-title card-top">Total On Going Bookings</h3>
+              </div>
+              <div class="align-self-center mx-auto">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+          </div>
+          <div class="ml-auto mr-4 mb-2">
+            <h1 class="text-center card-text" style="color: slateblue;">{{totalOngoingBookCount}}</h1>
+          </div>
+        </div>
+      <!-- </div> -->
+</div>
+
+    </div>
+  </div>
+ </div>
+</div>

@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AuthGuard } from './options/guard/auth.guard';
+
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './options/profile/profile.component';
 import { SignUpComponent } from './options/sign-up/sign-up.component';
@@ -43,21 +45,57 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { VerifyWorkersComponent } from './admin/verify-workers/verify-workers.component';
 import { EditAdminProfileComponent } from './admin/edit-admin-profile/edit-admin-profile.component';
 import { ViewMessagesComponent } from './admin/view-messages/view-messages.component';
+import { GooglemapComponent } from './googlemap/googlemap.component';
+import { BasicelementsComponent } from './components/basicelements/basicelements.component';
+import { FormvalidComponent } from './temp/formvalid/formvalid.component';
+import { CollapseComponent } from './temp/collapse/collapse.component';
+import { ImageComponent } from './temp/image/image.component';
+import { ViewforWorkerComponent } from './bookingDetails/viewfor-worker/viewfor-worker.component';
+import { OngoingComponent } from './bookingDetails/viewfor-worker/ongoing/ongoing.component';
+import { WorkerViewMapComponent } from './googlemap/worker-view-map/worker-view-map.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { EdituserprofileComponent } from './user/edituserprofile/edituserprofile.component';
+import { SuccesBookingComponent } from './bookingDetails/succes-booking/succes-booking.component';
+import { UserongoingComponent } from './bookingDetails/viewfor-user/userongoing/userongoing.component';
+import { UserpendingComponent } from './bookingDetails/viewfor-user/userpending/userpending.component';
+import { UsercompletedComponent } from './bookingDetails/viewfor-user/usercompleted/usercompleted.component';
+import { CompletedComponent } from './bookingDetails/viewfor-worker/completed/completed.component';
+import { UserratedComponent } from './bookingDetails/viewfor-user/userrated/userrated.component';
+
+import { AdminbookingviewComponent } from './admin/adminbookingview/adminbookingview.component';
+
+
+import { UserimageComponent } from './user/userimage/userimage.component';
+import { WorkerimageComponent } from './options/workerimage/workerimage.component';
+import { AdminimageComponent } from './admin/adminimage/adminimage.component';
+import { AllcompaniesComponent } from './admin/allcompanies/allcompanies.component';
+import { AllshopsComponent } from './admin/allshops/allshops.component';
+import { CompanyimageComponent } from './admin/companyimage/companyimage.component';
+import { ShopimageComponent } from './admin/shopimage/shopimage.component';
+import { WorkerHomeComponent } from './worker-home/worker-home.component';  //new
+import { UserHomeComponent } from './user-home/user-home.component';
+// import { UpdateuserComponent } from './options/updateuser/updateuser.component';
+// import { UserprofileComponent } from './options/userprofile/userprofile.component';
+
+
 
 const routes: Routes = [
+
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: ComponentsComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'signin', component: SignInComponent },
+  { path: 'companyimage/:uid', component: CompanyimageComponent },
+  { path: 'shopimage/:uid', component: ShopimageComponent },
   { path: 'signupuser', component: SignUpUserComponent },
-  { path: 'profile/:email', component: ProfileComponent },
+  { path: 'profile/:email', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'update/:email', component: UpdateworkerComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'nucleoicons', component: NucleoiconsComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'rating', component: RatingComponent },
+  { path: 'rating', component: RatingComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent },
-  { path: 'booking/:uid', component: BookingComponent },
+  { path: 'booking/:uid', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'component', component: ComponentsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'schedule', component: ScheduleComponent },
@@ -68,19 +106,46 @@ const routes: Routes = [
   { path: 'categories/:job', component: CategoriesComponent },
   { path: 'reglog', component: ReglogComponent },
   { path: 'viewprofile/:uid', component: ViewProfileComponent },
+  { path: 'bookingworkernew/:uid', component: ViewforWorkerComponent, canActivate: [AuthGuard] },
   { path: 'signin', component: SignInComponent },
-  { path: 'adminsignin', component: AdminSignInComponent },
-  { path: 'adminsignup', component: AdminSignUpComponent },
-  { path: 'adminprofile/:email', component: AdminProfileComponent },
-  { path: 'adminupdate/:email', component: UpdateAdminComponent },
-  { path: 'allworkers', component: AllworkersComponent },
-  { path: 'allusers', component: AllusersComponent },
-  { path: 'addshops', component: AddshopsComponent },
-  { path: 'addcompanies', component: AddcompaniesComponent },
-  { path: 'verifyworker', component: VerifyWorkersComponent },
-  { path: 'editadminprofile/:email', component: EditAdminProfileComponent },
-  { path: 'viewmessages', component: ViewMessagesComponent },
-  
+
+  { path: 'adminsignin', component: AdminSignInComponent },   //admin
+  { path: 'adminsignup', component: AdminSignUpComponent },   //admin
+  { path: 'adminprofile/:email', component: AdminProfileComponent},    //admin
+  { path: 'adminupdate/:email', component: UpdateAdminComponent, canActivate: [AuthGuard] },      //admin
+  { path: 'allworkers', component: AllworkersComponent, canActivate: [AuthGuard] },   //admin
+  { path: 'allusers', component: AllusersComponent, canActivate: [AuthGuard] },   //admin
+  { path: 'addshops', component: AddshopsComponent, canActivate: [AuthGuard] },   //admin
+  { path: 'addcompanies', component: AddcompaniesComponent, canActivate: [AuthGuard] },   //admin
+  { path: 'verifyworker', component: VerifyWorkersComponent, canActivate: [AuthGuard] },    //admin
+  { path: 'editadminprofile/:email', component: EditAdminProfileComponent, canActivate: [AuthGuard] },    //admin
+  { path: 'viewmessages', component: ViewMessagesComponent, canActivate: [AuthGuard] },       //admin 
+
+  { path: 'bootstraps', component: BasicelementsComponent },
+  { path: 'formvalid', component: FormvalidComponent },
+  { path: 'collapse', component: CollapseComponent },
+  { path: 'image', component: ImageComponent },
+  { path: 'ongoingworker/:uid', component: OngoingComponent, canActivate: [AuthGuard] },
+  { path: 'gmapworker', component: WorkerViewMapComponent},
+  { path: 'userprofile/:email', component: UserprofileComponent },
+  { path: 'edituserprofile/:email', component: EdituserprofileComponent },
+  { path: 'userongoing/:uid', component: UserongoingComponent },
+  { path: 'userpending/:uid', component: UserpendingComponent },
+  { path: 'usercompleted/:uid', component: UsercompletedComponent },
+  { path: 'completed/:uid', component: CompletedComponent },
+  { path: 'rated/:uid', component: UserratedComponent },
+  { path: 'userimage/:uid', component: UserimageComponent },
+  { path: 'workerimage/:uid', component: WorkerimageComponent },
+  { path: 'adminimage/:uid', component: AdminimageComponent },
+  { path: 'allcompanies', component: AllcompaniesComponent },
+  { path: 'allshops', component: AllshopsComponent},
+  // { path: 'userprofile/:email', component: UserprofileComponent}
+  { path: 'succesbooking' , component: SuccesBookingComponent},
+  { path: 'adminbookingview', component: AdminbookingviewComponent},
+
+  { path: 'workerhome', component: WorkerHomeComponent },
+  { path: 'userhome', component: UserHomeComponent },
+
 ];
 
 @NgModule({

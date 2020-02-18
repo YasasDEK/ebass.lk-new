@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { Shop } from './shop';
 import { Company } from './company';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,8 @@ export class AuthService {
   data: Observable<Item[]>;
   datas: Item[];
   num: string;
-
+  shop;
+  company;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -26,23 +28,31 @@ export class AuthService {
     public ngZone: NgZone,
     public _Activatedroute: ActivatedRoute
   ) {
-    this.afAuth.authState.subscribe(admin => {
-      if (admin) {
-        this.adminData = admin;
-        localStorage.setItem('admins', JSON.stringify(this.adminData));
-        JSON.parse(localStorage.getItem('admins'));
-      } else {
-        localStorage.setItem('admins', null);
-        JSON.parse(localStorage.getItem('admins'));
-      }
-    })
 
   }
 
+
   SignInadmin(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
-      if (result.user.displayName === 'admin') {
-        this.router.navigate(['/adminprofile', email]);
+      if (result.user.emailVerified === true) {
+        if (result.user.displayName === 'admin') {
+          this.afAuth.authState.subscribe(admin => {
+            if (admin) {
+              this.adminData = admin;
+              localStorage.setItem('admins', JSON.stringify(this.adminData));
+              JSON.parse(localStorage.getItem('admins'));
+              this.router.navigate(['/adminprofile/', email]);
+            }
+            else {
+              localStorage.setItem('admins', null);
+              JSON.parse(localStorage.getItem('admins'));
+            }
+          })
+          // this.router.navigate(['/profile/', email]);
+        }
+      } else {
+        window.alert('check your email and verify');
+        this.router.navigateByUrl('adminsignin');
       }
     }).catch((error) => {
       window.alert(error);
@@ -81,9 +91,9 @@ export class AuthService {
   }
 
   Addshops(email, shopname, mobile, url) {
-
+    this.shop = this.afs.createId();
     const shopData: Shop = {
-      // uid: result.user.uid,
+      shopid:  this.shop,
       shopname: shopname,
       email: email,
       jobType: "shop",
@@ -101,9 +111,10 @@ export class AuthService {
   }
 
   Addcompanies(email, companyname, mobile, url) {
-
+    this.company = this.afs.createId();
     {
       const companyData: Company = {
+        companyid: this.company ,
         companyname: companyname,
         email: email,
         jobType: "company",
@@ -160,7 +171,7 @@ export class AuthService {
   }
 
   SetshopData(shop) {
-    this.afs.collection('shops').add(shop);
+    this.afs.collection('shops').doc(this.shop).set(shop);
     this.router.navigate(['shops']);
     // const adminRef: AngularFirestoreDocument<any> = this.afs.doc(`shops/${shop.uid}`);
     // return adminRef.set(shop, {
@@ -169,7 +180,7 @@ export class AuthService {
   }
 
   SetcompanyData(company) {
-    this.afs.collection('companies').add(company);
+    this.afs.collection('companies').doc(this.company).set(company);
     this.router.navigate(['companies']);
     // const companyRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${company.uid}`);
     // return companyRef.set(company, {
@@ -187,7 +198,8 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('admin');
-      this.router.navigate(['sign-in']);
+      // localStorage.clear();
+      this.router.navigate(['adminsignin']);
     })
   }
 }

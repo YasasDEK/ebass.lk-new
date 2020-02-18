@@ -1,0 +1,126 @@
+<!--top nav bar-->
+<nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
+  <div class="container">
+
+    <div class="navbar-translate">
+      <div class="avatar">
+        <a class="navbar-brand" href="http://localhost:4200">
+          <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
+            width="60">
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-translate">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home"><i class="nc-icon nc-align-center" aria-hidden="true"></i>&nbsp;Reports</a>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Customers</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+                <a class="dropdown-item" [routerLink]="['/allworkers']">workers</a>
+                <a class="dropdown-item" [routerLink]="['/allusers']">users</a>
+              
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Notifications</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/viewmessages']">Site messages</a>
+
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div ngbDropdown class="d-inline-block dropdown">
+            <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
+                aria-hidden="true"></i>Options</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
+              <a class="dropdown-item" [routerLink]="['/adminsignup']">add admin</a>
+              <a class="dropdown-item" [routerLink]="['/editadminprofile']">edit my profile</a>
+              <a class="dropdown-item" [routerLink]="['/addshops']">add shops</a>
+              <a class="dropdown-item" [routerLink]="['/addcompanies']">add companies</a>
+              <a class="dropdown-item" [routerLink]="['/verifyworker']">verify worker</a>
+              <a class="dropdown-item" [routerLink]="['/adminsignin']">sign out</a>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<br><br><br><br><br><br>
+
+<br>
+
+<div class="container" style="margin-top: 5px">
+
+<table class="table table-bordered">
+  <thead>
+
+    <tr class="table100-head">
+      <th class="column1">Name</th>
+      <th class="column2">Email</th>
+      <th class="column2">mobile</th>
+      <th class="column2">Link to page</th>
+    </tr>
+
+    <tr class="table100-data" *ngFor="let data of datas">
+      <td class="column1">{{data.shopname}}</td>
+      <td class="column2">{{data.email}}</td>
+      <td class="column2">{{data.mobile}}</td>
+      <td class="column2">{{data.url}}</td>
+      <td class="column2"><a class="dropdown-item" (click)="image(data.shopid)"><i
+        class="nc-icon nc-minimal-right" aria-hidden="true"></i> Add image</a></td>
+      <td class="column2"><a class="dropdown-item" (click)="delete()"><i
+        class="nc-icon nc-minimal-right" aria-hidden="true"></i> Delete</a></td>
+      <!-- <td class="column2"><a class="dropdown-item" (click)="del()"><i
+            class="nc-icon nc-minimal-right" aria-hidden="true"></i> Delete</a></td> -->
+    </tr>
+
+  </thead>
+</table>
+(status :False: not deleted) (Verify :yes :True )
+</div>
+
+<!-- <div class="limiter">
+      <div class="container-table100">
+        <div class="wrap-table100">
+          <div class="table100">
+            <table>
+              <thead>
+                <tr class="table100-head">
+                  <th class="column1">Date</th>
+                  <th class="column2">Order ID</th>
+                  <th class="column3">Name</th>
+                  <th class="column4">Price</th>
+                  <th class="column5">Quantity</th>
+                  <th class="column6">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="column1">2017-09-29 01:22</td>
+                  <td class="column2">200398</td>
+                  <td class="column3">iPhone X 64Gb Grey</td>
+                  <td class="column4">$999.00</td>
+                  <td class="column5">1</td>
+                  <td class="column6">$999.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->

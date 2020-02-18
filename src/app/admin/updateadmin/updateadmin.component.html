@@ -1,6 +1,10 @@
 <app-navbar></app-navbar>
 <br><br><br><br><br><br>
+
+
 <div class="container">
+    <div class="page-header section-dark" style="background-image: url('assets/img/QQ.jpg')">
+
 
       <form #exampleForm="ngForm" (ngSubmit)="onUpdate(exampleForm)" >
           <div *ngIf="datas?.length > 0; else noItems">
@@ -37,4 +41,5 @@
           </div>
       </form>
 
+</div>
 </div>

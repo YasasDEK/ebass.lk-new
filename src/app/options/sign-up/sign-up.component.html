@@ -1,4 +1,4 @@
-<!--top nav bar-->
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
   <div class="container">
 
@@ -23,14 +23,14 @@
   </div>
 </nav>
 
-<!--sign up content-->
+
 <div class="wrapper">
-  <div class="page-header" style="background-image: url('./assets/img/z.jpg');">
+  <div class="page-header" style="background-image: url('./assets/img/register.jpg');  ;">
     <div class="filter"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-sm-8 mr-auto ml-auto">
-          <div class="card card-register">
+        <div class="col-lg-4 col-md-6 col-sm-8 mr-auto ml-auto">
+          <div class="card card-register ">
             <h3 class="title">Welcome</h3>
             <div class="social-line text-center">
               <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
@@ -48,7 +48,7 @@
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="nc-icon nc-single-02"></i>
+                    <i class="nc-iconm nc-single-02"></i>
                   </span>
                 </div>
                 <input name="username" type="text" class="form-control" placeholder="Username" (focus)="focus=true"
@@ -65,6 +65,44 @@
                 <input name="id" type="text" class="form-control" placeholder="ID Number" (focus)="focus=true"
                   (blur)="focus=false" #useridnum required>
               </div>
+
+
+              <label>District</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
+                </div>
+                    <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eventType" #eventType="ngModel" [(ngModel)]="eventType.value" (change)="filterJob('jobType', eventType.value)"> 
+                        <option value="" disabled selected> Select District </option>
+                        <option value="ampara"> Ampara </option>
+                        <option value="anuradhapura"> Anuradhapura </option>
+                        <option value="badulla"> Badulla </option>
+                        <option value="batticaloa"> Batticaloa </option>
+                        <option value="colombo"> Colombo </option>
+                        <option value="galle"> Galle </option>
+                        <option value="gampaha"> Gampaha </option>
+                        <option value="hambantota"> Hambantota </option>
+                        <option value="jaffna"> Jaffna </option>
+                        <option value="kalutara"> Kalutara </option>
+                        <option value="kandy"> Kandy </option>
+                        <option value="kegalle"> Kegalle </option>
+                        <option value="kilinochchi"> Kilinochchi </option>
+                        <option value="kurunegala"> Kurunegala </option>
+                        <option value="mannar"> Mannar </option>
+                        <option value="matale"> Matale </option>
+                        <option value="matara"> Matara </option>
+                        <option value="monaragala"> Monaragala </option>
+                        <option value="mullaitivu"> Mullaitivu </option>
+                        <option value="nuwara Eliya"> Nuwara Eliya </option>
+                        <option value="polonnaruwa"> Polonnaruwa </option>
+                        <option value="puttalam"> Puttalam </option>
+                        <option value="ratnapura"> Ratnapura </option>
+                        <option value="trincomalee"> Trincomalee </option>
+                        <option value="vavuniya"> Vavuniya </option>
+                    </select>
+                </div>
 
               <label>E-Mail</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -87,8 +125,19 @@
                 <input name="mobile" type="text" class="form-control" placeholder="Mobile Number" (focus)="focus=true"
                   (blur)="focus=false" #usermobile required>
               </div>
+
               <label>Job Type</label>
-              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+              <br>
+                  <div class="form-check-inline" *ngFor="let control of jobArray.controls; let i = index;">
+                  <input type="checkbox"  (change)="getSelectedJobType()" [formControl]="control" name="" id="inlineCheckBox{{i}}">
+                  <label class="form-check-label" for="inlineCheckBox{{i}}">{{jobType[i]}}</label>
+                  </div>
+                  <div>
+                    <small *ngIf="jobError && determineErrorDisplay()">u have to choose atleast one or more</small>
+                  </div>
+             
+
+              <!-- <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-mobile"></i>
@@ -96,9 +145,45 @@
                 </div>
                 <input name="jobtype" type="text" class="form-control" placeholder="Job Type" (focus)="focus=true"
                   (blur)="focus=false" #userjob required>
-              </div>
+              </div> -->
 
-
+              <!-- <div class="row">
+                <div class="col">
+              <div class="form-check">
+                <label class="form-check-label">
+                    <input name="jobtype" class="form-check-input" type="checkbox" value="mason" #userjob>
+                    mason
+                    <span class="form-check-sign"></span>
+                </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input  class="form-check-input" type="checkbox" value="">
+                  sfss
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+            
+          </div>
+            
+          <div class="col">
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input name="jobtype" class="form-check-input" type="checkbox" value="plumber" #userjob >
+                  plumber
+                  <span class="form-check-sign"></span>
+              </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="" #userPwd>
+                fssf
+                <span class="form-check-sign"></span>
+            </label>
+        </div>
+      </div>
+     </div> -->
+            
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
                 <div class="input-group-prepend">
@@ -111,8 +196,8 @@
               </div>
 
               <div class="formGroup">
-                <input type="button" class="btn btnPrimary" value="Sign Up"
-                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, userjob.value, useridnum.value, usermobile.value)">
+                <input type="submit" class="btn btnPrimary" value="Sign Up"
+                  (click)="authService.SignUpWorker(userEmail.value, userPwd.value, username.value, selectedJobArray , useridnum.value, usermobile.value, eventType.value)">
               </div>
 
             </form>

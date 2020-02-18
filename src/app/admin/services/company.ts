@@ -7,4 +7,5 @@ export interface Company {
     jobType: string;
     mobile: string;
     url: Url;
+    companyid: string;
 }

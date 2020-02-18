@@ -1,10 +1,13 @@
 <!--top nav bar-->
+
+
+
 <nav class="navbar navbar-expand-lg fixed-top" color-on-scroll="500">
   <div class="container">
 
     <div class="navbar-translate">
       <div class="avatar">
-        <a class="navbar-brand" href="http://localhost:4200">
+        <a class="navbar-brand" [routerLink]="['/workerhome']">
           <img src="./assets/img/faces/logo.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive"
             width="60">
         </a>
@@ -21,7 +24,7 @@
             <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-settings-gear-65"
                 aria-hidden="true"></i>Options</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-danger">
-              <a class="dropdown-item" [routerLink]="['/login']">Log-in</a>
+              <a class="dropdown-item" [routerLink]="['/signin']">Log-in</a>
             </div>
           </div>
         </li>
@@ -67,19 +70,65 @@
 
         <br>
 
-        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="nc-icon nc-email-85"></i>
-            </span>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-email-85">Job Type</i>
+              </span>
+            </div>
+              <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eventType" #eventType="ngModel" [(ngModel)]="eventType.value" (change)="filterJob('jobType', eventType.value)"> 
+                  <option value="" disabled selected> Select Job Type </option>
+                  <option value="mason"> Mason </option>
+                  <option value="electrician"> Electrician </option>
+                  <option value="painter"> painter </option>
+                  <option value="carpennter"> carpennter </option>
+                  <option value="plumber"> plumber </option>
+                  <option value="repair"> repair </option>
+              </select>
           </div>
-          <input class="form-control" placeholder="Job" type="text" [(ngModel)]="jobType"
-            (change)="filterArea('jobType', jobType)">
         </div>
+
+          <!-- <div class="col-lg-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-email-85">District</i>
+              </span>
+            </div>
+              <select class="mdb-select md-form col-lg-12 custom-select" style="background-color: transparent;" name="eventType" #eventType="ngModel" [(ngModel)]="eventType.value" (change)="filterArea('Area', eventType.value)"> 
+                <option value="ampara"> Ampara </option>
+                <option value="anuradhapura"> Anuradhapura </option>
+                <option value="badulla"> Badulla </option>
+                <option value="batticaloa"> Batticaloa </option>
+                <option value="colombo"> Colombo </option>
+                <option value="galle"> Galle </option>
+                <option value="gampaha"> Gampaha </option>
+                <option value="hambantota"> Hambantota </option>
+                <option value="jaffna"> Jaffna </option>
+                <option value="kalutara"> Kalutara </option>
+                <option value="kandy"> Kandy </option>
+                <option value="kegalle"> Kegalle </option>
+                <option value="kilinochchi"> Kilinochchi </option>
+                <option value="kurunegala"> Kurunegala </option>
+                <option value="mannar"> Mannar </option>
+                <option value="matale"> Matale </option>
+                <option value="matara"> Matara </option>
+                <option value="monaragala"> Monaragala </option>
+                <option value="mullaitivu"> Mullaitivu </option>
+                <option value="nuwara Eliya"> Nuwara Eliya </option>
+                <option value="polonnaruwa"> Polonnaruwa </option>
+                <option value="puttalam"> Puttalam </option>
+                <option value="ratnapura"> Ratnapura </option>
+                <option value="trincomalee"> Trincomalee </option>
+                <option value="vavuniya"> Vavuniya </option>
+              </select>
+          </div> -->
+
+        
         <br>
 
-        <button class="btn btn-danger" (click)="send()">Sort low to high</button><button class="btn btn-danger"
-          (click)="send2()">Sort high to low</button>
+        <button class="btn btn-danger" (click)="send()">Sort low to high</button>
+        <button class="btn btn-danger"(click)="send2()">Sort high to low</button>
       </div>
     </div>
     <!-- </section> -->
@@ -96,18 +145,19 @@
               </div>
 
               <div>
-                <img src="./assets/img/faces/logo.jpg"
+                <img src="{{results.image}}"
                   class="rounded-circle img-center img-fluid shadow shadow-lg--hover"
                   style="width: 150px; height: 150px;">
               </div>
 
               <div class="pl-5">
-                <h5 class="title text-success">Name: {{results.workername}}</h5>
                 <div class="row align-items-center justify-content-center">
                   <div>
+                    <br>
+                    <h6 class="text-success">Name: {{results.workername}}</h6>
                     <h6>Name: {{results.workername}}</h6>
                     <h6>Job: {{results.jobType}}</h6>
-                    <a [routerLink]="['/profile',results.uid]" class="text-warning">Learn more</a>
+                    <a [routerLink]="['/viewprofile',results.uid]" class="btn btn-danger btn-sm">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -117,7 +167,6 @@
         </div>
       </div>
     </div>
-
     <!-- end of the search bar-->
   </div>
 </div>
