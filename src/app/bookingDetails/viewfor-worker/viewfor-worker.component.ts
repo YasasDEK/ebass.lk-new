@@ -47,6 +47,7 @@ export class ViewforWorkerComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.value)
     this.afs.collection('bookings', ref => ref
       .where('workerid', '==', this.value)
       .where('status', '==', 'pending'))
