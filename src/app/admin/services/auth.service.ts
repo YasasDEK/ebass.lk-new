@@ -31,7 +31,7 @@ export class AuthService {
 
   }
 
-
+  //fetch data asynchronously(not existing same time)
   SignInadmin(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.emailVerified === true) {
