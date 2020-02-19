@@ -34,8 +34,18 @@ export class UpdateworkerComponent implements OnInit {
   }
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
+    if (exampleForm.value.idNumber === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.jobType === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.workername === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.mobile === '') { alert('You can not keep empty lines'); }
+    else if ((exampleForm.value.idNumber).length < 10 ) { alert('ID number too short'); }
+    else if ((exampleForm.value.idNumber).length > 10 ) { alert('ID number too long'); }
+    else if ((exampleForm.value.mobile).length < 10 ) { alert('mobile number too short'); }
+    else if ((exampleForm.value.mobile).length > 10 ) { alert('mobile number too long'); }
+    else{ 
     this.ebass.doc('workers/' + exampleForm.value.uid).update(exampleForm.value);
-    this.router.navigateByUrl('/profile/' + exampleForm.value.email);
+    this.router.navigateByUrl('/profile/' + this.value);
+    }
   }
   delete(id) {
      this.ebass.doc('workers/' + id).update({'status': 'deleted'});

@@ -62,28 +62,33 @@ export class AuthService {
 
   SignUpadmin(email, password, adminname, id, mobile) {
 
-    if (id.length == 10) {
-      return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then((result) => {
-          this.SendVerificationMail();
-          const adminData: Admin = {
-            uid: result.user.uid,
-            adminname: adminname,
-            idNumber: id,
-            email: email,
-            emailVerified: result.user.emailVerified,
-            jobType: "Admin",
-            mobile: mobile,
-          }
-          this.SendVerificationMail();
-          result.user.updateProfile({ displayName: 'admin' });
-          console.log(mobile);
-          this.SetadminData(adminData);
-          window.alert("Registration done");
-        }).catch((error) => {
-          window.alert(error.message)
-          console.log(error)
-        })
+    if (id.length === 10) {
+        if (adminname != '') {
+          return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+            .then((result) => {
+              this.SendVerificationMail();
+              const adminData: Admin = {
+                uid: result.user.uid,
+                adminname: adminname,
+                idNumber: id,
+                email: email,
+                emailVerified: result.user.emailVerified,
+                jobType: "Admin",
+                mobile: mobile,
+              }
+              this.SendVerificationMail();
+              result.user.updateProfile({ displayName: 'admin' });
+              console.log(mobile);
+              this.SetadminData(adminData);
+              window.alert("Registration done");
+            }).catch((error) => {
+              window.alert(error.message)
+              console.log(error)
+            })
+        }
+      else {
+        window.alert("You can keep empty lines ")
+      }
     }
     else {
       window.alert("Invalid ID number ")
@@ -93,7 +98,7 @@ export class AuthService {
   Addshops(email, shopname, mobile, url) {
     this.shop = this.afs.createId();
     const shopData: Shop = {
-      shopid:  this.shop,
+      shopid: this.shop,
       shopname: shopname,
       email: email,
       jobType: "shop",
@@ -114,7 +119,7 @@ export class AuthService {
     this.company = this.afs.createId();
     {
       const companyData: Company = {
-        companyid: this.company ,
+        companyid: this.company,
         companyname: companyname,
         email: email,
         jobType: "company",

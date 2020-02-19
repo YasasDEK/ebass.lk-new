@@ -32,7 +32,6 @@ export class UpdateAdminComponent implements OnInit {
     this.data = this.ebass.collection('wokers', ref => ref.where('email', '==', this.value)).valueChanges();
     return this.data;
   }
-  
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
     this.ebass.doc('wokers/' + exampleForm.value.uid).update(exampleForm.value);

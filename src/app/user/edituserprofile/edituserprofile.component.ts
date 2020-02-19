@@ -35,8 +35,18 @@ export class EdituserprofileComponent implements OnInit {
   }
   onUpdate(exampleForm: NgForm) {
     console.log(exampleForm.value.fullname);
+    if (exampleForm.value.adminname === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.idNumber === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.mobile === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.username === '') { alert('You can not keep empty lines'); }
+    else if ((exampleForm.value.idNumber).length < 10 ) { alert('ID number too short'); }
+    else if ((exampleForm.value.idNumber).length > 10 ) { alert('ID number too long'); }
+    else if ((exampleForm.value.mobile).length < 10 ) { alert('mobile number too short'); }
+    else if ((exampleForm.value.mobile).length > 10 ) { alert('mobile number too long'); }
+    else { 
     this.ebass.doc('users/' + exampleForm.value.uid).update(exampleForm.value);
     this.router.navigateByUrl('/userprofile/' + exampleForm.value.email);
+    }
   }
   delete(id) {
     this.ebass.doc('users/' + id).update({ 'status': 'deleted' });

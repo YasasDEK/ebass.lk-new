@@ -34,9 +34,19 @@ export class EditAdminProfileComponent implements OnInit {
     return this.data;
   }
   onUpdate(exampleForm: NgForm) {
-    console.log(exampleForm.value.fullname);
-    this.ebass.doc('admins/' + exampleForm.value.uid).update(exampleForm.value);
-    this.router.navigateByUrl('/adminprofile/' + exampleForm.value.email);
+    console.log('name' + exampleForm.value.adminname);
+    if (exampleForm.value.adminname === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.idNumber === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.mobile === '') { alert('You can not keep empty lines'); }
+    else if (exampleForm.value.adminname === '') { alert('You can not keep empty lines'); }
+    else if ((exampleForm.value.idNumber).length < 10 ) { alert('ID number too short'); }
+    else if ((exampleForm.value.idNumber).length > 10 ) { alert('ID number too long'); }
+    else if ((exampleForm.value.mobile).length < 10 ) { alert('mobile number too short'); }
+    else if ((exampleForm.value.mobile).length > 10 ) { alert('mobile number too long'); }
+    else {
+      this.ebass.doc('admins/' + exampleForm.value.uid).update(exampleForm.value);
+      this.router.navigateByUrl('/adminprofile/' + this.value);
+    }
   }
   delete(id) {
     this.ebass.doc('admins/' + id).update({ 'status': 'deleted' });
