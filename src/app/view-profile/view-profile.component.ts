@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../options/services/auth.service';
 import { GooglemapComponent } from '../googlemap/googlemap.component';
 import { Book } from './book';
-import { NgbDateStruct,NgbCalendar ,NgbDatepickerConfig,NgbDateParserFormatter } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDateStruct, NgbCalendar , NgbDatepickerConfig, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-view-profile',
@@ -19,8 +19,8 @@ export class ViewProfileComponent implements OnInit {
   minDate = undefined;
   dateModel: NgbDateStruct;
   date: {day: number, month: number,year:number};
-  startDateStr : string;
-  endDateStr : string;
+  startDateStr: string;
+  endDateStr: string;
 
   [x: string]: any;
 
@@ -64,25 +64,12 @@ export class ViewProfileComponent implements OnInit {
         this.datas = data;
     })
 
-  //  console.log("shitt");
-
-  // const y = new Date();
-  // const x = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-  // console.log(x);
-
-
     this.totalbooks = this.afs.collection('bookings', ref => ref.where('timeStamp', '<', Date.now() )).valueChanges();
-    this.totalbooks.subscribe(array=>{
-      array.forEach( element=>{
+    this.totalbooks.subscribe(array => {
+      array.forEach( element => {
         this.afs.collection('bookings').doc(element.bookingid).delete();
       });
     } );
-    // console.log(this.totalbooks);
-    // this.totalbooks.forEach(element => {
-    //   this.afs.doc('workers/' + this.totalbooks).update({'status': 'exp'});    });
-    // // this.totalbooks.doc.status.update({'status': 'exp'});
-    // console.log("done");
-    // // this.setBookingDate();  
   }
 
   getData() {
@@ -94,16 +81,16 @@ export class ViewProfileComponent implements OnInit {
   setBooking(useremail, username, mobilenumber, bookingdesc, bookingdate, usercity, workername, workeremail, workermobile, prevrate) {
     const timestamp = new Date(bookingdate).getTime();
     this.formDate = bookingdate;
-    if ( username == '' ) {
+    if ( username === '' ) {
       window.alert('you can not keep empty fields');
       this.router.navigate(['/viewprofile', this.value]);
-    } else if ( useremail == '' ){
+    } else if ( useremail === '' ){
       window.alert('you can not keep empty fields');
       this.router.navigate(['/viewprofile', this.value]);
-    } else if ( usercity == '' ) {
+    } else if ( usercity === '' ) {
       window.alert('you can not keep empty fields');
       this.router.navigate(['/viewprofile', this.value]);
-    } else if ( mobilenumber == '' ) {
+    } else if ( mobilenumber === '' ) {
       window.alert('you can not keep empty fields');
       this.router.navigate(['/viewprofile', this.value]);
     } else {
@@ -146,7 +133,6 @@ export class ViewProfileComponent implements OnInit {
   }
 
   SetBookingData(Book) {
-
        this.afs.collection('bookings').doc(this.bookingId).set(Book);
        alert('Your booking placed successfully');
     }

@@ -68,13 +68,6 @@ export class CompanyimageComponent implements OnInit {
     console.log("updates");
     this.ebass.doc('companies/' + this.value).update({'image': value });
     alert('Updated..');
-    // this.router.navigate(['/companies']);
-    // this.ebass.doc('admins' + spa1.email).update(spa1).then(res=>{
-    //console.log(spa1.telephone);
-    //console.log(spa1.email);
-    // alert("Updated..");
-    //this.router.navigateByUrl('/spa-view');
-    // });
   }
   getData() {
     this.data = this.ebass.collection('companies', ref => ref.where('companyid', '==', this.value)).valueChanges();

@@ -45,9 +45,9 @@ export class WorkerimageComponent implements OnInit {
     this.getData().subscribe(data => {
       this.datas = data;
     })
-  } 
+  }
 
-  onSubmit(){
+  onSubmit() {
     this.download = this.afst.ref('/workerimage/' + this.randomId).getDownloadURL().subscribe(a => {
       this.download = a;
       // this.form.value.image = this.download;
@@ -64,20 +64,14 @@ export class WorkerimageComponent implements OnInit {
   }
 
   update(value) {
-    console.log("updates");
+    console.log('updates');
     this.ebass.doc('workers/' + this.value).update({'image': value });
     alert('Updated..');
-
-    // this.ebass.doc('workers' + spa1.email).update(spa1).then(res=>{
-    //console.log(spa1.telephone);
-    //console.log(spa1.email);
-    // alert("Updated..");
-    //this.router.navigateByUrl('/spa-view');
-    // });
   }
+
   getData() {
     this.data = this.ebass.collection('workers', ref => ref.where('uid', '==', this.value)).valueChanges();
-    console.log("data" + this.data);
+    console.log('data' + this.data);
     return this.data;
 
   }

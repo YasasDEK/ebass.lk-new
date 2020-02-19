@@ -68,13 +68,6 @@ export class ShopimageComponent implements OnInit {
     console.log("updates");
     this.ebass.doc('shops/' + this.value).update({ 'image': value });
     alert('Updated..');
-    // this.router.navigate(['/shops']);
-    // this.ebass.doc('admins' + spa1.email).update(spa1).then(res=>{
-    //console.log(spa1.telephone);
-    //console.log(spa1.email);
-    // alert("Updated..");
-    //this.router.navigateByUrl('/spa-view');
-    // });
   }
   getData() {
     this.data = this.ebass.collection('shops', ref => ref.where('shopid', '==', this.value)).valueChanges();

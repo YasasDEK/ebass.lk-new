@@ -68,6 +68,7 @@ export class UsercompletedComponent implements OnInit {
 
   removeFilter(property: string) {
     delete this.filters[property]
+    // tslint:disable-next-line:no-unused-expression
     this[property] == null
     this.applyFilters()
   }
@@ -104,7 +105,7 @@ export class UsercompletedComponent implements OnInit {
     this.finalrate = (rateval + prevrate) / 2;
     this.afs.doc('workers/' + wid).update({'rate': this.finalrate});
     console.log('finalrate ' + this.finalrate + ' rateval ' + rateval + ' prevrate ' + prevrate);
-    
+
 
   }
 }

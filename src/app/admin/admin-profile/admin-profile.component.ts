@@ -20,6 +20,7 @@ export class AdminProfileComponent implements OnInit {
     totalCompanyCount: number;
     totalWorkerCount: number;
     totalShopCount: number;
+    // tslint:disable-next-line: no-inferrable-types
     total: number = 0;
     getUserList: any;
     value: string;
@@ -89,7 +90,7 @@ export class AdminProfileComponent implements OnInit {
 
     getData() {
         this.data = this.ebass.collection('admins', ref => ref.where('email', '==', this.value)).valueChanges();
-        console.log("data" + this.data);
+        console.log('data' + this.data);
         return this.data;
 
     }
@@ -147,4 +148,5 @@ export class AdminProfileComponent implements OnInit {
 //     status: string;
 //     displayName?: string;
 //     rate: number;
+// tslint:disable-next-line: eofline
 // }

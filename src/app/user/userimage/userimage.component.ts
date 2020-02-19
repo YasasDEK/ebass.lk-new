@@ -70,13 +70,6 @@ export class UserimageComponent implements OnInit {
     console.log("updates");
     this.ebass.doc('users/' + this.value).update({ 'image': value });
     alert('Updated..');
-
-    // this.ebass.doc('users' + spa1.email).update(spa1).then(res=>{
-    //console.log(spa1.telephone);
-    //console.log(spa1.email);
-    // alert("Updated..");
-    //this.router.navigateByUrl('/spa-view');
-    // });
   }
 
 

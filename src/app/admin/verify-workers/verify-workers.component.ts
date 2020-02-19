@@ -60,6 +60,7 @@ export class VerifyWorkersComponent implements OnInit {
 
   removeFilter(property: string) {
     delete this.filters[property]
+    // tslint:disable-next-line:no-unused-expression
     this[property] == null
     this.applyFilters()
   }

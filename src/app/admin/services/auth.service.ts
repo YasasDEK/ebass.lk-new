@@ -31,7 +31,7 @@ export class AuthService {
 
   }
 
-  //fetch data asynchronously(not existing same time)
+  // fetch data asynchronously(not existing same time)
   SignInadmin(email, password) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password).then((result) => {
       if (result.user.emailVerified === true) {
@@ -42,8 +42,7 @@ export class AuthService {
               localStorage.setItem('admins', JSON.stringify(this.adminData));
               JSON.parse(localStorage.getItem('admins'));
               this.router.navigate(['/adminprofile/', email]);
-            }
-            else {
+            } else {
               localStorage.setItem('admins', null);
               JSON.parse(localStorage.getItem('admins'));
             }
@@ -63,7 +62,7 @@ export class AuthService {
   SignUpadmin(email, password, adminname, id, mobile) {
 
     if (id.length === 10) {
-        if (adminname != '') {
+        if (adminname !== '') {
           return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
             .then((result) => {
               this.SendVerificationMail();
@@ -73,25 +72,23 @@ export class AuthService {
                 idNumber: id,
                 email: email,
                 emailVerified: result.user.emailVerified,
-                jobType: "Admin",
+                jobType: 'Admin',
                 mobile: mobile,
               }
               this.SendVerificationMail();
               result.user.updateProfile({ displayName: 'admin' });
               console.log(mobile);
               this.SetadminData(adminData);
-              window.alert("Registration done");
+              window.alert('Registration done');
             }).catch((error) => {
               window.alert(error.message)
               console.log(error)
             })
-        }
-      else {
-        window.alert("You can keep empty lines ")
+        } else {
+        window.alert('You can keep empty lines ')
       }
-    }
-    else {
-      window.alert("Invalid ID number ")
+    } else {
+      window.alert('Invalid ID number ')
     }
   }
 
@@ -101,14 +98,15 @@ export class AuthService {
       shopid: this.shop,
       shopname: shopname,
       email: email,
-      jobType: "shop",
+      jobType: 'shop',
       mobile: mobile,
       url: url
     }
     console.log(mobile);
     this.SetshopData(shopData);
-    window.alert("Registration done");
+    window.alert('Registration done');
 
+    // tslint:disable-next-line:no-unused-expression
     ((error) => {
       window.alert(error.message)
       console.log(error)
@@ -122,15 +120,16 @@ export class AuthService {
         companyid: this.company,
         companyname: companyname,
         email: email,
-        jobType: "company",
+        jobType: 'company',
         mobile: mobile,
         url: url
       }
       console.log(mobile);
       this.SetcompanyData(companyData);
-      window.alert("Registration done");
+      window.alert('Registration done');
     }
 
+    // tslint:disable-next-line: no-unused-expression
     ((error) => {
       window.alert(error.message)
       console.log(error)

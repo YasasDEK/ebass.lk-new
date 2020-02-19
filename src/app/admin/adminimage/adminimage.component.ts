@@ -50,7 +50,7 @@ export class AdminimageComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  onSubmit() {
     this.download = this.afst.ref('/adminimage/' + this.randomId).getDownloadURL().subscribe(a => {
       this.download = a;
       // this.form.value.image = this.download;
@@ -59,6 +59,7 @@ export class AdminimageComponent implements OnInit {
     });
     }
 
+  // tslint:disable-next-line:member-ordering
   randomId;
   upload(event) {
     this.randomId = Math.random().toString(36).substring(2);
@@ -67,21 +68,14 @@ export class AdminimageComponent implements OnInit {
   }
 
   update(value) {
-    console.log("updates");
+    console.log('updates');
     this.ebass.doc('admins/' + this.value).update({'image': value });
     alert('Updated..');
-    this.router.navigate(['/adminprofile',]);
-    // this.ebass.doc('admins' + spa1.email).update(spa1).then(res=>{
-    //console.log(spa1.telephone);
-    //console.log(spa1.email);
-    // alert("Updated..");
-    //this.router.navigateByUrl('/spa-view');
-    // });
   }
 
   getData() {
     this.data = this.ebass.collection('admins', ref => ref.where('uid', '==', this.value)).valueChanges();
-    console.log("data" + this.data);
+    console.log('data' + this.data);
     return this.data;
 
   }
