@@ -20,6 +20,7 @@ export class AdminProfileComponent implements OnInit {
     totalCompanyCount: number;
     totalWorkerCount: number;
     totalShopCount: number;
+    totalVerifyCount: number;
     // tslint:disable-next-line: no-inferrable-types
     total: number = 0;
     getUserList: any;
@@ -85,6 +86,11 @@ export class AdminProfileComponent implements OnInit {
         this.sho = this.ebass.collection('shops', ref => ref).valueChanges();
         this.sho.subscribe(dataArray => {
         this.totalShopCount = dataArray.length;
+        });
+
+        this.book = this.ebass.collection('bookings', ref => ref.where('status', '==', 'available' )).valueChanges();
+        this.book.subscribe(dataArray => {
+        this.totalVerifyCount = dataArray.length;
         });
     }
 
