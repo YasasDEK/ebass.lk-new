@@ -49,7 +49,8 @@ export class EditAdminProfileComponent implements OnInit {
     }
   }
   delete(id) {
-    this.ebass.doc('admins/' + id).update({ 'status': 'deleted' });
+    this.ebass.doc('admins/' + id).delete();
+    // this.ebass.doc('admins/' + id).update({ 'status': 'deleted' });
     alert('Deleted');
     this.router.navigateByUrl('/home');
   }
